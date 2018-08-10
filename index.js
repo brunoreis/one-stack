@@ -15,6 +15,8 @@ const server = new ApolloServer({
   extensions: [
     () => debugExtensions,
   ],
+  introspection: true,
+  playground: true,
 });
 
 server.listen(
