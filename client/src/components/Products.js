@@ -4,14 +4,14 @@ import gql from 'graphql-tag';
 
 const QUERY = gql`
   {
-    manufacturer {
-      name
-      phone
+    products {
+      useCases
+      parasitoids
     }
   }
 `;
 
-class manufacturer extends Component {
+class products extends Component {
   render() {
     return (
       <Query query={QUERY}>
@@ -19,12 +19,14 @@ class manufacturer extends Component {
           if (loading) return <div>Fetching</div>;
           if (error) return <div>Error</div>;
 
-          const manufacturer = data.manufacturer;
+          const products = data.products;
 
           return (
             <div>
-              {manufacturer.name}
-              {manufacturer.phone}
+              {products[0].useCases}
+              {products[0].parasitoids}
+              {products[1].useCases}
+              {products[1].parasitoids}
             </div>
           );
         }}
@@ -33,4 +35,4 @@ class manufacturer extends Component {
   }
 }
 
-export default manufacturer;
+export default products;
