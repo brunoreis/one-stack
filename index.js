@@ -13,7 +13,9 @@ const context = {mocks};
 const server = new ApolloServer({ 
   typeDefs, 
   resolvers, 
-  context 
+  context,
+  introspection: true,
+  playground: true,
 });
 
 server.listen(
