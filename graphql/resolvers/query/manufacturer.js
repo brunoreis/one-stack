@@ -1,3 +1,1 @@
-module.exports = (_,__,context) => {
-  return context.mocks.manufacturerMocks[0];
-};
+module.exports = (_, __, context) => context.mocks.manufacturerMocks[0];
