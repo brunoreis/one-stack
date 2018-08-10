@@ -1,9 +1,9 @@
-manufacturers = require('./manufacturers');
-manufacturer = require('./manufacturer');
-products = require('./products');
+const manufacturers = require('./manufacturers');
+const manufacturer = require('./manufacturer');
+const products = require('./products');
 
 module.exports = {
-    manufacturers,
-    products,
-    manufacturer,
-}
+  manufacturers,
+  products,
+  manufacturer,
+};
