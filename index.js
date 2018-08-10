@@ -4,10 +4,10 @@ const { importSchema } = require('graphql-import');
 const mocks = require('./graphql/mocks');
 const resolvers = require('./graphql/resolvers');
 
-const typeDefs = importSchema ('./graphql/schema.graphql');
+const typeDefs = importSchema('./graphql/schema.graphql');
 const context = { mocks };
 
-const server = new ApolloServer({ 
+const server = new ApolloServer({
   typeDefs,
   resolvers,
   context,
