@@ -1,0 +1,5 @@
+# import AuthPayload from './types/authpayload.graphql'
+
+type Mutation {
+  login(email: String!, password: String!): AuthPayload
+}

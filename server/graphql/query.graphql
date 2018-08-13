@@ -1,7 +1,10 @@
 # import Product from './types/product.graphql'
+# import User from './types/user.graphql'
 
 type Query {
+    manufacturer: Manufacturer,
     manufacturers: [Manufacturer],
     products: [Product],
-    manufacturer: Manufacturer,
+    user: User,
+    users: [User],
 }

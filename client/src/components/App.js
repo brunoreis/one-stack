@@ -3,6 +3,7 @@ import Header from './Header'
 import { Switch, Route } from 'react-router-dom'
 import Manufacturer from './Manufacturer'
 import Products from './Products'
+import Login from './Login'
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Manufacturer} />
             <Route exact path="/products" component={Products} />
+            <Route exact path="/login" component={Login} />
           </Switch>
         </div>
       </div>
