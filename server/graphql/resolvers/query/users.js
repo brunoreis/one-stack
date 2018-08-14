@@ -1,1 +1,4 @@
-module.exports = (_, __, context) => context.mocks.userMocks;
+// module.exports = (_, __, context) => context.mocks.userMocks;
+const User = require('../../../business/user');
+
+module.exports = async () => User.loadAll();

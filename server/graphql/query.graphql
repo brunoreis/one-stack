@@ -5,6 +5,6 @@ type Query {
     manufacturer: Manufacturer,
     manufacturers: [Manufacturer],
     products: [Product],
-    user: User,
+    user(id: Int!): User,
     users: [User],
 }
