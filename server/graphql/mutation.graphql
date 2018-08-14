@@ -1,5 +1,8 @@
 # import AuthPayload from './types/authpayload.graphql'
+# import User from './types/user.graphql'
 
 type Mutation {
   login(email: String!, password: String!): AuthPayload
+  createUser(name: String!, password: String!, email: String!): User
+  deleteUser(id: Int!): Int
 }

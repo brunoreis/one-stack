@@ -11,7 +11,7 @@ class User {
     this.email = data.email;
   }
 
-  static async load(ctx, args) {
+  static async load(_, args) {
     const data = await UserDB.getById(args.id);
     if (!data) return null;
 
@@ -22,6 +22,14 @@ class User {
     const data = await UserDB.getAll();
 
     return data.map(row => new User(row));
+  }
+
+  static async create(_, args) {
+    return UserDB.create(args);
+  }
+
+  static async delete(_, args) {
+    return UserDB.delete(args);
   }
 }
 
