@@ -1,9 +1,9 @@
-const Query = require('./query');
-const Mutation = require('./mutation');
-const Manufacturer = require('./types/manufacturer');
-const AuthPayload = require('./types/authpayload');
+import Query from './query';
+import Mutation from './mutation';
+import Manufacturer from './types/manufacturer';
+import AuthPayload from './types/authpayload';
 
-module.exports = {
+export default {
   Query,
   Mutation,
   Manufacturer,

@@ -1,5 +1,4 @@
-module.exports = (_, args) => {
-  console.log(args);
+export default (_, args) => {
   const authToken = {
     token: 'secretToken',
   };

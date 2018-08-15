@@ -1,4 +1,4 @@
-module.exports = [
+export default [
   {
     useCases: 'manejo e controle de ovos de lagartas lepidópteras pragas.',
     parasitoids: 'agente de controle biológico microvespa Trichogramma galloi.',

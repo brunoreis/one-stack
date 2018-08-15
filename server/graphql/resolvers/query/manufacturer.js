@@ -1,1 +1,1 @@
-module.exports = (_, __, context) => context.mocks.manufacturerMocks[0];
+export default (_, __, context) => context.mocks.manufacturerMocks[0];

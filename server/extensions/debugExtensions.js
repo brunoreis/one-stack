@@ -1,7 +1,6 @@
-module.exports = {
+export default {
   requestDidStart: (options) => {
     console.log('\nrequestDidStart:\n', options);
-    // console.log('request filed:\n', options.request);
   },
   parsingDidStart: (options) => {
     console.log('\nparsingDidStart:\n', options);

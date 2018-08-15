@@ -1,6 +1,6 @@
-const User = require('../../../business/user');
+import User from '../../../data/user';
 
-module.exports = async (_, args) => {
+export default async (_, args) => {
   console.log(args);
   return User.create(_, args);
 };
