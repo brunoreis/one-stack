@@ -1,3 +1,4 @@
+import bcrypt from 'bcrypt';
 import db from '../../db';
 
 export default async ({
@@ -8,7 +9,7 @@ export default async ({
   console.log(`Add user ${name} with password ${password}`);
   const user = {
     name,
-    password,
+    password: bcrypt.hashSync(password, 10),
     email,
   };
 
