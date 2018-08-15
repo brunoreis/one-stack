@@ -1,15 +1,13 @@
-const { ApolloServer } = require('apollo-server');
-const { importSchema } = require('graphql-import');
-const dotenv = require('dotenv');
-
-const mocks = require('./graphql/mocks');
-const resolvers = require('./graphql/resolvers');
-// const debugExtensions = require('./extensions/debugExtensions');
+import { ApolloServer } from 'apollo-server';
+import { importSchema } from 'graphql-import';
+import data from './data';
+import mocks from './mocks';
+import resolvers from './graphql/resolvers';
+// import debugExtensions from './extensions/debugExtensions';
 
 const typeDefs = importSchema('./graphql/schema.graphql');
-const context = { mocks };
 
-dotenv.load();
+const context = { mocks, data };
 
 const server = new ApolloServer({
   typeDefs,

@@ -1,16 +1,7 @@
-const knex = require('knex');
+require('dotenv').config();
 
-module.exports = knex({
-  client: 'pg',
-  connection: {
-    // host: process.env.DB_HOST,
-    // user: process.env.POSTGRES_USER,
-    // password: process.env.POSTGRES_PASSWORD,
-    // database: process.env.POSTGRES_DB,
-    host: 'localhost',
-    user: 'postgres',
-    password: 'postgres',
-    database: 'one-stack',
-  },
-  debug: true,
-});
+var config      = require('../knexfile.js');  
+var env         = 'development';  
+var knex        = require('knex')(config[env]);
+
+module.exports = knex;

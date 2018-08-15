@@ -1,4 +1,4 @@
-module.exports = [
+export default [
   {
     name: 'BIOCONTROL Sistema de Controle Biológico Ltda.',
     phone: '(016)xxxx-0384',

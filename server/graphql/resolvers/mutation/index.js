@@ -1,8 +1,8 @@
-const login = require('./login');
-const createUser = require('./createUser');
-const deleteUser = require('./deleteUser');
+import login from './login';
+import createUser from './createUser';
+import deleteUser from './deleteUser';
 
-module.exports = {
+export default {
   login,
   createUser,
   deleteUser,

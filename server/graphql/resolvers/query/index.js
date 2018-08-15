@@ -1,10 +1,10 @@
-const manufacturers = require('./manufacturers');
-const manufacturer = require('./manufacturer');
-const products = require('./products');
-const user = require('./user');
-const users = require('./users');
+import manufacturers from './manufacturers';
+import manufacturer from './manufacturer';
+import products from './products';
+import user from './user';
+import users from './users';
 
-module.exports = {
+export default {
   manufacturer,
   manufacturers,
   products,
