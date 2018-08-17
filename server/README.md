@@ -1,25 +1,21 @@
-# one-stack
-## Heroku Deploy
-We can use [heroku-cli](https://devcenter.heroku.com/articles/heroku-cli) to deploy to heroku in a simple manner.
-1. create the heroku app with `heroku create 'app-name'`
-1. create a Procfile containing `web: node index.js`
-1. push to the new heroku remote with `git push heroku 'branch-name':master`
+# Server setup
 
-We can access our heroku app by running `heroku open`, and open bash with `heroku run bash`.
+## Install dependencies
 
-### Enabling Graphql Playground
-Since the playground is not enabled by defalut in production environments, we can explicitly ask for it by setting a couple of fields in our ApolloServer declaration:
+The first thing we need to do is to install the dependencies with npm. Open the console and run `npm install`.
+
+## Configure the environment
+
+Before we can run our server, we need to configure the environment variables. Create a new ".env" file in the server root directory and add the following contents to it.
 ```
-const server = new ApolloServer({ 
-  typeDefs, 
-  resolvers, 
-  context,
-  introspection: true,
-  playground: true,
-});
+// .env
+DB_HOST=localhost
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+POSTGRES_DB=one-stack
 ```
-the `introspection` and `playground` fields must be set to true. Accessing the app page, we can see it now displays the playground.
+## Running the server locally
 
-For more information on heroku-cli and heroku in general, check out [the official docs](https://devcenter.heroku.com/categories/reference).
+Now we can run our local server with `npm run-script start-dev`.
 
-We also recommed following [this tutorial](https://devcenter.heroku.com/articles/getting-started-with-nodejs) for a simple introduction.
+Navigate to localhost:4000 to see the graphql playground.
