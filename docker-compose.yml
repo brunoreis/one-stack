@@ -1,0 +1,21 @@
+version: '3.1'
+
+services:
+  
+  server:
+    build: ./server
+    command: npm start
+    ports:
+      - "4000:4000"
+    volumes:
+     - ./server:/app
+     - /app/node_modules
+    depends_on:
+    - db
+
+  db:
+    image: postgres:10
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: one-stack
