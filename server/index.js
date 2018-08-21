@@ -20,8 +20,6 @@ const server = new ApolloServer({
   playground: true,
 });
 
-console.log('teste no index:', process.env.DB_HOST);
-
 server.listen(
   { port: process.env.PORT || 4000 },
 ).then(

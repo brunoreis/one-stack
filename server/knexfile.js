@@ -1,7 +1,5 @@
 require('dotenv').config();
 
-console.log('teste no knex', process.env.DB_HOST);
-
 module.exports = {
   development: {
     client: 'pg',
