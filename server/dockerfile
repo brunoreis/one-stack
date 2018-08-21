@@ -1,5 +1,5 @@
 FROM node:8
-WORKDIR /app
+WORKDIR /src
 COPY . .
 RUN npm install
 RUN npm install -g knex

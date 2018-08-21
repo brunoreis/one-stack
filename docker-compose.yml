@@ -8,8 +8,8 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./client:/app
-      - /app/node_modules
+      - ./client:/src
+      - /src/node_modules
   
   server:
     build: ./server
@@ -17,8 +17,8 @@ services:
     ports:
       - "4000:4000"
     volumes:
-     - ./server:/app
-     - /app/node_modules
+     - ./server:/src
+     - /src/node_modules
     depends_on:
     - db
 
