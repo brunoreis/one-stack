@@ -18,6 +18,7 @@ DB_HOST=db
 POSTGRES_USER=postgres
 POSTGRES_DB=one-stack
 ```
+Notice you need to restart the server manually every time you change environment variables, since nodemon does not notice changes in .env.
 
 ### Database setup
 

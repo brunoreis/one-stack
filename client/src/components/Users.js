@@ -27,8 +27,6 @@ class users extends Component {
               {users[0].name}
               {users[1].id}
               {users[1].name}
-              {users[2].id}
-              {users[2].name}
             </div>
           );
         }}
