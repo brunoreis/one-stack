@@ -3,6 +3,7 @@ import Header from './Header'
 import { Switch, Route } from 'react-router-dom'
 import Manufacturer from './Manufacturer'
 import Products from './Products'
+import Users from './Users'
 import Login from './Login'
 
 class App extends Component {
@@ -15,6 +16,7 @@ class App extends Component {
             <Route exact path="/" component={Manufacturer} />
             <Route exact path="/products" component={Products} />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/users" component={Users} />
           </Switch>
         </div>
       </div>
