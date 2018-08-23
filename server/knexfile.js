@@ -9,14 +9,20 @@ module.exports = {
       database: process.env.POSTGRES_DB,
     },
     migrations: {
-      directory: '.src/db/migrations',
+      directory: './src/db/migrations',
     },
     seeds: {
-      directory: '.src/db/seeds',
+      directory: './src/db/seeds',
     },
   },
   production: {
     client: 'postgresql',
     connection: process.env.DATABASE_URL,
+    migrations: {
+      directory: './src/db/migrations',
+    },
+    seeds: {
+      directory: './src/db/seeds',
+    },
   },
 };
