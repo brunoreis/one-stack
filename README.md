@@ -3,11 +3,22 @@
 ## Project setup
 
 ### Docker
-This project is deployed for development using docker. To build the docker containers, go to the root of the project and run
+We have a docker file to set up your dev env. To build the docker containers, go to the root of the project and run
 
 `docker-compose up`
+`docker-compose up -d` to run in background
 
 This sets up three docker containers: One for the backend code (/server), one for the frontend code (/client), and one for the postgres database.
+
+If you run `docker-compose ps` you will be presented with those containers:
+ 
+       Name                     Command              State           Ports         
+-----------------------------------------------------------------------------------
+one-stack_client_1   npm start                       Up      0.0.0.0:3000->3000/tcp
+one-stack_db_1       docker-entrypoint.sh postgres   Up      0.0.0.0:5433->5432/tcp
+one-stack_server_1   npm start                       Up      0.0.0.0:4000->4000/tcp
+
+As you can see, you can acess the client on port 3000 and the backend on port 4000. 
 
 ### Environment setup
 
@@ -20,23 +31,39 @@ POSTGRES_DB=one-stack
 ```
 Notice you need to restart the server manually every time you change environment variables, since nodemon does not notice changes in .env.
 
+The .env file won't be commited to the repository since it's added on the .gitignore. 
+ 
 ### Database setup
 
-Now we need to run the migrations and seeds in our database. To do this, first run bash inside the server container with
+Now we need to run the migrations to build our tables. And to run the seeds to add test data to our database. 
+To do this, access your server container bash shell: 
 
-`docker exec -it onestack_server_1 bash`
+`docker exec -it one-stack_server_1 bash`
 
-If necessary replace 'onestack_server_1' with the name of your container, as displayed with `docker-compose ps`.
+Once inside the container, run the migrations with 
 
-Once inside the container, run the migrations with `knex migrate:latest`, then the seeds with `knex seed:run`.
+`knex migrate:latest`, 
 
-Now we can begin using the app locally on docker. To start the service just run
+then the seeds with 
 
-`docker-compose up`
+`knex seed:run`.
 
-To access the client app, go to `localhost:3000`. To see the graphql playground, go to `localhost:4000`.
+* if you get a connection error, review the .env section above. 
 
-### Accessing the database in pgAdmin
+To make sure data was inserted, access the graphql playground on `localhost:4000` and run a query like:
+```
+{
+  users{
+    name
+  }
+}
+```
+
+If you see the results, your server is up, running and seeded with data. 
+
+### Accessing the database with the pgAdmin tool
+
+
 
 * Open pgAdmin, make sure the containers are running, and go to file/AddServer.
 * Name your database 'docker-one-stack' or anything you like, set 'Port' to '5433' and 'Username' to 'postgres'.
