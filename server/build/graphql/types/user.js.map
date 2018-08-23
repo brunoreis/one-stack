@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/graphql/types/user.js"],"names":[],"mappings":";;;;;kBAAgB","file":"user.js","sourcesContent":["export default `\ntype User {\n  id: ID!\n  name: String!\n  email: String!\n}\n`;\n"]}

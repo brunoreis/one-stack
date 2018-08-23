@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../../src/graphql/resolvers/query/products.js"],"names":["_","__","context","mocks","productMocks"],"mappings":";;;;;;kBAAe,CAACA,CAAD,EAAIC,EAAJ,EAAQC,OAAR,KAAoBA,QAAQC,KAAR,CAAcC,Y","file":"products.js","sourcesContent":["export default (_, __, context) => context.mocks.productMocks;\n"]}

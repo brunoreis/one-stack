@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/data/user/del.js"],"names":["_","args","UserDB","delete"],"mappings":";;;;;;AAAA;;;;;;kBAEe,OAAOA,CAAP,EAAUC,IAAV,KAAmBC,eAAOC,MAAP,CAAcF,IAAd,C","file":"del.js","sourcesContent":["import UserDB from '../../db/queryBuilders/user';\n\nexport default async (_, args) => UserDB.delete(args);\n"]}

@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../../src/graphql/resolvers/query/manufacturers.js"],"names":["_","__","context","mocks","manufacturerMocks"],"mappings":";;;;;;kBAAe,CAACA,CAAD,EAAIC,EAAJ,EAAQC,OAAR,KAAoBA,QAAQC,KAAR,CAAcC,iB","file":"manufacturers.js","sourcesContent":["export default (_, __, context) => context.mocks.manufacturerMocks;\n"]}

@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../../src/graphql/resolvers/mutation/deleteUser.js"],"names":["_","args","User","delete"],"mappings":";;;;;;AAAA;;;;;;kBAEe,OAAOA,CAAP,EAAUC,IAAV,KAAmBC,eAAKC,MAAL,CAAYH,CAAZ,EAAeC,IAAf,C","file":"deleteUser.js","sourcesContent":["import User from '../../../data/user';\n\nexport default async (_, args) => User.delete(_, args);\n"]}

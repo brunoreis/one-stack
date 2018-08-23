@@ -73,10 +73,14 @@ Note that docker-compose maps your computer's 5433 port to the posgres container
 ## Heroku Deploy
 We can use [heroku-cli](https://devcenter.heroku.com/articles/heroku-cli) to deploy to heroku in a simple manner.
 1. create the heroku app with `heroku create 'app-name'`
-1. create a Procfile containing `web: node index.js`
-1. push to the new heroku remote with `git push heroku 'branch-name':master`
+1. add heroku-postgres add-on with `heroku addons:create heroku-postgresql:hobby-dev`
+1. add the node environment with `heroku config:set NODE_ENV=production`
+1. push the server directory to the new heroku remote with `git subtree push --prefix server heroku master`
+1. run seed and migrations with by opening a bash in heroku: `heroku run bash` then running `knex migrate:latest && knex seed:run`. Exit the bash with `exit`
 
 We can access our heroku app by running `heroku open`, and open bash with `heroku run bash`.
+
+To push local changes to heroku, simply run `git subtree push --prefix server heroku master`. OBS: notice this command will push the current branch, not necessarily master
 
 ### Enabling Graphql Playground in production
 Since the playground is not enabled by defalut in production environments, we can explicitly ask for it by setting a couple of fields in our ApolloServer declaration:
