@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/data/user/create.js"],"names":["_","args","UserDB","create"],"mappings":";;;;;;AAAA;;;;;;kBAEe,OAAOA,CAAP,EAAUC,IAAV,KAAmBC,eAAOC,MAAP,CAAcF,IAAd,C","file":"create.js","sourcesContent":["import UserDB from '../../db/queryBuilders/user';\n\nexport default async (_, args) => UserDB.create(args);\n"]}

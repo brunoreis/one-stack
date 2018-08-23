@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../../src/graphql/resolvers/query/user.js"],"names":["_","args","context","data","user","load"],"mappings":";;;;;;kBAAe,OAAOA,CAAP,EAAUC,IAAV,EAAgBC,OAAhB,KAA4BA,QAAQC,IAAR,CAAaC,IAAb,CAAkBC,IAAlB,CAAuBH,OAAvB,EAAgCD,IAAhC,C","file":"user.js","sourcesContent":["export default async (_, args, context) => context.data.user.load(context, args);\n"]}

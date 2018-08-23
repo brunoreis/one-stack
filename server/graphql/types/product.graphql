@@ -1,7 +1,0 @@
-# import Manufacturer from 'manufacturer.graphql' 
-
-type Product {
-    useCases: String
-    parasitoids: String
-    manufacturer: Manufacturer
-}
