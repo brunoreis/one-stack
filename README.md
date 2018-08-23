@@ -53,7 +53,7 @@ We can use [heroku-cli](https://devcenter.heroku.com/articles/heroku-cli) to dep
 
 We can access our heroku app by running `heroku open`, and open bash with `heroku run bash`.
 
-To push local changes to heroku, simply run `git subtree push --prefix server heroku master`
+To push local changes to heroku, simply run `git subtree push --prefix server heroku master`. OBS: notice this command will push the current branch, not necessarily master
 
 ### Enabling Graphql Playground in production
 Since the playground is not enabled by defalut in production environments, we can explicitly ask for it by setting a couple of fields in our ApolloServer declaration:
