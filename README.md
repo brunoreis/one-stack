@@ -8,17 +8,19 @@ We have a docker file to set up your dev env. To build the docker containers, go
 `docker-compose up`
 `docker-compose up -d` to run in background
 
-This sets up three docker containers: One for the backend code (/server), one for the frontend code (/client), and one for the postgres database.
+This sets up four docker containers: One for the backend code (/server), one for the frontend code (/client), one for the postgres database, and one for pgAdmin.
 
 If you run `docker-compose ps` you will be presented with these containers:
+
 ```text
- 
        Name                     Command              State           Ports         
 -----------------------------------------------------------------------------------
-one-stack_client_1   npm start                       Up      0.0.0.0:3000->3000/tcp
-one-stack_db_1       docker-entrypoint.sh postgres   Up      0.0.0.0:5433->5432/tcp
-one-stack_server_1   npm start                       Up      0.0.0.0:4000->4000/tcp
+onestack_client_1    npm start                       Up      0.0.0.0:3000->3000/tcp
+onestack_db_1        docker-entrypoint.sh postgres   Up      0.0.0.0:5433->5432/tcp
+onestack_pgadmin_1   docker-entrypoint.sh pgadmin4   Up      0.0.0.0:5050->5050/tcp
+onestack_server_1    npm run start-dev               Up      0.0.0.0:4000->4000/tcp
 ```
+
 As you can see, you can acess the client on port 3000 and the backend on port 4000. 
 
 ### Environment setup
@@ -62,14 +64,20 @@ To make sure data was inserted, access the graphql playground on `localhost:4000
 
 If you see the results, your server is up, running and seeded with data. 
 
-### Accessing the database with the pgAdmin tool
+### Setup pgAdmin
 
+* Go to localhost:5050 on a web browser
+* Login with the following credentials:
+    user: pgadmin4@pgadmin.org
+    passord: admin
+* Go to Object > Create > Server
+* Name your server whatever you like
+* In the Connection tab, set:
+  Host name/address: db
+  Username: postgres
+* Click save
 
-
-* Open pgAdmin, make sure the containers are running, and go to file/AddServer.
-* Name your database 'docker-one-stack' or anything you like, set 'Port' to '5433' and 'Username' to 'postgres'.
-
-Note that docker-compose maps your computer's 5433 port to the posgres container's 5432 port, meaning you can acess it from localhost.
+That's it. You should now see the "one-stack" database in the left, under Servers/yourServer/Databases
 
 ## Heroku Deploy
 We can use [heroku-cli](https://devcenter.heroku.com/articles/heroku-cli) to deploy to heroku in a simple manner.

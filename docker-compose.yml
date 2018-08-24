@@ -23,8 +23,26 @@ services:
     - db
 
   db:
-    image: postgres:10
+    image: postgres
     ports:
       - "5433:5432"
     environment:
       POSTGRES_DB: one-stack
+    networks:
+      - pgnetwork
+
+  pgadmin:
+    links:
+      - db
+    image: fenglc/pgadmin4
+    volumes:
+      - /data/pgadmin:/root/.pgadmin
+    ports: 
+      - "5050:5050"
+    networks:
+      - pgnetwork
+    restart: unless-stopped
+
+networks:
+  pgnetwork:
+    driver: bridge
