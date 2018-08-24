@@ -10,14 +10,15 @@ We have a docker file to set up your dev env. To build the docker containers, go
 
 This sets up three docker containers: One for the backend code (/server), one for the frontend code (/client), and one for the postgres database.
 
-If you run `docker-compose ps` you will be presented with those containers:
+If you run `docker-compose ps` you will be presented with these containers:
+```text
  
        Name                     Command              State           Ports         
 -----------------------------------------------------------------------------------
 one-stack_client_1   npm start                       Up      0.0.0.0:3000->3000/tcp
 one-stack_db_1       docker-entrypoint.sh postgres   Up      0.0.0.0:5433->5432/tcp
 one-stack_server_1   npm start                       Up      0.0.0.0:4000->4000/tcp
-
+```
 As you can see, you can acess the client on port 3000 and the backend on port 4000. 
 
 ### Environment setup
@@ -51,7 +52,7 @@ then the seeds with
 * if you get a connection error, review the .env section above. 
 
 To make sure data was inserted, access the graphql playground on `localhost:4000` and run a query like:
-```
+```graphql
 {
   users{
     name
@@ -73,7 +74,7 @@ Note that docker-compose maps your computer's 5433 port to the posgres container
 ## Heroku Deploy
 We can use [heroku-cli](https://devcenter.heroku.com/articles/heroku-cli) to deploy to heroku in a simple manner.
 1. create the heroku app with `heroku create 'app-name'`
-1. add heroku-postgres add-on with `heroku addons:create heroku-postgresql:hobby-dev`
+1. add heroku-postgres add-on with `heroku addons:create heroku-postgresql:hobby-dev`. OBS:  you can run a [psql](https://www.postgresql.org/docs/current/static/app-psql.html) session with your heroku database with `heroku pg:psql`
 1. add the node environment with `heroku config:set NODE_ENV=production`
 1. push the server directory to the new heroku remote with `git subtree push --prefix server heroku master`
 1. run seed and migrations with by opening a bash in heroku: `heroku run bash` then running `knex migrate:latest && knex seed:run`. Exit the bash with `exit`
@@ -84,7 +85,7 @@ To push local changes to heroku, simply run `git subtree push --prefix server he
 
 ### Enabling Graphql Playground in production
 Since the playground is not enabled by defalut in production environments, we can explicitly ask for it by setting a couple of fields in our ApolloServer declaration:
-```
+```js
 const server = new ApolloServer({ 
   typeDefs, 
   resolvers, 
