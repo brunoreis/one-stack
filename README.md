@@ -38,7 +38,7 @@ The .env file won't be commited to the repository since it's added on the .gitig
 Now we need to run the migrations to build our tables. And to run the seeds to add test data to our database. 
 To do this, access your server container bash shell: 
 
-`docker exec -it one-stack_server_1 bash`
+`docker exec -it onestack_server_1 bash`
 
 Once inside the container, run the migrations with 
 
@@ -98,3 +98,14 @@ the `introspection` and `playground` fields must be set to true. Accessing the a
 For more information on heroku-cli and heroku in general, check out [the official docs](https://devcenter.heroku.com/categories/reference).
 
 We also recommed following [this tutorial](https://devcenter.heroku.com/articles/getting-started-with-nodejs) for a simple introduction.
+
+## Syncing local and production databases
+
+You can copy the state of the production database in heroku to your local docker database in a couple of simple steps
+1. Delete development database
+
+    to do this, you can run either `dropdb -h localhost -p 5433 -U postgres one-stack`, which takes advantage of the port maping in your docker-compose file, or `docker exec onestack_db_1 dropdb -U postgres one-stack`, which accesses the database directly from within the docker container.
+
+1. Pull the production database
+
+    Heroku provides a command that does that for you. Simply run `heroku pg:pull DATABASE_URL postgres://postgres@localhost:5433/one-stack`. You might need to change the developlent database url (the last argument) according to your local configuration.
