@@ -1,5 +1,3 @@
-// import User from './user';
-
 const AuthPayload = `
 type AuthPayload {
   token: String
@@ -7,4 +5,3 @@ type AuthPayload {
 }
 `;
 export default AuthPayload;
-// export default [AuthPayload, User];

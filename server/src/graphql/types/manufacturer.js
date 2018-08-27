@@ -1,5 +1,3 @@
-// import Product from './product';
-
 const Manufacturer = `
 type Manufacturer {
     name: String
@@ -8,4 +6,3 @@ type Manufacturer {
 }
 `;
 export default Manufacturer;
-// export default [Manufacturer, ...Product];

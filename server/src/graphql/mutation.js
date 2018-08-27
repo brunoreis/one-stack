@@ -1,6 +1,3 @@
-// import AuthPayload from './types/authpayload';
-// import User from './types/user';
-
 const Mutation = `
 type Mutation {
   login(email: String!, password: String!): AuthPayload
@@ -10,4 +7,3 @@ type Mutation {
 `;
 
 export default Mutation;
-// export default [Mutation, ...AuthPayload, ...User];

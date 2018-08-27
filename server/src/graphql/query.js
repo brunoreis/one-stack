@@ -1,6 +1,3 @@
-// import Product from './types/product';
-// import User from './types/user';
-
 const Query = `
 type Query {
     manufacturer: Manufacturer,
@@ -12,4 +9,3 @@ type Query {
 `;
 
 export default Query;
-// export default [Query, ...Product, ...User];

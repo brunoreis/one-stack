@@ -1,5 +1,3 @@
-// import Manufacturer from './manufacturer';
-
 const Product = `
 type Product {
     useCases: String
@@ -9,4 +7,3 @@ type Product {
 `;
 
 export default Product;
-// export default [Product, ...Manufacturer];
