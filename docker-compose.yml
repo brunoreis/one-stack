@@ -9,7 +9,7 @@ services:
       - "3000:3000"
     volumes:
       - ./client:/src
-      - /src/node_modules
+      - /client/node_modules
   
   server:
     build: ./server
@@ -17,11 +17,13 @@ services:
     ports:
       - "4000:4000"
     volumes:
-     - ./server:/src
-     - /src/node_modules
+      - ./server:/src
+      - /server/node_modules
     depends_on:
-    - db
-
+      - db
+    networks:
+      - pgnetwork
+        
   db:
     image: postgres
     ports:
