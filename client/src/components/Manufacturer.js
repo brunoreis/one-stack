@@ -11,7 +11,7 @@ const QUERY = gql`
   }
 `;
 
-class manufacturer extends Component {
+class Manufacturer extends Component {
   render() {
     return (
       <Query query={QUERY}>
@@ -33,4 +33,4 @@ class manufacturer extends Component {
   }
 }
 
-export default manufacturer;
+export default Manufacturer;
