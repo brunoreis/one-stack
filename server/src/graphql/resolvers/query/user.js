@@ -1,1 +1,1 @@
-export default async (_, args, context) => context.data.user.load(context, args);
+export default async (_, args, context) => context.data.user.get(context, args);

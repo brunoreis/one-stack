@@ -5,6 +5,7 @@ type Query {
     products: [Product],
     user(id: Int!): User,
     users: [User],
+    loggedUser: User,
 }
 `;
 
