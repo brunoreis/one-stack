@@ -3,12 +3,10 @@ import bodyParser from 'body-parser';
 import session from 'express-session';
 import uuid from 'node-uuid';
 import flash from 'connect-flash';
-
 import passport from './passport';
 
 function appSetup(data, context) {
   const app = express();
-
   app.use(flash());
   // passport's session piggy-backs on express-session
   app.use(
@@ -30,7 +28,7 @@ function appSetup(data, context) {
     '/login',
     passport.authenticate('local', {
       successRedirect: '/',
-      failureRedirect: '/login',
+      failureRedirect: '/bla',
       failureFlash: true,
     }),
   );
@@ -42,6 +40,10 @@ function appSetup(data, context) {
 
   // teste do express
   app.get('/', (req, res) => {
+    console.log('homepage');
+    res.send('homepage');
+  });
+  app.post('/', (req, res) => {
     console.log('homepage');
     res.send('homepage');
   });
