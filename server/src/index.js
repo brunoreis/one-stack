@@ -1,18 +1,19 @@
 import { ApolloServer } from 'apollo-server-express';
+import express from 'express';
 
 import data from './data';
 import mocks from './mocks';
 import resolvers from './graphql/resolvers';
 // import debugExtensions from './extensions/debugExtensions';
 import typeDefs from './graphql/schema';
-import appSetup from './config/express';
+import authSetup from './config/authSetup';
 
 const context = { mocks, data };
 
-const app = appSetup(data, context);
+const app = express();
+authSetup(app, context);
 
 const server = new ApolloServer({
-  cors: false,
   typeDefs,
   resolvers,
   context,
