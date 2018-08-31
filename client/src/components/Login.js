@@ -1,95 +1,54 @@
-import React, { Component } from 'react'
-import { AUTH_TOKEN } from '../constants'
-import { Mutation } from 'react-apollo'
-import gql from 'graphql-tag'
+import React, { Component } from 'react';
 
-const SIGNUP_MUTATION = gql`
-  mutation SignupMutation($email: String!, $password: String!, $name: String!) {
-    signup(email: $email, password: $password, name: $name) {
-      token
+// class Login extends Component {
+//   constructor() {
+//     super();
+//     this.handleSubmit = this.handleSubmit.bind(this);
+//   }
+
+//   handleSubmit(event) {
+//     event.preventDefault();
+//     const data = new FormData(event.target);
+//     for (var pair of data.entries()) {
+//       console.log(pair[0]+ ', ' + pair[1]); 
+//   }
+//     fetch('http://localhost:4000/login', {
+//     // fetch('http://192.168.2.35/', {
+//       method: 'POST',
+//       body: data,
+//     });
+//   }
+
+//   render() {
+//     return (
+//       <form onSubmit={this.handleSubmit}>
+//         <label htmlFor="username">Enter username</label>
+//         <input id="username" name="username" type="text" />
+
+//         <label htmlFor="password">Enter your password</label>
+//         <input id="password" name="password" type="text" />
+
+//         <button>Send data!</button>
+//       </form>
+//     );
+//   }
+// }
+
+class Login extends Component
+{
+    render() {
+        return(
+            <div>
+                <form method="post" action="http://localhost:4000/login">
+                    Username:<br/>
+                    <input type="text" name="username"/><br/>
+                    Password:<br/>
+                    <input type="password" name="password"/><br/>
+                    <input type="submit" value="Register"/>
+                </form>
+             </div>
+        );
     }
-  }
-`
-
-const LOGIN_MUTATION = gql`
-  mutation LoginMutation($email: String!, $password: String!) {
-    login(email: $email, password: $password) {
-      token
-    }
-  }
-`
-
-class Login extends Component {
-  state = {
-    login: true, // switch between Login and SignUp
-    email: '',
-    password: '',
-    name: '',
-  }
-
-  render() {
-    const { login, email, password, name } = this.state
-    return (
-      <div>
-        <h4 className="mv3">{login ? 'Login' : 'Sign Up'}</h4>
-        <div className="flex flex-column">
-          {!login && (
-            <input
-              value={name}
-              onChange={e => this.setState({ name: e.target.value })}
-              type="text"
-              placeholder="Your name"
-            />
-          )}
-          <input
-            value={email}
-            onChange={e => this.setState({ email: e.target.value })}
-            type="text"
-            placeholder="Your email address"
-          />
-          <input
-            value={password}
-            onChange={e => this.setState({ password: e.target.value })}
-            type="password"
-            placeholder="Choose a safe password"
-          />
-        </div>
-        <div className="flex mt3">
-          
-          <Mutation
-            mutation={login ? LOGIN_MUTATION : SIGNUP_MUTATION}
-            variables={{ email, password, name }}
-            onCompleted={data => this._confirm(data)}
-          >
-            {mutation => (
-              <div className="pointer mr2 button" onClick={mutation}>
-                {login ? 'login' : 'create account'}
-              </div>
-            )}
-          </Mutation>
-
-          <div
-            className="pointer button"
-            onClick={() => this.setState({ login: !login })}
-          >
-            {login
-              ? 'need to create an account?'
-              : 'already have an account?'}
-          </div>
-        </div>
-      </div>
-    )
-  }
-
-  _confirm = async data => {
-    const { token } = this.state.login ? data.login : data.signup
-    this._saveUserData(token)
-    this.props.history.push(`/`)
-  }
-
-  _saveUserData = token => {
-    localStorage.setItem(AUTH_TOKEN, token)
-  }
 }
 
-export default Login
+export default Login;
