@@ -17,10 +17,9 @@ import App from './components/App';
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:4000/graphql',
-  credentials: 'include', // different for production: https://www.apollographql.com/docs/react/recipes/authentication.html
-  // fetchOptions: {
-  //   credentials: 'include',
-  // },
+  credentials: 'include',
+// different for production:
+// https://www.apollographql.com/docs/react/recipes/authentication.html
 });
 
 // const authLink = setContext((_, { headers }) => {
