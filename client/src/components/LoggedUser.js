@@ -14,7 +14,7 @@ const QUERY = gql`
 class LoggedUser extends Component {
   render() {
     return (
-      <Query query={QUERY}>
+      <Query query={QUERY} fetchPolicy="network-only">
         {({ loading, error, data }) => {
           if (loading) return <div>Fetching</div>;
           if (error) return <div>Error</div>;
@@ -27,8 +27,7 @@ class LoggedUser extends Component {
                 loggedUser
                   ? (
                     <div>
-                      {loggedUser.id}
-                      {loggedUser.name}
+                      {loggedUser.id} {loggedUser.name}
                     </div>
                   )
                   : <div> Not logged in </div>
