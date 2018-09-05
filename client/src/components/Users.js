@@ -23,10 +23,9 @@ class users extends Component {
 
           return (
             <div>
-              {users[0].id}
-              {users[0].name}
-              {users[1].id}
-              {users[1].name}
+              {users[0].id} {users[0].name}
+              <br />
+              {users[1].id} {users[1].name}
             </div>
           );
         }}
