@@ -32,7 +32,13 @@ DB_HOST=db
 POSTGRES_USER=postgres
 POSTGRES_DB=one-stack
 ```
-Notice you need to restart the server manually every time you change environment variables, since nodemon does not notice changes in .env.
+Now create a ".env" file in "/client" and write
+```
+REACT_APP_ENV=dev
+REACT_APP_DEV_URL=localhost:4000
+REACT_APP_PROD_URL=one-stack.herokuapp.com
+```
+Notice you need to restart the containers manually every time you change environment variables, since changes in .env are not automatically recognized.
 
 The .env file won't be commited to the repository since it's added on the .gitignore. 
  
@@ -85,7 +91,7 @@ We can use [heroku-cli](https://devcenter.heroku.com/articles/heroku-cli) to dep
 1. add heroku-postgres add-on with `heroku addons:create heroku-postgresql:hobby-dev`. OBS:  you can run a [psql](https://www.postgresql.org/docs/current/static/app-psql.html) session with your heroku database with `heroku pg:psql`
 1. add the node environment with `heroku config:set NODE_ENV=production`
 1. push the server directory to the new heroku remote with `git subtree push --prefix server heroku master`
-1. run seed and migrations with by opening a bash in heroku: `heroku run bash` then running `knex migrate:latest && knex seed:run`. Exit the bash with `exit`
+1. run seed and migrations by opening a bash in heroku: `heroku run bash` then running `knex migrate:latest && knex seed:run`. Exit the bash with `exit`
 
 We can access our heroku app by running `heroku open`, and open bash with `heroku run bash`.
 

@@ -10,10 +10,10 @@ class ApiLogin extends Component {
     onSubmit = (event) => {
         const { username, password } = this.state;
         event.preventDefault();
-        console.log('olá');
-        console.log(username);
-        console.log(password);
-        fetch('http://localhost:4000/api-login',
+        const baseUrl = process.env.REACT_APP_ENV === 'prod'
+            ? process.env.REACT_APP_DEV_URL
+            : process.env.REACT_APP_PROD_URL;
+        fetch(`https://${baseUrl}/api-login`,
         {
             method: 'POST',
             headers: {

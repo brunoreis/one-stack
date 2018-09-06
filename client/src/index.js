@@ -15,13 +15,16 @@ import { BrowserRouter } from 'react-router-dom';
 
 import App from './components/App';
 
+const baseUrl = process.env.REACT_APP_ENV === 'prod'
+  ? process.env.REACT_APP_DEV_URL
+  : process.env.REACT_APP_PROD_URL;
+
 const httpLink = createHttpLink({
-  uri: 'http://localhost:4000/graphql',
+  uri: `http://${baseUrl}/graphql`,
   credentials: 'include',
 // different for production:
 // https://www.apollographql.com/docs/react/recipes/authentication.html
 });
-
 
 const client = new ApolloClient({
   link: httpLink,
