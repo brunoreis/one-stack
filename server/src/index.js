@@ -20,8 +20,8 @@ const server = new ApolloServer({
   // extensions: [
   //   () => debugExtensions,
   // ],
-  // introspection: true,
-  // playground: true,
+  introspection: true,
+  playground: true,
 });
 
 server.applyMiddleware({
