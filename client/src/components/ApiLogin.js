@@ -13,7 +13,7 @@ class ApiLogin extends Component {
         const baseUrl = process.env.REACT_APP_ENV === 'prod'
             ? process.env.REACT_APP_PROD_URL
             : process.env.REACT_APP_DEV_URL;
-        fetch(`https://${baseUrl}/api-login`,
+        fetch(`${baseUrl}/api-login`,
         {
             method: 'POST',
             headers: {

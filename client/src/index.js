@@ -20,7 +20,7 @@ const baseUrl = process.env.REACT_APP_ENV === 'prod'
   : process.env.REACT_APP_DEV_URL;
 
 const httpLink = createHttpLink({
-  uri: `http://${baseUrl}/graphql`,
+  uri: `${baseUrl}/graphql`,
   credentials: 'include',
 // different for production:
 // https://www.apollographql.com/docs/react/recipes/authentication.html

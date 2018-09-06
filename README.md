@@ -105,7 +105,7 @@ We can access our heroku app by running `heroku open`, and open bash with `herok
 1. create the heroku app with `heroku create 'client-name'`
 1. rename the remote with `git remote rename heroku heroku-client`
 1. push the client directory with `git subtree push --prefix client heroku-client master`
-1. set environment variables: `heroku config:set REACT_APP_ENV=prod REACT_APP_PROD_URL=one-stack.herokuapp.com --app 'app-name'`
+1. set environment variables: `heroku config:set REACT_APP_ENV=prod REACT_APP_PROD_URL=https://onestack-server.herokuapp.com --app 'app-name'`
 
 To push local changes to heroku, simply run `git subtree push --prefix server heroku-server master` or `git subtree push --prefix client heroku-client master`. OBS: notice this command will push the current branch, not necessarily master.
 
