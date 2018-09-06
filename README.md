@@ -86,16 +86,29 @@ If you see the results, your server is up, running and seeded with data.
 That's it. You should now see the "one-stack" database in the left, under Servers/yourServer/Databases
 
 ## Heroku Deploy
-We can use [heroku-cli](https://devcenter.heroku.com/articles/heroku-cli) to deploy to heroku in a simple manner.
-1. create the heroku app with `heroku create 'app-name'`
+We can use [heroku-cli](https://devcenter.heroku.com/articles/heroku-cli) to deploy to heroku in a simple manner. We will deploy both our server and client subtrees.
+
+OBS: notice that since we will have multiple heroku apps associated with our project, we will need to append --app 'app-name' to every heroku-cli command.
+
+### Deploy server
+1. create the heroku app with `heroku create 'server-name'`
 1. add heroku-postgres add-on with `heroku addons:create heroku-postgresql:hobby-dev`. OBS:  you can run a [psql](https://www.postgresql.org/docs/current/static/app-psql.html) session with your heroku database with `heroku pg:psql`
 1. add the node environment with `heroku config:set NODE_ENV=production`
-1. push the server directory to the new heroku remote with `git subtree push --prefix server heroku master`
+1. push the server directory to the new heroku remote with `git subtree push --prefix server heroku-server master`
 1. run seed and migrations by opening a bash in heroku: `heroku run bash` then running `knex migrate:latest && knex seed:run`. Exit the bash with `exit`
+1. rename the git remote so it doesn't conflict with our client deploy: `git remote rename heroku heroku-server`
 
 We can access our heroku app by running `heroku open`, and open bash with `heroku run bash`.
 
-To push local changes to heroku, simply run `git subtree push --prefix server heroku master`. OBS: notice this command will push the current branch, not necessarily master
+### Deploy client
+1. If you haven't, make sure to rename the git remote pointing to the server
+1. create the heroku app with `heroku create 'client-name'`
+1. rename the remote with `git remote rename heroku heroku-client`
+1. push the client directory with `git subtree push --prefix client heroku-client master`
+1. set environment variables: `heroku config:set REACT_APP_ENV=prod REACT_APP_PROD_URL=one-stack.herokuapp.com --app 'app-name'`
+
+To push local changes to heroku, simply run `git subtree push --prefix server heroku-server master` or `git subtree push --prefix client heroku-client master`. OBS: notice this command will push the current branch, not necessarily master.
+
 
 ### Enabling Graphql Playground in production
 Since the playground is not enabled by defalut in production environments, we can explicitly ask for it by setting a couple of fields in our ApolloServer declaration:
