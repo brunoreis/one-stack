@@ -4,6 +4,7 @@ import getAll from './getAll';
 import getById from './getById';
 import getByIds from './getByIds';
 import getByName from './getByName';
+import update from './update';
 
 export default {
   create,
@@ -12,4 +13,5 @@ export default {
   getById,
   getByIds,
   getByName,
+  update,
 };
