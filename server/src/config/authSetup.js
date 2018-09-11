@@ -8,7 +8,6 @@ import passportSetup from './passportSetup';
 function authSetup(app, context) {
   passportSetup(passport);
 
-
   const corsOptions = {
     origin: true,
     credentials: true,
@@ -25,8 +24,8 @@ function authSetup(app, context) {
   app.use(passport.initialize());
   app.use(passport.session());
 
+  app.use(bodyParser.json());
   app.use('/login', bodyParser.urlencoded({ extended: true }));
-  app.use('/api-login', bodyParser.json());
 
   app.post('/api-login', (req, res, next) => {
     passport.authenticate('local', (err, user) => {

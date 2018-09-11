@@ -4,7 +4,10 @@ import getAll from './getAll';
 import getById from './getById';
 import getByIds from './getByIds';
 import getByName from './getByName';
+import getByEmail from './getByEmail';
+import getByReset from './getByReset';
 import update from './update';
+import updatePassword from './updatePassword';
 
 export default {
   create,
@@ -13,5 +16,8 @@ export default {
   getById,
   getByIds,
   getByName,
+  getByEmail,
+  getByReset,
   update,
+  updatePassword,
 };
