@@ -24,6 +24,7 @@
   "dependencies": {
     "apollo-server": "^2.0.5",
     "apollo-server-express": "^2.0.4",
+    "async": "^2.6.1",
     "babel-eslint": "^8.2.6",
     "bcrypt": "^3.0.0",
     "body-parser": "^1.18.3",
@@ -37,9 +38,12 @@
     "graphql-tools": "^3.1.1",
     "knex": "^0.15.2",
     "node-uuid": "^1.4.8",
+    "nodemailer": "^4.6.8",
+    "nodemailer-sendgrid-transport": "^0.2.0",
     "nodemon": "^1.18.3",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
+    "password-reset": "^0.1.4",
     "pg": "^7.4.3",
     "require-graphql-file": "^1.0.1"
   },

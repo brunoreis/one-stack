@@ -137,3 +137,8 @@ You can copy the state of the production database in heroku to your local docker
 1. Pull the production database
 
     Heroku provides a command that does that for you. Simply run `heroku pg:pull DATABASE_URL postgres://postgres@localhost:5433/one-stack`. You might need to change the developlent database url (the last argument) according to your local configuration.
+
+## Other topics
+
+Password reset setup:
+* See server/src/config/README.md
