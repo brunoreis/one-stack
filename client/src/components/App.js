@@ -7,6 +7,8 @@ import Users from './Users';
 import Login from './Login';
 import ApiLogin from './ApiLogin';
 import LoggedUser from './LoggedUser';
+import PasswordForgot from './PasswordForgot';
+import PasswordReset from './PasswordReset';
 
 class App extends Component {
   render() {
@@ -21,6 +23,8 @@ class App extends Component {
             <Route exact path="/api-login" component={ApiLogin} />
             <Route exact path="/users" component={Users} />
             <Route exact path="/loggedUser" component={LoggedUser} />
+            <Route exact path="/forgot" component={PasswordForgot} />
+            <Route exact path="/reset/:token" component={PasswordReset} />
           </Switch>
         </div>
       </div>

@@ -1,49 +1,54 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
-class ApiLogin extends Component {
+class PasswordReset extends Component {
 
     state = {
-        username: '',
+        email: '',
         password: '',
+        token: '',
+    }
+
+    componentDidMount () {
+      this.setState({ token: this.props.match.params.token })
     }
 
     onSubmit = (event) => {
-        const { username, password } = this.state;
+        const { email, password, token } = this.state;
         event.preventDefault();
         const baseUrl = process.env.REACT_APP_ENV === 'prod'
             ? process.env.REACT_APP_PROD_URL
             : process.env.REACT_APP_DEV_URL;
-        fetch(`${baseUrl}/api-login`,
+        fetch(`${baseUrl}/reset/${token}`,
         {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
             },
-            credentials: 'include',
+            // credentials: 'include',
             body: JSON.stringify({
-                username,
+                email,
                 password,
             }),
         }).then(response => console.log(response));
     };
 
     render() {
-        const { username, password } = this.state;
+        const { email, password } = this.state;
+
         return (
             <div>
                 <form onSubmit = { this.onSubmit }>
-                    <label htmlFor="username">Enter username</label>
+                    <label htmlFor="email">Enter email </label>
                     <input 
-                        name="username"
+                        name="email"
                         type="text"
-                        value={username}
+                        value={email}
                         onChange={(e) => {
-                            this.setState({ username: e.target.value });
+                            this.setState({ email: e.target.value });
                         }}
                     />
-                    <label htmlFor="password">Enter your password</label>
+                    <label htmlFor="password">Enter your new password</label>
                     <input
                         name="password"
                         type="text"
@@ -55,12 +60,9 @@ class ApiLogin extends Component {
 
                     <button type="submit">Submit</button>
                 </form>
-                <Link to="/forgot" className="ml1 no-underline black">
-                    forgot my password
-                </Link>
             </div>
         )
     }
 }
 
-export default ApiLogin;
+export default PasswordReset;
