@@ -39,6 +39,7 @@
     "knex": "^0.15.2",
     "node-uuid": "^1.4.8",
     "nodemailer": "^4.6.8",
+    "nodemailer-sendgrid-transport": "^0.2.0",
     "nodemon": "^1.18.3",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",

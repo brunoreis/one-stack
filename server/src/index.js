@@ -7,8 +7,7 @@ import resolvers from './graphql/resolvers';
 // import debugExtensions from './extensions/debugExtensions';
 import typeDefs from './graphql/schema';
 import authSetup from './config/authSetup';
-// import passwordReset from './config/passwordReset';
-import passwordReset from './config/passwordReset2';
+import passwordReset from './config/passwordReset';
 
 const context = { mocks, data };
 

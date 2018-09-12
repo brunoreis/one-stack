@@ -1,47 +1,97 @@
-import express from 'express';
-import fs from 'fs';
+import crypto from 'crypto';
+import nodemailer from 'nodemailer';
+import sgTransport from 'nodemailer-sendgrid-transport';
 
-import user from '../db/queryBuilders/user';
+import User from '../db/queryBuilders/user';
 
-const forgot = require('password-reset')({
-  uri: 'http://localhost:4000/reset',
-  from: 'password-robot@localhost',
-  host: 'localhost',
-  port: 25,
-});
+function setupMailTransport() {
+  return nodemailer.createTransport(
+    sgTransport({
+      auth: {
+        api_key: process.env.MAIL_API,
+      },
+    }),
+  );
+}
 
 function passwordReset(app) {
-  app.use(forgot.middleware);
+  app.post('/forgot', async (req, res) => {
+    const user = await User.getByEmail(req.body.email);
+    if (!user) {
+      console.log('error', 'No account with that email address exists.');
+      return res.redirect('/forgot');
+    }
+    // set reset token and expire
+    const token = crypto.randomBytes(20).toString('hex');
 
-  app.post('/forgot', express.bodyParser(), (req, res) => {
-    const email = req.body.email;
-    const reset = forgot(email, (err) => {
-      if (err) res.end(`Error sending message: ${err}`);
-      else res.end('Check your inbox for a password reset message.');
+    const expireDate = new Date();
+    expireDate.setHours(expireDate.getHours() + 1);
+    const expireString = expireDate.toISOString();
+
+    User.update({
+      id: user.id,
+      resetPasswordToken: token,
+      resetPasswordExpires: expireString,
     });
 
-    reset.on('request', (req_, res_) => {
-      req_.session.reset = { email: email, id: reset.id };
-      fs.createReadStream(__dirname + '/forgot.html').pipe(res_);
+    // send mail
+    const smtpTransport = setupMailTransport();
+
+    const mailOptions = {
+      to: user.email,
+      from: 'passwordreset@onestack.com',
+      subject: 'Node.js Password Reset',
+      text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
+        'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
+        'http://' + req.headers.host + '/reset/' + token + '\n\n' +
+        'If you did not request this, please ignore this email and your password will remain unchanged.\n'
+    };
+    smtpTransport.sendMail(mailOptions);
+    return res.json({
+      message: 'mail sent.',
     });
   });
 
-  app.post('/reset', express.bodyParser(), (req, res) => {
-    if (!req.session.reset) return res.end('reset token not set');
+  app.get('/reset/:token', async (req, res) => {
+    const user = await User.getByReset(req.params.token);
+    if (!user) {
+      console.log('error', 'Password reset token is invalid or has expired.');
+      return res.redirect('/forgot');
+    }
+    return res.json({
+      message: 'valid reset',
+    });
+  });
 
-    console.log('email? ', req.body.email);
-    const email = req.body.email;
-    const password = req.body.password;
-    const confirm = req.body.confirm;
-    if (password !== confirm) return res.end('passwords do not match');
+  app.post('/reset/:token', async (req, res) => {
+    // get user with token
+    const user = await User.getByReset(req.params.token);
+    if (!user) {
+      console.log('error', 'Password reset token is invalid or has expired.');
+      return res.redirect('/forgot');
+    }
+    console.log('USER: ', user);
+    // set user password
+    User.updatePassword({
+      email: user.email,
+      password: req.body.password,
+    });
 
-    // update the user db here
-    console.log('update user password');
-    user.passwordReset({ password, email });
-
-    forgot.expire(req.session.reset.id);
-    delete req.session.reset;
-    res.end('password reset');
+    // send mail
+    const smtpTransport = setupMailTransport();
+    const mailOptions = {
+      to: user.email,
+      from: 'passwordreset@demo.com',
+      subject: 'Your password has been changed',
+      text: 'Hello,\n\n' +
+          'This is a confirmation that the password for your account ' + 
+          user.email + 
+          ' has just been changed.\n'
+    };
+    smtpTransport.sendMail(mailOptions);
+    return res.json({
+      message: 'mail sent.',
+    });
   });
 }
 
