@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../../../src/db/queryBuilders/user/getAll.js"],"names":["db","select","table"],"mappings":";;;;;;AAAA;;;;;;kBAEe,YAAYA,aACxBC,MADwB,GAExBC,KAFwB,CAElB,MAFkB,C","file":"getAll.js","sourcesContent":["import db from '../../db';\n\nexport default async () => db\n  .select()\n  .table('user');\n"]}

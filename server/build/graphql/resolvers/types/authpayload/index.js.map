@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../../../../src/graphql/resolvers/types/authpayload/index.js"],"names":["user"],"mappings":";;;;;;AAAA;;;;;;kBAEe;AACbA;AADa,C","file":"index.js","sourcesContent":["import user from './user';\n\nexport default {\n  user,\n};\n"]}
