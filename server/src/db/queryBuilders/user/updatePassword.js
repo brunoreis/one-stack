@@ -5,7 +5,6 @@ export default async ({
   email,
   password,
 }) => {
-  console.log('args: ', email, password);
   const result = await db('user')
     .where('email', email)
     .update({

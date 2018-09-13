@@ -10,8 +10,6 @@ function passportSetup(passport) {
     new LocalStrategy(
       { passReqToCallback: true },
       (req, username, password, done) => {
-        console.log('entrou no passport.auth');
-        console.log('request: \n', req.body);
         const checkPassword = data.user.checkPassword(username, password);
         checkPassword
           .then((IS_LOGIN_VALID) => {

@@ -29,17 +29,19 @@ function authSetup(app, context) {
 
   app.post('/api-login', (req, res, next) => {
     passport.authenticate('local', (err, user) => {
-      if (err) return next(err);
+      // if (err) {
+      //   return next(err);
+      // }
       if (!user) {
         return res.json(403, {
-          message: 'no user found',
+          message: 'no user found with given credentials.',
         });
       }
       // Manually establish the session...
       req.login(user, () => {
         if (err) return next(err);
         return res.json({
-          message: 'user authenticated',
+          message: 'user authenticated!',
         });
       });
       return next();
@@ -49,8 +51,8 @@ function authSetup(app, context) {
   app.post(
     '/login',
     passport.authenticate('local', {
-      successRedirect: 'http://localhost:3000/loggedUser',
-      failureRedirect: 'http://localhost:3000/',
+      successRedirect: `${process.env.WEB_URL}/loggedUser`,
+      failureRedirect: `${process.env.WEB_URL}/`,
     }),
   );
 
