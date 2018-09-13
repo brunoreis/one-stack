@@ -1,6 +1,3 @@
-// import { AUTH_TOKEN } from './constants'
-// import { setContext } from 'apollo-link-context'
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.css';
