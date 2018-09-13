@@ -7,7 +7,6 @@ export default async ({
   resetPasswordToken,
   resetPasswordExpires,
 }) => {
-  console.log('rt: ', resetPasswordToken, 're: ', resetPasswordExpires);
   const result = await db('user')
     .where('id', id)
     .update({

@@ -4,6 +4,7 @@ class PasswordForgot extends Component {
 
     state = {
         email: '',
+        message: '',
     }
 
     onSubmit = (event) => {
@@ -23,11 +24,15 @@ class PasswordForgot extends Component {
             body: JSON.stringify({
                 email,
             }),
-        }).then(response => console.log(response));
+        }).then(response => {
+            response.json().then(resJson => {
+                this.setState({ message: resJson.message });
+            });
+        });
     };
 
     render() {
-        const { email } = this.state;
+        const { email, message } = this.state;
 
         return (
             <div>
@@ -44,6 +49,9 @@ class PasswordForgot extends Component {
 
                     <button type="submit">Submit</button>
                 </form>
+                <div>
+                    { message }
+                </div>
             </div>
         )
     }

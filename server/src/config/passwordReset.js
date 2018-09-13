@@ -18,8 +18,11 @@ function passwordReset(app) {
   app.post('/forgot', async (req, res) => {
     const user = await User.getByEmail(req.body.email);
     if (!user) {
-      console.log('error', 'No account with that email address exists.');
-      return res.redirect('/forgot');
+      // console.log('error', 'No account with that email address exists.');
+      // return res.redirect(`${process.env.WEB_URL}/forgot`);
+      return res.json(403, {
+        message: 'Error: no account found for this email address.',
+      });
     }
     // set reset token and expire
     const token = crypto.randomBytes(20).toString('hex');
@@ -48,15 +51,16 @@ function passwordReset(app) {
     };
     smtpTransport.sendMail(mailOptions);
     return res.json({
-      message: 'mail sent.',
+      message: 'Email sent. Please check your inbox.',
     });
   });
 
   app.get('/reset/:token', async (req, res) => {
     const user = await User.getByReset(req.params.token);
     if (!user) {
-      console.log('error', 'Password reset token is invalid or has expired.');
-      return res.redirect('/forgot');
+      return res.json(403, {
+        message: 'Error: Password reset token is invalid or has expired.',
+      });
     }
     return res.json({
       message: 'valid reset',
@@ -67,10 +71,10 @@ function passwordReset(app) {
     // get user with token
     const user = await User.getByReset(req.params.token);
     if (!user) {
-      console.log('error', 'Password reset token is invalid or has expired.');
-      return res.redirect('/forgot');
+      return res.json(403, {
+        message: 'Error: Password reset token is invalid or has expired.',
+      });
     }
-    console.log('USER: ', user);
     // set user password
     User.updatePassword({
       email: user.email,
@@ -90,7 +94,7 @@ function passwordReset(app) {
     };
     smtpTransport.sendMail(mailOptions);
     return res.json({
-      message: 'mail sent.',
+      message: 'Your password has been reset!',
     });
   });
 }

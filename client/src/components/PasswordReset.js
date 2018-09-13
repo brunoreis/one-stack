@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 class PasswordReset extends Component {
 
     state = {
-        email: '',
         password: '',
         token: '',
+        message: '',
     }
 
     componentDidMount () {
@@ -13,7 +13,7 @@ class PasswordReset extends Component {
     }
 
     onSubmit = (event) => {
-        const { email, password, token } = this.state;
+        const { password, token } = this.state;
         event.preventDefault();
         const baseUrl = process.env.REACT_APP_ENV === 'prod'
             ? process.env.REACT_APP_PROD_URL
@@ -27,28 +27,22 @@ class PasswordReset extends Component {
             },
             // credentials: 'include',
             body: JSON.stringify({
-                email,
                 password,
             }),
-        }).then(response => console.log(response));
+        }).then(response => {
+            response.json().then(resJson => {
+                this.setState({ message: resJson.message });
+            });
+        });
     };
 
     render() {
-        const { email, password } = this.state;
+        const { password, message } = this.state;
 
         return (
             <div>
                 <form onSubmit = { this.onSubmit }>
-                    <label htmlFor="email">Enter email </label>
-                    <input 
-                        name="email"
-                        type="text"
-                        value={email}
-                        onChange={(e) => {
-                            this.setState({ email: e.target.value });
-                        }}
-                    />
-                    <label htmlFor="password">Enter your new password</label>
+                    <label htmlFor="password">Enter your new password </label>
                     <input
                         name="password"
                         type="text"
@@ -60,6 +54,9 @@ class PasswordReset extends Component {
 
                     <button type="submit">Submit</button>
                 </form>
+                <div>
+                    { message }
+                </div>
             </div>
         )
     }
