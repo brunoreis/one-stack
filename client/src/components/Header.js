@@ -28,10 +28,6 @@ class Header extends Component {
           <Link to="/login" className="ml1 no-underline black">
             login
           </Link>
-          <div className="ml1">|</div>
-          <Link to="/api-login" className="ml1 no-underline black">
-            api-login
-          </Link>
         </div>
       </div>
     );

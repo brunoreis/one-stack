@@ -15,17 +15,16 @@ class PasswordReset extends Component {
     onSubmit = (event) => {
         const { password, token } = this.state;
         event.preventDefault();
-        const baseUrl = process.env.REACT_APP_ENV === 'prod'
+        const baseUrl = process.env.REACT_APP_ENV === 'prod' // arrumar
             ? process.env.REACT_APP_PROD_URL
             : process.env.REACT_APP_DEV_URL;
-        fetch(`${baseUrl}/reset/${token}`,
+        fetch(`${baseUrl}/reset/${token}`, // mudar para graphql
         {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
             },
-            // credentials: 'include',
             body: JSON.stringify({
                 password,
             }),

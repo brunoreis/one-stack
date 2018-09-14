@@ -13,6 +13,7 @@ const QUERY = gql`
 
 class Manufacturer extends Component {
   render() {
+    console.log(process.env);
     return (
       <Query query={QUERY}>
         {({ loading, error, data }) => {

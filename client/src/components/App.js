@@ -5,7 +5,6 @@ import Manufacturer from './Manufacturer';
 import Products from './Products';
 import Users from './Users';
 import Login from './Login';
-import ApiLogin from './ApiLogin';
 import LoggedUser from './LoggedUser';
 import PasswordForgot from './PasswordForgot';
 import PasswordReset from './PasswordReset';
@@ -20,7 +19,6 @@ class App extends Component {
             <Route exact path="/" component={Manufacturer} />
             <Route exact path="/products" component={Products} />
             <Route exact path="/login" component={Login} />
-            <Route exact path="/api-login" component={ApiLogin} />
             <Route exact path="/users" component={Users} />
             <Route exact path="/loggedUser" component={LoggedUser} />
             <Route exact path="/forgot" component={PasswordForgot} />

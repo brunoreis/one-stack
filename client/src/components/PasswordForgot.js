@@ -10,17 +10,16 @@ class PasswordForgot extends Component {
     onSubmit = (event) => {
         const { email } = this.state;
         event.preventDefault();
-        const baseUrl = process.env.REACT_APP_ENV === 'prod'
+        const baseUrl = process.env.REACT_APP_ENV === 'prod' // arrumar
             ? process.env.REACT_APP_PROD_URL
             : process.env.REACT_APP_DEV_URL;
-        fetch(`${baseUrl}/forgot`,
+        fetch(`${baseUrl}/forgot`, // mudar pra graphql
         {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
             },
-            // credentials: 'include',
             body: JSON.stringify({
                 email,
             }),

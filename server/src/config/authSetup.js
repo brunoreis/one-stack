@@ -25,20 +25,17 @@ function authSetup(app, context) {
   app.use(passport.session());
 
   app.use(bodyParser.json());
-  app.use('/login', bodyParser.urlencoded({ extended: true }));
 
-  app.post('/api-login', (req, res, next) => {
+  app.post('/login', (req, res, next) => {
     passport.authenticate('local', (err, user) => {
-      // if (err) {
-      //   return next(err);
-      // }
       if (!user) {
         return res.json(403, {
-          message: 'no user found with given credentials.',
+          message: 'no user found with given credentials.', // retornar mensagem dentro do err
         });
       }
+      if (err) return next(err);
       // Manually establish the session...
-      req.login(user, () => {
+      req.login(user, () => { // verificar se pode dar erro
         if (err) return next(err);
         return res.json({
           message: 'user authenticated!',
@@ -47,14 +44,6 @@ function authSetup(app, context) {
       return next();
     })(req, res, next);
   });
-
-  app.post(
-    '/login',
-    passport.authenticate('local', {
-      successRedirect: `${process.env.WEB_URL}/loggedUser`,
-      failureRedirect: `${process.env.WEB_URL}/`,
-    }),
-  );
 
   app.use('/graphql', (req, res, next) => {
     context.loggedUser = req.user;
