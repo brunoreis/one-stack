@@ -68,6 +68,7 @@ function passwordReset(app) {
   });
 
   app.post('/reset/:token', async (req, res) => {
+    console.log('entrou');
     // get user with token
     const user = await User.getByReset(req.params.token);
     if (!user) {
