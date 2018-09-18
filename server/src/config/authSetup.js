@@ -45,7 +45,13 @@ function authSetup(app, context) {
     })(req, res, next);
   });
 
+  app.get('/logout', (req, res) => {
+    req.logout();
+    res.redirect(`${process.env.WEB_URL}/`);
+  });
+
   app.use('/graphql', (req, res, next) => {
+    context.req = req;
     context.loggedUser = req.user;
     next();
   });

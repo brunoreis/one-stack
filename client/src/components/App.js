@@ -6,8 +6,8 @@ import Products from './Products';
 import Users from './Users';
 import Login from './auth/login/Login';
 import LoggedUser from './LoggedUser';
-import PasswordForgot from './auth/passwordReset/PasswordForgot2';
-import PasswordReset from './auth/passwordReset/PasswordReset2';
+import PasswordForgot from './auth/passwordReset/PasswordForgot';
+import PasswordReset from './auth/passwordReset/PasswordReset';
 
 class App extends Component {
   render() {

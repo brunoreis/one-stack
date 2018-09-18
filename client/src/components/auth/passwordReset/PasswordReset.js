@@ -1,63 +1,70 @@
 import React, { Component } from 'react';
-import config from '../../../config';
+import { Mutation } from 'react-apollo';
+import gql from 'graphql-tag';
+
+const PASS_RESET = gql`
+  mutation PasswordReset(
+    $token: String!,
+    $password: String!) {
+    passwordReset (
+        token: $token,
+        password: $password
+    ) {
+      message,
+      success
+    }
+  }
+`;
 
 class PasswordReset extends Component {
 
-    state = {
-        password: '',
-        token: '',
-        message: '',
-    }
+  state = {
+    password: '',
+    token: '',
+    message: '',
+  }
 
-    componentDidMount () {
-      this.setState({ token: this.props.match.params.token })
-    }
+  componentDidMount () {
+    this.setState({ token: this.props.match.params.token })
+  }
 
-    onSubmit = (event) => {
-        const { password, token } = this.state;
-        event.preventDefault();
-        const apiUrl = config.getApiUrl();
-        fetch(`${apiUrl}/reset/${token}`, // mudar para graphql
-        {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                password,
-            }),
-        }).then(response => {
-            response.json().then(resJson => {
-                this.setState({ message: resJson.message });
-            });
-        });
-    };
 
-    render() {
-        const { password, message } = this.state;
+  render() {
+    const { token, password, message } = this.state;
 
-        return (
-            <div>
-                <form onSubmit = { this.onSubmit }>
-                    <label htmlFor="password">Enter your new password </label>
-                    <input
-                        name="password"
-                        type="text"
-                        value={password}
-                        onChange={(e) => {
-                            this.setState({ password: e.target.value });
-                        }}
-                    />
-
-                    <button type="submit">Submit</button>
-                </form>
-                <div>
-                    { message }
-                </div>
-            </div>
-        )
-    }
+    return (
+      <div>
+        <Mutation mutation={PASS_RESET}>
+          {(passwordReset) => (
+            <form
+              onSubmit = { async (e) => {
+                e.preventDefault();
+                passwordReset({
+                  variables: {
+                    token,
+                    password
+                  }
+                }).then(
+                  r => this.setState({ message: r.data.passwordReset.message })
+                );
+              }}
+            >
+              <input
+                placeholder="Enter your new password"
+                onChange={(e) => {
+                  this.setState({ password: e.target.value });
+                }}
+              />
+              <button type="submit">Submit</button>
+            </form>
+          )}
+        </Mutation>
+        <div>
+          { message }
+        </div>
+      </div>
+    )
+  }
 }
 
 export default PasswordReset;

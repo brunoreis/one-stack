@@ -8,8 +8,7 @@ function passportSetup(passport) {
   passport.use(
     'local',
     new LocalStrategy(
-      { passReqToCallback: true },
-      (req, username, password, done) => {
+      (username, password, done) => {
         const checkPassword = data.user.checkPassword(username, password);
         checkPassword
           .then((IS_LOGIN_VALID) => {
