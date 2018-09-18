@@ -4,10 +4,10 @@ import Header from './Header';
 import Manufacturer from './Manufacturer';
 import Products from './Products';
 import Users from './Users';
-import Login from './Login';
+import Login from './auth/login/Login';
 import LoggedUser from './LoggedUser';
-import PasswordForgot from './PasswordForgot';
-import PasswordReset from './PasswordReset';
+import PasswordForgot from './auth/passwordReset/PasswordForgot2';
+import PasswordReset from './auth/passwordReset/PasswordReset2';
 
 class App extends Component {
   render() {

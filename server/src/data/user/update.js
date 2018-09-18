@@ -1,3 +1,3 @@
 import UserDB from '../../db/queryBuilders/user';
 
-export default async (_, args) => UserDB.update(args);
+export default async args => UserDB.update(args);

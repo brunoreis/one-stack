@@ -9,6 +9,11 @@ type Mutation {
     resetPasswordExpires: String
   ): User
   deleteUser(id: Int!): Int
+  passwordForgot(email: String): Result,
+  passwordReset(
+    token: String!,
+    password: String!
+  ): Result
 }
 `;
 

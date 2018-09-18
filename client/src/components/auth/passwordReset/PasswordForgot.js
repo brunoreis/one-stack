@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import config from '../../../config';
 
 class PasswordForgot extends Component {
 
@@ -10,10 +11,8 @@ class PasswordForgot extends Component {
     onSubmit = (event) => {
         const { email } = this.state;
         event.preventDefault();
-        const baseUrl = process.env.REACT_APP_ENV === 'prod' // arrumar
-            ? process.env.REACT_APP_PROD_URL
-            : process.env.REACT_APP_DEV_URL;
-        fetch(`${baseUrl}/forgot`, // mudar pra graphql
+        const apiUrl = config.getApiUrl();
+        fetch(`${apiUrl}/forgot`, // mudar pra graphql
         {
             method: 'POST',
             headers: {

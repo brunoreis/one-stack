@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import config from '../../../config';
 
 class PasswordReset extends Component {
 
@@ -15,10 +16,8 @@ class PasswordReset extends Component {
     onSubmit = (event) => {
         const { password, token } = this.state;
         event.preventDefault();
-        const baseUrl = process.env.REACT_APP_ENV === 'prod' // arrumar
-            ? process.env.REACT_APP_PROD_URL
-            : process.env.REACT_APP_DEV_URL;
-        fetch(`${baseUrl}/reset/${token}`, // mudar para graphql
+        const apiUrl = config.getApiUrl();
+        fetch(`${apiUrl}/reset/${token}`, // mudar para graphql
         {
             method: 'POST',
             headers: {

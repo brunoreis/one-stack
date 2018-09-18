@@ -11,13 +11,12 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 import { BrowserRouter } from 'react-router-dom';
 
 import App from './components/App';
+import config from './config';
 
-const baseUrl = process.env.REACT_APP_ENV === 'prod'
-  ? process.env.REACT_APP_PROD_URL
-  : process.env.REACT_APP_DEV_URL;
+const apiUrl = config.getApiUrl();
 
 const httpLink = createHttpLink({
-  uri: `${baseUrl}/graphql`,
+  uri: `${apiUrl}/graphql`,
   credentials: 'include',
 // different for production:
 // https://www.apollographql.com/docs/react/recipes/authentication.html
