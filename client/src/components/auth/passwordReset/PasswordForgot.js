@@ -51,7 +51,6 @@ class PasswordForgot extends Component {
           { message }
         </div>
       </div>
-
     );
   };
 }
