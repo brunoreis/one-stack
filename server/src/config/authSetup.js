@@ -18,6 +18,8 @@ function authSetup(app, context) {
     session({
       genid: req => uuid.v4(),
       secret: 'Z3]GJW!?9uP"/Kpe',
+      resave: true, // verify these later:
+      saveUninitialized: false, // https://github.com/expressjs/session#options
     }),
   );
 
