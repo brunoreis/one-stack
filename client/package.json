@@ -5,6 +5,7 @@
   "dependencies": {
     "apollo-boost": "^0.1.15",
     "apollo-link-context": "^1.0.8",
+    "eslint-plugin-jest": "^21.22.0",
     "graphql": "^0.13.2",
     "graphql-tag": "^2.9.2",
     "react": "^16.4.2",
@@ -12,7 +13,8 @@
     "react-dom": "^16.4.2",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "react-test-renderer": "^16.5.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -21,10 +23,15 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "babel-jest": "^23.6.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.9.1"
+    "eslint-plugin-react": "^7.9.1",
+    "jest": "^23.6.0"
   }
 }
