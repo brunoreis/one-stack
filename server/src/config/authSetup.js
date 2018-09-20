@@ -51,7 +51,6 @@ function authSetup(app, context) {
   });
 
   app.use('/graphql', (req, res, next) => {
-    context.req = req;
     context.loggedUser = req.user;
     next();
   });

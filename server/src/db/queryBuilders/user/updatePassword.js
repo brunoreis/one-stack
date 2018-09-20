@@ -1,16 +1,15 @@
-import bcrypt from 'bcrypt';
 import db from '../../db';
 
-export default async ({
+export default async (
   email,
   password,
-}) => {
+) => {
   const result = await db('user')
     .where('email', email)
     .update({
-      password: bcrypt.hashSync(password, 10),
-      resetPasswordToken: undefined,
-      resetPasswordExpires: undefined,
+      password,
+      resetPasswordToken: null,
+      resetPasswordExpires: null,
     })
     .returning(['id', 'name', 'email']);
   return result[0];

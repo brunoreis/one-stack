@@ -6,7 +6,6 @@ export default async ({
   password,
   email,
 }) => {
-  console.log(`Add user ${name} with password ${password}`);
   const user = {
     name,
     password: bcrypt.hashSync(password, 10),

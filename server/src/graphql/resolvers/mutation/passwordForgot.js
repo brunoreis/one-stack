@@ -1,1 +1,1 @@
-export default async (_, args, context) => context.data.user.passwordForgot(context, args);
+export default async (_, args, context) => context.data.user.passwordForgot(args.email);

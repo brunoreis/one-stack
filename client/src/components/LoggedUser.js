@@ -19,7 +19,7 @@ class LoggedUser extends Component {
           if (loading) return <div>Fetching</div>;
           if (error) return <div>Error</div>;
 
-          const loggedUser = data.loggedUser;
+          const { loggedUser } = data;
 
           return (
             <div>

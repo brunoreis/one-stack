@@ -2,7 +2,7 @@ import bcrypt from 'bcrypt';
 import getByName from './getByName';
 
 export default async (username, password) => {
-  const user = await getByName(null, { username });
+  const user = await getByName(username);
   if (user) {
     if (bcrypt.compareSync(password, user.password)) {
       // login successful

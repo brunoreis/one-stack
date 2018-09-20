@@ -1,3 +1,3 @@
 import UserDB from '../../db/queryBuilders/user';
 
-export default async (_, args) => UserDB.getByEmail(args.email);
+export default async email => UserDB.getByEmail(email);

@@ -12,7 +12,7 @@ function passportSetup(passport) {
         const checkPassword = data.user.checkPassword(username, password);
         checkPassword
           .then((IS_LOGIN_VALID) => {
-            if (IS_LOGIN_VALID) return data.user.getByName('', { username });
+            if (IS_LOGIN_VALID) return data.user.getByName(username);
             throw new Error('invalid username or password');
           })
           .then(user => done(null, user))
@@ -24,7 +24,7 @@ function passportSetup(passport) {
   passport.serializeUser((user, done) => done(null, user.id));
 
   passport.deserializeUser(
-    (id, done) => data.user.get('', { id })
+    (id, done) => data.user.getById(id)
       .then((user, err) => done(err, user)),
   );
 }

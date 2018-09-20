@@ -1,6 +1,6 @@
 import create from './create';
 import del from './del';
-import get from './get';
+import getById from './getById';
 import getAll from './getAll';
 import getByName from './getByName';
 import getByEmail from './getByEmail';
@@ -15,7 +15,7 @@ import passwordReset from './passwordReset';
 export default {
   create,
   del,
-  get,
+  getById,
   getAll,
   getByName,
   getByEmail,

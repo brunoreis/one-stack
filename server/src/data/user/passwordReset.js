@@ -1,5 +1,6 @@
 import nodemailer from 'nodemailer';
 import sgTransport from 'nodemailer-sendgrid-transport';
+import bcrypt from 'bcrypt';
 
 import getByReset from './getByReset';
 import updatePassword from './updatePassword';
@@ -14,9 +15,9 @@ function setupMailTransport() {
   );
 }
 
-export default async (context, args) => {
+export default async (token, password) => {
   // get user with token
-  const user = await getByReset(context, args);
+  const user = await getByReset(token);
   if (!user) {
     return {
       message: 'Error: password reset token is invalid or has expired.',
@@ -24,10 +25,11 @@ export default async (context, args) => {
     };
   }
   // set user password
-  updatePassword({
-    email: user.email,
-    password: args.password,
-  });
+  const result = await updatePassword(
+    user.email,
+    bcrypt.hashSync(password, 10),
+  );
+  console.log('result: ', result);
 
   // send mail
   const smtpTransport = setupMailTransport();
@@ -41,6 +43,7 @@ export default async (context, args) => {
         ' has just been changed.\n'
   };
   smtpTransport.sendMail(mailOptions);
+
   return {
     message: 'Your password has been reset!',
     success: true,

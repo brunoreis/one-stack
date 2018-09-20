@@ -1,1 +1,1 @@
-export default async (_, args, context) => context.data.user.get(context, args);
+export default async (_, args, context) => context.data.user.getById(args.id);

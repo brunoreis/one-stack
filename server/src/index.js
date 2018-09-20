@@ -7,13 +7,11 @@ import resolvers from './graphql/resolvers';
 // import debugExtensions from './extensions/debugExtensions';
 import typeDefs from './graphql/schema';
 import authSetup from './config/authSetup';
-import passwordReset from './config/passwordReset';
 
 const context = { mocks, data };
 
 const app = express();
 authSetup(app, context);
-passwordReset(app);
 
 const server = new ApolloServer({
   typeDefs,

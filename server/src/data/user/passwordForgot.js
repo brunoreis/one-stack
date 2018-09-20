@@ -15,8 +15,8 @@ function setupMailTransport() {
   );
 }
 
-export default async (context, args) => {
-  const user = await getByEmail(context, args);
+export default async (email) => {
+  const user = await getByEmail(email);
   if (!user) {
     return {
       message: 'Error: no account found for this email address.',
