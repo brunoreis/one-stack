@@ -1,4 +1,4 @@
-# one-stack
+# One Stack
 
 ## Project setup
 
@@ -30,13 +30,13 @@ Before we can run our server, we need to configure the environment variables. Cr
 // .env
 DB_HOST=db
 POSTGRES_USER=postgres
-POSTGRES_DB=one-stack
+POSTGRES_DB=onestack
 ```
 Now create a ".env" file in "/client" and write
 ```
 REACT_APP_ENV=dev
 REACT_APP_DEV_URL=localhost:4000
-REACT_APP_PROD_URL=one-stack.herokuapp.com
+REACT_APP_PROD_URL=onestack.herokuapp.com
 ```
 Notice you need to restart the containers manually every time you change environment variables, since changes in .env are not automatically recognized.
 
@@ -83,7 +83,7 @@ If you see the results, your server is up, running and seeded with data.
   Username: postgres
 * Click save
 
-That's it. You should now see the "one-stack" database in the left, under Servers/yourServer/Databases
+That's it. You should now see the "onestack" database in the left, under Servers/yourServer/Databases
 
 ## Heroku Deploy
 We can use [heroku-cli](https://devcenter.heroku.com/articles/heroku-cli) to deploy to heroku in a simple manner. We will deploy both our server and client subtrees.
@@ -132,11 +132,11 @@ We also recommed following [this tutorial](https://devcenter.heroku.com/articles
 You can copy the state of the production database in heroku to your local docker database in a couple of simple steps
 1. Delete development database
 
-    to do this, you can run either `dropdb -h localhost -p 5433 -U postgres one-stack`, which takes advantage of the port maping in your docker-compose file, or `docker exec onestack_db_1 dropdb -U postgres one-stack`, which accesses the database directly from within the docker container.
+    to do this, you can run either `dropdb -h localhost -p 5433 -U postgres onestack`, which takes advantage of the port maping in your docker-compose file, or `docker exec onestack_db_1 dropdb -U postgres onestack`, which accesses the database directly from within the docker container.
 
 1. Pull the production database
 
-    Heroku provides a command that does that for you. Simply run `heroku pg:pull DATABASE_URL postgres://postgres@localhost:5433/one-stack`. You might need to change the developlent database url (the last argument) according to your local configuration.
+    Heroku provides a command that does that for you. Simply run `heroku pg:pull DATABASE_URL postgres://postgres@localhost:5433/onestack`. You might need to change the developlent database url (the last argument) according to your local configuration.
 
 ## Other topics
 

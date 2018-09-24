@@ -3,3 +3,4 @@ WORKDIR /src
 COPY . .
 RUN npm install
 RUN npm install -g knex
+RUN npm install -g knex-migrate

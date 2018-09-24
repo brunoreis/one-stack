@@ -29,7 +29,7 @@ services:
     ports:
       - "5433:5432"
     environment:
-      POSTGRES_DB: one-stack
+      POSTGRES_DB: onestack
     networks:
       - pgnetwork
 

@@ -12,7 +12,8 @@
     "coverage": "jest --collectCoverageFrom=src/**.js --coverage src",
     "build": "npm run clean && npm run build-babel",
     "start": "npm run build && node ./build/index.js",
-    "start-dev": "nodemon --exec babel-node ./src/index.js"
+    "start-dev": "nodemon --exec babel-node ./src/index.js",
+    "db:reset": "knex-migrate redo && knex seed:run"
   },
   "repository": {
     "type": "git",
@@ -42,6 +43,7 @@
     "graphql-tools": "^3.1.1",
     "jest": "^23.6.0",
     "knex": "^0.15.2",
+    "knex-migrate": "^1.6.1",
     "node-uuid": "^1.4.8",
     "nodemailer": "^4.6.8",
     "nodemailer-sendgrid-transport": "^0.2.0",

@@ -30,6 +30,7 @@ function authSetup(app, context) {
 
   app.post('/login', (req, res, next) => {
     passport.authenticate('local', (err, user) => {
+      console.log('entrou: ', req.body, user);
       if (!user) {
         return res.json(403, {
           message: 'no user found with given credentials.', // retornar mensagem dentro do err

@@ -16,7 +16,7 @@ export default async (event) => {
     {
       method: 'POST',
       headers: {
-        'Accept': 'application/json',
+        Accept: 'application/json',
         'Content-Type': 'application/json',
       },
       credentials: 'include',
