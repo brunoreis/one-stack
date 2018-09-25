@@ -5,7 +5,6 @@
   "dependencies": {
     "apollo-boost": "^0.1.15",
     "apollo-link-context": "^1.0.8",
-    "cypress": "^3.1.0",
     "eslint-plugin-jest": "^21.22.0",
     "graphql": "^0.13.2",
     "graphql-tag": "^2.9.2",
@@ -22,7 +21,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "cypress:open": "cypress open",
     "db:reset": "docker-compose run server npm run db:reset"
   },
   "devDependencies": {

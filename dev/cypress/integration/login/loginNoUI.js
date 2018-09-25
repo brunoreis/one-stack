@@ -17,6 +17,9 @@ describe('The loggedUser Page', () => {
       password,
     });
 
+    // our auth cookie should be present
+    cy.getCookie('connect.sid').should('exist');
+
     // now that we're logged in, we can visit
     // any kind of restricted route!
     cy.visit('/loggedUser');

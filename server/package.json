@@ -12,8 +12,7 @@
     "coverage": "jest --collectCoverageFrom=src/**.js --coverage src",
     "build": "npm run clean && npm run build-babel",
     "start": "npm run build && node ./build/index.js",
-    "start-dev": "nodemon --exec babel-node ./src/index.js",
-    "db:reset": "knex-migrate redo"
+    "start-dev": "nodemon --exec babel-node ./src/index.js"
   },
   "repository": {
     "type": "git",

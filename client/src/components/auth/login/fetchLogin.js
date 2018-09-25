@@ -6,12 +6,7 @@ export default async (event) => {
   const password = event.target[1].value;
   const baseUrl = config.getApiUrl();
 
-  const result = {
-    message: '',
-    successful: false,
-  };
-
-  await fetch(
+  return fetch(
     `${baseUrl}/login`,
     {
       method: 'POST',
@@ -25,14 +20,5 @@ export default async (event) => {
         password,
       }),
     },
-  ).then((response) => {
-    if (response.status === 200) result.successful = true;
-    else {
-      response.json().then((resJson) => {
-        result.message = resJson.message;
-      });
-    }
-  });
-
-  return result;
+  ).then(res => res.json());
 };
