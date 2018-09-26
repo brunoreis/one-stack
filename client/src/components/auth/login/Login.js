@@ -11,7 +11,7 @@ class Login extends Component {
 
     setResult = (fetchResult) => {
         this.setState ({
-            shouldRedirect: fetchResult.successful,
+            shouldRedirect: fetchResult.success,
             errorMessage: fetchResult.message,
         })
     }

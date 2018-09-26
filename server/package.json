@@ -42,6 +42,7 @@
     "graphql-tools": "^3.1.1",
     "jest": "^23.6.0",
     "knex": "^0.15.2",
+    "knex-migrate": "^1.6.1",
     "node-uuid": "^1.4.8",
     "nodemailer": "^4.6.8",
     "nodemailer-sendgrid-transport": "^0.2.0",

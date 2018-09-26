@@ -1,0 +1,20 @@
+{
+  "name": "dev",
+  "version": "1.0.0",
+  "description": "developer tools for onestack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:open": "cypress open",
+    "db:reset": "knex-migrate redo",
+    "db:seed": "knex seed:run"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^3.1.0",
+    "knex": "^0.15.2",
+    "knex-migrate": "^1.7.0",
+    "pg": "^7.4.3"
+  }
+}

@@ -23,6 +23,8 @@ function authSetup(app, context) {
     }),
   );
 
+  // app.
+
   app.use(passport.initialize());
   app.use(passport.session());
 
@@ -30,16 +32,19 @@ function authSetup(app, context) {
 
   app.post('/login', (req, res, next) => {
     passport.authenticate('local', (err, user) => {
-      if (!user) {
-        return res.json(403, {
-          message: 'no user found with given credentials.', // retornar mensagem dentro do err
-        });
+      if (err) {
+        return res
+          .status(403)
+          .json({
+            success: false,
+            message: err.message, // retornar mensagem dentro do err
+          });
       }
-      if (err) return next(err);
       // Manually establish the session...
       req.login(user, () => { // verificar se pode dar erro
         if (err) return next(err);
         return res.json({
+          success: true,
           message: 'user authenticated!',
         });
       });
@@ -49,6 +54,7 @@ function authSetup(app, context) {
 
   app.get('/logout', (req, res) => {
     req.logout();
+    res.clearCookie('connect.sid');
     res.redirect(`${process.env.WEB_URL}/`);
   });
 
