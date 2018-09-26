@@ -21,7 +21,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "db:reset": "docker-compose run server npm run db:reset"
+    "db:reset": "docker-compose run server npm run db:reset",
+    "postbuild": "react-scripts build"
   },
   "devDependencies": {
     "babel-jest": "^23.6.0",

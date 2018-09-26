@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.css';
-
-import registerServiceWorker from './registerServiceWorker';
+import { BrowserRouter } from 'react-router-dom';
 import { ApolloProvider } from 'react-apollo';
+
 import { ApolloClient } from 'apollo-client';
 import { createHttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 
-import { BrowserRouter } from 'react-router-dom';
+import registerServiceWorker from './registerServiceWorker';
 
 import App from './components/App';
 import config from './config';
