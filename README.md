@@ -141,6 +141,12 @@ You can copy the state of the production database in heroku to your local docker
 
     Heroku provides a command that does that for you. Simply run `heroku pg:pull DATABASE_URL postgres://postgres@localhost:5433/onestack`. You might need to change the developlent database url (the last argument) according to your local configuration.
 
+## Running integration tests
+
+We use cypress to run end-to-end tests. To open cypress, go to /dev and run `npm run cypress:open`.
+
+This will open the cypress, where you can navigate the tests directory (dev/cypress/integration). Simply click on any test to run it.
+
 ## Other topics
 
 Password reset setup:
