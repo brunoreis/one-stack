@@ -2,13 +2,19 @@
 
 ## Project setup
 
-### Docker
-We have a docker file to set up your dev env. To build the docker containers, go to the root of the project and run
+This project is organized in three directories: /client, /server and /dev.
 
-`docker-compose up`
+* /client contains the frontend code
+* /server contains the backend code
+* /dev hosts tools and commands for managing environment, deployment, database, etc. such as heroku and knex. It also hosts our integrations tests in cypress.
+
+### Docker
+We have a docker-compose file to set up your development environment. To build the docker containers, go to the root of the project and run
+
+`docker-compose up` or
 `docker-compose up -d` to run in background
 
-This sets up four docker containers: One for the backend code (/server), one for the frontend code (/client), one for the postgres database, and one for pgAdmin.
+This sets up four docker containers: One for the backend code (/server), one for the frontend code (/client), one for the postgres database, and one for pgAdmin. You can run each container individually with `docker-container up server`, for example.
 
 If you run `docker-compose ps` you will be presented with these containers:
 
@@ -21,7 +27,7 @@ onestack_pgadmin_1   docker-entrypoint.sh pgadmin4   Up      0.0.0.0:5050->5050/
 onestack_server_1    npm run start-dev               Up      0.0.0.0:4000->4000/tcp
 ```
 
-As you can see, you can acess the client on port 3000 and the backend on port 4000. 
+As you can see, you can acess the client on port 3000 and the server on port 4000. 
 
 ### Environment setup
 
@@ -31,31 +37,24 @@ Before we can run our server, we need to configure the environment variables. Cr
 DB_HOST=db
 POSTGRES_USER=postgres
 POSTGRES_DB=onestack
+WEB_URL=http://localhost:3000
 ```
 Now create a ".env" file in "/client" and write
 ```
-REACT_APP_ENV=dev
-REACT_APP_DEV_URL=localhost:4000
-REACT_APP_PROD_URL=onestack.herokuapp.com
+REACT_APP_API_LOCATION=local
+REACT_APP_API_URL=http://localhost:4000
 ```
 Notice you need to restart the containers manually every time you change environment variables, since changes in .env are not automatically recognized.
 
-The .env file won't be commited to the repository since it's added on the .gitignore. 
- 
+The .env file won't be commited to the repository since it's added to .gitignore. 
+
 ### Database setup
 
-Now we need to run the migrations to build our tables. And to run the seeds to add test data to our database. 
-To do this, access your server container bash shell: 
+Now we need to run the migrations to build our tables, and the seeds to add test data to our database. To do this, go to the /dev directory and run: 
 
-`docker exec -it onestack_server_1 bash`
+`npm run db:reset` to reset the db and running all migrations and
 
-Once inside the container, run the migrations with 
-
-`knex migrate:latest`, 
-
-then the seeds with 
-
-`knex seed:run`.
+`npm run db:seed` to run the seed file.
 
 * if you get a connection error, review the .env section above. 
 
@@ -86,28 +85,31 @@ If you see the results, your server is up, running and seeded with data.
 That's it. You should now see the "onestack" database in the left, under Servers/yourServer/Databases
 
 ## Heroku Deploy
-We can use [heroku-cli](https://devcenter.heroku.com/articles/heroku-cli) to deploy to heroku in a simple manner. We will deploy both our server and client subtrees.
+We will deploy our client and server separately, each into its own heroku app, and set environment variables to make them visible to each other.
 
-OBS: notice that since we will have multiple heroku apps associated with our project, we will need to append --app 'app-name' to every heroku-cli command.
+We can use heroku-cli to deploy to heroku in a simple manner. You can either install it globally with `npm install -g heroku` or use the local version in /dev by prefixing `npx ` to every command. We will assume the former.
+
+OBS: notice that since we will have two heroku apps associated with our project, we will need to append --app 'app-name' or --remote 'remote-name' to every heroku-cli command.
 
 ### Deploy server
-1. create the heroku app with `heroku create 'server-name'`
+1. navigate to /dev
+1. create the heroku app with `heroku create 'server-app-name'`
 1. add heroku-postgres add-on with `heroku addons:create heroku-postgresql:hobby-dev`. OBS:  you can run a [psql](https://www.postgresql.org/docs/current/static/app-psql.html) session with your heroku database with `heroku pg:psql`
 1. add the node environment with `heroku config:set NODE_ENV=production`
-1. push the server directory to the new heroku remote with `git subtree push --prefix server heroku-server master`
-1. run seed and migrations by opening a bash in heroku: `heroku run bash` then running `knex migrate:latest && knex seed:run`. Exit the bash with `exit`
 1. rename the git remote so it doesn't conflict with our client deploy: `git remote rename heroku heroku-server`
+1. push the server directory to the new heroku remote (from /dev) with `npm run heroku:push-server`
+1. run seed and migrations by opening a bash in heroku: `heroku run bash` then running `knex migrate:latest && knex seed:run`. Exit bash with `exit`.
 
 We can access our heroku app by running `heroku open`, and open bash with `heroku run bash`.
 
 ### Deploy client
 1. If you haven't, make sure to rename the git remote pointing to the server
-1. create the heroku app with `heroku create 'client-name'`
+1. create the heroku app with `heroku create 'client-app-name'`
 1. rename the remote with `git remote rename heroku heroku-client`
-1. push the client directory with `git subtree push --prefix client heroku-client master`
-1. set environment variables: `heroku config:set REACT_APP_ENV=prod REACT_APP_PROD_URL=https://onestack-server.herokuapp.com --app 'app-name'`
+1. push the client directory (from /dev) with `npm run heroku:push-client`
+1. set environment variables: `heroku config:set REACT_APP_API_URL=https://'server-app-name'.herokuapp.com --app 'app-name'`
 
-To push local changes to heroku, simply run `git subtree push --prefix server heroku-server master` or `git subtree push --prefix client heroku-client master`. OBS: notice this command will push the current branch, not necessarily master.
+To push local changes to heroku, simply go to /dev and run `npm run heroku:push-server` or `npm run heroku:push-server`. OBS: notice that this command will push changes in the current working branch, not necessarily in the master branch.
 
 
 ### Enabling Graphql Playground in production
@@ -129,7 +131,8 @@ We also recommed following [this tutorial](https://devcenter.heroku.com/articles
 
 ## Syncing local and production databases
 
-You can copy the state of the production database in heroku to your local docker database in a couple of simple steps
+You can copy the state of the production database in heroku to your local docker database in a couple of simple steps:
+
 1. Delete development database
 
     to do this, you can run either `dropdb -h localhost -p 5433 -U postgres onestack`, which takes advantage of the port maping in your docker-compose file, or `docker exec onestack_db_1 dropdb -U postgres onestack`, which accesses the database directly from within the docker container.
