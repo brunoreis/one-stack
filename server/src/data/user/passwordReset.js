@@ -29,7 +29,6 @@ export default async (token, password) => {
     user.email,
     bcrypt.hashSync(password, 10),
   );
-  console.log('result: ', result);
 
   // send mail
   const smtpTransport = setupMailTransport();

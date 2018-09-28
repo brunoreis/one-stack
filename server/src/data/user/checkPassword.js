@@ -1,8 +1,8 @@
 import bcrypt from 'bcrypt';
-import getByName from './getByName';
+import getByEmail from './getByEmail';
 
-export default async (username, password) => {
-  const user = await getByName(username);
+export default async (email, password) => {
+  const user = await getByEmail(email);
   if (user) {
     if (bcrypt.compareSync(password, user.password)) {
       // login successful

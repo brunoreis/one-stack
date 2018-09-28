@@ -4,7 +4,7 @@ import fetchLogin from './fetchLogin';
 class LoginForm extends Component {
 
   state = {
-    username: '',
+    email: '',
     password: '',
     errorMessage: '',
     shouldRedirect: false,
@@ -16,18 +16,18 @@ class LoginForm extends Component {
   };
 
   render() {
-    const { username, password } = this.state;
+    const { email, password } = this.state;
 
     return (
       <div>
         <form onSubmit = { this.onSubmit }>
-            <label htmlFor="username">Enter username</label>
+            <label htmlFor="email">Enter email</label>
             <input 
-                name="username"
+                name="email"
                 type="text"
-                value={username}
+                value={email}
                 onChange={(e) => {
-                    this.setState({ username: e.target.value });
+                    this.setState({ email: e.target.value });
                 }}
             />
             <label htmlFor="password">Enter your password</label>

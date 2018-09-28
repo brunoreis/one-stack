@@ -32,7 +32,7 @@ function authSetup(app, context) {
 
   app.post('/login', (req, res, next) => {
     passport.authenticate('local', (err, user) => {
-      if (err) {
+      if (err || !user) {
         return res
           .status(403)
           .json({
@@ -55,7 +55,8 @@ function authSetup(app, context) {
   app.get('/logout', (req, res) => {
     req.logout();
     res.clearCookie('connect.sid');
-    res.redirect(`${process.env.WEB_URL}/`);
+    res.end();
+    // res.redirect(`${process.env.WEB_URL}/`);
   });
 
   app.use('/graphql', (req, res, next) => {

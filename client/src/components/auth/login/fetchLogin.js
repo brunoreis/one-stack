@@ -2,12 +2,12 @@ import config from '../../../config';
 
 export default async (event) => {
   event.preventDefault();
-  const username = event.target[0].value;
+  const email = event.target[0].value;
   const password = event.target[1].value;
-  const baseUrl = config.getApiUrl();
+  const apiUrl = config.getApiUrl();
 
   return fetch(
-    `${baseUrl}/login`,
+    `${apiUrl}/login`,
     {
       method: 'POST',
       headers: {
@@ -16,9 +16,13 @@ export default async (event) => {
       },
       credentials: 'include',
       body: JSON.stringify({
-        username,
+        email,
         password,
       }),
     },
-  ).then(res => res.json());
+  )
+    .then(res => res.json())
+    .catch((err) => {
+      console.log('error', err);
+    });
 };

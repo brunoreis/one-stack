@@ -1,8 +1,9 @@
+import { AuthenticationError } from 'apollo-server';
+
 export default async (_, args, context) => {
   const loggedUser = context.loggedUser;
-  if (loggedUser) {
-    return context.data.user.getLoggedUser(loggedUser.id);
+  if (!loggedUser) {
+    throw new AuthenticationError('Not logged in');
   }
-  // not logged in
-  return null;
+  return context.data.user.getLoggedUser(loggedUser.id);
 };

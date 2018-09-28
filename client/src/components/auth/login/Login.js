@@ -30,7 +30,7 @@ class Login extends Component {
                 <Link to="/forgot" className="ml1 no-underline black">
                     forgot my password
                 </Link>
-            </div>
+              </div>
         )
     }
 }

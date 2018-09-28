@@ -8,15 +8,20 @@ function passportSetup(passport) {
   passport.use(
     'local',
     new LocalStrategy(
-      (username, password, done) => {
-        const checkPassword = data.user.checkPassword(username, password);
-        checkPassword
+      {
+        usernameField: 'email',
+        passwordField: 'password',
+      },
+      (email, password, done) => {
+        data.user.checkPassword(email, password)
           .then((IS_LOGIN_VALID) => {
-            if (IS_LOGIN_VALID) return data.user.getByName(username);
-            throw new Error('invalid username or password');
+            if (IS_LOGIN_VALID) return data.user.getByEmail(email);
+            throw new Error('invalid email or password');
           })
           .then(user => done(null, user))
-          .catch(err => done(err));
+          .catch((err) => {
+            done(err);
+          });
       },
     ),
   );

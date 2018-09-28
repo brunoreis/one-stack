@@ -11,7 +11,7 @@ const QUERY = gql`
   }
 `;
 
-class users extends Component {
+class Users extends Component {
   render() {
     return (
       <Query query={QUERY}>
@@ -19,7 +19,7 @@ class users extends Component {
           if (loading) return <div>Fetching</div>;
           if (error) return <div>Error</div>;
 
-          const users = data.users;
+          const { users } = data;
 
           return (
             <div>
@@ -34,4 +34,4 @@ class users extends Component {
   }
 }
 
-export default users;
+export default Users;
