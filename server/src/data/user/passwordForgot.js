@@ -18,9 +18,10 @@ function setupMailTransport() {
 export default async (email) => {
   const user = await getByEmail(email);
   if (!user) {
+    // does not send mail, but does not tell user email is invalid
     return {
-      message: 'Error: no account found for this email address.',
-      success: false,
+      message: `Email sent to ${email}. Please check your inbox.`,
+      success: true,
     };
   }
 
@@ -49,9 +50,10 @@ export default async (email) => {
       process.env.WEB_URL + '/reset/' + token + '\n\n' +
       'If you did not request this, please ignore this email and your password will remain unchanged.\n'
   };
+
   smtpTransport.sendMail(mailOptions);
   return {
-    message: 'Email sent. Please check your inbox.',
+    message: `Email sent to ${email}. Please check your inbox.`,
     success: true,
   };
 };
