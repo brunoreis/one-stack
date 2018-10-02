@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 
+import ErrorHandler from './ErrorHandler';
+
 const QUERY = gql`
   {
     loggedUser {
@@ -14,24 +16,15 @@ const QUERY = gql`
 class LoggedUser extends Component {
   render() {
     return (
-      <Query query={QUERY} fetchPolicy="network-only">
+      <Query query={QUERY} fetchPolicy="network-only" errorPolicy="all">
         {({ loading, error, data }) => {
-          if (loading) return <div>Fetching</div>;
-          if (error) return <div>Error</div>;
-
+          if (loading) return <div>Fetching...</div>;
+          if (error && error.networkError) return <div>Network Error</div>;
           const { loggedUser } = data;
-
           return (
             <div>
-              {
-                loggedUser
-                  ? (
-                    <div>
-                      {loggedUser.id} {loggedUser.name}
-                    </div>
-                  )
-                  : <div> Not logged in </div>
-              }
+              { loggedUser && <div> {loggedUser.id} {loggedUser.name} </div> }
+              <ErrorHandler error={error} />
             </div>
           );
         }}
