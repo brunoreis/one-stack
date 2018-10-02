@@ -20,6 +20,5 @@ export default async (event) => {
         password,
       }),
     },
-  )
-    .then(res => res.json());
+  ).then(res => res.json());
 };

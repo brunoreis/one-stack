@@ -1,70 +1,36 @@
-import React, { Component } from 'react';
-import { Mutation } from 'react-apollo';
-import gql from 'graphql-tag';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const PASS_RESET = gql`
-  mutation PasswordReset(
-    $token: String!,
-    $password: String!) {
-    passwordReset (
-        token: $token,
-        password: $password
-    ) {
-      message,
-      success
-    }
-  }
-`;
+const PasswordReset = (props) => {
+  const {
+    newPassword,
+    setNewPassword,
+    message,
+    passwordResetMutate,
+  } = props;
 
-class PasswordReset extends Component {
-
-  state = {
-    password: '',
-    token: '',
-    message: '',
-  }
-
-  componentDidMount () {
-    this.setState({ token: this.props.match.params.token })
-  }
-
-
-  render() {
-    const { token, password, message } = this.state;
-
-    return (
+  return (
+    <div>
+      <input
+        placeholder="Enter your new password"
+        onChange={(e) => {
+          setNewPassword(e.target.value);
+        }}
+        value={newPassword}
+      />
+      <button onClick={passwordResetMutate} type="button">Submit</button>
       <div>
-        <Mutation mutation={PASS_RESET}>
-          {(passwordReset) => (
-            <form
-              onSubmit = { async (e) => {
-                e.preventDefault();
-                passwordReset({
-                  variables: {
-                    token,
-                    password
-                  }
-                }).then(
-                  r => this.setState({ message: r.data.passwordReset.message })
-                );
-              }}
-            >
-              <input
-                placeholder="Enter your new password"
-                onChange={(e) => {
-                  this.setState({ password: e.target.value });
-                }}
-              />
-              <button type="submit">Submit</button>
-            </form>
-          )}
-        </Mutation>
-        <div>
-          { message }
-        </div>
+        { message }
       </div>
-    )
-  }
-}
+    </div>
+  );
+};
+
+PasswordReset.propTypes = {
+  newPassword: PropTypes.string.isRequired,
+  setNewPassword: PropTypes.func.isRequired,
+  message: PropTypes.string.isRequired,
+  passwordResetMutate: PropTypes.func.isRequired,
+};
 
 export default PasswordReset;

@@ -4,11 +4,11 @@ import Header from './Header';
 import Manufacturer from './Manufacturer';
 import Products from './Products';
 import Users from './Users';
-import Login from './auth/login/Login';
-import Logout from './auth/login/Logout';
+import LoginContainer from './auth/Login/LoginContainer';
+import LogoutContainer from './auth/Logout/LogoutContainer';
 import LoggedUser from './LoggedUser';
-import PasswordForgot from './auth/passwordReset/PasswordForgot';
-import PasswordReset from './auth/passwordReset/PasswordReset';
+import PasswordForgotContainer from './auth/PasswordForgot/PasswordForgotContainer';
+import PasswordResetContainer from './auth/passwordReset/PasswordResetContainer';
 
 class App extends Component {
   render() {
@@ -19,12 +19,12 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Manufacturer} />
             <Route exact path="/products" component={Products} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/logout" component={Logout} />
+            <Route exact path="/login" component={LoginContainer} />
+            <Route exact path="/logout" component={LogoutContainer} />
             <Route exact path="/users" component={Users} />
             <Route exact path="/loggedUser" component={LoggedUser} />
-            <Route exact path="/forgot" component={PasswordForgot} />
-            <Route exact path="/reset/:token" component={PasswordReset} />
+            <Route exact path="/forgot" component={PasswordForgotContainer} />
+            <Route exact path="/reset/:token" component={PasswordResetContainer} />
           </Switch>
         </div>
       </div>
