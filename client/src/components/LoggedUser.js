@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 
@@ -13,24 +13,20 @@ const QUERY = gql`
   }
 `;
 
-class LoggedUser extends Component {
-  render() {
-    return (
-      <Query query={QUERY} fetchPolicy="network-only" errorPolicy="all">
-        {({ loading, error, data }) => {
-          if (loading) return <div>Fetching...</div>;
-          if (error && error.networkError) return <div>Network Error</div>;
-          const { loggedUser } = data;
-          return (
-            <div>
-              { loggedUser && <div> {loggedUser.id} {loggedUser.name} </div> }
-              <ErrorHandler error={error} />
-            </div>
-          );
-        }}
-      </Query>
-    );
-  }
-}
+const LoggedUser = () => (
+  <Query query={QUERY} fetchPolicy="network-only" errorPolicy="all">
+    {({ loading, error, data }) => {
+      if (loading) return <div>Fetching...</div>;
+      if (error && error.networkError) return <div>Network Error</div>;
+      const { loggedUser } = data;
+      return (
+        <div>
+          { loggedUser && <div> {loggedUser.id} {loggedUser.name} </div> }
+          <ErrorHandler error={error} />
+        </div>
+      );
+    }}
+  </Query>
+);
 
 export default LoggedUser;

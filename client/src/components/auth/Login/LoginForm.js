@@ -7,32 +7,29 @@ const LoginForm = (props) => {
     setEmail,
     password,
     setPassword,
-    onSubmit,
+    sendForm,
   } = props;
   return (
     <div>
-      <form onSubmit={onSubmit}>
-        <input
-          placeholder="Enter email"
-          name="email"
-          type="text"
-          value={email}
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-        />
-        <input
-          placeholder="Enter password"
-          name="password"
-          type="text"
-          value={password}
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-        />
-
-        <button type="submit">Submit</button>
-      </form>
+      <input
+        placeholder="Enter email"
+        name="email"
+        type="text"
+        value={email}
+        onChange={(e) => {
+          setEmail(e.target.value);
+        }}
+      />
+      <input
+        placeholder="Enter password"
+        name="password"
+        type="text"
+        value={password}
+        onChange={(e) => {
+          setPassword(e.target.value);
+        }}
+      />
+      <button onClick={sendForm} type="button">Submit</button>
     </div>
   );
 };
@@ -42,7 +39,7 @@ LoginForm.propTypes = {
   setEmail: PropTypes.func.isRequired,
   password: PropTypes.string.isRequired,
   setPassword: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired,
+  sendForm: PropTypes.func.isRequired,
 };
 
 export default LoginForm;

@@ -8,10 +8,9 @@ const LoginContainer = compose(
   withState('email', 'setEmail', ''),
   withState('password', 'setPassword', ''),
   withHandlers({
-    onSubmit: props => async (event) => {
-      console.log(event);
-      const result = await fetchLogin(event);
-      props.setResult(result);
+    sendForm: props => () => {
+      fetchLogin(props.email, props.password)
+        .then(result => props.setResult(result));
     },
   }),
 )(LoginForm);

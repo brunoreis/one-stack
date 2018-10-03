@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 
@@ -11,27 +11,25 @@ const QUERY = gql`
   }
 `;
 
-class Users extends Component {
-  render() {
-    return (
-      <Query query={QUERY}>
-        {({ loading, error, data }) => {
-          if (loading) return <div>Fetching</div>;
-          if (error) return <div>Error</div>;
+const Users = () => (
+  <Query query={QUERY}>
+    {({ loading, error, data }) => {
+      if (loading) return <div>Fetching</div>;
+      if (error) return <div>Error</div>;
 
-          const { users } = data;
+      const { users } = data;
 
-          return (
+      return (
+        <div>
+          {users.map(({ id, name }) => (
             <div>
-              {users[0].id} {users[0].name}
-              <br />
-              {users[1].id} {users[1].name}
+              {`id: ${id} - nome: ${name}`}
             </div>
-          );
-        }}
-      </Query>
-    );
-  }
-}
+          ))}
+        </div>
+      );
+    }}
+  </Query>
+);
 
 export default Users;

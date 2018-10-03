@@ -1,11 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default (props) => {
+const ErrorHandler = (props) => {
   const { error } = props;
   if (error && error.graphQLErrors) {
     console.log(error.graphQLErrors[0]);
     return (
-      // <div> {error.graphQLErrors[0].message} </div>
       <div>
         {error.graphQLErrors.map(({ message, extensions }, i) => (
           <span key={i}>
@@ -17,3 +17,9 @@ export default (props) => {
   }
   return null;
 };
+
+ErrorHandler.propTypes = {
+  error: PropTypes.object.isRequired,
+};
+
+export default ErrorHandler;

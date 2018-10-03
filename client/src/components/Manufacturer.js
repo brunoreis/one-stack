@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 
@@ -11,26 +11,22 @@ const QUERY = gql`
   }
 `;
 
-class Manufacturer extends Component {
-  render() {
-    return (
-      <Query query={QUERY}>
-        {({ loading, error, data }) => {
-          if (loading) return <div>Fetching</div>;
-          if (error) return <div>Error</div>;
+const Manufacturer = () => (
+  <Query query={QUERY}>
+    {({ loading, error, data }) => {
+      if (loading) return <div>Fetching</div>;
+      if (error) return <div>Error</div>;
 
-          const manufacturer = data.manufacturer;
+      const { manufacturer } = data;
 
-          return (
-            <div>
-              {manufacturer.name}
-              {manufacturer.phone}
-            </div>
-          );
-        }}
-      </Query>
-    );
-  }
-}
+      return (
+        <div>
+          {manufacturer.name}
+          {manufacturer.phone}
+        </div>
+      );
+    }}
+  </Query>
+);
 
 export default Manufacturer;
