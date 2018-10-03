@@ -1,9 +1,8 @@
 import config from '../../../config';
 
-export default () => {
+const logout = (onLogout) => {
   const apiUrl = config.getApiUrl();
-
-  return fetch(
+  fetch(
     `${apiUrl}/logout`,
     {
       method: 'GET',
@@ -13,5 +12,7 @@ export default () => {
       },
       credentials: 'include',
     },
-  );
+  ).then(() => onLogout());
 };
+
+export default logout;

@@ -7,6 +7,7 @@ const LoginForm = (props) => {
     setEmail,
     password,
     setPassword,
+    errorMessage,
     sendForm,
   } = props;
   return (
@@ -30,6 +31,9 @@ const LoginForm = (props) => {
         }}
       />
       <button onClick={sendForm} type="button">Submit</button>
+      <div>
+        { errorMessage }
+      </div>
     </div>
   );
 };
@@ -39,6 +43,7 @@ LoginForm.propTypes = {
   setEmail: PropTypes.func.isRequired,
   password: PropTypes.string.isRequired,
   setPassword: PropTypes.func.isRequired,
+  errorMessage: PropTypes.string.isRequired,
   sendForm: PropTypes.func.isRequired,
 };
 

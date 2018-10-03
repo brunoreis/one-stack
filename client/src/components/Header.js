@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
-import Logout from './auth/Logout/Logout';
+import LogoutButton from './auth/Logout/LogoutButton';
 
 const Header = props => (
   <div className="flex pa1 justify-between nowrap orange">
@@ -28,9 +28,7 @@ const Header = props => (
         Login
       </Link>
       <div className="ml1">|</div>
-      <button onClick={() => Logout(props)} type="button">
-        Logout
-      </button>
+      <LogoutButton onLogout={() => props.history.push('/')} />
     </div>
   </div>
 );

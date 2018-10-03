@@ -11,8 +11,8 @@ const ErrorHandler = (props) => {
   if (error.graphQLErrors) {
     return (
       <div>
-        {error.graphQLErrors.map(({ message, extensions }) => (
-          <div>
+        {error.graphQLErrors.map(({ extensions, message }, index) => (
+          <div key={index}>
             {extensions ? `${extensions.code}: ${message}` : message}
           </div>
         ))}

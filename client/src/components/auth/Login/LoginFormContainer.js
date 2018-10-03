@@ -7,10 +7,14 @@ import fetchLogin from './fetchLogin';
 const LoginContainer = compose(
   withState('email', 'setEmail', ''),
   withState('password', 'setPassword', ''),
+  withState('errorMessage', 'setErrorMessage', ''),
   withHandlers({
     sendForm: props => () => {
       fetchLogin(props.email, props.password)
-        .then(result => props.setResult(result));
+        .then(({ message, success }) => {
+          props.setErrorMessage(message);
+          success && props.onSuccess();
+        });
     },
   }),
 )(LoginForm);

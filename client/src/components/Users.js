@@ -21,9 +21,9 @@ const Users = () => (
 
       return (
         <div>
-          {users.map(({ id, name }) => (
-            <div>
-              {`id: ${id} - nome: ${name}`}
+          {users.map(user => (
+            <div key={user.id}>
+              {`id: ${user.id} - nome: ${user.name}`}
             </div>
           ))}
         </div>
