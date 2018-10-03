@@ -3,14 +3,18 @@ import PropTypes from 'prop-types';
 
 const ErrorHandler = (props) => {
   const { error } = props;
-  if (error && error.graphQLErrors) {
-    console.log(error.graphQLErrors[0]);
+
+  if (!error) return null;
+
+  if (error.networkError) return <div>Network Error</div>;
+
+  if (error.graphQLErrors) {
     return (
       <div>
-        {error.graphQLErrors.map(({ message, extensions }, i) => (
-          <span key={i}>
+        {error.graphQLErrors.map(({ message, extensions }) => (
+          <div>
             {extensions ? `${extensions.code}: ${message}` : message}
-          </span>
+          </div>
         ))}
       </div>
     );

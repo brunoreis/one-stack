@@ -17,13 +17,15 @@ const LoggedUser = () => (
   <Query query={QUERY} fetchPolicy="network-only" errorPolicy="all">
     {({ loading, error, data }) => {
       if (loading) return <div>Fetching...</div>;
-      if (error && error.networkError) return <div>Network Error</div>;
-      const { loggedUser } = data;
+      const { loggedUser } = data || null;
       return (
-        <div>
-          { loggedUser && <div> {loggedUser.id} {loggedUser.name} </div> }
-          <ErrorHandler error={error} />
-        </div>
+        error
+          ? <ErrorHandler error={error} />
+          : (
+            <div>
+              {loggedUser && `id: ${loggedUser.id} name: ${loggedUser.name}`}
+            </div>
+          )
       );
     }}
   </Query>
