@@ -8,7 +8,7 @@ const LoginForm = (props) => {
     password,
     setPassword,
     errorMessage,
-    sendForm,
+    login,
   } = props;
   return (
     <div>
@@ -17,20 +17,16 @@ const LoginForm = (props) => {
         name="email"
         type="text"
         value={email}
-        onChange={(e) => {
-          setEmail(e.target.value);
-        }}
+        onChange={e => setEmail(e.target.value)}
       />
       <input
         placeholder="Enter password"
         name="password"
         type="text"
         value={password}
-        onChange={(e) => {
-          setPassword(e.target.value);
-        }}
+        onChange={e => setPassword(e.target.value)}
       />
-      <button onClick={sendForm} type="button">Submit</button>
+      <button onClick={login} type="button">Submit</button>
       <div>
         { errorMessage }
       </div>
@@ -44,7 +40,7 @@ LoginForm.propTypes = {
   password: PropTypes.string.isRequired,
   setPassword: PropTypes.func.isRequired,
   errorMessage: PropTypes.string.isRequired,
-  sendForm: PropTypes.func.isRequired,
+  login: PropTypes.func.isRequired,
 };
 
 export default LoginForm;

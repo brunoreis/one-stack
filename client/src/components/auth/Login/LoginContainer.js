@@ -5,7 +5,7 @@ import Login from './Login';
 
 const LoginContainer = compose(
   withHandlers({
-    afterFetch: props => () => props.history.push('/loggedUser'),
+    onLoginSuccess: ({ history }) => () => history.push('/loggedUser'),
   }),
 )(Login);
 

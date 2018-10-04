@@ -2,21 +2,21 @@ import { compose } from 'react-apollo';
 import { withState, withHandlers } from 'recompose';
 
 import LoginForm from './LoginForm';
-import fetchLogin from './fetchLogin';
+import fetchLogin from '../fetchLogin';
 
-const LoginContainer = compose(
+const LoginFormContainer = compose(
   withState('email', 'setEmail', ''),
   withState('password', 'setPassword', ''),
   withState('errorMessage', 'setErrorMessage', ''),
   withHandlers({
-    sendForm: props => () => {
+    login: props => () => {
       fetchLogin(props.email, props.password)
         .then(({ message, success }) => {
-          props.setErrorMessage(message);
+          !success && props.setErrorMessage(message);
           success && props.onSuccess();
         });
     },
   }),
 )(LoginForm);
 
-export default LoginContainer;
+export default LoginFormContainer;

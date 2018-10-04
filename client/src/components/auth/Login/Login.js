@@ -2,25 +2,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import LoginFormContainer from './LoginFormContainer';
+import LoginFormContainer from './LoginForm/LoginFormContainer';
 
-const Login = (props) => {
-  const {
-    afterFetch,
-  } = props;
-
-  return (
-    <div>
-      <LoginFormContainer onSuccess={afterFetch} />
-      <Link to="/forgot" className="ml1 no-underline black">
-          forgot my password
-      </Link>
-    </div>
-  );
-};
+const Login = ({ onLoginSuccess }) => (
+  <div>
+    <LoginFormContainer onSuccess={onLoginSuccess} />
+    <Link to="/forgot" className="ml1 no-underline black">
+        forgot my password
+    </Link>
+  </div>
+);
 
 Login.propTypes = {
-  afterFetch: PropTypes.func.isRequired,
+  onLoginSuccess: PropTypes.func.isRequired,
 };
 
 export default Login;
