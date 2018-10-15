@@ -1,9 +1,6 @@
 import config from '../../../config';
 
-export default async (event) => {
-  event.preventDefault();
-  const email = event.target[0].value;
-  const password = event.target[1].value;
+export default async (email, password) => {
   const apiUrl = config.getApiUrl();
 
   return fetch(
