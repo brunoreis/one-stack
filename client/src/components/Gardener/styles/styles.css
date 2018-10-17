@@ -1,0 +1,56 @@
+.GardenerContainer {
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+
+  background: #FFFFFF;
+  border: 1px solid rgba(189, 189, 189, 0.2);
+  box-sizing: border-box;
+}
+
+.GardenerName {
+  position: absolute;
+  width: 119px;
+  height: 20px;
+  left: 82px;
+  top: 8px;
+}
+
+.GardenerPicture {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  left: 16px;
+  top: 8px;
+  border-radius: 5px;
+}
+
+.GardenerText {
+  position: absolute;
+  width: 274px;
+  height: 40px;
+  left: 82px;
+  top: 33px;
+}
+
+.GardenerGardens {
+  position: absolute;
+  width: 308px;
+  height: 15px;
+  left: 16px;
+  top: 66px;
+}
+
+.GardenerRecipes {
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+  
+  background: #FFFFFF;
+  border: 1px solid #E0E0E0;
+  box-sizing: border-box;
+}

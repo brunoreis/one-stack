@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import Comentario from './Comentario';
+import Gardener from './Gardener';
 
-storiesOf('Comentario', module)
-  .add('mocked', () => <Comentario />);
+storiesOf('Gardener', module)
+  .add('mocked', () => <Gardener />);

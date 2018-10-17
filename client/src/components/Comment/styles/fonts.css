@@ -1,4 +1,4 @@
-.TitleBold {
+.CommentTitleFontBold {
   font-family: Open Sans;
   font-style: normal;
   font-weight: 600;
@@ -8,7 +8,7 @@
   color: #000000;
 }
 
-.Title {
+.CommentTitleFont {
   font-family: Open Sans;
   font-style: normal;
   font-weight: normal;
@@ -18,10 +18,10 @@
   color: #000000;
 }
 
-.Text {
+.CommentTextFont {
   font-family: Open Sans;
   font-style: normal;
-  font-weight: 600;
+  font-weight: normal;
   line-height: normal;
   font-size: 11px;
   letter-spacing: 0.01em;
