@@ -1,28 +1,31 @@
 import React from 'react';
-import styles from './styles';
+import styles from './styles/styles';
+import fonts from './styles/fonts.css';
+
+console.log(fonts.Text);
 
 const Comentario = () => (
-  <div style={styles.Spacing.Main}>
-    <div style={styles.Spacing.Picture}>
+  <div style={styles.Container}>
+    <div style={styles.Picture}>
       Foto
     </div>
-    <div style={styles.Spacing.Title}>
-      <span style={styles.Fonts.TitleBold}>
+    <div style={styles.Title}>
+      <span styleName="fonts.TitleBold">
         Joana Soares
         {' '}
       </span>
-      <span style={styles.Fonts.Title}>
+      <span styleName="fonts.Title">
         comentou na planta
         {' '}
       </span>
-      <span style={styles.Fonts.Title}>
+      <span styleName="fonts.Title">
         Bananeira
       </span>
     </div>
-    <div style={{ ...styles.Spacing.DateTime, ...styles.Fonts.Text }}>
+    <div style={styles.DateTime} styleName="fonts.Text">
       15/02/2018 às 15:05 hs
     </div>
-    <div style={{ ...styles.Spacing.Text, ...styles.Fonts.Text }}>
+    <div style={styles.Text} styleName="fonts.Text">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       Vivamus accumsan aliquet diam, cursus accumsan odio aliquet at.
       Aenean lacus tortor, ullamcorper et massa eu, egestas sagittis elit.
