@@ -1,0 +1,17 @@
+.home-button__container {
+  height: 45px;
+  width: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+}
+
+.home-button__icon {
+  height: 30px;
+  width: 30px;
+  background-image: url(../../../../public/images/home-icon.png);
+  background-size: contain;
+}

@@ -20,21 +20,11 @@ const gardener = {
     },
   ],
   recipes: [
-    {
-      name: 'pamonha',
-    },
-    {
-      name: 'paçoca',
-    },
-    {
-      name: 'pudim',
-    },
-    {
-      name: 'pupunha',
-    },
-    {
-      name: 'panqueca',
-    },
+    { name: 'pamonha' },
+    { name: 'paçoca' },
+    { name: 'pudim' },
+    { name: 'pupunha' },
+    { name: 'panqueca' },
   ],
 };
 

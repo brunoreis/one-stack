@@ -1,12 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './styles/styles.css';
 import './styles/fonts.css';
 
-import gardener from './mocks';
+// import gardener from './mocks';
 import RecipesIcon from './RecipesIcon/RecipesIcon';
 
-const Gardener = () => (
+const Gardener = ( {gardener }) => (
   <div className="gardener__container">
     <div className="gardener__picture-and-info">
       <img
@@ -29,12 +30,17 @@ const Gardener = () => (
           JARDINS:
           {' '}
         </span>
-        {gardener.gardens.map(garden => (
-          <span className="gardener__text-font" key={garden.id}>
-            {garden.name}
-            {', '}
-          </span>
-        ))}
+        {gardener.gardens.length > 0
+          ? gardener.gardens.map(garden => (
+            <span className="gardener__text-font" key={garden.id}>
+              {garden.name}
+              {', '}
+            </span>))
+          : (
+            <span className="gardener__text-font">
+              Não há jardins cadastrados
+            </span>)
+        }
       </div>
       <div className="gardener__recipes-icon">
         <RecipesIcon
@@ -44,5 +50,9 @@ const Gardener = () => (
     </div>
   </div>
 );
+
+Gardener.propTypes = {
+  gardener: PropTypes.object.isRequired,
+};
 
 export default Gardener;
