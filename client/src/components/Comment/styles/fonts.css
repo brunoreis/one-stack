@@ -1,0 +1,29 @@
+.CommentTitleFontBold {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  font-size: 14px;
+  letter-spacing: 0.01em;
+  color: #000000;
+}
+
+.CommentTitleFont {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 14px;
+  letter-spacing: 0.01em;
+  color: #000000;
+}
+
+.CommentTextFont {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 11px;
+  letter-spacing: 0.01em;
+  color: #000000;
+}

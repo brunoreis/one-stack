@@ -1,0 +1,37 @@
+.CommentContainer {
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+  background: #FFFFFF;
+}
+.CommentPicture {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  left: 16px;
+  top: 9px;
+  border-radius: 5px;
+}
+.CommentTitle {
+  position: absolute;
+  width: 289px;
+  height: 20px;
+  left: 66px;
+  top: 9px;
+}
+.CommentDateTime {
+  position: absolute;
+  width: 126px;
+  height: 15px;
+  left: 66px;
+  top: 29px;
+}
+.CommentText {
+  position: absolute;
+  width: 342px;
+  height: 66px;
+  left: 16px;
+  top: 59px;
+}
