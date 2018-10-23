@@ -4,10 +4,9 @@ import PropTypes from 'prop-types';
 import './styles/styles.css';
 import './styles/fonts.css';
 
-// import gardener from './mocks';
 import RecipesIcon from './RecipesIcon/RecipesIcon';
 
-const Gardener = ( {gardener }) => (
+const Gardener = ({ gardener }) => (
   <div className="gardener__container">
     <div className="gardener__picture-and-info">
       <img

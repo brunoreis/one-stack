@@ -6,4 +6,5 @@ import GardenerList from './GardenerList';
 import mocked from './mocks';
 
 storiesOf('GardenerList', module)
-  .add('mocked', () => <GardenerList gardeners={mocked} />);
+  .add('empty list', () => <GardenerList gardeners={mocked.emptyList} />)
+  .add('long list', () => <GardenerList gardeners={mocked.longList} />);

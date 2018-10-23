@@ -1,0 +1,32 @@
+.gardener-list__container {
+  /* position: relative; */
+  /* height: 100%; */
+  /* max-width: 700px; */
+  /* margin: auto; */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  background: #FFFFFF;
+}
+
+.gardener-list__search {
+  height: 35px;
+  display: flex;
+  background: #F2F2F2;
+  align-items: center;
+}
+
+.gardener-list__search__text {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 11px;
+  letter-spacing: 0.01em;
+  
+  color: #4F4F4F;
+}
+
+.gardener-list__gardeners__container {
+  /* overflow: scroll; */
+}
