@@ -1,4 +1,4 @@
-.CommentContainer {
+.comment {
   position: absolute;
   left: 0%;
   right: 0%;
@@ -6,7 +6,7 @@
   bottom: 0%;
   background: #FFFFFF;
 }
-.CommentPicture {
+.comment__picture {
   position: absolute;
   width: 40px;
   height: 40px;
@@ -14,21 +14,21 @@
   top: 9px;
   border-radius: 5px;
 }
-.CommentTitle {
+.comment__title {
   position: absolute;
   width: 289px;
   height: 20px;
   left: 66px;
   top: 9px;
 }
-.CommentDateTime {
+.comment__date-time {
   position: absolute;
   width: 126px;
   height: 15px;
   left: 66px;
   top: 29px;
 }
-.CommentText {
+.comment__text {
   position: absolute;
   width: 342px;
   height: 66px;

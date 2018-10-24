@@ -2,7 +2,7 @@ body {
   background-color: darkblue;
 }
 
-.gardeners-page__container {
+.gardeners-page {
   max-width: 700px;
   margin: auto;
 
@@ -32,11 +32,7 @@ body {
   color: #FFFFFF;
 }
 
-.gardeners-page__gardener-list__container {
-  position: relative;
-}
-
-.gardeners-page__bottom-fixed__container {
+.gardeners-page__bottom-fixed-flex {
   position: sticky;
   bottom: 0;
   display: flex;

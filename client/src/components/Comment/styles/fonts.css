@@ -1,4 +1,4 @@
-.CommentTitleFontBold {
+.comment__title__font--bold {
   font-family: Open Sans;
   font-style: normal;
   font-weight: 600;
@@ -8,7 +8,7 @@
   color: #000000;
 }
 
-.CommentTitleFont {
+.comment__title__font {
   font-family: Open Sans;
   font-style: normal;
   font-weight: normal;
@@ -18,7 +18,7 @@
   color: #000000;
 }
 
-.CommentTextFont {
+.comment__text__font {
   font-family: Open Sans;
   font-style: normal;
   font-weight: normal;

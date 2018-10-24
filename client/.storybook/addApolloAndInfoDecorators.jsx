@@ -1,4 +1,4 @@
-import '../src/index.js';
+import '../src/index';
 import '@storybook/addon-console';
 import React from 'react';
 import { addDecorator } from '@storybook/react';

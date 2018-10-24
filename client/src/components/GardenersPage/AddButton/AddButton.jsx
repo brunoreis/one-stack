@@ -4,7 +4,7 @@ import './styles.css';
 
 const AddButton = () => (
   <div
-    className="add-button__container"
+    className="add-button"
     onClick={() => console.log('add gardener')}
   >
     <div className="add-button__icon" />

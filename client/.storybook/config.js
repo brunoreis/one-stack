@@ -1,5 +1,5 @@
 import { configure } from '@storybook/react';
-import addApolloAndInfoDecorators from './addApolloAndInfoDecorators.js';
+import addApolloAndInfoDecorators from './addApolloAndInfoDecorators';
 const req = require.context('../src/components', true, /\.stories\.js$/);
 
 function loadStories() {

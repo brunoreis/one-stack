@@ -1,53 +1,32 @@
-.gardener__container {
-  display: flex;
-  flex-flow: column;
-
+.gardener {
   height: 100px;
-
-  background: #FFFFFF;
   border: 1px solid rgba(189, 189, 189, 0.2);
   box-sizing: border-box;
-
   padding: 5px 10px;
+  background: #FFFFFF;
 }
 
 .gardener__picture-and-info {
   display: flex;
 }
 
-.gardener__gardens-and-recipes {
-  display: flex;
-  justify-content: space-between;
-}
-
 .gardener__name-and-text {
   margin: 5px;
+  overflow: hidden;
   display: flex;
   flex-flow: column;
-  height: 60px;
-  overflow: hidden;
+  justify-content: space-evenly;
 }
 
 .gardener__picture {
   margin: 5px;
-  width: 40px;
-  height: 40px;
+  align-self: center;
   border-radius: 5px;
+  height: 40px;
 }
 
-.gardener__name {
-  height: 20px;
-}
-
-.gardener__text {
-  height: 20px;
-}
-
-.gardener__gardens {
-  margin: 5px;
-  height: 15px;
-}
-
-.gardener__recipes-icon {
-  margin: 5px;
+.gardener__gardens-and-recipes {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

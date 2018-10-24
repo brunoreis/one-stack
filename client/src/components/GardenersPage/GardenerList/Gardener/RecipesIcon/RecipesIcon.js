@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './styles.css';
 
@@ -12,5 +13,9 @@ const RecipesIcon = ({ recipeNumber }) => (
     </div>
   </div>
 );
+
+RecipesIcon.propTypes = {
+  recipeNumber: PropTypes.number.isRequired,
+};
 
 export default RecipesIcon;
