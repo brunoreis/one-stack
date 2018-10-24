@@ -4,7 +4,7 @@ export default gql`
   {
     users {
       id
-      name
+      email
     }
   }
 `;

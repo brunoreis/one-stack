@@ -1,12 +1,10 @@
 export default [
   {
     id: 1,
-    name: 'guido',
-    email: 'gmail',
+    email: 'guido@gmail',
   },
   {
     id: 2,
-    name: 'bruno',
-    email: 'gmail',
+    email: 'bruno@gmail',
   },
 ];

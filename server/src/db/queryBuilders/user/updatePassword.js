@@ -11,6 +11,6 @@ export default async (
       resetPasswordToken: null,
       resetPasswordExpires: null,
     })
-    .returning(['id', 'name', 'email']);
+    .returning(['id', 'email']);
   return result[0];
 };

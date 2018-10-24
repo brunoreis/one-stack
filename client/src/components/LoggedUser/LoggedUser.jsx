@@ -14,7 +14,7 @@ const LoggedUser = ({
   if (error) return <ErrorHandler error={error} />;
   return (
     <div>
-      {loggedUser && `id: ${loggedUser.id} name: ${loggedUser.name}`}
+      {loggedUser && `id: ${loggedUser.id} email: ${loggedUser.email}`}
     </div>
   );
 };

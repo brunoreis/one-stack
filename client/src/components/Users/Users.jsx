@@ -10,7 +10,7 @@ const Users = ({ usersQuery: { loading, error, users } }) => {
     <div>
       {users.map(user => (
         <div key={user.id}>
-          {`id: ${user.id} - nome: ${user.name}`}
+          {`id: ${user.id} - email: ${user.email}`}
         </div>
       ))}
     </div>
