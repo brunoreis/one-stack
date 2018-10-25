@@ -2,7 +2,7 @@ const longList = [
   {
     id: 1,
     name: 'Edison Saraiva',
-    text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     Vivamus accumsan aliquet diam, cursus accumsan odio aliquet at.
     Aenean lacus tortor, ullamcorper et massa eu, egestas sagittis elit.
     Fusce vestibulum tempor velit sagittis.`,
@@ -17,7 +17,7 @@ const longList = [
   {
     id: 2,
     name: 'Iura Menão',
-    text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     Vivamus accumsan aliquet diam, cursus accumsan odio aliquet at.
     Aenean lacus tortor, ullamcorper et massa eu, egestas sagittis elit.
     Fusce vestibulum tempor velit sagittis.`,
@@ -47,7 +47,7 @@ const longList = [
   {
     id: 3,
     name: 'Salomão Taumaturgo',
-    text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     Vivamus accumsan aliquet diam, cursus accumsan odio aliquet at.
     Aenean lacus tortor, ullamcorper et massa eu, egestas sagittis elit.
     Fusce vestibulum tempor velit sagittis.`,
@@ -65,7 +65,7 @@ const longList = [
   {
     id: 4,
     name: 'Edison Saraiva',
-    text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     Vivamus accumsan aliquet diam, cursus accumsan odio aliquet at.
     Aenean lacus tortor, ullamcorper et massa eu, egestas sagittis elit.
     Fusce vestibulum tempor velit sagittis.`,
@@ -80,7 +80,7 @@ const longList = [
   {
     id: 5,
     name: 'Iura Menão',
-    text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     Vivamus accumsan aliquet diam, cursus accumsan odio aliquet at.
     Aenean lacus tortor, ullamcorper et massa eu, egestas sagittis elit.
     Fusce vestibulum tempor velit sagittis.`,
@@ -110,7 +110,7 @@ const longList = [
   {
     id: 6,
     name: 'Salomão Taumaturgo',
-    text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     Vivamus accumsan aliquet diam, cursus accumsan odio aliquet at.
     Aenean lacus tortor, ullamcorper et massa eu, egestas sagittis elit.
     Fusce vestibulum tempor velit sagittis.`,

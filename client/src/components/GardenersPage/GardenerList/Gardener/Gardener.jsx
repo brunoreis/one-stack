@@ -12,24 +12,24 @@ const Gardener = ({ gardener }) => (
       <img
         className="gardener__picture"
         src={gardener.picture}
-        alt="https://serc.carleton.edu/download/images/54334/empty_user_icon_256.v2.png"
+        alt="no pic"
       />
-      <div className="gardener__name-and-text">
+      <div className="gardener__name-and-description">
         <div className="gardener__name-font">
           {gardener.name}
         </div>
-        <div className="gardener__text-font">
-          {gardener.text}
+        <div className="gardener__description-font">
+          {gardener.description}
         </div>
       </div>
     </div>
     <div className="gardener__gardens-and-recipes">
-      <div className="gardener__text-font">
+      <div className="gardener__description-font">
         <span className="gardener__gardens-font">
           JARDINS:
           {' '}
         </span>
-        {gardener.gardens.length > 0
+        {gardener.gardens && gardener.gardens.length > 0
           ? gardener.gardens.map(garden => (
             <span key={garden.id}>
               {garden.name}
@@ -42,7 +42,7 @@ const Gardener = ({ gardener }) => (
         }
       </div>
       <RecipesIcon
-        recipeNumber={gardener.recipes.length}
+        recipeNumber={(gardener.recipes && gardener.recipes.length) || 0}
       />
     </div>
   </div>

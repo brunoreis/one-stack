@@ -4,5 +4,6 @@ type User {
   email: String!
   resetPasswordToken: String
   resetPasswordExpires: String
+  gardener: Gardener!
 }
 `;

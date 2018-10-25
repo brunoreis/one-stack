@@ -10,7 +10,7 @@
   display: flex;
 }
 
-.gardener__name-and-text {
+.gardener__name-and-description {
   margin: 5px;
   overflow: hidden;
   display: flex;

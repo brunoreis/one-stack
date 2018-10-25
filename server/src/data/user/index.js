@@ -2,7 +2,6 @@ import create from './create';
 import del from './del';
 import getById from './getById';
 import getAll from './getAll';
-import getByName from './getByName';
 import getByEmail from './getByEmail';
 import getByReset from './getByReset';
 import getLoggedUser from './getLoggedUser';
@@ -17,7 +16,6 @@ export default {
   del,
   getById,
   getAll,
-  getByName,
   getByEmail,
   getByReset,
   getLoggedUser,

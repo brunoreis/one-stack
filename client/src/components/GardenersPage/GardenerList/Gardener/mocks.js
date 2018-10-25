@@ -1,6 +1,6 @@
-const longText = {
+const longDescription = {
   name: 'Iura Menão',
-  text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
   Vivamus accumsan aliquet diam, cursus accumsan odio aliquet at.
   Aenean lacus tortor, ullamcorper et massa eu, egestas sagittis elit.
   Fusce vestibulum tempor velit sagittis.`,
@@ -22,7 +22,7 @@ const longText = {
 
 const manyGardens = {
   name: 'Iura Menão',
-  text: 'Lorem ipsum.',
+  description: 'Lorem ipsum.',
   picture: 'https://randomuser.me/api/portraits/women/60.jpg',
   gardens: [
     {
@@ -57,7 +57,7 @@ const manyGardens = {
 
 const noGardens = {
   name: 'Iura Menão',
-  text: 'Lorem ipsum.',
+  description: 'Lorem ipsum.',
   picture: 'https://randomuser.me/api/portraits/women/60.jpg',
   gardens: [
   ],
@@ -68,7 +68,7 @@ const noGardens = {
 
 const manyRecipes = {
   name: 'Iura Menão',
-  text: 'Lorem ipsum.',
+  description: 'Lorem ipsum.',
   picture: 'https://randomuser.me/api/portraits/women/60.jpg',
   gardens: [
     {
@@ -85,7 +85,7 @@ const manyRecipes = {
 
 const noRecipes = {
   name: 'Iura Menão',
-  text: 'Lorem ipsum.',
+  description: 'Lorem ipsum.',
   picture: 'https://randomuser.me/api/portraits/women/60.jpg',
   gardens: [
     {
@@ -102,7 +102,7 @@ const noRecipes = {
 };
 
 export default {
-  longText,
+  longDescription,
   manyGardens,
   noGardens,
   manyRecipes,
