@@ -4,7 +4,7 @@ type Gardener {
   name: String!
   description: String
   picture: String
-  gardens: [Garden]
+  gardensConnection: GardenerGardensConnection
   recipesConnection: GardenerRecipesConnection
 }
 
@@ -17,5 +17,16 @@ type GardenerRecipesConnection {
 type GardenerRecipesEdge {
   cursor: String!
   node: Recipe
+}
+
+type GardenerGardensConnection {
+  pageInfo: PageInfo!
+  totalCount: Int!
+  edges: [GardenerGardensEdge]
+}
+
+type GardenerGardensEdge {
+  cursor: String!
+  node: Garden
 }
 `;

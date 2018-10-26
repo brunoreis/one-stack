@@ -6,9 +6,13 @@ export default gql`
       id
       name
       description
-      gardens {
-        id
-        name
+      gardensConnection {
+        edges {
+          node {
+            id
+            name
+          }
+        }
       }
       recipesConnection {
         totalCount

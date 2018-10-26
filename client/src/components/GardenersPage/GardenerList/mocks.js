@@ -7,7 +7,6 @@ const longList = [
     Aenean lacus tortor, ullamcorper et massa eu, egestas sagittis elit.
     Fusce vestibulum tempor velit sagittis.`,
     picture: 'https://randomuser.me/api/portraits/men/2.jpg',
-    gardens: [],
     recipesConnection: {
       totalCount: 3,
     },
@@ -20,20 +19,22 @@ const longList = [
     Aenean lacus tortor, ullamcorper et massa eu, egestas sagittis elit.
     Fusce vestibulum tempor velit sagittis.`,
     picture: 'https://randomuser.me/api/portraits/women/60.jpg',
-    gardens: [
-      {
-        id: 1,
-        name: 'Cantinho da vovó',
-      },
-      {
-        id: 2,
-        name: 'Recanto das Verduras',
-      },
-      {
-        id: 3,
-        name: 'Esquina das prantinha',
-      },
-    ],
+    gardensConnection: {
+      edges: [
+        {
+          node: {
+            id: 1,
+            name: 'Cantinho da vovó',
+          },
+        },
+        {
+          node: {
+            id: 2,
+            name: 'Recanto das Verduras',
+          },
+        },
+      ],
+    },
     recipesConnection: {
       totalCount: 5,
     },
@@ -46,12 +47,16 @@ const longList = [
     Aenean lacus tortor, ullamcorper et massa eu, egestas sagittis elit.
     Fusce vestibulum tempor velit sagittis.`,
     picture: 'https://randomuser.me/api/portraits/men/91.jpg',
-    gardens: [
-      {
-        id: 1,
-        name: 'Rota das folhas',
-      },
-    ],
+    gardensConnection: {
+      edges: [
+        {
+          node: {
+            id: 1,
+            name: 'Cantinho da vovó',
+          },
+        },
+      ],
+    },
     recipesConnection: {
       totalCount: 1,
     },
@@ -64,7 +69,6 @@ const longList = [
     Aenean lacus tortor, ullamcorper et massa eu, egestas sagittis elit.
     Fusce vestibulum tempor velit sagittis.`,
     picture: 'https://randomuser.me/api/portraits/men/2.jpg',
-    gardens: [],
   },
   {
     id: 5,
@@ -74,20 +78,22 @@ const longList = [
     Aenean lacus tortor, ullamcorper et massa eu, egestas sagittis elit.
     Fusce vestibulum tempor velit sagittis.`,
     picture: 'https://randomuser.me/api/portraits/women/60.jpg',
-    gardens: [
-      {
-        id: 1,
-        name: 'Cantinho da vovó',
-      },
-      {
-        id: 2,
-        name: 'Recanto das Verduras',
-      },
-      {
-        id: 3,
-        name: 'Esquina das prantinha',
-      },
-    ],
+    gardensConnection: {
+      edges: [
+        {
+          node: {
+            id: 1,
+            name: 'Cantinho da vovó',
+          },
+        },
+        {
+          node: {
+            id: 2,
+            name: 'Recanto das Verduras',
+          },
+        },
+      ],
+    },
     recipesConnection: {
       totalCount: 5,
     },
@@ -100,12 +106,16 @@ const longList = [
     Aenean lacus tortor, ullamcorper et massa eu, egestas sagittis elit.
     Fusce vestibulum tempor velit sagittis.`,
     picture: 'https://randomuser.me/api/portraits/men/91.jpg',
-    gardens: [
-      {
-        id: 1,
-        name: 'Rota das folhas',
-      },
-    ],
+    gardensConnection: {
+      edges: [
+        {
+          node: {
+            id: 1,
+            name: 'Cantinho da vovó',
+          },
+        },
+      ],
+    },
     recipesConnection: {
       totalCount: 1,
     },

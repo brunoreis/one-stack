@@ -29,10 +29,11 @@ const Gardener = ({ gardener }) => (
           JARDINS:
           {' '}
         </span>
-        {gardener.gardens && gardener.gardens.length > 0
-          ? gardener.gardens.map(garden => (
-            <span key={garden.id}>
-              {garden.name}
+        {gardener.gardensConnection
+        && gardener.gardensConnection.edges.length > 0
+          ? gardener.gardensConnection.edges.map(({ node }) => (
+            <span key={node.id}>
+              {node.name}
               {', '}
             </span>))
           : (
