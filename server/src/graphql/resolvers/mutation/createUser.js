@@ -1,3 +1,1 @@
-import User from '../../../data/user';
-
-export default async (_, args) => User.create(args);
+export default async (_, args, context) => context.data.user.create(args);

@@ -1,6 +1,12 @@
 const Mutation = `
 type Mutation {
-  createUser(password: String!, email: String!): User
+  createUser(
+    password: String!,
+    email: String!,
+    name: String!,
+    description: String,
+    picture: String,
+  ): User
   updateUser(
     id: Int!,
     email: String,

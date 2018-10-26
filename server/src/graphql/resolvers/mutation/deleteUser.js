@@ -1,3 +1,1 @@
-import User from '../../../data/user';
-
-export default async (_, args) => User.delete(args.id);
+export default async (_, args, context) => context.data.user.del(args.id);
