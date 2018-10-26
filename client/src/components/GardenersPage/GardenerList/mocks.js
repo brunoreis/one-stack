@@ -8,11 +8,9 @@ const longList = [
     Fusce vestibulum tempor velit sagittis.`,
     picture: 'https://randomuser.me/api/portraits/men/2.jpg',
     gardens: [],
-    recipes: [
-      { name: 'chuchu' },
-      { name: 'charque' },
-      { name: 'chocolate' },
-    ],
+    recipesConnection: {
+      totalCount: 3,
+    },
   },
   {
     id: 2,
@@ -36,13 +34,9 @@ const longList = [
         name: 'Esquina das prantinha',
       },
     ],
-    recipes: [
-      { name: 'pamonha' },
-      { name: 'paçoca' },
-      { name: 'pudim' },
-      { name: 'pupunha' },
-      { name: 'panqueca' },
-    ],
+    recipesConnection: {
+      totalCount: 5,
+    },
   },
   {
     id: 3,
@@ -58,9 +52,9 @@ const longList = [
         name: 'Rota das folhas',
       },
     ],
-    recipes: [
-      { name: 'broa' },
-    ],
+    recipesConnection: {
+      totalCount: 1,
+    },
   },
   {
     id: 4,
@@ -71,11 +65,6 @@ const longList = [
     Fusce vestibulum tempor velit sagittis.`,
     picture: 'https://randomuser.me/api/portraits/men/2.jpg',
     gardens: [],
-    recipes: [
-      { name: 'chuchu' },
-      { name: 'charque' },
-      { name: 'chocolate' },
-    ],
   },
   {
     id: 5,
@@ -99,13 +88,9 @@ const longList = [
         name: 'Esquina das prantinha',
       },
     ],
-    recipes: [
-      { name: 'pamonha' },
-      { name: 'paçoca' },
-      { name: 'pudim' },
-      { name: 'pupunha' },
-      { name: 'panqueca' },
-    ],
+    recipesConnection: {
+      totalCount: 5,
+    },
   },
   {
     id: 6,
@@ -121,9 +106,9 @@ const longList = [
         name: 'Rota das folhas',
       },
     ],
-    recipes: [
-      { name: 'broa' },
-    ],
+    recipesConnection: {
+      totalCount: 1,
+    },
   },
 ];
 

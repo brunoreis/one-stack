@@ -15,9 +15,9 @@ const longDescription = {
       name: 'Recanto das Verduras',
     },
   ],
-  recipes: [
-    { name: 'pamonha' },
-  ],
+  recipesConnection: {
+    totalCount: 5,
+  },
 };
 
 const manyGardens = {
@@ -50,9 +50,9 @@ const manyGardens = {
       name: 'Rota das Folhas',
     },
   ],
-  recipes: [
-    { name: 'pamonha' },
-  ],
+  recipesConnection: {
+    totalCount: 1,
+  },
 };
 
 const noGardens = {
@@ -61,9 +61,9 @@ const noGardens = {
   picture: 'https://randomuser.me/api/portraits/women/60.jpg',
   gardens: [
   ],
-  recipes: [
-    { name: 'pamonha' },
-  ],
+  recipesConnection: {
+    totalCount: 5,
+  },
 };
 
 const manyRecipes = {
@@ -80,7 +80,9 @@ const manyRecipes = {
       name: 'Recanto das Verduras',
     },
   ],
-  recipes: Array(9999),
+  recipesConnection: {
+    totalCount: 9999,
+  },
 };
 
 const noRecipes = {
@@ -96,8 +98,6 @@ const noRecipes = {
       id: 2,
       name: 'Recanto das Verduras',
     },
-  ],
-  recipes: [
   ],
 };
 

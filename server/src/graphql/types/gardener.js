@@ -5,6 +5,17 @@ type Gardener {
   description: String
   picture: String
   gardens: [Garden]
-  recipes: [Recipe]
-  recipeCount: Int
-}`;
+  recipesConnection: GardenerRecipesConnection
+}
+
+type GardenerRecipesConnection {
+  pageInfo: PageInfo!
+  totalCount: Int!
+  edges: [GardenerRecipesEdge]
+}
+
+type GardenerRecipesEdge {
+  cursor: String!
+  node: Recipe
+}
+`;

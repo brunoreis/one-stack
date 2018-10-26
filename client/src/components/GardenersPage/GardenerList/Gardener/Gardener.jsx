@@ -42,7 +42,12 @@ const Gardener = ({ gardener }) => (
         }
       </div>
       <RecipesIcon
-        recipeNumber={gardener.recipeCount || 0}
+        recipeNumber={
+          (
+            gardener.recipesConnection
+            && gardener.recipesConnection.totalCount
+          ) || 0
+        }
       />
     </div>
   </div>

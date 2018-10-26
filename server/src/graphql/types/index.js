@@ -7,6 +7,8 @@ import Gardener from './gardener';
 import Garden from './garden';
 import Recipe from './recipe';
 
+import PageInfo from './pageInfo';
+
 export default [
   Manufacturer,
   Product,
@@ -15,4 +17,5 @@ export default [
   Gardener,
   Garden,
   Recipe,
+  PageInfo,
 ];

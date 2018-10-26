@@ -1,9 +1,7 @@
 import gardens from './gardens';
-import recipes from './recipes';
-import recipeCount from './recipeCount';
+import recipesConnection from './recipesConnection';
 
 export default {
   gardens,
-  recipes,
-  recipeCount,
+  recipesConnection,
 };

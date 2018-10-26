@@ -10,7 +10,9 @@ export default gql`
         id
         name
       }
-      recipeCount
+      recipesConnection {
+        totalCount
+      }
     }
   }
 `;
