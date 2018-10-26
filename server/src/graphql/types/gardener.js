@@ -6,4 +6,5 @@ type Gardener {
   picture: String
   gardens: [Garden]
   recipes: [Recipe]
+  recipeCount: Int
 }`;

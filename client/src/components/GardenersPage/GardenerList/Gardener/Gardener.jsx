@@ -42,7 +42,7 @@ const Gardener = ({ gardener }) => (
         }
       </div>
       <RecipesIcon
-        recipeNumber={(gardener.recipes && gardener.recipes.length) || 0}
+        recipeNumber={gardener.recipeCount || 0}
       />
     </div>
   </div>

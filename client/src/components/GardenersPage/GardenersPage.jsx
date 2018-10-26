@@ -16,7 +16,7 @@ const GardenersPage = () => (
       </div>
     </div>
 
-    <GardenerList gardeners={mocks.longList} />
+    <GardenerList gardenersQuery={{gardeners: mocks.longList}} />
 
     <div className="gardeners-page__bottom-fixed-flex">
       <div className="gardeners-page__add-button">
