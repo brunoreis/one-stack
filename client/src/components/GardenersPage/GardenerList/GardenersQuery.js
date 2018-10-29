@@ -2,20 +2,26 @@ import gql from 'graphql-tag';
 
 export default gql`
   {
-    gardeners {
-      id
-      name
-      description
-      gardensConnection {
-        edges {
-          node {
-            id
-            name
+    gardenersConnection {
+      totalCount
+      edges {
+        cursor
+        node {
+          id
+          name
+          description
+          gardensConnection {
+            edges {
+              node {
+                id
+                name
+              }
+            }
+          }
+          recipesConnection {
+            totalCount
           }
         }
-      }
-      recipesConnection {
-        totalCount
       }
     }
   }

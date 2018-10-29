@@ -7,6 +7,8 @@ import gardener from './gardener';
 import gardeners from './gardeners';
 import loggedUser from './loggedUser';
 
+import gardenersConnection from './gardenersConnection';
+
 export default {
   manufacturer,
   manufacturers,
@@ -16,4 +18,5 @@ export default {
   gardener,
   gardeners,
   loggedUser,
+  gardenersConnection,
 };

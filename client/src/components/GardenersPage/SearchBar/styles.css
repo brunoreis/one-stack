@@ -1,11 +1,11 @@
-.gardener-list__search {
+.gardeners-page__search-bar {
   height: 35px;
   display: flex;
   background: #F2F2F2;
   align-items: center;
 }
 
-.gardener-list__search__text {
+.gardeners-page__search-bar__text {
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;

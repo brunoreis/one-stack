@@ -7,7 +7,7 @@ import Gardener from './gardener';
 import Garden from './garden';
 import Recipe from './recipe';
 
-import PageInfo from './pageInfo';
+import QueryGardenersConnection from './queryGardenersConnection';
 
 export default [
   Manufacturer,
@@ -17,5 +17,5 @@ export default [
   Gardener,
   Garden,
   Recipe,
-  PageInfo,
+  QueryGardenersConnection,
 ];

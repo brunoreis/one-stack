@@ -9,7 +9,6 @@ type Gardener {
 }
 
 type GardenerRecipesConnection {
-  pageInfo: PageInfo!
   totalCount: Int!
   edges: [GardenerRecipesEdge]
 }
@@ -20,7 +19,6 @@ type GardenerRecipesEdge {
 }
 
 type GardenerGardensConnection {
-  pageInfo: PageInfo!
   totalCount: Int!
   edges: [GardenerGardensEdge]
 }

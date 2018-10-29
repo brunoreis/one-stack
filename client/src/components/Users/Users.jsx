@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import ErrorHandler from '../ErrorHandler';
+import ErrorHandler from '../ErrorAndLoading/ErrorHandler';
 
 const Users = ({ usersQuery: { loading, error, users } }) => {
   if (loading) return <div>Fetching</div>;

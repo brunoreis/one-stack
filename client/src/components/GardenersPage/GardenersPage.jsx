@@ -7,6 +7,8 @@ import mocks from './GardenerList/mocks';
 import AddButton from './AddButton/AddButton';
 import Footer from '../Footer/Footer';
 
+import SearchBar from './SearchBar/SearchBar';
+
 const GardenersPage = () => (
   <div className="gardeners-page">
 
@@ -16,7 +18,10 @@ const GardenersPage = () => (
       </div>
     </div>
 
-    <GardenerList gardenersQuery={{gardeners: mocks.longList}} />
+    <div>
+      <SearchBar />
+      <GardenerList gardeners={mocks.longList} />
+    </div>
 
     <div className="gardeners-page__bottom-fixed-flex">
       <div className="gardeners-page__add-button">
