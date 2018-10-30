@@ -6,17 +6,14 @@ import mocks from './GardenerList/mocks';
 
 import AddButton from './AddButton/AddButton';
 import Footer from '../Footer/Footer';
+import Header from '../Header/Header';
 
 import SearchBar from './SearchBar/SearchBar';
 
 const GardenersPage = () => (
   <div className="gardeners-page">
 
-    <div className="gardeners-page__header">
-      <div className="gardeners-page__header__text">
-        JARDINEIROS
-      </div>
-    </div>
+    <Header text="JARDINEIROS" />
 
     <div>
       <SearchBar />
