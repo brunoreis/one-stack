@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './styles/styles.css';
-import './styles/fonts.css';
+import '../../../../styles/common__fonts.css';
+import './styles.css';
 
 import RecipesIcon from './RecipesIcon/RecipesIcon';
 
 const Gardener = ({ gardener }) => (
-  <div className="gardener">
+  <div className="gardener common__fonts__normal">
     <div className="gardener__picture-and-info">
       <img
         className="gardener__picture"
@@ -15,17 +15,17 @@ const Gardener = ({ gardener }) => (
         alt="no pic"
       />
       <div className="gardener__name-and-description">
-        <div className="gardener__name-font">
+        <div className="gardener__name">
           {gardener.name}
         </div>
-        <div className="gardener__description-font">
+        <div className="common__fonts__with-hidden-text">
           {gardener.description}
         </div>
       </div>
     </div>
     <div className="gardener__gardens-and-recipes">
-      <div className="gardener__description-font">
-        <span className="gardener__gardens-font">
+      <div className="common__fonts__with-hidden-text">
+        <span className="gardener__gardens">
           JARDINS:
           {' '}
         </span>

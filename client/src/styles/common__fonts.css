@@ -1,0 +1,12 @@
+.common__fonts__normal {
+  font-family: 'Open Sans';
+  font-style: italic;
+  /* font-family: 'Courier New', Courier, monospace; */
+  font-size: 10.5px;
+}
+
+.common__fonts__with-hidden-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

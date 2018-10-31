@@ -10,6 +10,13 @@
   display: flex;
 }
 
+.gardener__picture {
+  margin: 5px;
+  align-self: center;
+  border-radius: 5px;
+  height: 40px;
+}
+
 .gardener__name-and-description {
   margin: 5px;
   overflow: hidden;
@@ -18,15 +25,17 @@
   justify-content: space-evenly;
 }
 
-.gardener__picture {
-  margin: 5px;
-  align-self: center;
-  border-radius: 5px;
-  height: 40px;
+.gardener__name {
+  font-weight: bold;
+  font-size: 14px;
 }
 
 .gardener__gardens-and-recipes {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.gardener__gardens {
+  color: #828282;
 }

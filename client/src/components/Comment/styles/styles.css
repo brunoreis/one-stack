@@ -20,6 +20,11 @@
   height: 20px;
   left: 66px;
   top: 9px;
+
+  font-size: 14px;
+}
+.comment__title__bold-text {
+  font-weight: 600;
 }
 .comment__date-time {
   position: absolute;
@@ -27,6 +32,8 @@
   height: 15px;
   left: 66px;
   top: 29px;
+
+  font-size: 11px;
 }
 .comment__text {
   position: absolute;
@@ -34,4 +41,6 @@
   height: 66px;
   left: 16px;
   top: 59px;
+
+  font-size: 11px;
 }

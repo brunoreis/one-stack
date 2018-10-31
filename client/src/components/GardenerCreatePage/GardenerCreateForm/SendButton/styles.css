@@ -15,13 +15,7 @@
 }
 
 .gardener-create-form__send-button__text {
-  font-family: Open Sans;
-  font-style: normal;
-  font-weight: normal;
-  line-height: normal;
   font-size: 16px;
   text-align: center;
-  letter-spacing: 0.01em;
-
   color: #FFFFFF;
 }

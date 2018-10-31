@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import './styles.css';
 
 const Header = ({ text }) => (
-  <div className="header">
-    {text}
+  <div className="header common__fonts__normal">
+    <div className="header__text">
+      {text}
+    </div>
   </div>
 );
 

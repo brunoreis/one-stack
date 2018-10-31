@@ -14,10 +14,9 @@ const GardenerCreateForm = ({
   setEmail,
   password,
   setPassword,
-  onSubmit,
   gardenerCreateMutate,
 }) => (
-  <div className="gardener-create-form">
+  <div className="gardener-create-form common__fonts__normal">
 
     <div className="gardener-create-form__form-item">
       <div>Nome Completo*</div>

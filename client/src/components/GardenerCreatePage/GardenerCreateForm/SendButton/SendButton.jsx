@@ -5,7 +5,7 @@ import './styles.css';
 
 const SendButton = ({ onSubmit }) => (
   <div
-    className="gardener-create-form__send-button"
+    className="common__fonts__normal gardener-create-form__send-button"
     onClick={onSubmit}
   >
     <div className="gardener-create-form__send-button__text">
