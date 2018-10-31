@@ -8,7 +8,6 @@ const PasswordForgot = (props) => {
     message,
     passwordForgotMutate,
   } = props;
-  console.log(passwordForgotMutate);
   return (
     <div>
       <div>

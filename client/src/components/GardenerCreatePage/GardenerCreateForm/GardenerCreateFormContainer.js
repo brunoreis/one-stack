@@ -1,23 +1,28 @@
-import { compose } from 'react-apollo';
+import { graphql, compose } from 'react-apollo';
 import { withState, withHandlers } from 'recompose';
 
 import GardenerCreateForm from './GardenerCreateForm';
+import GardenerCreateMutation from './GardenerCreateMutation';
 
 const GardenerCreateFormContainer = compose(
+  graphql(GardenerCreateMutation, { name: 'gardenerCreateMutate' }),
   withState('name', 'setName', ''),
   withState('description', 'setDescription', ''),
   withState('email', 'setEmail', ''),
   withState('password', 'setPassword', ''),
   // withState('errorMessage', 'setErrorMessage', ''),
   withHandlers({
-    onSubmit: props => () => {
-      console.log('form enviado: ', props);
-      // gardenerCreateFetch(props.email, props.password)
-      //   .then(({ message, success }) => {
-      //     !success && props.setErrorMessage(message);
-      //     success && props.onSuccess();
-      //   });
-    },
+    gardenerCreateMutate: props => () => props.gardenerCreateMutate({
+      variables: {
+        email: props.email,
+        password: props.password,
+        name: props.name,
+        description: props.description,
+      },
+    }).then((r) => {
+      console.log('response: ', r);
+      // props.setMessage(r.data.passwordForgot.message);
+    }),
   }),
 )(GardenerCreateForm);
 

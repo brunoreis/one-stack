@@ -15,6 +15,7 @@ const GardenerCreateForm = ({
   password,
   setPassword,
   onSubmit,
+  gardenerCreateMutate,
 }) => (
   <div className="gardener-create-form">
 
@@ -57,9 +58,9 @@ const GardenerCreateForm = ({
     </div>
 
     <div className="gardener-create-form__form-item">
-      <SendButton onSubmit={onSubmit} />
+      <SendButton onSubmit={gardenerCreateMutate} />
     </div>
-    
+
   </div>
 );
 
@@ -72,7 +73,7 @@ GardenerCreateForm.propTypes = {
   setEmail: PropTypes.func.isRequired,
   password: PropTypes.string.isRequired,
   setPassword: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired,
+  gardenerCreateMutate: PropTypes.func.isRequired,
 };
 
 export default GardenerCreateForm;
