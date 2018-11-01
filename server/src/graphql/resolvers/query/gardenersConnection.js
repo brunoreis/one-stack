@@ -1,23 +1,17 @@
 export default async (_, __, context) => {
+  let totalCount = 0;
+  let edges = [];
+
   const gardeners = await context.data.gardener.getAll();
-  if (!gardeners) {
-    console.log('lista vazia');
-    return {
-      totalCount: 0,
-      edges: [],
-    };
-  }
-  const totalCount = gardeners.length;
 
-  const edges = [];
+  if (gardeners) {
+    totalCount = gardeners.length;
 
-  gardeners.map((gardener) => {
-    edges.push({
+    edges = gardeners.map(gardener => ({
       cursor: gardener.id,
       node: gardener,
-    });
-    return null;
-  });
+    }));
+  }
 
   return {
     totalCount,

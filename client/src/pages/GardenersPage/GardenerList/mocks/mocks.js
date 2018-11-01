@@ -10,6 +10,7 @@ const longList = [
     recipesConnection: {
       totalCount: 3,
     },
+    gardensConnection: null,
   },
   {
     id: 2,

@@ -2,11 +2,11 @@ import React from 'react';
 
 import './styles.css';
 import GardenerList from './GardenerList/GardenerList';
-import mocks from './GardenerList/mocks';
+import mocks from './GardenerList/mocks/mocks';
 
 import AddButton from './AddButton/AddButton';
-import Footer from '../Footer/Footer';
-import Header from '../Header/Header';
+import Footer from '../../components/Footer/Footer';
+import Header from '../../components/Header/Header';
 
 import SearchBar from './SearchBar/SearchBar';
 

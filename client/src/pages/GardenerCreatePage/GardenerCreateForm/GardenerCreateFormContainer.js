@@ -10,7 +10,6 @@ const GardenerCreateFormContainer = compose(
   withState('description', 'setDescription', ''),
   withState('email', 'setEmail', ''),
   withState('password', 'setPassword', ''),
-  // withState('errorMessage', 'setErrorMessage', ''),
   withHandlers({
     gardenerCreateMutate: props => () => props.gardenerCreateMutate({
       variables: {

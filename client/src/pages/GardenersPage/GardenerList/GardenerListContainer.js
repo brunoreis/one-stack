@@ -3,7 +3,7 @@ import { graphql, compose } from 'react-apollo';
 
 import GardenersQuery from './GardenersQuery';
 import GardenerList from './GardenerList';
-import ErrorAndLoading from '../../ErrorAndLoading/ErrorAndLoading';
+import ErrorAndLoading from '../../../components/ErrorAndLoading/ErrorAndLoading';
 
 import getConnectionNodes from '../../../helpers/getConnectionNodes';
 
