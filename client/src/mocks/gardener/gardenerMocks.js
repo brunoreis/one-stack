@@ -1,4 +1,5 @@
 const longDescription = {
+  id: 1,
   name: 'Iura Menão',
   description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
   Vivamus accumsan aliquet diam, cursus accumsan odio aliquet at.
@@ -27,6 +28,7 @@ const longDescription = {
 };
 
 const manyGardens = {
+  id: 2,
   name: 'Iura Menão',
   description: 'Lorem ipsum.',
   picture: 'https://randomuser.me/api/portraits/women/60.jpg',

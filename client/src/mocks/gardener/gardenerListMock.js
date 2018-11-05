@@ -1,4 +1,4 @@
-const longList = [
+export default [
   {
     id: 1,
     name: 'Edison Saraiva',
@@ -122,10 +122,3 @@ const longList = [
     },
   },
 ];
-
-const emptyList = [];
-
-export default {
-  longList,
-  emptyList,
-};

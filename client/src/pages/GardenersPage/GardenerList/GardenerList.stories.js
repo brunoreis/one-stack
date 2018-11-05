@@ -6,20 +6,20 @@ import apolloDecorator from '../../../../.storybook/apolloDecorator';
 import GardenerList from './GardenerList';
 import GardenerListContainer from './GardenerListContainer';
 import gardenersQuery from './GardenersQuery';
-import mocked from './mocks/mocks';
-import results from './mocks/queryResults';
+import mocked from '../../../mocks/gardener/gardenerListMock';
+import results from '../../../mocks/gardener/gardenerListQueryResponseMock';
 
 
 storiesOf('GardenerList', module)
-  .add('empty list', () => <GardenerList gardeners={mocked.emptyList} />)
-  .add('long list', () => <GardenerList gardeners={mocked.longList} />)
+  .add('empty list', () => <GardenerList gardeners={[]} />)
+  .add('long list', () => <GardenerList gardeners={mocked} />)
   .addDecorator(apolloDecorator)
   .add('connected to db', () => <GardenerListContainer />)
   .add('mockedProvider', () => (
     <MockedProvider
       mocks={[{
         request: { query: gardenersQuery },
-        result: { data: { gardenersConnection: results.dataResponse } },
+        result: { data: { gardenersConnection: results } },
       }]}
       addTypename={false}
     >

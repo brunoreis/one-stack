@@ -1,9 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 
 import Gardener from './Gardener';
-import mocked from './mocks';
+import mocked from '../../../../mocks/gardener/gardenerMocks';
 
 storiesOf('Gardener', module)
   .add('long description', () => <Gardener gardener={mocked.longDescription} />)
