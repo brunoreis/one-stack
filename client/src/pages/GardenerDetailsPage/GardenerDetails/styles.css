@@ -1,5 +1,6 @@
 .gardener-details {
   display: flex;
+  padding: 10px;
   flex-direction: column;
   
   font-size: 14px;

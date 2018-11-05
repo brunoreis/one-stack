@@ -8,7 +8,7 @@ import loggedUserQuery from './LoggedUserQuery';
 import gardenerMocks from '../../../mocks/gardener/gardenerMocks';
 import loggedUserMock from '../../../mocks/gardener/loggedUserMock';
 
-storiesOf('GardenerDetails', module)
+storiesOf('Gardener/Details/Details', module)
   .add('test', () => <GardenerDetails {...gardenerMocks.longDescription} />)
   .add('container', () => <GardenerDetailsContainer />)
   .add('mockedProvider', () => (

@@ -10,7 +10,7 @@ import mocked from '../../../mocks/gardener/gardenerListMock';
 import results from '../../../mocks/gardener/gardenerListQueryResponseMock';
 
 
-storiesOf('GardenerList', module)
+storiesOf('Gardener/List/List', module)
   .add('empty list', () => <GardenerList gardeners={[]} />)
   .add('long list', () => <GardenerList gardeners={mocked} />)
   .addDecorator(apolloDecorator)

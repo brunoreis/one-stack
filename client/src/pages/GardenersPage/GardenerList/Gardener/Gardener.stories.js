@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import Gardener from './Gardener';
 import mocked from '../../../../mocks/gardener/gardenerMocks';
 
-storiesOf('Gardener', module)
+storiesOf('Gardener/List/Item', module)
   .add('long description', () => <Gardener gardener={mocked.longDescription} />)
   .add('many gardens', () => <Gardener gardener={mocked.manyGardens} />)
   .add('no gardens', () => <Gardener gardener={mocked.noGardens} />)

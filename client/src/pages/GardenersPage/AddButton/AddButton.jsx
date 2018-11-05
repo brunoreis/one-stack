@@ -4,10 +4,10 @@ import './styles.css';
 
 const AddButton = () => (
   <div
-    className="add-button"
+    className="gardener__list__add-button"
     onClick={() => console.log('add gardener')}
   >
-    <div className="add-button__icon" />
+    <div className="gardener__list__add-button__icon" />
   </div>
 );
 

@@ -9,8 +9,6 @@ export default gql`
         name
         description
         picture
-        gardensConnection
-        recipesConnection
       }
     }
   }

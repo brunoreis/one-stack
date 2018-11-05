@@ -3,5 +3,5 @@ import { storiesOf } from '@storybook/react';
 
 import GardenersPage from './GardenersPage';
 
-storiesOf('GardenersPage', module)
+storiesOf('Gardener/List/Page', module)
   .add('with long list', () => <GardenersPage />);
