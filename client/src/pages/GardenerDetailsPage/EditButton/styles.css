@@ -2,7 +2,7 @@
   width: 40px;
   height: 40px;
   display: flex;
-  background-image: url(../../../../public/images/add-button__circle.png);
+  background-image: url(../../../images/add-button__circle.png);
   background-size: contain;
   align-items: center;
   justify-content: center;
@@ -12,6 +12,6 @@
 .gardener__details__edit-button__icon {
   width: 15px;
   height: 15px;
-  background-image: url(../../../../public/images/gardener__details__edit-button__icon.png);
+  background-image: url(../../../images/gardener__details__edit-button__icon.png);
   background-size: contain;
 }

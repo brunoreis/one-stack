@@ -12,6 +12,6 @@
 .home-button__icon {
   height: 30px;
   width: 30px;
-  background-image: url(../../../../public/images/home-icon.png);
+  background-image: url(../../../images/home-icon.png);
   background-size: contain;
 }

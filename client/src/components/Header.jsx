@@ -6,21 +6,25 @@ import LogoutButton from './auth/Logout/LogoutButton';
 const Header = props => (
   <div className="flex pa1 justify-between nowrap orange">
     <div className="flex flex-fixed black">
-      <div className="fw7 mr1">Catalogo Emater</div>
-      <Link to="/products" className="ml1 no-underline black">
-        Products
-      </Link>
-      <div className="ml1">|</div>
+      <div className="fw7 mr1">Jardineiros</div>
       <Link to="/" className="ml1 no-underline black">
-        Manufacturer
+        Home
       </Link>
       <div className="ml1">|</div>
       <Link to="/users" className="ml1 no-underline black">
         Users
       </Link>
       <div className="ml1">|</div>
-      <Link to="/loggedUser" className="ml1 no-underline black">
-        loggedUser
+      <Link to="/logged-user" className="ml1 no-underline black">
+        Logged User
+      </Link>
+      <div className="ml1">|</div>
+      <Link to="/gardeners" className="ml1 no-underline black">
+        Jardineiros
+      </Link>
+      <div className="ml1">|</div>
+      <Link to="/gardener-details" className="ml1 no-underline black">
+        Meu Perfil
       </Link>
     </div>
     <div className="flex flex-fixed">

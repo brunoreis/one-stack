@@ -2,7 +2,7 @@ import React from 'react';
 
 import './styles.css';
 import GardenerList from './GardenerList/GardenerList';
-import mocks from './GardenerList/mocks/mocks';
+import mocks from '../../mocks/gardener/gardenerListMock';
 
 import AddButton from './AddButton/AddButton';
 import Footer from '../../components/Footer/Footer';
@@ -17,7 +17,7 @@ const GardenersPage = () => (
 
     <div>
       <SearchBar />
-      <GardenerList gardeners={mocks.longList} />
+      <GardenerList gardeners={mocks} />
     </div>
 
     <div className="gardeners-page__bottom-fixed-flex">
