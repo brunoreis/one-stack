@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import Header from './Header';
 import Manufacturer from './Manufacturer';
 import UsersContainer from './Users/UsersContainer';
-import LoginContainer from './auth/Login/LoginContainer';
+import Login from './auth/Login/Login';
 import LoggedUserContainer from './LoggedUser/LoggedUserContainer';
 import PasswordForgotContainer from './auth/PasswordForgot/PasswordForgotContainer';
 import PasswordResetContainer from './auth/passwordReset/PasswordResetContainer';
@@ -22,7 +22,7 @@ const App = () => (
         <Route exact path="/gardeners" component={GardenersPage} />
         <Route exact path="/gardener-details" component={GardenerDetailsPage} />
         <Route exact path="/signup" component={GardenerCreatePage} />
-        <Route exact path="/login" component={LoginContainer} />
+        <Route exact path="/login" component={Login} />
         <Route exact path="/forgot" component={PasswordForgotContainer} />
         <Route exact path="/reset/:token" component={PasswordResetContainer} />
       </Switch>

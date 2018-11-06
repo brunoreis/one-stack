@@ -1,8 +1,10 @@
 import { graphql, compose } from 'react-apollo';
 import { withState, withHandlers } from 'recompose';
+import { withRouter } from 'react-router';
 
 import GardenerCreateForm from './GardenerCreateForm';
 import GardenerCreateMutation from './GardenerCreateMutation';
+import fetchLogin from '../../../helpers/fetchLogin';
 
 const GardenerCreateFormContainer = compose(
   graphql(GardenerCreateMutation, { name: 'gardenerCreateMutate' }),
@@ -10,6 +12,7 @@ const GardenerCreateFormContainer = compose(
   withState('description', 'setDescription', ''),
   withState('email', 'setEmail', ''),
   withState('password', 'setPassword', ''),
+  withRouter,
   withHandlers({
     gardenerCreateMutate: props => () => props.gardenerCreateMutate({
       variables: {
@@ -18,9 +21,10 @@ const GardenerCreateFormContainer = compose(
         name: props.name,
         description: props.description,
       },
-    }).then((res) => {
+    }).then(async (res) => {
       if (res.data && res.data.createUser) {
-        props.loginNewUser(props.email, props.password);
+        await fetchLogin(props.email, props.password);
+        props.history.push('gardener-details');
       } else {
         console.log('erro ao criar usuário');
       }
