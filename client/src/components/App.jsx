@@ -9,6 +9,7 @@ import PasswordForgotContainer from './auth/PasswordForgot/PasswordForgotContain
 import PasswordResetContainer from './auth/passwordReset/PasswordResetContainer';
 import GardenersPage from '../pages/GardenersPage/GardenersPage';
 import GardenerDetailsPage from '../pages/GardenerDetailsPage/GardenerDetailsPage';
+import GardenerCreatePage from '../pages/GardenerCreatePage/GardenerCreatePage';
 
 const App = () => (
   <div className="center w85">
@@ -20,6 +21,7 @@ const App = () => (
         <Route exact path="/logged-user" component={LoggedUserContainer} />
         <Route exact path="/gardeners" component={GardenersPage} />
         <Route exact path="/gardener-details" component={GardenerDetailsPage} />
+        <Route exact path="/signup" component={GardenerCreatePage} />
         <Route exact path="/login" component={LoginContainer} />
         <Route exact path="/forgot" component={PasswordForgotContainer} />
         <Route exact path="/reset/:token" component={PasswordResetContainer} />

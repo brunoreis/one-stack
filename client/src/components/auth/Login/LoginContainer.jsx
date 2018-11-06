@@ -5,7 +5,7 @@ import Login from './Login';
 
 const LoginContainer = compose(
   withHandlers({
-    onLoginSuccess: ({ history }) => () => history.push('/logged-user'),
+    onLoginSuccess: ({ history }) => () => history.push('/gardener-details'),
   }),
 )(Login);
 

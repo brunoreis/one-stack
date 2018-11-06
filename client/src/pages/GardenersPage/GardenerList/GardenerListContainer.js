@@ -1,28 +1,20 @@
-import React from 'react';
 import { graphql, compose } from 'react-apollo';
+import { withProps } from 'recompose';
 
-import GardenersQuery from './GardenersQuery';
 import GardenerList from './GardenerList';
-import ErrorAndLoading from '../../../components/ErrorAndLoading/ErrorAndLoading';
+import GardenersQuery from './GardenersQuery';
+import branchToLoading from '../../../components/ErrorAndLoading/branchToLoading';
+import branchToError from '../../../components/ErrorAndLoading/branchToError';
 
 import getConnectionNodes from '../../../helpers/getConnectionNodes';
 
-const GardenerListWithErrorAndLoading = (
-  {
-    gardenersQuery: {
-      loading,
-      error,
-      gardenersConnection,
-    },
-  },
-) => (
-  <ErrorAndLoading {...{ loading, error }}>
-    <GardenerList gardeners={getConnectionNodes(gardenersConnection)} />
-  </ErrorAndLoading>
-);
-
 const GardenerListContainer = compose(
   graphql(GardenersQuery, { name: 'gardenersQuery' }),
-)(GardenerListWithErrorAndLoading);
+  branchToLoading({ queryName: 'gardenersQuery' }),
+  branchToError({ queryName: 'gardenersQuery' }),
+  withProps((
+    { gardenersQuery: { gardenersConnection } },
+  ) => ({ gardeners: getConnectionNodes(gardenersConnection) })),
+)(GardenerList);
 
 export default GardenerListContainer;

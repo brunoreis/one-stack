@@ -18,9 +18,12 @@ const GardenerCreateFormContainer = compose(
         name: props.name,
         description: props.description,
       },
-    }).then((r) => {
-      console.log('response: ', r);
-      // props.setMessage(r.data.passwordForgot.message);
+    }).then((res) => {
+      if (res.data && res.data.createUser) {
+        props.loginNewUser(props.email, props.password);
+      } else {
+        console.log('erro ao criar usuário');
+      }
     }),
   }),
 )(GardenerCreateForm);

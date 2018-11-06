@@ -12,8 +12,8 @@ const LoginFormContainer = compose(
     login: props => () => {
       fetchLogin(props.email, props.password)
         .then(({ message, success }) => {
-          !success && props.setErrorMessage(message);
-          success && props.onSuccess();
+          if (success) props.onSuccess();
+          else props.setErrorMessage(message);
         });
     },
   }),

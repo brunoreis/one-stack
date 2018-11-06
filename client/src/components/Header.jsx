@@ -28,6 +28,10 @@ const Header = props => (
       </Link>
     </div>
     <div className="flex flex-fixed">
+      <Link to="/signup" className="ml1 no-underline black">
+        Sign up
+      </Link>
+      <div className="ml1">|</div>
       <Link to="/login" className="ml1 no-underline black">
         Login
       </Link>
