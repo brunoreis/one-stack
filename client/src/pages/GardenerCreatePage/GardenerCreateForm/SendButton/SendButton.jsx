@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 
 import './styles.css';
 
-const SendButton = ({ onSubmit }) => (
+const SendButton = ({ onClick }) => (
   <div
     className="common__fonts__normal gardener-create-form__send-button"
-    onClick={onSubmit}
+    onClick={onClick}
   >
     <div className="gardener-create-form__send-button__text">
       Salvar
@@ -15,7 +15,7 @@ const SendButton = ({ onSubmit }) => (
 );
 
 SendButton.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default SendButton;
