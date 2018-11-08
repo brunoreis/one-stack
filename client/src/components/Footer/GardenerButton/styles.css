@@ -12,7 +12,7 @@
 .gardener-button__icon {
   height: 30px;
   width: 30px;
-  background-image: url(../../../../public/images/gardener-icon.png);
+  background-image: url(../../../images/gardener-icon.png);
   background-size: contain;
 }
 

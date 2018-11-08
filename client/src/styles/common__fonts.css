@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+.common__fonts__normal {
+  font-family: 'Open Sans';
+  font-size: 10.5px;
+}
+
+.common__fonts__topic {
+  font-weight: 600;
+  color: #3038AD;
+}
+
+.common__fonts__with-hidden-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

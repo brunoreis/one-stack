@@ -7,6 +7,8 @@ import { ApolloProvider } from 'react-apollo';
 import client from './client';
 import registerServiceWorker from './registerServiceWorker';
 
+import './styles/common__fonts.css';
+
 import App from './components/App';
 
 ReactDOM.render(

@@ -12,7 +12,7 @@
 .plants-button__icon {
   height: 30px;
   width: 30px;
-  background-image: url(../../../../public/images/plant-icon.png);
+  background-image: url(../../../images/plant-icon.png);
   background-size: contain;
 }
 

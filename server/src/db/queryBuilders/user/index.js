@@ -3,7 +3,6 @@ import del from './del';
 import getAll from './getAll';
 import getById from './getById';
 import getByIds from './getByIds';
-import getByName from './getByName';
 import getByEmail from './getByEmail';
 import getByReset from './getByReset';
 import update from './update';
@@ -15,7 +14,6 @@ export default {
   getAll,
   getById,
   getByIds,
-  getByName,
   getByEmail,
   getByReset,
   update,

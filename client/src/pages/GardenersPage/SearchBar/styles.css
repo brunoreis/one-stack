@@ -1,0 +1,17 @@
+.gardeners-page__search-bar {
+  height: 35px;
+  display: flex;
+  background: #F2F2F2;
+  align-items: center;
+}
+
+.gardeners-page__search-bar__text {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 11px;
+  letter-spacing: 0.01em;
+  
+  color: #4F4F4F;
+}

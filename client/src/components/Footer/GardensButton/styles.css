@@ -12,7 +12,7 @@
 .gardens-button__icon {
   height: 30px;
   width: 30px;
-  background-image: url(../../../../public/images/garden-icon.png);
+  background-image: url(../../../images/garden-icon.png);
   background-size: contain;
 }
 

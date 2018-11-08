@@ -12,7 +12,7 @@
 .recipes-button__icon {
   height: 30px;
   width: 30px;
-  background-image: url(../../../../public/images/cook.png);
+  background-image: url(../../../images/cook.png);
   background-size: contain;
 }
 

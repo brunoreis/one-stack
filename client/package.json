@@ -18,7 +18,8 @@
     "react-scripts": "1.1.4",
     "react-test-renderer": "^16.5.2",
     "recompose": "^0.30.0",
-    "serve": "^10.0.2"
+    "serve": "^10.0.2",
+    "validator": "^10.8.0"
   },
   "scripts": {
     "start-dev": "react-scripts start",
