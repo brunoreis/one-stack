@@ -7,7 +7,6 @@ class FormValidator {
   }
 
   validate(state) {
-    console.log('FormValidator - state: ', state);
     // start out assuming valid
     let validation = this.valid();
     // for each validation rule

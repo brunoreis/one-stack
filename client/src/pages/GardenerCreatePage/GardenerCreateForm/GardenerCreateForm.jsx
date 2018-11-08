@@ -14,6 +14,7 @@ const GardenerCreateForm = ({
   setEmail,
   password,
   setPassword,
+  validation,
   submit,
 }) => (
   <div className="gardener-create-form common__fonts__normal">
@@ -24,6 +25,12 @@ const GardenerCreateForm = ({
         value={name}
         onChange={e => setName(e.target.value)}
       />
+      {validation.name.isInvalid
+      && (
+      <div className="gardener-create-form__form-item__error">
+        {validation.name.message}
+      </div>
+      )}
     </div>
 
     <div className="gardener-create-form__form-item">
@@ -46,6 +53,12 @@ const GardenerCreateForm = ({
         value={email}
         onChange={e => setEmail(e.target.value)}
       />
+      {validation.email.isInvalid
+      && (
+      <div className="gardener-create-form__form-item__error">
+        {validation.email.message}
+      </div>
+      )}
     </div>
 
     <div className="gardener-create-form__form-item">
@@ -54,6 +67,12 @@ const GardenerCreateForm = ({
         value={password}
         onChange={e => setPassword(e.target.value)}
       />
+      {validation.password.isInvalid
+      && (
+      <div className="gardener-create-form__form-item__error">
+        {validation.password.message}
+      </div>
+      )}
     </div>
 
     <div className="gardener-create-form__form-item">
@@ -74,6 +93,7 @@ GardenerCreateForm.propTypes = {
   setEmail: PropTypes.func.isRequired,
   password: PropTypes.string.isRequired,
   setPassword: PropTypes.func.isRequired,
+  validation: PropTypes.object.isRequired,
   submit: PropTypes.func.isRequired,
 };
 

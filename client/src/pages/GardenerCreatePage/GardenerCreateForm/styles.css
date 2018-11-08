@@ -14,3 +14,7 @@
   font-weight: 600;
   font-size: 16px;
 }
+
+.gardener-create-form__form-item__error {
+  color: red;
+}

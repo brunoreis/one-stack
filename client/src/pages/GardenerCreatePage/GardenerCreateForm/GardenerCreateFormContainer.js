@@ -18,7 +18,6 @@ const GardenerCreateFormContainer = compose(
   withRouter,
   withHandlers({
     submit: props => () => {
-      console.log('props: ', props);
       const validation = validator.validate({
         email: props.email,
         password: props.password,
@@ -34,7 +33,6 @@ const GardenerCreateFormContainer = compose(
             description: props.description,
           },
         }).then(async (res) => {
-          console.log('res: ', res);
           if (res.data && res.data.createUser) {
             await fetchLogin(props.email, props.password);
             props.history.push('gardener-details');
