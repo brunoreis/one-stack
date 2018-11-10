@@ -5,10 +5,10 @@ import './styles.css';
 
 const SendButton = ({ onClick }) => (
   <div
-    className="common__fonts__normal gardener-create-form__send-button"
+    className="common__fonts__normal form__send-button"
     onClick={onClick}
   >
-    <div className="gardener-create-form__send-button__text">
+    <div className="form__send-button__text">
       Salvar
     </div>
   </div>

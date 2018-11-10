@@ -6,9 +6,6 @@ import './styles.css';
 const GardenerDetails = ({
   name,
   description,
-  picture,
-  gardensConnection,
-  recipesConnection,
 }) => (
 
   <div className="gardener-details common__fonts__normal">
@@ -68,7 +65,6 @@ const GardenerDetails = ({
 GardenerDetails.propTypes = {
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  picture: PropTypes.string.isRequired,
 };
 
 export default GardenerDetails;

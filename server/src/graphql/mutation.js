@@ -19,6 +19,10 @@ type Mutation {
     token: String!,
     password: String!
   ): Result
+  updateGardener(
+    name: String
+    description: String
+  ): Gardener
 }
 `;
 
