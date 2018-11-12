@@ -1,21 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import noUserIcon from '../../../images/no-user-icon.png';
 
 import './styles.css';
 
 const GardenerDetails = ({
   name,
   description,
+  picture,
 }) => (
 
   <div className="gardener-details common__fonts__normal">
 
     <div className="gardener-details__picture">
-      {/* <img
+      <img
         className="gardener__picture"
-        src={picture}
+        src={picture || noUserIcon}
         alt="no pic"
-      /> */}
+      />
     </div>
 
     <div className="gardener-details__name gardener-details__item">
@@ -65,6 +67,11 @@ const GardenerDetails = ({
 GardenerDetails.propTypes = {
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  picture: PropTypes.string,
+};
+
+GardenerDetails.defaultProps = {
+  picture: '',
 };
 
 export default GardenerDetails;

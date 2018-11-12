@@ -5,14 +5,15 @@ import '../../../../styles/common__fonts.css';
 import './styles.css';
 
 import RecipesIcon from './RecipesIcon/RecipesIcon';
+import noUserIcon from '../../../../images/no-user-icon.png';
 
 const Gardener = ({ gardener }) => (
   <div className="gardener common__fonts__normal">
     <div className="gardener__picture-and-info">
       <img
         className="gardener__picture"
-        src={gardener.picture}
-        alt="no pic"
+        src={gardener.picture || noUserIcon}
+        alt="gardener profile"
       />
       <div className="gardener__name-and-description">
         <div className="gardener__name">

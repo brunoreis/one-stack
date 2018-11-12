@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
+import PropTypres from 'prop-types';
+
 import LogoutButton from './auth/Logout/LogoutButton';
 
-const Header = props => (
+const Header = ({ history }) => (
   <div className="flex pa1 justify-between nowrap orange">
     <div className="flex flex-fixed black">
       <div className="fw7 mr1">Jardineiros</div>
@@ -36,9 +38,17 @@ const Header = props => (
         Login
       </Link>
       <div className="ml1">|</div>
-      <LogoutButton onLogout={() => props.history.push('/')} />
+      <div className="ml1 no-underline black">
+        <LogoutButton
+          onLogout={() => history.push('/')}
+        />
+      </div>
     </div>
   </div>
 );
+
+Header.propTypes = {
+  history: PropTypres.object.isRequired,
+};
 
 export default withRouter(Header);
