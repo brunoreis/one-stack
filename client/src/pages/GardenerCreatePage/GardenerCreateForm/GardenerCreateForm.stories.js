@@ -6,15 +6,6 @@ import gardenerCreateMutation from './GardenerCreateMutation';
 import apolloDecorator from '../../../../.storybook/apolloDecorator';
 import GardenerCreateFormContainer from './GardenerCreateFormContainer';
 
-const data = {
-  createUser: {
-    id: 1,
-    email: 'mock@mock',
-    gardener: {
-      name: 'mock',
-    },
-  },
-};
 
 storiesOf('Gardener/Create/Form', module)
   .addDecorator(apolloDecorator)

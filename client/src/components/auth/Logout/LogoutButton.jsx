@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import logout from './logout';
 
 const LogoutButton = props => (
-  <button
-    type="button"
+  <div
+    style={{ cursor: 'pointer' }}
     onClick={() => logout(props.onLogout)}
   >
     Logout
-  </button>
+  </div>
 );
 
 LogoutButton.propTypes = {

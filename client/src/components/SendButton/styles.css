@@ -1,4 +1,4 @@
-.gardener-create-form__send-button {
+.form__send-button {
   height: 50px;
   width: 256px;
 
@@ -14,7 +14,7 @@
   cursor: pointer;
 }
 
-.gardener-create-form__send-button__text {
+.form__send-button__text {
   font-size: 16px;
   text-align: center;
   color: #FFFFFF;

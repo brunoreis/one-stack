@@ -6,7 +6,13 @@ import branchToLoading from '../../../components/ErrorAndLoading/branchToLoading
 import branchToError from '../../../components/ErrorAndLoading/branchToError';
 
 const GardenerDetailsContainer = compose(
-  graphql(LoggedUserQuery, { name: 'loggedUserQuery' }),
+  graphql(
+    LoggedUserQuery,
+    {
+      name: 'loggedUserQuery',
+      options: { fetchPolicy: 'network-only' },
+    },
+  ),
   branchToLoading({ queryName: 'loggedUserQuery' }),
   branchToError({ queryName: 'loggedUserQuery' }),
   withProps(({ loggedUserQuery: { loggedUser: { gardener } } }) => gardener),

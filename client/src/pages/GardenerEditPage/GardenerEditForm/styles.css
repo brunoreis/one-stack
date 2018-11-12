@@ -1,0 +1,20 @@
+.gardener-edit-form {
+  display: flex;
+  flex-direction: column;
+
+  font-size: 14px;
+}
+.gardener-edit-form__form-item {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.gardener-edit-form__bold-text {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.gardener-edit-form__form-item__error {
+  color: red;
+}

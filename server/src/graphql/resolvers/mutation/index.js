@@ -3,6 +3,7 @@ import deleteUser from './deleteUser';
 import updateUser from './updateUser';
 import passwordForgot from './passwordForgot';
 import passwordReset from './passwordReset';
+import updateGardener from './updateGardener';
 
 export default {
   createUser,
@@ -10,4 +11,5 @@ export default {
   updateUser,
   passwordForgot,
   passwordReset,
+  updateGardener,
 };

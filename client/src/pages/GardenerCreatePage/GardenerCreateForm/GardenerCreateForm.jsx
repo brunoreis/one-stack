@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import './styles.css';
 
-import SendButton from './SendButton/SendButton';
+import SendButton from '../../../components/SendButton/SendButton';
 
 const GardenerCreateForm = ({
   name,
