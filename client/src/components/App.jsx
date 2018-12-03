@@ -4,7 +4,7 @@ import Header from './Header';
 import Manufacturer from './Manufacturer';
 import UsersContainer from './Users/UsersContainer';
 import Login from './auth/Login/Login';
-import LoggedUserContainer from './LoggedUser/LoggedUserContainer';
+import LoggedUser from './LoggedUser/LoggedUser';
 import PasswordForgot from './auth/PasswordForgot/PasswordForgot';
 import PasswordReset from './auth/passwordReset/PasswordReset';
 import GardenersPage from '../pages/GardenersPage/GardenersPage';
@@ -19,7 +19,7 @@ const App = () => (
       <Switch>
         <Route exact path="/" component={Manufacturer} />
         <Route exact path="/users" component={UsersContainer} />
-        <Route exact path="/logged-user" component={LoggedUserContainer} />
+        <Route exact path="/logged-user" component={LoggedUser} />
         <Route exact path="/gardeners" component={GardenersPage} />
         <Route exact path="/gardener-details" component={GardenerDetailsPage} />
         <Route exact path="/signup" component={GardenerCreatePage} />
