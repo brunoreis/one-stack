@@ -1,15 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { compose } from 'react-apollo';
+import { withRouter } from 'react-router';
+
+import fetchLogin from '../../../../helpers/fetchLogin';
 
 const LoginForm = (props) => {
   const {
-    email,
-    setEmail,
-    password,
-    setPassword,
-    errorMessage,
-    login,
+    history,
   } = props;
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const login = () => {
+    fetchLogin(email, password)
+      .then(({ message, success }) => {
+        if (success) history.push('/gardener-details');
+        else setErrorMessage(message);
+      });
+  };
+
   return (
     <div>
       <input
@@ -26,7 +37,7 @@ const LoginForm = (props) => {
         value={password}
         onChange={e => setPassword(e.target.value)}
       />
-      <button onClick={login} type="button">Submit</button>
+      <button onClick={() => login({ ...props, email, setEmail })} type="button">Submit</button>
       <div>
         { errorMessage }
       </div>
@@ -35,12 +46,11 @@ const LoginForm = (props) => {
 };
 
 LoginForm.propTypes = {
-  email: PropTypes.string.isRequired,
-  setEmail: PropTypes.func.isRequired,
-  password: PropTypes.string.isRequired,
-  setPassword: PropTypes.func.isRequired,
-  errorMessage: PropTypes.string.isRequired,
-  login: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired,
 };
 
-export default LoginForm;
+const LoginFormWithRouter = compose(
+  withRouter,
+)(LoginForm);
+
+export default LoginFormWithRouter;

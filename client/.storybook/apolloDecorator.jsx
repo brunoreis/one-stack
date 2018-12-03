@@ -1,15 +1,15 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { ApolloProvider } from 'react-apollo';
+import { ApolloProvider as ApolloHooksProvider } from 'react-apollo-hooks';
 import client from '../src/client';
-import App from '../src/components/App';
 
 export default story => (
   <BrowserRouter>
     <ApolloProvider client={client}>
-      {/* <App> */}
+      <ApolloHooksProvider client={client}>
         { story() }
-      {/* </App> */}
+      </ApolloHooksProvider>
     </ApolloProvider>
   </BrowserRouter>
 );

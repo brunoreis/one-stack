@@ -1,13 +1,23 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import { useMutation } from 'react-apollo-hooks';
+import PASS_FORGOT_MUTATION from './PasswordForgotMutation';
 
-const PasswordForgot = (props) => {
-  const {
-    email,
-    setEmail,
-    message,
-    passwordForgotMutate,
-  } = props;
+const PasswordForgot = () => {
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const passwordForgotMutation = useMutation(
+    PASS_FORGOT_MUTATION,
+    {
+      variables: {
+        email,
+      },
+    },
+  );
+  const mutate = async () => {
+    const r = await passwordForgotMutation();
+    setMessage(r.data.passwordForgot.message);
+  };
+
   return (
     <div>
       <div>
@@ -18,20 +28,13 @@ const PasswordForgot = (props) => {
           }}
           value={email}
         />
-        <button onClick={passwordForgotMutate} type="button">Submit</button>
+        <button onClick={mutate} type="button">Submit</button>
       </div>
       <div>
         { message }
       </div>
     </div>
   );
-};
-
-PasswordForgot.propTypes = {
-  email: PropTypes.string.isRequired,
-  setEmail: PropTypes.func.isRequired,
-  message: PropTypes.string.isRequired,
-  passwordForgotMutate: PropTypes.func.isRequired,
 };
 
 export default PasswordForgot;

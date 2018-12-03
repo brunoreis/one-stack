@@ -5,8 +5,8 @@ import Manufacturer from './Manufacturer';
 import UsersContainer from './Users/UsersContainer';
 import Login from './auth/Login/Login';
 import LoggedUserContainer from './LoggedUser/LoggedUserContainer';
-import PasswordForgotContainer from './auth/PasswordForgot/PasswordForgotContainer';
-import PasswordResetContainer from './auth/passwordReset/PasswordResetContainer';
+import PasswordForgot from './auth/PasswordForgot/PasswordForgot';
+import PasswordReset from './auth/passwordReset/PasswordReset';
 import GardenersPage from '../pages/GardenersPage/GardenersPage';
 import GardenerDetailsPage from '../pages/GardenerDetailsPage/GardenerDetailsPage';
 import GardenerCreatePage from '../pages/GardenerCreatePage/GardenerCreatePage';
@@ -24,8 +24,8 @@ const App = () => (
         <Route exact path="/gardener-details" component={GardenerDetailsPage} />
         <Route exact path="/signup" component={GardenerCreatePage} />
         <Route exact path="/login" component={Login} />
-        <Route exact path="/forgot" component={PasswordForgotContainer} />
-        <Route exact path="/reset/:token" component={PasswordResetContainer} />
+        <Route exact path="/forgot" component={PasswordForgot} />
+        <Route exact path="/reset/:token" component={PasswordReset} />
         <Route exact path="/gardener-edit" component={GardenerEditPage} />
       </Switch>
     </div>
