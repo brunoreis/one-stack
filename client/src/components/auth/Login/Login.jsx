@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import LoginFormContainer from './LoginForm/LoginFormContainer';
+import LoginForm from './LoginForm/LoginForm';
 
 const Login = () => (
   <div>
-    <LoginFormContainer />
+    <LoginForm />
     <Link to="/forgot" className="ml1 no-underline black">
         forgot my password
     </Link>

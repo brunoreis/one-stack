@@ -2,7 +2,7 @@ import React from 'react';
 
 import './styles.css';
 
-import GardenerListContainer from './GardenerList/GardenerListContainer';
+import GardenerList from './GardenerList/GardenerList';
 import AddButton from './AddButton/AddButton';
 import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
@@ -15,7 +15,7 @@ const GardenersPage = () => (
 
     <div>
       <SearchBar />
-      <GardenerListContainer />
+      <GardenerList />
     </div>
 
     <div className="gardeners-page__bottom-fixed-flex">

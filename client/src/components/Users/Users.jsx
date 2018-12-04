@@ -1,9 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { useQuery } from 'react-apollo-hooks';
 
 import ErrorHandler from '../ErrorAndLoading/ErrorHandler';
+import USERS_QUERY from './UsersQuery';
 
-const Users = ({ usersQuery: { loading, error, users } }) => {
+const Users = () => {
+  const { loading, error, data: { users } } = useQuery(
+    USERS_QUERY,
+    { suspend: false },
+  );
+
   if (loading) return <div>Fetching</div>;
   if (error) return <ErrorHandler error={error} />;
   return (
@@ -17,7 +23,4 @@ const Users = ({ usersQuery: { loading, error, users } }) => {
   );
 };
 
-Users.propTypes = {
-  usersQuery: PropTypes.object.isRequired,
-};
 export default Users;
