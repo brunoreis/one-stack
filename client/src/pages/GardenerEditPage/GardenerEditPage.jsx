@@ -3,12 +3,12 @@ import './styles.css';
 
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
-import GardenerEditFormContainer from './GardenerEditForm/GardenerEditFormContainer';
+import GardenerEditForm from './GardenerEditForm/GardenerEditForm';
 
 const GardenerEditPage = () => (
   <div className="gardener-edit-page">
     <Header text="MEU  PERFIL" />
-    <GardenerEditFormContainer />
+    <GardenerEditForm />
     <div className="gardener-edit-page__bottom-fixed-flex">
       <Footer />
     </div>

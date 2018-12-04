@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Header from './Header';
 import Manufacturer from './Manufacturer';
-import UsersContainer from './Users/UsersContainer';
+import Users from './Users/Users';
 import Login from './auth/Login/Login';
 import LoggedUser from './LoggedUser/LoggedUser';
 import PasswordForgot from './auth/PasswordForgot/PasswordForgot';
@@ -18,7 +18,7 @@ const App = () => (
     <div className="ph3 pv1 background-gray">
       <Switch>
         <Route exact path="/" component={Manufacturer} />
-        <Route exact path="/users" component={UsersContainer} />
+        <Route exact path="/users" component={Users} />
         <Route exact path="/logged-user" component={LoggedUser} />
         <Route exact path="/gardeners" component={GardenersPage} />
         <Route exact path="/gardener-details" component={GardenerDetailsPage} />

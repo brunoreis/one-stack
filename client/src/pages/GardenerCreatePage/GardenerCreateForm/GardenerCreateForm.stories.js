@@ -4,12 +4,12 @@ import { MockedProvider } from 'react-apollo/test-utils';
 import gardenerCreateMutation from './GardenerCreateMutation';
 
 import apolloDecorator from '../../../../.storybook/apolloDecorator';
-import GardenerCreateFormContainer from './GardenerCreateFormContainer';
+import GardenerCreateForm from './GardenerCreateForm';
 
 
 storiesOf('Gardener/Create/Form', module)
   .addDecorator(apolloDecorator)
-  .add('empty form', () => <GardenerCreateFormContainer />)
+  .add('empty form', () => <GardenerCreateForm />)
   .add('mockedProvider', () => (
     <MockedProvider
       mocks={[{
@@ -36,6 +36,6 @@ storiesOf('Gardener/Create/Form', module)
       }]}
       addTypename={false}
     >
-      <GardenerCreateFormContainer />
+      <GardenerCreateForm />
     </MockedProvider>
   ));
