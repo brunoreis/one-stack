@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Header from './Header';
-import Manufacturer from './Manufacturer';
+import Home from './Home';
 import Users from './Users/Users';
 import Login from './auth/Login/Login';
 import LoggedUser from './LoggedUser/LoggedUser';
@@ -17,7 +17,7 @@ const App = () => (
     <Header />
     <div className="ph3 pv1 background-gray">
       <Switch>
-        <Route exact path="/" component={Manufacturer} />
+        <Route exact path="/" component={Home} />
         <Route exact path="/users" component={Users} />
         <Route exact path="/logged-user" component={LoggedUser} />
         <Route exact path="/gardeners" component={GardenersPage} />
