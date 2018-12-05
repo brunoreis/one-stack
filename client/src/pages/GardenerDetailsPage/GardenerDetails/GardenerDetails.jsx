@@ -1,4 +1,4 @@
-import React from 'react';
+import React/* , { Suspense } */ from 'react';
 import { useQuery } from 'react-apollo-hooks';
 
 import noUserIcon from '../../../images/no-user-icon.png';
@@ -8,12 +8,24 @@ import ErrorHandler from '../../../components/ErrorAndLoading/ErrorHandler';
 import './styles.css';
 
 const GardenerDetails = () => {
-  const { loading, error, data } = useQuery(
+  const queryResult = useQuery(
+  // const { loading, error, data } = useQuery(
     LOGGED_USER_QUERY,
-    { suspend: false },
+    {
+      suspend: false,
+      fetchPolicy: 'network-only',
+      errorPolicy: 'all',
+    },
   );
+  const {
+    loading,
+    error,
+    errors,
+    data,
+  } = queryResult;
   if (loading) return <div>Fetching</div>;
   if (error) return <ErrorHandler error={error} />;
+  if (errors) return <ErrorHandler error={{ graphQLErrors: errors }} />;
   const { name, description, picture } = data.loggedUser.gardener;
   return (
     <div className="gardener-details common__fonts__normal">
@@ -72,3 +84,8 @@ const GardenerDetails = () => {
 };
 
 export default GardenerDetails;
+// export default () => (
+//   <Suspense fallback={<div>Loading...</div>}>
+//     <GardenerDetails />
+//   </Suspense>
+// );
