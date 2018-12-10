@@ -4,12 +4,12 @@ import iconStyle from '../iconStyle';
 
 import bgImage from '../../../images/gardener-icon.png';
 
-const RecipesButton = () => (
+const RecipesButton = ({ action }) => (
   <div
     style={{
       cursor: 'pointer',
     }}
-    onClick={() => console.log('go to gardener')}
+    onClick={action}
   >
     <div
       className=""

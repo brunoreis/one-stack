@@ -14,7 +14,7 @@ const RecipesButton = () => (
     <div
       style={iconStyle(bgImage)}
     />
-    <div className=" text-center">
+    <div className="text-center">
       <small>Receitas</small>
     </div>
   </div>
