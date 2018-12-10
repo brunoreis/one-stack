@@ -1,54 +1,60 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
-import PropTypres from 'prop-types';
+import PropTypes from 'prop-types';
 
 import LogoutButton from './auth/Logout/LogoutButton';
 
 const Header = ({ history }) => (
-  <div className="flex pa1 justify-between nowrap orange">
-    <div className="flex flex-fixed black">
-      <div className="fw7 mr1">Jardineiros</div>
-      <Link to="/" className="ml1 no-underline black">
-        Home
-      </Link>
-      <div className="ml1">|</div>
-      <Link to="/users" className="ml1 no-underline black">
-        Users
-      </Link>
-      <div className="ml1">|</div>
-      <Link to="/logged-user" className="ml1 no-underline black">
-        Logged User
-      </Link>
-      <div className="ml1">|</div>
-      <Link to="/gardeners" className="ml1 no-underline black">
-        Jardineiros
-      </Link>
-      <div className="ml1">|</div>
-      <Link to="/gardener-details" className="ml1 no-underline black">
-        Meu Perfil
-      </Link>
-    </div>
-    <div className="flex flex-fixed">
-      <Link to="/signup" className="ml1 no-underline black">
-        Sign up
-      </Link>
-      <div className="ml1">|</div>
-      <Link to="/login" className="ml1 no-underline black">
-        Login
-      </Link>
-      <div className="ml1">|</div>
-      <div className="ml1 no-underline black">
-        <LogoutButton
-          onLogout={() => history.push('/')}
-        />
+  <div>
+
+    <div className="container-fluid fixed-top">
+
+      <div className="row justify-content-between">
+
+        <div className="col-5">
+          <strong className="mx-1">Jardineiros</strong>
+          <Link className="mx-1" to="/">
+            Home
+          </Link>
+          <spam className="mx-1">|</spam>
+          <Link className="mx-1" to="/users">
+            Users
+          </Link>
+          <spam className="mx-1">|</spam>
+          <Link className="mx-1" to="/gardeners">
+            Jardineiros
+          </Link>
+          <spam className="mx-1">|</spam>
+          <Link className="mx-1" to="/gardener-details">
+            Meu perfil
+          </Link>
+        </div>
+
+        <div className="col-3">
+          <Link className="mx-1" to="/signup">
+            Sign up
+          </Link>
+          <spam className="mx-1">|</spam>
+          <Link className="mx-1" to="/login">
+            Login
+          </Link>
+          <spam className="mx-1">|</spam>
+          <LogoutButton
+            onLogout={() => history.push('/')}
+          />
+        </div>
       </div>
+
     </div>
+
+    <div style={{ height: '25px' }} />
+
   </div>
 );
 
 Header.propTypes = {
-  history: PropTypres.object.isRequired,
+  history: PropTypes.object.isRequired,
 };
 
 export default withRouter(Header);

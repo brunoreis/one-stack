@@ -13,9 +13,10 @@ import GardenerCreatePage from '../pages/GardenerCreatePage/GardenerCreatePage';
 import GardenerEditPage from '../pages/GardenerEditPage/GardenerEditPage';
 
 const App = () => (
-  <div className="center w85">
+  <div>
     <Header />
-    <div className="ph3 pv1 background-gray">
+    {/* <div className="my-4" /> */}
+    <div>
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/users" component={Users} />

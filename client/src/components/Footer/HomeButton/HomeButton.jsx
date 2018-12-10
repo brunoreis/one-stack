@@ -1,14 +1,17 @@
 import React from 'react';
 
-import './styles.css';
+import iconStyle from '../iconStyle';
 
-const HomeButton = () => (
+import bgImage from '../../../images/home-icon.png';
+
+const RecipesButton = () => (
   <div
-    className="home-button__container"
+    style={{
+      cursor: 'pointer',
+      ...iconStyle(bgImage),
+    }}
     onClick={() => console.log('go to home')}
-  >
-    <div className="home-button__icon" />
-  </div>
+  />
 );
 
-export default HomeButton;
+export default RecipesButton;

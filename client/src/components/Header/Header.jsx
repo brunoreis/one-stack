@@ -1,13 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './styles.css';
 
 const Header = ({ text }) => (
-  <div className="header common__fonts__normal">
-    <div className="header__text">
-      {text}
+  <nav className="navbar navbar-dark bg-primary">
+    <div
+      className="row w-100 align-items-center bg-primary"
+      style={{ height: '50px' }}
+    >
+      <div className="col text-white text-center">
+        <h4>{text}</h4>
+      </div>
     </div>
-  </div>
+  </nav>
 );
 
 Header.propTypes = {

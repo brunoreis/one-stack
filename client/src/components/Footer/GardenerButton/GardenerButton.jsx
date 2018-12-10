@@ -1,17 +1,24 @@
 import React from 'react';
 
-import './styles.css';
+import iconStyle from '../iconStyle';
 
-const GardenerButton = () => (
+import bgImage from '../../../images/gardener-icon.png';
+
+const RecipesButton = () => (
   <div
-    className="gardener-button__container"
+    style={{
+      cursor: 'pointer',
+    }}
     onClick={() => console.log('go to gardener')}
   >
-    <div className="gardener-button__icon" />
-    <div className="gardener-button__label">
-      Jardineiro
+    <div
+      className=""
+      style={iconStyle(bgImage)}
+    />
+    <div className="text-center">
+      <small>Jardineiro</small>
     </div>
   </div>
 );
 
-export default GardenerButton;
+export default RecipesButton;

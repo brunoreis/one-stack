@@ -1,15 +1,21 @@
 import React from 'react';
 
-import './styles.css';
+import iconStyle from '../iconStyle';
+
+import bgImage from '../../../images/cook.png';
 
 const RecipesButton = () => (
   <div
-    className="recipes-button__container"
+    style={{
+      cursor: 'pointer',
+    }}
     onClick={() => console.log('go to recipes')}
   >
-    <div className="recipes-button__icon" />
-    <div className="recipes-button__label">
-      Receitas
+    <div
+      style={iconStyle(bgImage)}
+    />
+    <div className=" text-center">
+      <small>Receitas</small>
     </div>
   </div>
 );

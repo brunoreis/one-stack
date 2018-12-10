@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './styles.css';
 
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
@@ -10,14 +9,24 @@ import EditButton from './EditButton/EditButton';
 const goToEditPage = history => history.push('gardener-edit');
 
 const GardenerDetailsPage = ({ history }) => (
-  <div className="gardener-details-page">
+  <div>
     <Header text="O JARDINEIRO" />
-    <GardenerDetails />
-    <div className="gardener-details-page__bottom-fixed-flex">
-      <div className="gardener-details-page__edit-button">
-        <EditButton onClick={() => goToEditPage(history)} />
+
+    <div style={{
+      position: 'absolute',
+      top: '75px',
+    }}>
+      <div className="container-fluid bg-white">
+        <GardenerDetails />
       </div>
-      <Footer />
+    </div>
+
+    <div className="fixed-bottom">
+      <div className="row no-gutters justify-content-end">
+        <EditButton onClick={() => goToEditPage(history)} />
+        <div className="w-100" />
+        <Footer />
+      </div>
     </div>
   </div>
 );

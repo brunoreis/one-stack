@@ -8,13 +8,27 @@ import PlantsButton from './PlantsButton/PlantsButton';
 import HomeButton from './HomeButton/HomeButton';
 
 const Footer = () => (
-  <div className="footer">
-    <RecipesButton />
-    <GardenerButton />
-    <HomeButton />
-    <GardensButton />
-    <PlantsButton />
-  </div>
+  <nav
+    className="navbar navbar-dark bg-dark"
+  >
+    <div className="row w-100 no-gutters justify-content-between">
+      <div className="col">
+        <RecipesButton />
+      </div>
+      <div className="col">
+        <GardenerButton />
+      </div>
+      <div className="col">
+        <HomeButton />
+      </div>
+      <div className="col">
+        <GardensButton />
+      </div>
+      <div className="col">
+        <PlantsButton />
+      </div>
+    </div>
+  </nav>
 );
 
 export default Footer;

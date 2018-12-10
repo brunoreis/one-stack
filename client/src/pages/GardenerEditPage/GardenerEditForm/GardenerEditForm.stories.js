@@ -4,11 +4,11 @@ import { MockedProvider } from 'react-apollo/test-utils';
 import gardenerEditMutation from './GardenerEditMutation';
 
 import apolloDecorator from '../../../../.storybook/apolloDecorator';
-import GardenerEditFormContainer from './GardenerEditFormContainer';
+import GardenerEditForm from './GardenerEditForm';
 
 storiesOf('Gardener/Edit/Form', module)
   .addDecorator(apolloDecorator)
-  .add('empty form', () => <GardenerEditFormContainer />)
+  .add('empty form', () => <GardenerEditForm />)
   .add('mockedProvider', () => (
     <MockedProvider
       mocks={[{

@@ -7,27 +7,20 @@ import noUserIcon from '../../images/no-user-icon.png';
 
 const Comment = () => (
   <div
-    className="comment common__fonts__normal"
+    className="container"
   >
-    <div style={{
-      display: 'flex',
-      margin: '5px',
-    }}
-    >
+    <div className="media">
       <img
-        className="comment__picture"
+        style={{
+          height: '40px',
+        }}
+        className="mr-3 mt-1"
         src={comment.gardener.picture || noUserIcon}
         alt="gardener profile"
       />
-
-      <div style={{
-        display: 'flex',
-        flexDirection: 'column',
-        margin: '5px',
-      }}
-      >
-        <div className="comment__title">
-          <span className="comment__title__bold-text">
+      <div className="media-body mb-2">
+        <div>
+          <span className="font-weight-bold">
             {comment.gardener.name}
             {' '}
           </span>
@@ -35,16 +28,16 @@ const Comment = () => (
             comentou na planta
             {' '}
           </span>
-          <span className="comment__plant-name">
+          <span className="text-primary">
             {comment.plant.name}
           </span>
         </div>
-        <div className="comment__date-time">
+        <div className="text-secondary">
           {comment.dateTime}
         </div>
       </div>
     </div>
-    <div className="comment__text">
+    <div>
       {comment.text}
     </div>
   </div>
