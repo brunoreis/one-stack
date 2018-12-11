@@ -1,0 +1,11 @@
+.fixed__max-width__bottom-right {
+  position: fixed;
+  bottom: 75px;
+  right: 15px;
+}
+
+@media (min-width: 720px) {
+  .fixed__max-width__bottom-right {
+    right: calc(50% - 355px);
+  }
+}

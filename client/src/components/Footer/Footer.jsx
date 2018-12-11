@@ -12,10 +12,8 @@ import PlantsButton from './PlantsButton/PlantsButton';
 import HomeButton from './HomeButton/HomeButton';
 
 const Footer = ({ history }) => {
-  const redirect = page => () => {
-    console.log('foi');
-    history.push(page);
-  };
+  const redirect = page => () => history.push(page);
+
   return (
     <nav
       className="navbar navbar-dark bg-dark"

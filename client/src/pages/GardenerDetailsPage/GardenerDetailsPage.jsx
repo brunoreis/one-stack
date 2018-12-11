@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import GardenerDetails from './GardenerDetails/GardenerDetails';
 import EditButton from './EditButton/EditButton';
 
+import './GardenerDetailsPage.css';
+
 const goToEditPage = history => history.push('gardener-edit');
 
 const GardenerDetailsPage = ({ history }) => (
@@ -11,7 +13,9 @@ const GardenerDetailsPage = ({ history }) => (
 
     <GardenerDetails />
 
-    <EditButton onClick={() => goToEditPage(history)} />
+    <div className="fixed__max-width__bottom-right">
+      <EditButton onClick={() => goToEditPage(history)} />
+    </div>
 
   </div>
 );

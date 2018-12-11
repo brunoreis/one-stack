@@ -1,6 +1,5 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-// import Header from './Header';
 import Home from './Home';
 import Users from './Users/Users';
 import Login from './auth/Login/Login';
@@ -14,26 +13,9 @@ import GardenerEditPage from '../pages/GardenerEditPage/GardenerEditPage';
 
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
+import SideMenu from './SideMenu';
 
 const App = () => (
-  // <div>
-  //   <Header />
-  //   {/* <div className="my-4" /> */}
-  //   <div>
-  //     <Switch>
-  //       <Route exact path="/" component={Home} />
-  //       <Route exact path="/users" component={Users} />
-  //       <Route exact path="/logged-user" component={LoggedUser} />
-  //       <Route exact path="/gardeners" component={GardenersPage} />
-  //       <Route exact path="/gardener-details" component={GardenerDetailsPage} />
-  //       <Route exact path="/signup" component={GardenerCreatePage} />
-  //       <Route exact path="/login" component={Login} />
-  //       <Route exact path="/forgot" component={PasswordForgot} />
-  //       <Route exact path="/reset/:token" component={PasswordReset} />
-  //       <Route exact path="/gardener-edit" component={GardenerEditPage} />
-  //     </Switch>
-  //   </div>
-  // </div>
   <div>
 
     <div
@@ -52,6 +34,15 @@ const App = () => (
       }}
     >
       <Footer />
+    </div>
+
+    <div
+      style={{
+        position: 'fixed',
+        left: 0,
+      }}
+    >
+      <SideMenu />
     </div>
 
     <div

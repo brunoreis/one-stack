@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './styles.css';
+import './EditButton.css';
 
 const EditButton = ({ onClick }) => (
   <div
