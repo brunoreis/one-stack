@@ -5,25 +5,39 @@ import PropTypes from 'prop-types';
 
 import LogoutButton from './auth/Logout/LogoutButton';
 
+// import './SideMenu.css';
+
 const SideMenu = ({ history }) => (
   <div>
-    side menu
-    <div className="row">
-      <Link className="col-12" to="/signup">
-        Sign up
-      </Link>
-      <Link className="col-12" to="/login">
-        Login
-      </Link>
-      <div className="col-12">
-        <LogoutButton
-          onLogout={() => history.push('/')}
-        />
+    <button
+      type="button"
+      className="btn btn-primary"
+      data-toggle="collapse"
+      data-target="#side-menu"
+    >
+      Menu
+    </button>
+
+    <div id="side-menu">
+      side menu
+      <div className="d-flex flex-column">
+        <Link className="" to="/signup">
+          Sign up
+        </Link>
+        <Link className="" to="/login">
+          Login
+        </Link>
+        <div className="">
+          <LogoutButton
+            onLogout={() => history.push('/')}
+          />
+        </div>
+        <Link className="" to="/gardeners">
+          Jardineiros
+        </Link>
       </div>
-      <Link className="col-12" to="/gardeners">
-        Jardineiros
-      </Link>
     </div>
+  
   </div>
 );
 
