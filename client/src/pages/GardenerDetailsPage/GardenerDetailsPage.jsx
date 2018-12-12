@@ -8,20 +8,23 @@ import '../PageStyles.css';
 
 const goToEditPage = history => history.push('gardener-edit');
 
-const GardenerDetailsPage = ({ history }) => (
-  <div>
+const GardenerDetailsPage = ({ history, setHeader }) => {
+  setHeader('O JARDINEIRO');
+  return (
+    <div>
 
-    <GardenerDetails />
+      <GardenerDetails />
 
-    <div className="fixed__max-width__bottom-right">
-      <EditButton onClick={() => goToEditPage(history)} />
+      <div className="fixed__max-width__bottom-right">
+        <EditButton onClick={() => goToEditPage(history)} />
+      </div>
+
     </div>
-
-  </div>
-);
-
+  );
+};
 GardenerDetailsPage.propTypes = {
   history: PropTypes.object.isRequired,
+  setHeader: PropTypes.func.isRequired,
 };
 
 export default GardenerDetailsPage;

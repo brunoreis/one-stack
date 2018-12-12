@@ -6,17 +6,20 @@ import SearchBar from './SearchBar/SearchBar';
 
 import '../PageStyles.css';
 
-const GardenersPage = () => (
-  <div>
-    <SearchBar />
+const GardenersPage = ({ setHeader }) => {
+  setHeader('JARDINEIROS');
+  return (
+    <div>
+      <SearchBar />
 
-    <GardenerList />
+      <GardenerList />
 
-    <div className="fixed__max-width__bottom-right">
-      <AddButton />
+      <div className="fixed__max-width__bottom-right">
+        <AddButton />
+      </div>
+
     </div>
-
-  </div>
-);
+  );
+};
 
 export default GardenersPage;
