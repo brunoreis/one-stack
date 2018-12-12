@@ -4,10 +4,6 @@ import { compose } from 'react-apollo';
 import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
 
-import './styles.css';
-
-import SendButton from '../../../components/SendButton/SendButton';
-
 import GARDENER_CREATE_MUTATION from './GardenerCreateMutation';
 import fetchLogin from '../../../helpers/fetchLogin';
 import validator from './GardenerCreateFormValidator';
@@ -50,71 +46,84 @@ const GardenerCreateForm = ({ history }) => {
   };
 
   return (
-    <div className="gardener-create-form common__fonts__normal">
+    <form className="container">
 
-      <div className="gardener-create-form__form-item">
-        <div>Nome Completo*</div>
+      <div className="form-group">
+        <label htmlFor="name">Nome Completo*</label>
         <input
+          type="text"
+          className="form-control"
+          id="name"
+          placeholder="Seu nome"
           value={name}
           onChange={e => setName(e.target.value)}
         />
         {validation.name.isInvalid
         && (
-        <div className="gardener-create-form__form-item__error">
+        <div className="text-danger">
           {validation.name.message}
         </div>
         )}
       </div>
 
-      <div className="gardener-create-form__form-item">
-        <div>Breve descrição</div>
+      <div className="form-group">
+        <label htmlFor="description">Breve descrição</label>
         <textarea
+          className="form-control"
+          type="text"
+          id="description"
           value={description}
           onChange={e => setDescription(e.target.value)}
         />
       </div>
 
-      <div className="gardener-create-form__form-item">
-        <div className="gardener-create-form__bold-text">
-          DADOS DE LOGIN
-        </div>
-      </div>
+      <h5><strong>DADOS DE LOGIN</strong></h5>
 
-      <div className="gardener-create-form__form-item">
-        <div>Email*</div>
+      <div className="form-group">
+        <label htmlFor="email">Email*</label>
         <input
+          className="form-control"
+          type="text"
+          id="email"
           value={email}
           onChange={e => setEmail(e.target.value)}
         />
         {validation.email.isInvalid
         && (
-        <div className="gardener-create-form__form-item__error">
+        <div className="text-danger">
           {validation.email.message}
         </div>
         )}
       </div>
 
-      <div className="gardener-create-form__form-item">
-        <div>Senha de acesso*</div>
+      <div className="form-group">
+        <label htmlFor="password">Senha de acesso*</label>
         <input
+          className="form-control"
+          type="text"
+          id="password"
           value={password}
           onChange={e => setPassword(e.target.value)}
         />
         {validation.password.isInvalid
         && (
-        <div className="gardener-create-form__form-item__error">
+        <div className="text-danger">
           {validation.password.message}
         </div>
         )}
       </div>
 
-      <div className="gardener-create-form__form-item">
-        <SendButton
+      <div className="row">
+        <button
+          className="btn btn-primary btn-lg mx-auto"
+          type="button"
           onClick={submit}
-        />
+        >
+          Salvar
+        </button>
       </div>
 
-    </div>
+    </form>
   );
 };
 

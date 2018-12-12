@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import iconStyle from '../iconStyle';
 
@@ -11,14 +12,18 @@ const RecipesButton = ({ action }) => (
     }}
     onClick={action}
   >
+    <div style={iconStyle(bgImage)} />
     <div
-      className=""
-      style={iconStyle(bgImage)}
-    />
-    <div className="text-center">
+      className="text-center"
+      style={{ color: 'black' }}
+    >
       <small>Jardineiro</small>
     </div>
   </div>
 );
+
+RecipesButton.propTypes = {
+  action: PropTypes.func.isRequired,
+};
 
 export default RecipesButton;

@@ -4,12 +4,8 @@ import { compose } from 'react-apollo';
 import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
 
-import SendButton from '../../../components/SendButton/SendButton';
-
 import validator from './GardenerEditFormValidator';
 import GARDENER_EDIT_MUTATION from './GardenerEditMutation';
-
-import './styles.css';
 
 const GardenerEditForm = ({ history }) => {
   const [name, setName] = useState('');
@@ -48,37 +44,48 @@ const GardenerEditForm = ({ history }) => {
   };
 
   return (
-    <div className="gardener-edit-form common__fonts__normal">
+    <form className="container">
 
-      <div className="gardener-edit-form__form-item">
-        <div>Nome Completo*</div>
+      <div className="form-group">
+        <label htmlFor="name">Nome Completo*</label>
         <input
+          type="text"
+          className="form-control"
+          id="name"
+          placeholder="Seu nome"
           value={name}
           onChange={e => setName(e.target.value)}
         />
         {validation.name.isInvalid
         && (
-        <div className="gardener-edit-form__form-item__error">
+        <div className="text-danger">
           {validation.name.message}
         </div>
         )}
       </div>
 
-      <div className="gardener-edit-form__form-item">
-        <div>Breve descrição</div>
+      <div className="form-group">
+        <label htmlFor="description">Breve descrição</label>
         <textarea
+          className="form-control"
+          type="text"
+          id="description"
           value={description}
           onChange={e => setDescription(e.target.value)}
         />
       </div>
 
-      <div className="gardener-edit-form__form-item">
-        <SendButton
+      <div className="row">
+        <button
+          className="btn btn-primary btn-lg mx-auto"
+          type="button"
           onClick={submit}
-        />
+        >
+          Salvar
+        </button>
       </div>
 
-    </div>
+    </form>
   );
 };
 

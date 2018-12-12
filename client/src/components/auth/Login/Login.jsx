@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import LoginForm from './LoginForm/LoginForm';
 
 const Login = () => (
-  <div>
+  <div className="container">
     <LoginForm />
     <Link to="/forgot" className="ml1 no-underline black">
         forgot my password

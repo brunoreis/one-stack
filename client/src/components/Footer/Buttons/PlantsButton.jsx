@@ -11,11 +11,11 @@ const RecipesButton = () => (
     }}
     onClick={() => console.log('go to plants')}
   >
+    <div style={iconStyle(bgImage)} />
     <div
-      className=""
-      style={iconStyle(bgImage)}
-    />
-    <div className="text-center">
+      className="text-center"
+      style={{ color: 'black' }}
+    >
       <small>Plantas</small>
     </div>
   </div>

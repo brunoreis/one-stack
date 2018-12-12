@@ -11,8 +11,8 @@ import GardenerDetailsPage from '../pages/GardenerDetailsPage/GardenerDetailsPag
 import GardenerCreatePage from '../pages/GardenerCreatePage/GardenerCreatePage';
 import GardenerEditPage from '../pages/GardenerEditPage/GardenerEditPage';
 
-import Header from './Header/Header';
-import Footer from './Footer/Footer';
+import Header from './Header';
+import Footer from './Footer';
 import SideMenu from './SideMenu';
 
 const App = () => (

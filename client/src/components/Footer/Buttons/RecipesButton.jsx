@@ -14,7 +14,10 @@ const RecipesButton = () => (
     <div
       style={iconStyle(bgImage)}
     />
-    <div className="text-center">
+    <div
+      className="text-center"
+      style={{ color: 'black' }}
+    >
       <small>Receitas</small>
     </div>
   </div>

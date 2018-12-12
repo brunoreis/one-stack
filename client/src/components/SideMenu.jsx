@@ -20,6 +20,9 @@ const SideMenu = ({ history }) => (
           onLogout={() => history.push('/')}
         />
       </div>
+      <Link className="col-12" to="/gardeners">
+        Jardineiros
+      </Link>
     </div>
   </div>
 );

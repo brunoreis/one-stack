@@ -1,6 +1,6 @@
 .gardener__details__edit-button {
-  width: 40px;
-  height: 40px;
+  width: 80px;
+  height: 80px;
   display: flex;
   background-image: url(../../../images/add-button__circle.png);
   background-size: contain;
@@ -10,8 +10,8 @@
 }
 
 .gardener__details__edit-button__icon {
-  width: 15px;
-  height: 15px;
+  width: 40px;
+  height: 40px;
   background-image: url(../../../images/gardener__details__edit-button__icon.png);
   background-size: contain;
 }

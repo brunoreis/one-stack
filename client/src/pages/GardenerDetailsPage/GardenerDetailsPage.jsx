@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import GardenerDetails from './GardenerDetails/GardenerDetails';
 import EditButton from './EditButton/EditButton';
 
-import './GardenerDetailsPage.css';
+import '../PageStyles.css';
 
 const goToEditPage = history => history.push('gardener-edit');
 

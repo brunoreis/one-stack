@@ -1,17 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import iconStyle from '../iconStyle';
 
 import bgImage from '../../../images/home-icon.png';
 
-const RecipesButton = () => (
+const HomeButton = ({ action }) => (
   <div
     style={{
       cursor: 'pointer',
       ...iconStyle(bgImage),
     }}
-    onClick={() => console.log('go to home')}
+    onClick={action}
   />
 );
 
-export default RecipesButton;
+HomeButton.propTypes = {
+  action: PropTypes.func.isRequired,
+};
+
+export default HomeButton;

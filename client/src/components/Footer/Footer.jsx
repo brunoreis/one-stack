@@ -1,15 +1,14 @@
 import React from 'react';
 
-import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
 
 import './styles.css';
-import RecipesButton from './RecipesButton/RecipesButton';
-import GardenerButton from './GardenerButton/GardenerButton';
-import GardensButton from './GardensButton/GardensButton';
-import PlantsButton from './PlantsButton/PlantsButton';
-import HomeButton from './HomeButton/HomeButton';
+import RecipesButton from './Buttons/RecipesButton';
+import GardenerButton from './Buttons/GardenerButton';
+import GardensButton from './Buttons/GardensButton';
+import PlantsButton from './Buttons/PlantsButton';
+import HomeButton from './Buttons/HomeButton';
 
 const Footer = ({ history }) => {
   const redirect = page => () => history.push(page);
@@ -17,6 +16,7 @@ const Footer = ({ history }) => {
   return (
     <nav
       className="navbar navbar-dark bg-dark"
+      style={{ height: '75px' }}
     >
       <div className="row w-100 no-gutters justify-content-between">
         <div className="col">
@@ -26,7 +26,7 @@ const Footer = ({ history }) => {
           <GardenerButton action={redirect('/gardener-details')} />
         </div>
         <div className="col">
-          <HomeButton />
+          <HomeButton action={redirect('/')} />
         </div>
         <div className="col">
           <GardensButton />
