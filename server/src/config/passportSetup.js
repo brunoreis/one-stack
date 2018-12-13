@@ -16,7 +16,7 @@ function passportSetup(passport) {
         data.user.checkPassword(email, password)
           .then((IS_LOGIN_VALID) => {
             if (IS_LOGIN_VALID) return data.user.getByEmail(email);
-            throw new Error('invalid email or password');
+            throw new Error('Não há usuário com essas credenciais.');
           })
           .then(user => done(null, user))
           .catch((err) => {

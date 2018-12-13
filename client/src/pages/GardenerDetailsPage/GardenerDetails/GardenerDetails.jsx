@@ -1,74 +1,81 @@
-import React from 'react';
+import React/* , { Suspense } */ from 'react';
 import { useQuery } from 'react-apollo-hooks';
 
 import noUserIcon from '../../../images/no-user-icon.png';
 import LOGGED_USER_QUERY from './LoggedUserQuery';
 
 import ErrorHandler from '../../../components/ErrorAndLoading/ErrorHandler';
-import './styles.css';
 
 const GardenerDetails = () => {
-  const { loading, error, data } = useQuery(
+  const queryResult = useQuery(
     LOGGED_USER_QUERY,
-    { suspend: false },
+    {
+      suspend: false,
+      fetchPolicy: 'network-only',
+      errorPolicy: 'all',
+    },
   );
+  const {
+    loading,
+    error,
+    errors,
+    data,
+  } = queryResult;
+
   if (loading) return <div>Fetching</div>;
   if (error) return <ErrorHandler error={error} />;
+  if (errors) return <ErrorHandler error={{ graphQLErrors: errors }} />;
+
   const { name, description, picture } = data.loggedUser.gardener;
   return (
-    <div className="gardener-details common__fonts__normal">
+    <div className="container">
+      <img
+        style={{
+          height: '180px',
+        }}
+        src={picture || noUserIcon}
+        alt="user profile"
+      />
 
-      <div className="gardener-details__picture">
-        <img
-          className="gardener__picture"
-          src={picture || noUserIcon}
-          alt="no pic"
-        />
-      </div>
-
-      <div className="gardener-details__name gardener-details__item">
+      <div className="h4">
         {name}
       </div>
 
-      <div className="gardener-details__description gardener-details__item">
-        <div className="common__fonts__topic">
-          Breve descrição:
-        </div>
-        <div>
-          {description}
-        </div>
+      <div className="text-primary">
+        Breve descrição:
+      </div>
+      {description}
+
+      <div className="text-primary">
+        Seus jardins:
       </div>
 
-      <div className="gardener-details__gardens gardener-details__item">
-        <div className="common__fonts__topic">
-          Seus jardins:
-        </div>
-        <div className="gardener-details__gardens__list">
-          <div style={{ margin: '10px' }}>Jardim 1</div>
-          <div style={{ margin: '10px' }}>Jardim 2</div>
-          <div style={{ margin: '10px' }}>Jardim 3</div>
-          <div style={{ margin: '10px' }}>Jardim 4</div>
-          <div style={{ margin: '10px' }}>Jardim 5</div>
-          <div style={{ margin: '10px' }}>Jardim 6</div>
-          <div style={{ margin: '10px' }}>Jardim 7</div>
-          <div style={{ margin: '10px' }}>Jardim 8</div>
-        </div>
-        {/* <Gardens /> */}
+      <div className="row">
+        <div className="col">Jardim 1</div>
+        <div className="col">Jardim 2</div>
+        <div className="col">Jardim 3</div>
+        <div className="col">Jardim 4</div>
+        <div className="col">Jardim 5</div>
+        <div className="col">Jardim 6</div>
+        <div className="col">Jardim 7</div>
+        <div className="col">Jardim 8</div>
       </div>
 
-      <div className="gardener-details__recipes gardener-details__item">
-        <div className="common__fonts__topic">
-          Receitas:
-        </div>
-        <div style={{ marginTop: '6px', marginBottom: '6px' }}>Receita1</div>
-        <div style={{ marginTop: '6px', marginBottom: '6px' }}>Receita2</div>
-        <div style={{ marginTop: '6px', marginBottom: '6px' }}>Receita3</div>
-        {/* <Recipes /> */}
+      <div className="text-primary">
+        Receitas:
       </div>
+
+      <div>Receita1</div>
+      <div>Receita2</div>
+      <div>Receita3</div>
 
     </div>
-
   );
 };
 
 export default GardenerDetails;
+// export default () => (
+//   <Suspense fallback={<div>Loading...</div>}>
+//     <GardenerDetails />
+//   </Suspense>
+// );

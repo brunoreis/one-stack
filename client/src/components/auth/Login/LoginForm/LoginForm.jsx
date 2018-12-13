@@ -4,6 +4,7 @@ import { compose } from 'react-apollo';
 import { withRouter } from 'react-router';
 
 import fetchLogin from '../../../../helpers/fetchLogin';
+import validator from './LoginFormValidator';
 
 const LoginForm = (props) => {
   const {
@@ -12,36 +13,70 @@ const LoginForm = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [validation, setValidation] = useState(validator.valid());
 
-  const login = () => {
-    fetchLogin(email, password)
-      .then(({ message, success }) => {
-        if (success) history.push('/gardener-details');
-        else setErrorMessage(message);
-      });
+  const validateAndLogin = async () => {
+    const newValidation = validator.validate({
+      email,
+      password,
+    });
+    if (newValidation.isValid) {
+      const { success, message } = await fetchLogin(email, password);
+      if (success) {
+        history.push('/gardener-details');
+      } else setErrorMessage(message);
+    } else setValidation(newValidation);
   };
 
   return (
-    <div>
-      <input
-        placeholder="Enter email"
-        name="email"
-        type="text"
-        value={email}
-        onChange={e => setEmail(e.target.value)}
-      />
-      <input
-        placeholder="Enter password"
-        name="password"
-        type="text"
-        value={password}
-        onChange={e => setPassword(e.target.value)}
-      />
-      <button onClick={() => login({ ...props, email, setEmail })} type="button">Submit</button>
-      <div>
+    <form>
+      <div className="form-row">
+        <div className="form-group col-6">
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            className="form-control"
+            id="email"
+            placeholder="Seu email"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+          />
+          {validation.email.isInvalid
+          && (
+          <div className="text-danger">
+            {validation.email.message}
+          </div>
+          )}
+        </div>
+        <div className="form-group col-6">
+          <label htmlFor="password">Senha</label>
+          <input
+            type="text"
+            className="form-control"
+            id="password"
+            placeholder="Sua senha"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+          />
+          {validation.password.isInvalid
+          && (
+          <div className="text-danger">
+            {validation.password.message}
+          </div>
+          )}
+        </div>
+      </div>
+      <button
+        className="btn btn-primary"
+        type="button"
+        onClick={validateAndLogin}
+      >
+        Submit
+      </button>
+      <div className="text-danger my-1">
         { errorMessage }
       </div>
-    </div>
+    </form>
   );
 };
 

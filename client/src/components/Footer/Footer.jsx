@@ -1,20 +1,44 @@
 import React from 'react';
 
-import './styles.css';
-import RecipesButton from './RecipesButton/RecipesButton';
-import GardenerButton from './GardenerButton/GardenerButton';
-import GardensButton from './GardensButton/GardensButton';
-import PlantsButton from './PlantsButton/PlantsButton';
-import HomeButton from './HomeButton/HomeButton';
+import { withRouter } from 'react-router';
+import PropTypes from 'prop-types';
 
-const Footer = () => (
-  <div className="footer">
-    <RecipesButton />
-    <GardenerButton />
-    <HomeButton />
-    <GardensButton />
-    <PlantsButton />
-  </div>
-);
+import RecipesButton from './Buttons/RecipesButton';
+import GardenerButton from './Buttons/GardenerButton';
+import GardensButton from './Buttons/GardensButton';
+import PlantsButton from './Buttons/PlantsButton';
+import HomeButton from './Buttons/HomeButton';
 
-export default Footer;
+const Footer = ({ history }) => {
+  const redirect = page => () => history.push(page);
+
+  return (
+    <nav
+      className="navbar navbar-dark bg-dark"
+      style={{ height: '75px' }}
+    >
+      <div className="row w-100 no-gutters justify-content-between">
+        <div className="col">
+          <RecipesButton />
+        </div>
+        <div className="col">
+          <GardenerButton action={redirect('/gardener-details')} />
+        </div>
+        <div className="col">
+          <HomeButton action={redirect('/')} />
+        </div>
+        <div className="col">
+          <GardensButton />
+        </div>
+        <div className="col">
+          <PlantsButton />
+        </div>
+      </div>
+    </nav>
+  );
+};
+Footer.propTypes = {
+  history: PropTypes.object.isRequired,
+};
+
+export default withRouter(Footer);

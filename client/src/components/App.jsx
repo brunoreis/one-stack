@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
+
 import Header from './Header';
-import Manufacturer from './Manufacturer';
+import Footer from './Footer';
+import SideMenu from './SideMenu';
+
+import Home from './Home';
 import Users from './Users/Users';
 import Login from './auth/Login/Login';
 import LoggedUser from './LoggedUser/LoggedUser';
@@ -12,24 +16,88 @@ import GardenerDetailsPage from '../pages/GardenerDetailsPage/GardenerDetailsPag
 import GardenerCreatePage from '../pages/GardenerCreatePage/GardenerCreatePage';
 import GardenerEditPage from '../pages/GardenerEditPage/GardenerEditPage';
 
-const App = () => (
-  <div className="center w85">
-    <Header />
-    <div className="ph3 pv1 background-gray">
-      <Switch>
-        <Route exact path="/" component={Manufacturer} />
-        <Route exact path="/users" component={Users} />
-        <Route exact path="/logged-user" component={LoggedUser} />
-        <Route exact path="/gardeners" component={GardenersPage} />
-        <Route exact path="/gardener-details" component={GardenerDetailsPage} />
-        <Route exact path="/signup" component={GardenerCreatePage} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/forgot" component={PasswordForgot} />
-        <Route exact path="/reset/:token" component={PasswordReset} />
-        <Route exact path="/gardener-edit" component={GardenerEditPage} />
-      </Switch>
+const App = () => {
+  const [header, setHeader] = useState('HOME');
+  const setNewHeader = newHeader => (newHeader !== header) && setHeader(newHeader);
+  return (
+    <div>
+
+      <div
+        className="fixed-top mx-auto"
+        style={{
+          maxWidth: '720px',
+        }}
+      >
+        <Header text={header} />
+      </div>
+
+      <div
+        className="mx-auto fixed-bottom"
+        style={{
+          maxWidth: '720px',
+        }}
+      >
+        <Footer />
+      </div>
+
+      <div
+        style={{
+          position: 'fixed',
+          left: 0,
+          zIndex: 9999,
+        }}
+      >
+        <SideMenu />
+      </div>
+
+      <div
+        className="container mx-auto bg-white"
+        style={{
+          maxWidth: '720px',
+          padding: '75px 0px',
+          minHeight: '100vh',
+        }}
+      >
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={props => <Home {...props} setHeader={setNewHeader} />}
+          />
+          <Route
+            exact
+            path="/gardeners"
+            render={props => <GardenersPage {...props} setHeader={setNewHeader} />}
+          />
+          <Route
+            exact
+            path="/gardener-details"
+            render={props => <GardenerDetailsPage {...props} setHeader={setNewHeader} />}
+          />
+          <Route
+            exact
+            path="/gardener-edit"
+            render={props => <GardenerEditPage {...props} setHeader={setNewHeader} />}
+          />
+          <Route
+            exact
+            path="/signup"
+            render={props => <GardenerCreatePage {...props} setHeader={setNewHeader} />}
+          />
+          <Route
+            exact
+            path="/login"
+            render={props => <Login {...props} setHeader={setNewHeader} />}
+          />
+          <Route exact path="/forgot" component={PasswordForgot} />
+          <Route exact path="/reset/:token" component={PasswordReset} />
+          <Route exact path="/users" component={Users} />
+          <Route exact path="/logged-user" component={LoggedUser} />
+        </Switch>
+      </div>
+
     </div>
-  </div>
-);
+  );
+};
 
 export default App;

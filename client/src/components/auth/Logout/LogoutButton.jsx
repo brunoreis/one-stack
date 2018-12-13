@@ -4,6 +4,7 @@ import logout from './logout';
 
 const LogoutButton = props => (
   <div
+    className="text-primary"
     style={{ cursor: 'pointer' }}
     onClick={() => logout(props.onLogout)}
   >
