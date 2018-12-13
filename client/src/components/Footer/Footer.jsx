@@ -3,7 +3,6 @@ import React from 'react';
 import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
 
-import './styles.css';
 import RecipesButton from './Buttons/RecipesButton';
 import GardenerButton from './Buttons/GardenerButton';
 import GardensButton from './Buttons/GardensButton';

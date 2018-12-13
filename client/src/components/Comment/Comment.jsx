@@ -1,6 +1,5 @@
 import React from 'react';
 
-import './styles.css';
 import comment from './mocks';
 
 import noUserIcon from '../../images/no-user-icon.png';
