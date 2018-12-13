@@ -44,6 +44,7 @@ const App = () => {
         style={{
           position: 'fixed',
           left: 0,
+          zIndex: 9999,
         }}
       >
         <SideMenu />

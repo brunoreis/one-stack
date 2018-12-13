@@ -5,22 +5,22 @@ import PropTypes from 'prop-types';
 
 import LogoutButton from './auth/Logout/LogoutButton';
 
-// import './SideMenu.css';
-
 const SideMenu = ({ history }) => (
-  <div>
+  <nav className="navbar navbar-light">
     <button
+      className="navbar-toggler bg-light"
       type="button"
-      className="btn btn-primary"
       data-toggle="collapse"
-      data-target="#side-menu"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
     >
-      Menu
+      <span className="navbar-toggler-icon" />
     </button>
 
-    <div id="side-menu">
-      side menu
-      <div className="d-flex flex-column">
+    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+      <div className="navbar-nav bg-light">
         <Link className="" to="/signup">
           Sign up
         </Link>
@@ -37,8 +37,7 @@ const SideMenu = ({ history }) => (
         </Link>
       </div>
     </div>
-  
-  </div>
+  </nav>
 );
 
 SideMenu.propTypes = {
