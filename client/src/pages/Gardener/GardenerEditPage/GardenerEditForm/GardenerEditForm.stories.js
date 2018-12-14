@@ -30,6 +30,6 @@ storiesOf('Gardener/Edit/Form', module)
       }]}
       addTypename={false}
     >
-      <GardenerEditFormContainer />
+      <GardenerEditForm />
     </MockedProvider>
   ));

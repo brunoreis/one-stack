@@ -4,6 +4,8 @@ import updateUser from './updateUser';
 import passwordForgot from './passwordForgot';
 import passwordReset from './passwordReset';
 import updateGardener from './updateGardener';
+import createPlant from './createPlant';
+import deletePlant from './deletePlant';
 
 export default {
   createUser,
@@ -12,4 +14,6 @@ export default {
   passwordForgot,
   passwordReset,
   updateGardener,
+  createPlant,
+  deletePlant,
 };
