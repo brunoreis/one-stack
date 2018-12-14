@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import PlantList from './PlantList/PlantList';
 import AddButton from '../../../components/Buttons/AddButton';
@@ -11,7 +12,7 @@ const PlantsPage = ({ setHeader }) => {
     console.log('go to create plant');
   };
 
-  setHeader('JARDINEIROS');
+  setHeader('PLANTAS');
   return (
     <div>
       <SearchBar />
@@ -24,6 +25,10 @@ const PlantsPage = ({ setHeader }) => {
 
     </div>
   );
+};
+
+PlantsPage.propTypes = {
+  setHeader: PropTypes.func.isRequired,
 };
 
 export default PlantsPage;

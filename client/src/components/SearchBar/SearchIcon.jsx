@@ -1,9 +1,7 @@
 import React from 'react';
 
-import './styles.css';
-
 const SearchIcon = () => (
-  <div className="search-icon" />
+  <div className="" />
 );
 
 export default SearchIcon;

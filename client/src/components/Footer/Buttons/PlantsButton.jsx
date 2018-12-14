@@ -1,15 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import iconStyle from '../iconStyle';
 
 import bgImage from '../../../images/plant-icon.png';
 
-const RecipesButton = () => (
+const RecipesButton = ({ action }) => (
   <div
     style={{
       cursor: 'pointer',
     }}
-    onClick={() => console.log('go to plants')}
+    onClick={action}
   >
     <div style={iconStyle(bgImage)} />
     <div
@@ -20,5 +21,9 @@ const RecipesButton = () => (
     </div>
   </div>
 );
+
+RecipesButton.propTypes = {
+  action: PropTypes.func.isRequired,
+};
 
 export default RecipesButton;
