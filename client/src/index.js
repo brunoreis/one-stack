@@ -9,7 +9,7 @@ import { ApolloProvider as ApolloHooksProvider } from 'react-apollo-hooks';
 import client from './client';
 import registerServiceWorker from './registerServiceWorker';
 
-import App from './components/App';
+import App from './App';
 
 ReactDOM.render(
   <BrowserRouter>
