@@ -7,6 +7,7 @@ import Recipe from './recipe';
 import Plant from './plant';
 
 import QueryGardenersConnection from './queryGardenersConnection';
+import QueryPlantsConnection from './queryPlantsConnection';
 
 export default [
   User,
@@ -16,4 +17,5 @@ export default [
   Recipe,
   Plant,
   QueryGardenersConnection,
+  QueryPlantsConnection,
 ];

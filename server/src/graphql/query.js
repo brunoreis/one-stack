@@ -7,6 +7,7 @@ type Query {
     gardeners: [Gardener]
     gardenersConnection: QueryGardenersConnection
     plants: [Plant]
+    plantsConnection: QueryPlantsConnection
 }
 `;
 
