@@ -30,6 +30,13 @@ type Mutation {
     tips: [String]
   ): Plant
   deletePlant(id: Int!): Int
+  updatePlant(
+    id: Int!
+    name: String
+    scientificName: String
+    edibleParts: [String]
+    tips: [String]
+  ): Plant
 }
 `;
 
