@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import GardenerList from './GardenerList/GardenerList';
-import AddButton from './AddButton/AddButton';
-import SearchBar from './SearchBar/SearchBar';
+import AddButton from '../../../components/Buttons/AddButton';
+import SearchBar from '../../../components/SearchBar/SearchBar';
 
 import '../../PageStyles.css';
 
@@ -20,6 +21,10 @@ const GardenersPage = ({ setHeader }) => {
 
     </div>
   );
+};
+
+GardenersPage.propTypes = {
+  setHeader: PropTypes.func.isRequired,
 };
 
 export default GardenersPage;

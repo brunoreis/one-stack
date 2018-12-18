@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import GardenerDetails from './GardenerDetails/GardenerDetails';
-import EditButton from './EditButton/EditButton';
+import EditButton from '../../../components/Buttons/EditButton';
 
 import '../../PageStyles.css';
 

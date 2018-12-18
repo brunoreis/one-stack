@@ -12,11 +12,9 @@ const PlantList = () => {
     PLANTS_QUERY,
     { suspend: false },
   );
-
   if (loading) return <div>Fetching</div>;
   if (error) return <ErrorHandler error={error} />;
   const plants = getConnectionNodes(data.plantsConnection);
-  console.log('plants: ', plants);
   return (
     <div>
       {plants.map(plant => (
