@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import RecipesIcon from './RecipesIcon/RecipesIcon';
+import RecipesIcon from '../../../../../components/Icons/RecipesIcon';
 import noUserIcon from '../../../../../images/no-user-icon.png';
 
 const Gardener = ({ gardener }) => (
@@ -53,7 +53,7 @@ const Gardener = ({ gardener }) => (
 
       <div>
         <RecipesIcon
-          recipeNumber={
+          count={
             (
               gardener.recipesConnection
               && gardener.recipesConnection.totalCount

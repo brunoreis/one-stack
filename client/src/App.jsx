@@ -6,15 +6,24 @@ import Footer from './components/Footer';
 import SideMenu from './components/SideMenu';
 
 import Home from './components/Home';
+
 import Users from './components/Users/Users';
 import Login from './components/auth/Login/Login';
 import LoggedUser from './components/LoggedUser/LoggedUser';
 import PasswordForgot from './components/auth/PasswordForgot/PasswordForgot';
 import PasswordReset from './components/auth/passwordReset/PasswordReset';
-import GardenersPage from './pages/Gardener/GardenersPage/GardenersPage';
-import GardenerDetailsPage from './pages/Gardener/GardenerDetailsPage/GardenerDetailsPage';
-import GardenerCreatePage from './pages/Gardener/GardenerCreatePage/GardenerCreatePage';
-import GardenerEditPage from './pages/Gardener/GardenerEditPage/GardenerEditPage';
+
+import {
+  GardenerListPage,
+  GardenerDetailsPage,
+  GardenerCreatePage,
+  GardenerEditPage,
+} from './pages/Gardener';
+
+import {
+  PlantListPage,
+  PlantCreatePage,
+} from './pages/Plant';
 
 const App = () => {
   const [header, setHeader] = useState('HOME');
@@ -67,7 +76,7 @@ const App = () => {
           <Route
             exact
             path="/gardeners"
-            render={props => <GardenersPage {...props} setHeader={setNewHeader} />}
+            render={props => <GardenerListPage {...props} setHeader={setNewHeader} />}
           />
           <Route
             exact
@@ -89,6 +98,18 @@ const App = () => {
             path="/login"
             render={props => <Login {...props} setHeader={setNewHeader} />}
           />
+
+          <Route
+            exact
+            path="/plant-list"
+            render={props => <PlantListPage {...props} setHeader={setNewHeader} />}
+          />
+          <Route
+            exact
+            path="/plant-create"
+            render={props => <PlantCreatePage {...props} setHeader={setNewHeader} />}
+          />
+
           <Route exact path="/forgot" component={PasswordForgot} />
           <Route exact path="/reset/:token" component={PasswordReset} />
           <Route exact path="/users" component={Users} />

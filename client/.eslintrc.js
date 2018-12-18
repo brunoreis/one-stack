@@ -10,7 +10,9 @@ module.exports = {
     "jsx-a11y/no-static-element-interactions": "off",
     "import/no-extraneous-dependencies": "[error, { devDependencies: true }]",
     "react-hooks/rules-of-hooks": "error",
-    "prefer-destructuring": "off"
+    "prefer-destructuring": "off",
+    "jsx-a11y/label-has-associated-control": "off",
+    "jsx-a11y/label-has-for": "off,"
   },
   "plugins": [
     "cypress",

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import GardenerDetails from './GardenerDetails/GardenerDetails';
-import EditButton from './EditButton/EditButton';
+import EditButton from '../../../components/Buttons/EditButton';
 
 import '../../PageStyles.css';
 
@@ -16,12 +16,13 @@ const GardenerDetailsPage = ({ history, setHeader }) => {
       <GardenerDetails />
 
       <div className="fixed__max-width__bottom-right">
-        <EditButton onClick={() => goToEditPage(history)} />
+        <EditButton action={() => goToEditPage(history)} />
       </div>
 
     </div>
   );
 };
+
 GardenerDetailsPage.propTypes = {
   history: PropTypes.object.isRequired,
   setHeader: PropTypes.func.isRequired,

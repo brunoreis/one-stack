@@ -6,12 +6,12 @@ exports.seed = async (knex) => {
   const gardeners = await knex.select().table('gardener');
   return knex('user').insert([
     {
-      email: 'guido@email',
+      email: 'guido@email.com',
       password: bcrypt.hashSync('senha', 10),
       gardener: gardeners[0].id,
     },
     {
-      email: 'bruno@email',
+      email: 'bruno@email.com',
       password: bcrypt.hashSync('senha', 10),
       gardener: gardeners[1].id,
     },

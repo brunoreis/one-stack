@@ -31,7 +31,7 @@ const Footer = ({ history }) => {
           <GardensButton />
         </div>
         <div className="col">
-          <PlantsButton />
+          <PlantsButton action={redirect('/plants')} />
         </div>
       </div>
     </nav>
