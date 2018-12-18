@@ -9,6 +9,7 @@ export default gql`
         node {
           id
           name
+          edibleParts
         }
       }
     }

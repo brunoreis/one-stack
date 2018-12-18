@@ -4,7 +4,6 @@ exports.up = async knex => knex.schema.createTable(
     table.increments('id').primary();
     table.string('name').notNullable();
     table.string('scientificName');
-    table.string('edibleParts');
     table.timestamps(false, true);
   },
 );

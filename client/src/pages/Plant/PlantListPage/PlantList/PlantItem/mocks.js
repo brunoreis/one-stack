@@ -3,14 +3,14 @@ export default [
     id: '1',
     name: 'planta 1',
     scientificName: null,
-    edibleParts: 'raiz, folha',
-    tips: 'lorem ipsen',
+    edibleParts: ['raiz', 'folha'],
+    tips: ['lorem ipsen'],
   },
   {
     id: '2',
     name: 'planta 2',
     scientificName: 'Manihot esculenta',
-    edibleParts: 'raiz, folha, caule, flor, semente, fruto, casca, mais partes',
+    edibleParts: ['raiz', 'folha', 'caule', 'flor', 'semente', 'fruto', 'casca', 'mais partes'],
     tips: null,
   },
 ];

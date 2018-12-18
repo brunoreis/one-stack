@@ -15,6 +15,7 @@ const PlantList = () => {
   if (loading) return <div>Fetching</div>;
   if (error) return <ErrorHandler error={error} />;
   const plants = getConnectionNodes(data.plantsConnection);
+  console.log(plants);
   return (
     <div>
       {plants.map(plant => (

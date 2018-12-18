@@ -26,7 +26,8 @@ type Mutation {
   createPlant(
     name: String!
     scientificName: String
-    edibleParts: String
+    edibleParts: [String]
+    tips: [String]
   ): Plant
   deletePlant(id: Int!): Int
 }

@@ -21,15 +21,19 @@ const PlantCreateForm = ({ history }) => {
         name,
         scientificName,
         edibleParts,
+        tips,
       },
     },
   );
 
   const submit = async () => {
+    const formattedEdibleParts = edibleParts.split(',');
+    const formattedTips = tips.split(';');
     const newValidation = validator.validate({
       name,
       scientificName,
-      edibleParts,
+      formattedEdibleParts,
+      formattedTips,
     });
     if (newValidation.isValid) {
       const res = await plantCreateMutation();
@@ -84,7 +88,7 @@ const PlantCreateForm = ({ history }) => {
       </div>
 
       <div className="form-group">
-        <label htmlFor="tips">Dicas de plantio</label>
+        <label htmlFor="tips">Dicas de plantio (separadas por ponto-e-virgula)</label>
         <textarea
           className="form-control"
           type="text"

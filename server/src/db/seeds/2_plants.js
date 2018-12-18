@@ -5,11 +5,19 @@ exports.seed = async (knex) => {
     {
       name: 'Bananeira',
       scientificName: 'bananus bananus',
-      edibleParts: 'fruta, flor',
+      edibleParts: ['fruta', 'flor'],
+      tips: [
+        'bananeira é tão bom que dá até banana',
+        'macaco quer banana?',
+      ],
     },
     {
       name: 'Macaxeira',
-      edibleParts: 'raiz',
+      edibleParts: ['raiz'],
+      tips: [
+        'macaxeira aipim mandioca',
+        'é no balanço da carroça que as abóboras se ajeitam',
+      ],
     },
   ]);
 };
