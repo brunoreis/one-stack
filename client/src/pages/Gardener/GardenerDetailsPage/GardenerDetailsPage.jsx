@@ -16,12 +16,13 @@ const GardenerDetailsPage = ({ history, setHeader }) => {
       <GardenerDetails />
 
       <div className="fixed__max-width__bottom-right">
-        <EditButton onClick={() => goToEditPage(history)} />
+        <EditButton action={() => goToEditPage(history)} />
       </div>
 
     </div>
   );
 };
+
 GardenerDetailsPage.propTypes = {
   history: PropTypes.object.isRequired,
   setHeader: PropTypes.func.isRequired,

@@ -7,7 +7,12 @@ import SearchBar from '../../../components/SearchBar/SearchBar';
 
 import '../../PageStyles.css';
 
-const GardenersPage = ({ setHeader }) => {
+const GardenersPage = ({ setHeader, history }) => {
+  const redirect = () => {
+    console.log('pronde eu vo?');
+    // history.push('gardener-details');
+  };
+
   setHeader('JARDINEIROS');
   return (
     <div>
@@ -16,7 +21,7 @@ const GardenersPage = ({ setHeader }) => {
       <GardenerList />
 
       <div className="fixed__max-width__bottom-right">
-        <AddButton />
+        <AddButton action={redirect} />
       </div>
 
     </div>
@@ -25,6 +30,7 @@ const GardenersPage = ({ setHeader }) => {
 
 GardenersPage.propTypes = {
   setHeader: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired,
 };
 
 export default GardenersPage;

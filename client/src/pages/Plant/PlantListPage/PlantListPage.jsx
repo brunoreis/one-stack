@@ -7,9 +7,9 @@ import SearchBar from '../../../components/SearchBar/SearchBar';
 
 import '../../PageStyles.css';
 
-const PlantsPage = ({ setHeader }) => {
-  const redirectToPlantCreatePage = () => {
-    console.log('go to create plant');
+const PlantsPage = ({ setHeader, history }) => {
+  const redirect = () => {
+    history.push('plant-create');
   };
 
   setHeader('PLANTAS');
@@ -20,7 +20,7 @@ const PlantsPage = ({ setHeader }) => {
       <PlantList />
 
       <div className="fixed__max-width__bottom-right">
-        <AddButton action={redirectToPlantCreatePage} />
+        <AddButton action={redirect} />
       </div>
 
     </div>
@@ -29,6 +29,7 @@ const PlantsPage = ({ setHeader }) => {
 
 PlantsPage.propTypes = {
   setHeader: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired,
 };
 
 export default PlantsPage;

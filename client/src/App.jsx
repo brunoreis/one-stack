@@ -22,6 +22,7 @@ import {
 
 import {
   PlantListPage,
+  PlantCreatePage,
 } from './pages/Plant';
 
 const App = () => {
@@ -97,11 +98,18 @@ const App = () => {
             path="/login"
             render={props => <Login {...props} setHeader={setNewHeader} />}
           />
+
           <Route
             exact
-            path="/plants"
+            path="/plant-list"
             render={props => <PlantListPage {...props} setHeader={setNewHeader} />}
           />
+          <Route
+            exact
+            path="/plant-create"
+            render={props => <PlantCreatePage {...props} setHeader={setNewHeader} />}
+          />
+
           <Route exact path="/forgot" component={PasswordForgot} />
           <Route exact path="/reset/:token" component={PasswordReset} />
           <Route exact path="/users" component={Users} />
