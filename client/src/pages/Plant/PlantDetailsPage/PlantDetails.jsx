@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import noUserIcon from '../../../images/no-user-icon.png';
+import plantDefaultIcon from '../../../images/plant-default.png';
 
 const PlantDetails = ({
   plant: {
@@ -17,8 +17,10 @@ const PlantDetails = ({
     <img
       style={{
         height: '180px',
+        display: 'block',
+        margin: 'auto',
       }}
-      src={picture || noUserIcon}
+      src={picture || plantDefaultIcon}
       alt="user profile"
     />
 
