@@ -3,13 +3,16 @@ import PropTypes from 'prop-types';
 
 import PlantEditForm from './PlantEditForm/PlantEditForm';
 
-const PlantEditPage = ({ setHeader, plantId }) => {
+const PlantEditPage = ({
+  setHeader,
+  match: { params: { id } },
+}) => {
   setHeader('EDITAR A PLANTA');
-  return <PlantEditForm plantId={plantId} />;
+  return <PlantEditForm plantId={parseInt(id, 10)} />;
 };
 
 PlantEditPage.propTypes = {
-  plantId: PropTypes.number.isRequired,
+  match: PropTypes.object.isRequired,
   setHeader: PropTypes.func.isRequired,
 };
 

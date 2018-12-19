@@ -39,7 +39,7 @@ const PlantEditForm = ({ plantId, history }) => {
     if (newValidation.isValid) {
       const res = await plantEditMutation();
       if (res.data && res.data.updatePlant) {
-        history.push('plant-list');
+        history.push(`/plant-details/${plantId}`);
       } else {
         console.log('erro ao criar planta');
       }

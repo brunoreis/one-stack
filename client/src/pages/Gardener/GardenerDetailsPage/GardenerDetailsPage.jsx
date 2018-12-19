@@ -6,8 +6,6 @@ import EditButton from '../../../components/Buttons/EditButton';
 
 import '../../PageStyles.css';
 
-const goToEditPage = history => history.push('gardener-edit');
-
 const GardenerDetailsPage = ({ history, setHeader }) => {
   setHeader('O JARDINEIRO');
   return (
@@ -16,7 +14,7 @@ const GardenerDetailsPage = ({ history, setHeader }) => {
       <GardenerDetails />
 
       <div className="fixed__max-width__bottom-right">
-        <EditButton action={() => goToEditPage(history)} />
+        <EditButton action={() => history.push('/gardener-edit')} />
       </div>
 
     </div>

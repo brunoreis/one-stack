@@ -42,7 +42,7 @@ const PlantItem = ({ plant }) => (
               && plant.edibleParts.map((part, i) => (
                 <span key={i}>
                   {part}
-                  {i+1 < plant.edibleParts.length && ', '}
+                  {i + 1 < plant.edibleParts.length && ', '}
                 </span>
               ))}
             </div>

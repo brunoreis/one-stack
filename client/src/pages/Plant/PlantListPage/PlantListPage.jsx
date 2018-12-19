@@ -9,7 +9,7 @@ import '../../PageStyles.css';
 
 const PlantsPage = ({ setHeader, history }) => {
   const redirect = () => {
-    history.push('plant-create');
+    history.push('/plant-create');
   };
 
   setHeader('PLANTAS');

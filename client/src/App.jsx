@@ -24,6 +24,7 @@ import {
   PlantListPage,
   PlantCreatePage,
   PlantEditPage,
+  PlantDetailsPage,
 } from './pages/Plant';
 
 const App = () => {
@@ -112,8 +113,13 @@ const App = () => {
           />
           <Route
             exact
-            path="/plant-edit"
-            render={props => <PlantEditPage {...props} setHeader={setNewHeader} plantId={2} />}
+            path="/plant-edit/:id"
+            render={props => <PlantEditPage {...props} setHeader={setNewHeader} />}
+          />
+          <Route
+            exact
+            path="/plant-details/:id"
+            render={props => <PlantDetailsPage {...props} setHeader={setNewHeader} />}
           />
 
           <Route exact path="/forgot" component={PasswordForgot} />
