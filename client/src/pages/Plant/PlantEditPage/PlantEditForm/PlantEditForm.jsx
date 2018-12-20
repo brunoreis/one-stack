@@ -90,6 +90,12 @@ const PlantEditForm = ({
           value={edibleParts}
           onChange={e => setEdibleParts(e.target.value)}
         />
+        {validation.edibleParts.isInvalid
+        && (
+        <div className="text-danger">
+          {validation.edibleParts.message}
+        </div>
+        )}
       </div>
 
       <div className="form-group">
