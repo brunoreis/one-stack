@@ -7,11 +7,16 @@ import PropTypes from 'prop-types';
 import PLANT_UPDATE_MUTATION from './PlantUpdateMutation';
 import validator from './PlantEditFormValidator';
 
-const PlantEditForm = ({ plantId, history }) => {
-  const [name, setName] = useState('');
-  const [scientificName, setScientificName] = useState('');
-  const [edibleParts, setEdibleParts] = useState('');
-  const [tips, setTips] = useState('');
+const PlantEditForm = ({
+  plantId,
+  history,
+  plant,
+}) => {
+  console.log('plant: ', plant);
+  const [name, setName] = useState(plant.name);
+  const [scientificName, setScientificName] = useState(plant.scientificName);
+  const [edibleParts, setEdibleParts] = useState(plant.edibleParts.join());
+  const [tips, setTips] = useState(plant.tips.join('; '));
   const [validation, setValidation] = useState(validator.valid());
 
   const plantEditMutation = useMutation(
@@ -21,20 +26,18 @@ const PlantEditForm = ({ plantId, history }) => {
         id: plantId,
         name,
         scientificName,
-        edibleParts,
-        tips,
+        edibleParts: edibleParts.split(',').map(part => part.trim()),
+        tips: tips.split(';').map(tip => tip.trim()),
       },
     },
   );
 
   const submit = async () => {
-    const formattedEdibleParts = edibleParts.split(',');
-    const formattedTips = tips.split(';');
     const newValidation = validator.validate({
       name,
       scientificName,
-      formattedEdibleParts,
-      formattedTips,
+      edibleParts,
+      tips,
     });
     if (newValidation.isValid) {
       const res = await plantEditMutation();
@@ -58,6 +61,12 @@ const PlantEditForm = ({ plantId, history }) => {
           value={name}
           onChange={e => setName(e.target.value)}
         />
+        {validation.name.isInvalid
+        && (
+        <div className="text-danger">
+          {validation.name.message}
+        </div>
+        )}
       </div>
 
       <div className="form-group">
@@ -66,6 +75,7 @@ const PlantEditForm = ({ plantId, history }) => {
           type="text"
           className="form-control"
           id="scientificName"
+          placeholder="bla"
           value={scientificName}
           onChange={e => setScientificName(e.target.value)}
         />
@@ -110,6 +120,7 @@ const PlantEditForm = ({ plantId, history }) => {
 PlantEditForm.propTypes = {
   plantId: PropTypes.number.isRequired,
   history: PropTypes.object.isRequired,
+  plant: PropTypes.object.isRequired,
 };
 
 export default compose(

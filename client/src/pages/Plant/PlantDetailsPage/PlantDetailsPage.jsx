@@ -30,9 +30,10 @@ const PlantDetailsPage = ({
     <div>
       <PlantDetails plant={plant} />
       <div className="fixed__max-width__bottom-right">
-        <EditButton action={() => history.push(
-          `/plant-edit/${id}`,
-        )}
+        <EditButton action={() => history.push({
+          pathname: `/plant-edit/${id}`,
+          state: { plant },
+        })}
         />
       </div>
     </div>

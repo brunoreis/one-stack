@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { MockedProvider } from 'react-apollo/test-utils';
 
 import GardenerDetails from './GardenerDetails';
-import loggedUserQuery from './LoggedUserQuery';
+import loggedUserQuery from '../LoggedUserQuery';
 import loggedUserMock from '../../../../mocks/gardener/loggedUserMock';
 import apolloDecorator from '../../../../../.storybook/apolloDecorator';
 
