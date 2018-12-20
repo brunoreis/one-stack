@@ -1,13 +1,15 @@
 import gql from 'graphql-tag';
 
 export default gql`
-  mutation CreatePlant(
-    $name: String!
+  mutation Updatelant(
+    $id: Int!
+    $name: String
     $scientificName: String
     $edibleParts: [String]
     $tips: [String]
   ) {
-    createPlant (
+    updatePlant (
+      id: $id
       name: $name
       scientificName: $scientificName
       edibleParts: $edibleParts

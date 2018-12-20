@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import noUserIcon from '../../../../../images/no-user-icon.png';
+import plantDefaultIcon from '../../../../../images/plant-default.png';
 import RecipesIcon from '../../../../../components/Icons/RecipesIcon';
 import GardensIcon from '../../../../../components/Icons/GardensIcon';
 
@@ -14,7 +14,7 @@ const PlantItem = ({ plant }) => (
         style={{
           height: '55px',
         }}
-        src={plant.picture || noUserIcon}
+        src={plant.picture || plantDefaultIcon}
         alt="plant profile"
       />
 
@@ -37,7 +37,14 @@ const PlantItem = ({ plant }) => (
               COMESTÍVEIS:
             </div>
             <div>
-              {plant.edibleParts}
+              {
+              plant.edibleParts
+              && plant.edibleParts.map((part, i) => (
+                <span key={i}>
+                  {part}
+                  {i + 1 < plant.edibleParts.length && ', '}
+                </span>
+              ))}
             </div>
           </div>
 

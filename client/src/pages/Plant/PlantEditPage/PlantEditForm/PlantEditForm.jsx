@@ -4,41 +4,45 @@ import { compose } from 'react-apollo';
 import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
 
-import PLANT_CREATE_MUTATION from './PlantCreateMutation';
-import validator from './PlantCreateFormValidator';
+import PLANT_UPDATE_MUTATION from './PlantUpdateMutation';
+import validator from './PlantEditFormValidator';
 
-const PlantCreateForm = ({ history }) => {
-  const [name, setName] = useState('');
-  const [scientificName, setScientificName] = useState('');
-  const [edibleParts, setEdibleParts] = useState('');
-  const [tips, setTips] = useState('');
+const PlantEditForm = ({
+  plantId,
+  history,
+  plant,
+}) => {
+  console.log('plant: ', plant);
+  const [name, setName] = useState(plant.name);
+  const [scientificName, setScientificName] = useState(plant.scientificName);
+  const [edibleParts, setEdibleParts] = useState(plant.edibleParts.join());
+  const [tips, setTips] = useState(plant.tips.join('; '));
   const [validation, setValidation] = useState(validator.valid());
 
-  const plantCreateMutation = useMutation(
-    PLANT_CREATE_MUTATION,
+  const plantEditMutation = useMutation(
+    PLANT_UPDATE_MUTATION,
     {
       variables: {
+        id: plantId,
         name,
         scientificName,
-        edibleParts,
-        tips,
+        edibleParts: edibleParts.split(',').map(part => part.trim()),
+        tips: tips.split(';').map(tip => tip.trim()),
       },
     },
   );
 
   const submit = async () => {
-    const formattedEdibleParts = edibleParts.split(',');
-    const formattedTips = tips.split(';');
     const newValidation = validator.validate({
       name,
       scientificName,
-      formattedEdibleParts,
-      formattedTips,
+      edibleParts,
+      tips,
     });
     if (newValidation.isValid) {
-      const res = await plantCreateMutation();
-      if (res.data && res.data.createPlant) {
-        history.push('plant-list');
+      const res = await plantEditMutation();
+      if (res.data && res.data.updatePlant) {
+        history.push(`/plant-details/${plantId}`);
       } else {
         console.log('erro ao criar planta');
       }
@@ -71,6 +75,7 @@ const PlantCreateForm = ({ history }) => {
           type="text"
           className="form-control"
           id="scientificName"
+          placeholder="bla"
           value={scientificName}
           onChange={e => setScientificName(e.target.value)}
         />
@@ -112,10 +117,12 @@ const PlantCreateForm = ({ history }) => {
   );
 };
 
-PlantCreateForm.propTypes = {
+PlantEditForm.propTypes = {
+  plantId: PropTypes.number.isRequired,
   history: PropTypes.object.isRequired,
+  plant: PropTypes.object.isRequired,
 };
 
 export default compose(
   withRouter,
-)(PlantCreateForm);
+)(PlantEditForm);

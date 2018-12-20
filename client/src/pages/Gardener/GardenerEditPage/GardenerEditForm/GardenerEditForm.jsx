@@ -7,9 +7,12 @@ import PropTypes from 'prop-types';
 import validator from './GardenerEditFormValidator';
 import GARDENER_EDIT_MUTATION from './GardenerEditMutation';
 
-const GardenerEditForm = ({ history }) => {
-  const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
+const GardenerEditForm = ({
+  history,
+  location: { state: { gardener } },
+}) => {
+  const [name, setName] = useState(gardener.name);
+  const [description, setDescription] = useState(gardener.description);
   const [validation, setValidation] = useState(validator.valid());
 
   const gardenerEditMutation = useMutation(
@@ -91,6 +94,7 @@ const GardenerEditForm = ({ history }) => {
 
 GardenerEditForm.propTypes = {
   history: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
 };
 
 export default compose(
