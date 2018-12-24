@@ -20,20 +20,18 @@ const PlantCreateForm = ({ history }) => {
       variables: {
         name,
         scientificName,
-        edibleParts,
-        tips,
+        edibleParts: edibleParts.split(',').map(part => part.trim()),
+        tips: tips.split(';').map(tip => tip.trim()),
       },
     },
   );
 
   const submit = async () => {
-    const formattedEdibleParts = edibleParts.split(',');
-    const formattedTips = tips.split(';');
     const newValidation = validator.validate({
       name,
       scientificName,
-      formattedEdibleParts,
-      formattedTips,
+      edibleParts,
+      tips,
     });
     if (newValidation.isValid) {
       const res = await plantCreateMutation();
@@ -85,6 +83,12 @@ const PlantCreateForm = ({ history }) => {
           value={edibleParts}
           onChange={e => setEdibleParts(e.target.value)}
         />
+        {validation.edibleParts.isInvalid
+        && (
+        <div className="text-danger">
+          {validation.edibleParts.message}
+        </div>
+        )}
       </div>
 
       <div className="form-group">

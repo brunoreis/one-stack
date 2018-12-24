@@ -3,7 +3,7 @@ type Plant {
   id: ID!
   name: String!
   scientificName: String
-  edibleParts: [String]
+  edibleParts: [String]!
   tips: [String]
 }
 `;
