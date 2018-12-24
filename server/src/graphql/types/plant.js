@@ -5,5 +5,6 @@ type Plant {
   scientificName: String
   edibleParts: [String]!
   tips: [String]
+  createdAt: String!
 }
 `;

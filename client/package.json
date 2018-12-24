@@ -2,29 +2,6 @@
   "name": "onestack-client",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "apollo-boost": "^0.1.15",
-    "apollo-link-context": "^1.0.8",
-    "bootstrap": "^4.1.3",
-    "eslint-plugin-jest": "^21.22.0",
-    "graphql": "^0.13.2",
-    "graphql-tag": "^2.9.2",
-    "jquery": "^3.3.1",
-    "moment": "^2.22.2",
-    "popper.js": "^1.14.6",
-    "prop-types": "^15.6.2",
-    "react": "^16.7.0-alpha.0",
-    "react-apollo": "^2.1.11",
-    "react-apollo-hooks": "^0.2.1",
-    "react-dom": "^16.7.0-alpha.0",
-    "react-router": "^4.3.1",
-    "react-router-dom": "^4.3.1",
-    "react-scripts": "1.1.4",
-    "react-test-renderer": "^16.5.2",
-    "recompose": "^0.30.0",
-    "serve": "^10.0.2",
-    "validator": "^10.8.0"
-  },
   "scripts": {
     "start-dev": "react-scripts start",
     "start": "serve -s build",
@@ -35,6 +12,29 @@
     "heroku-postbuild": "react-scripts build",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public"
+  },
+  "dependencies": {
+    "apollo-boost": "^0.1.15",
+    "apollo-link-context": "^1.0.8",
+    "bootstrap": "^4.1.3",
+    "eslint-plugin-jest": "^21.22.0",
+    "graphql": "^14.0.2",
+    "graphql-tag": "^2.9.2",
+    "jquery": "^3.3.1",
+    "moment": "^2.22.2",
+    "popper.js": "^1.14.6",
+    "prop-types": "^15.6.2",
+    "react": "^16.7.0-alpha.2",
+    "react-apollo": "^2.1.11",
+    "react-apollo-hooks": "^0.2.1",
+    "react-dom": "^16.7.0-alpha.2",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "^2.1.2",
+    "react-test-renderer": "^16.5.2",
+    "recompose": "^0.30.0",
+    "serve": "^10.0.2",
+    "validator": "^10.8.0"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
@@ -52,7 +52,6 @@
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",
     "babel-polyfill": "^6.26.0",
-    "eslint": "^4.19.1",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-plugin-cypress": "^2.0.1",
     "eslint-plugin-import": "^2.12.0",
@@ -61,5 +60,11 @@
     "eslint-plugin-react-hooks": "0.0.0",
     "jest": "^23.6.0",
     "storybook-addon-specifications": "^2.1.2"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
