@@ -28,21 +28,15 @@
   "dependencies": {
     "apollo-server": "^2.3.1",
     "apollo-server-express": "^2.3.1",
-    "async": "^2.6.1",
-    "babel-eslint": "^8.2.6",
     "bcrypt": "^3.0.3",
     "body-parser": "^1.18.3",
-    "connect-flash": "^0.1.1",
     "cors": "^2.8.5",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "express-session": "^1.15.6",
     "graphql": "^14.0.2",
-    "graphql-import": "^0.6.0",
-    "graphql-tools": "^3.1.1",
     "jest": "^23.6.0",
     "knex": "^0.16.3",
-    "knex-migrate": "^1.7.0",
     "node-uuid": "^1.4.8",
     "nodemailer": "^4.7.0",
     "nodemailer-sendgrid-transport": "^0.2.0",
@@ -50,18 +44,16 @@
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "password-reset": "^0.1.4",
-    "pg": "^7.7.1",
-    "require-graphql-file": "^1.0.1"
+    "pg": "^7.7.1"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsx-a11y": "^6.1.2",
-    "eslint-plugin-react": "^7.11.1"
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "eslint": "^5.11.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0"
   },
   "description": ""
 }

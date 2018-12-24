@@ -20,7 +20,7 @@ const PlantDetailsPage = ({
   const { loading, error, data: { plant } } = useQuery(
     PLANT_QUERY,
     {
-      variables: { id },
+      variables: { id: parseInt(id, 10) },
       suspend: false,
     },
   );
