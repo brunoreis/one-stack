@@ -6,5 +6,6 @@ type Plant {
   edibleParts: [String]!
   tips: [String]
   createdAt: String!
+  createdBy: Gardener!
 }
 `;

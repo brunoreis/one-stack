@@ -11,6 +11,7 @@ const PlantDetails = ({
     tips,
     picture,
     createdAt,
+    createdBy,
   },
 }) => (
   <div>
@@ -61,7 +62,7 @@ const PlantDetails = ({
       <div className="mt-4">
         <strong>Criado por:</strong>
       </div>
-      <span className="text-primary">Mocked User</span>
+      <span className="text-primary">{createdBy.name}</span>
       <span> em {createdAt || '02/05/1995'}</span>
 
       <div className="mt-4 mb-2 text-primary">
