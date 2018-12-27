@@ -6,8 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "cypress:open": "cypress open",
-    "db:reset": "knex-migrate down --to 0 && knex-migrate up",
-    "db:seed": "knex seed:run",
+    "install-all": "npm i && cd ../client && npm i && cd ../server && npm i && cd ../dev",
+    "db:setup": "npm run db:migrate && npm run db:seed",
+    "db:migrate": "docker-compose exec server bash -c 'npx knex-migrate down --to 0 && npx knex-migrate up'",
+    "db:seed": "docker-compose exec server npx knex seed:run",
     "heroku:bash-server": "heroku run bash --remote heroku-server",
     "heroku:bash-client": "heroku run bash --remote heroku-client",
     "heroku:push-server": "git -C ../ subtree push --prefix server heroku-server master",

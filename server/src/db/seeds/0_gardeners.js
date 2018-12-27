@@ -1,4 +1,5 @@
 exports.seed = async (knex) => {
+  await knex('plant').del();
   await knex('user').del();
   await knex('gardener').del();
   await knex.raw('ALTER SEQUENCE gardener_id_seq RESTART WITH 1');

@@ -10,17 +10,40 @@ This project is organized in three directories: /client, /server and /dev.
 
 To setup the project on your local machine, we will go through the following steps. Detailed instructions for each step can be found below.
 
+1. Setup environment files
 1. Install npm dependencies
 1. Build docker containers
-1. Setup environment files
-1. Initialize database
 1. Setup pgAdmin
+1. Initialize database
+
+### Environment setup
+
+Before we can run our app, we need to configure the environment variables. Create a new ".env" file in the server root directory (/server) and copy the contents form .env.default. Then, repeat this process in the /client directory. You might need to change some of the variables according to your local setup.
+
+Notice you need to restart the containers manually every time you change environment variables, since changes in .env are not automatically recognized.
+
+Setting custom variables:
+* MAIL_API: SendGrid API key. Go to [https://sendgrid.com/] and create an account to receive a key.
+
+### Quick start
+
+If you want a quick setup, run the following commands from the root directory. If you come across any issues you can check the detailed instructions below.
+
+```
+cd dev
+npm run install-all
+docker-compose up -d
+npm run db:setup
+```
 
 ### Installing Dependencies
 
 From the root directory run:
+
 `cd client && npm install`
+
 `cd server && npm install`
+
 `cd dev && npm install`
 
 ### Docker
@@ -44,39 +67,9 @@ onestack_server_1    npm run start-dev               Up      0.0.0.0:4000->4000/
 
 As you can see, you can acess the client on port 3000 and the server on port 4000. 
 
-### Environment setup
-
-Before we can run our server, we need to configure the environment variables. Create a new ".env" file in the server root directory (/server) and copy the contents form .env.default. Then, repeat this process in the /client directory. You might need to change some of the variables according to your local setup.
-
-Notice you need to restart the containers manually every time you change environment variables, since changes in .env are not automatically recognized.
-
-Setting custom variables:
-* MAIL_API: SendGrid API key. Go to [https://sendgrid.com/] and create an account to receive a key.
-
-### Database setup
-
-Now we need to run the migrations to build our tables, and the seeds to add test data to our database. To do this, run: 
-
-`cd dev`
-
-`npm run db:reset` to reset the db and running all migrations and
-
-`npm run db:seed` to run the seed file.
-
-* if you get a connection error, review the .env section above. 
-
-To make sure data was inserted, access the graphql playground on `localhost:4000` and run a query like:
-```graphql
-{
-  users{
-    name
-  }
-}
-```
-
-If you see the results, your server is up, running and seeded with data. 
-
 ### Setup pgAdmin
+
+You can skip this session if you don't need to use pgAdmin.
 
 * Go to localhost:5050 on a web browser
 * Login with the following credentials:
@@ -90,6 +83,17 @@ If you see the results, your server is up, running and seeded with data.
 * Click save
 
 That's it. You should now see the "onestack" database in the left, under Servers/yourServer/Databases. If you don't see it, you can create it manually.
+
+### Database setup
+
+Now we need to run the migrations to build our tables, and the seeds to add test data to our database. To do this, run: 
+
+`cd dev`
+
+`npm run db:setup`
+
+* if you get a connection error, review the .env section above. 
+* You can check the database using pgAdmin. Check the previous session.
 
 ## Heroku Deploy
 We will deploy our client and server separately, each into its own heroku app, and set environment variables to make them visible to each other.
