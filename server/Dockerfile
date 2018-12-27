@@ -1,3 +1,4 @@
 FROM node:8
-WORKDIR /src
+WORKDIR /app
 COPY . .
+RUN npm install

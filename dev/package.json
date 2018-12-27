@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "cypress:open": "cypress open",
-    "db:reset": "knex-migrate redo",
+    "db:reset": "knex-migrate down --to 0 && knex-migrate up",
     "db:seed": "knex seed:run",
     "heroku:bash-server": "heroku run bash --remote heroku-server",
     "heroku:bash-client": "heroku run bash --remote heroku-client",

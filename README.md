@@ -8,6 +8,21 @@ This project is organized in three directories: /client, /server and /dev.
 * /server contains the backend code
 * /dev hosts tools and commands for managing environment, deployment, database, etc. such as heroku and knex. It also hosts our integrations tests in cypress.
 
+To setup the project on your local machine, we will go through the following steps. Detailed instructions for each step can be found below.
+
+1. Install npm dependencies
+1. Build docker containers
+1. Setup environment files
+1. Initialize database
+1. Setup pgAdmin
+
+### Installing Dependencies
+
+From the root directory run:
+`cd client && npm install`
+`cd server && npm install`
+`cd dev && npm install`
+
 ### Docker
 We have a docker-compose file to set up your development environment. To build the docker containers, go to the root of the project and run
 
@@ -31,26 +46,18 @@ As you can see, you can acess the client on port 3000 and the server on port 400
 
 ### Environment setup
 
-Before we can run our server, we need to configure the environment variables. Create a new ".env" file in the server root directory (/server) and add the following contents to it.
-```
-// .env
-DB_HOST=db
-POSTGRES_USER=postgres
-POSTGRES_DB=onestack
-WEB_URL=http://localhost:3000
-```
-Now create a ".env" file in "/client" and write
-```
-REACT_APP_API_LOCATION=local
-REACT_APP_API_URL=http://localhost:4000
-```
+Before we can run our server, we need to configure the environment variables. Create a new ".env" file in the server root directory (/server) and copy the contents form .env.default. Then, repeat this process in the /client directory. You might need to change some of the variables according to your local setup.
+
 Notice you need to restart the containers manually every time you change environment variables, since changes in .env are not automatically recognized.
 
-The .env file won't be commited to the repository since it's added to .gitignore. 
+Setting custom variables:
+* MAIL_API: SendGrid API key. Go to [https://sendgrid.com/] and create an account to receive a key.
 
 ### Database setup
 
-Now we need to run the migrations to build our tables, and the seeds to add test data to our database. To do this, go to the /dev directory and run: 
+Now we need to run the migrations to build our tables, and the seeds to add test data to our database. To do this, run: 
+
+`cd dev`
 
 `npm run db:reset` to reset the db and running all migrations and
 
@@ -77,12 +84,12 @@ If you see the results, your server is up, running and seeded with data.
     passord: admin
 * Go to Object > Create > Server
 * Name your server whatever you like
-* In the Connection tab, set:
-  Host name/address: db
-  Username: postgres
+* In the 'Connection' tab, set the following fields:
+  * Host name/address: db
+  * Username: postgres
 * Click save
 
-That's it. You should now see the "onestack" database in the left, under Servers/yourServer/Databases
+That's it. You should now see the "onestack" database in the left, under Servers/yourServer/Databases. If you don't see it, you can create it manually.
 
 ## Heroku Deploy
 We will deploy our client and server separately, each into its own heroku app, and set environment variables to make them visible to each other.
