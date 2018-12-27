@@ -1,6 +1,6 @@
 import nodemailer from 'nodemailer';
 import sgTransport from 'nodemailer-sendgrid-transport';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 
 import getByReset from './getByReset';
 import updatePassword from './updatePassword';
@@ -37,8 +37,8 @@ export default async (token, password) => {
     from: 'passwordreset@demo.com',
     subject: 'Your password has been changed',
     text: 'Hello,\n\n' +
-        'This is a confirmation that the password for your account ' + 
-        user.email + 
+        'This is a confirmation that the password for your account ' +
+        user.email +
         ' has just been changed.\n'
   };
   smtpTransport.sendMail(mailOptions);

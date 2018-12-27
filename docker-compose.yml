@@ -1,7 +1,7 @@
 version: '3.1'
 
 services:
-  
+
   client:
     build: ./client
     command: npm run start-dev
@@ -39,7 +39,7 @@ services:
     image: fenglc/pgadmin4
     volumes:
       - /data/pgadmin:/root/.pgadmin
-    ports: 
+    ports:
       - "5050:5050"
     networks:
       - pgnetwork
