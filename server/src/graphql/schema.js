@@ -9,4 +9,9 @@ schema {
 }
 `;
 
-export default [Schema, Query, Mutation, ...Types];
+export default [
+  Schema,
+  Query,
+  Mutation,
+  ...Types,
+];

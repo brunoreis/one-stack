@@ -15,6 +15,12 @@ export default async ({
       edibleParts,
       tips,
     })
-    .returning(['id', 'name', 'scientificName', 'edibleParts', 'tips']);
+    .returning([
+      'id',
+      'name',
+      'scientificName',
+      'edibleParts',
+      'tips',
+    ]);
   return result[0];
 };
