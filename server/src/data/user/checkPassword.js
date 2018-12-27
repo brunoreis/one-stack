@@ -1,4 +1,4 @@
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import getByEmail from './getByEmail';
 
 export default async (email, password) => {
