@@ -7,15 +7,22 @@ import resolvers from './graphql/resolvers';
 // import debugExtensions from './extensions/debugExtensions';
 import schema from './graphql/schema';
 import authSetup from './config/authSetup';
+import db from './db';
+import dataSources from './dataSources';
 
-const context = { mocks, data };
+const context = {
+  mocks,
+  data,
+};
+
 const app = express();
 authSetup(app, context);
 
 const server = new ApolloServer({ //eslint-disable-line
   typeDefs: schema,
   resolvers,
-  context,
+  context: async () => context, // see https://github.com/apollographql/apollo-server/issues/1247
+  dataSources: dataSources({ db }),
   // extensions: [
   //   () => debugExtensions,
   // ],
@@ -31,4 +38,8 @@ server.applyMiddleware({
   },
 });
 
-export { app, server };
+export {
+  app,
+  server,
+  context,
+};

@@ -1,7 +1,7 @@
 import test from 'tape';
-import { createTestClient } from 'apollo-server-testing';
 import gql from 'graphql-tag';
-import { server } from '../../server';
+import { omit } from 'ramda';
+import createTestClient from './createTestClient';
 
 const CREATE_PLANT_MUTATION = gql`
   mutation CreatePlant(
@@ -21,16 +21,16 @@ const CREATE_PLANT_MUTATION = gql`
       scientificName
       edibleParts
       tips
+      createdBy {
+        name
+      }
     }
   }
 `;
 
-
-const { mutate } = createTestClient(server);
-
 test('create plant', async (t) => {
-  t.plan(1);
-
+  t.plan(2);
+  const { mutate } = await createTestClient();
   const variables = {
     name: 'banana',
     scientificName: 'musa paradisiaca',
@@ -41,6 +41,18 @@ test('create plant', async (t) => {
     mutation: CREATE_PLANT_MUTATION,
     variables,
   });
-
-  console.log('result', result);
+  t.equal(result.errors, undefined, 'should not throw an error');
+  t.deepEqual(
+    omit(['id'], result.data.createPlant),
+    {
+      name: 'banana',
+      scientificName: 'musa paradisiaca',
+      edibleParts: ['fruto', 'mangará'],
+      tips: null,
+      createdBy: {
+        name: 'Mock Dude',
+      },
+    },
+    'should return plant and gardener data',
+  );
 });

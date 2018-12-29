@@ -47,7 +47,7 @@
     "passport-local": "^1.0.0",
     "password-reset": "^0.1.4",
     "pg": "^7.7.1",
-    "tape": "^4.9.1"
+    "ramda": "^0.26.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
@@ -58,7 +58,10 @@
     "eslint": "^5.11.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
-    "tap-spec": "^5.0.0"
+    "graphql-tag": "^2.10.0",
+    "tap-spec": "^5.0.0",
+    "tape": "^4.9.1",
+    "tape-async": "^2.3.0"
   },
   "description": ""
 }
