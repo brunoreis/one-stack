@@ -8,12 +8,9 @@ const PlantEditPage = ({
   match: { params: { id } },
   location: { state: { plant } },
 }) => {
-  console.log(plant);
   setHeader('EDITAR A PLANTA');
   return (
-    plant
-      ? <PlantEditForm plantId={parseInt(id, 10)} plant={plant} />
-      : <PlantEditForm plantId={parseInt(id, 10)} />
+    <PlantEditForm plantId={parseInt(id, 10)} plant={plant} />
   );
 };
 

@@ -1,6 +1,5 @@
 import test from 'tape';
 import gql from 'graphql-tag';
-import { omit } from 'ramda';
 import createTestClient from '../../../../__tests__/__integration__/createTestClient';
 
 const CREATE_PLANT_MUTATION = gql`
