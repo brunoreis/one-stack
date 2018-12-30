@@ -1,4 +1,7 @@
-export default `
+import querySchema from './queries/_schema';
+import mutationSchema from './mutations/_schema';
+
+const types = `
 type Plant {
   id: ID!
   name: String!
@@ -7,31 +10,6 @@ type Plant {
   tips: [String]
   createdAt: String!
   createdBy: Gardener!
-}
+}`;
 
-extend type Mutation {
-  createPlant(
-    name: String!
-    scientificName: String
-    edibleParts: [String]!
-    tips: [String]
-  ): Plant
-  updatePlant(
-    id: Int!
-    name: String
-    scientificName: String
-    edibleParts: [String]!
-    tips: [String]
-  ): Plant
-  deletePlant(id: Int!): Int
-}
-
-extend type Query {
-  plant(id: Int!): Plant
-  plants: [Plant]
-  plantsConnection: QueryPlantsConnection
-}
-
-
-
-`;
+export default [types, querySchema, mutationSchema];

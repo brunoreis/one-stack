@@ -1,4 +1,4 @@
-import { mergeDeepRight } from 'ramda';
+import { mergeDeepLeft, compose } from 'ramda';
 import Query from './resolvers/query';
 import Mutation from './resolvers/mutation';
 import Types from './resolvers/types';
@@ -11,5 +11,9 @@ const resolvers = {
   ...Types,
 };
 
-const mergedResolvers = mergeDeepRight(resolvers, plant);
+const mergedResolvers = compose(
+  mergeDeepLeft(plant),
+  // mergeDeepLeft(user), .... add more resolvers like this
+)(resolvers);
+
 export default mergedResolvers;

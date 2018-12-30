@@ -22,7 +22,14 @@ const CREATE_USER = gql`
   }
 `;
 
+let memoizedTestClient = null;
+const clean = () => delete context.dataSources;
+
 export default async () => {
+  if (memoizedTestClient) {
+    clean();
+    return memoizedTestClient;
+  }
   // this might need to be optimized later to avoid doing this heavy operation everytime
   await db('user').del();
   await db('plant').del();
@@ -59,11 +66,16 @@ export default async () => {
         id: user.gardener,
       },
     };
-
+    clean();
     delete context.dataSources;
+    memoizedTestClient = {
+      ...testClient,
+      clean,
+    };
 
-    return testClient;
+    return memoizedTestClient;
   } catch (error) {
     console.log('Error:', { error });
   }
+  return null;
 };

@@ -1,28 +1,20 @@
 import test from 'tape';
 import gql from 'graphql-tag';
 import { omit } from 'ramda';
-import createTestClient from './createTestClient';
+import createTestClient from '../../../../__tests__/__integration__/createTestClient';
 
 const CREATE_PLANT_MUTATION = gql`
-  mutation CreatePlant(
-    $name: String!
-    $scientificName: String
-    $edibleParts: [String]!
-    $tips: [String]
-  ) {
-    createPlant (
-      name: $name
-      scientificName: $scientificName
-      edibleParts: $edibleParts
-      tips: $tips
-    ) {
-      id
-      name
-      scientificName
-      edibleParts
-      tips
-      createdBy {
+  mutation CreatePlant( $input: CreatePlantInput! ) {
+    createPlant ( input: $input ) {
+      plant {
+        id
         name
+        scientificName
+        edibleParts
+        tips
+        createdBy {
+          name
+        }
       }
     }
   }
@@ -32,9 +24,11 @@ test('create plant', async (t) => {
   t.plan(2);
   const { mutate } = await createTestClient();
   const variables = {
-    name: 'banana',
-    scientificName: 'musa paradisiaca',
-    edibleParts: ['fruto', 'mangará'],
+    input: {
+      name: 'banana',
+      scientificName: 'musa paradisiaca',
+      edibleParts: ['fruto', 'mangará'],
+    },
   };
 
   const result = await mutate({
@@ -43,7 +37,7 @@ test('create plant', async (t) => {
   });
   t.equal(result.errors, undefined, 'should not throw an error');
   t.deepEqual(
-    omit(['id'], result.data.createPlant),
+    omit(['id'], result.data.createPlant.plant),
     {
       name: 'banana',
       scientificName: 'musa paradisiaca',
@@ -53,6 +47,6 @@ test('create plant', async (t) => {
         name: 'Mock Dude',
       },
     },
-    'should return plant and gardener data',
+    'should return the created plant and the correct gardener',
   );
 });

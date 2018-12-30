@@ -15,5 +15,5 @@ export default [
   Query,
   Mutation,
   ...Types,
-  plant,
+  ...plant,
 ];
