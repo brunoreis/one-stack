@@ -6,9 +6,6 @@ type Query {
     gardener(id: Int!): Gardener
     gardeners: [Gardener]
     gardenersConnection: QueryGardenersConnection
-    plant(id: Int!): Plant
-    plants: [Plant]
-    plantsConnection: QueryPlantsConnection
 }
 `;
 
