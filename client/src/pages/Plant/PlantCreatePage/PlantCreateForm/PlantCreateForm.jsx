@@ -4,7 +4,7 @@ import { compose } from 'react-apollo';
 import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
 
-import PLANT_CREATE_MUTATION from './PlantCreateMutation';
+import PLANT_CREATE_MUTATION from './PLANT_CREATE_MUTATION';
 import validator from './PlantCreateFormValidator';
 
 const PlantCreateForm = ({ history }) => {
@@ -18,10 +18,12 @@ const PlantCreateForm = ({ history }) => {
     PLANT_CREATE_MUTATION,
     {
       variables: {
-        name,
-        scientificName,
-        edibleParts: edibleParts.split(',').map(part => part.trim()),
-        tips: tips.split(';').map(tip => tip.trim()),
+        input: {
+          name,
+          scientificName,
+          edibleParts: edibleParts.split(',').map(part => part.trim()),
+          tips: tips.split(';').map(tip => tip.trim()),
+        },
       },
     },
   );

@@ -57,15 +57,15 @@ export default async () => {
     const {
       id,
       email,
+      gardener,
     } = user;
 
     context.loggedUser = {
       id,
       email,
-      gardener: {
-        id: user.gardener,
-      },
+      gardener,
     };
+
     clean();
     delete context.dataSources;
     memoizedTestClient = {
