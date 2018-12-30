@@ -7,7 +7,7 @@ export default async (
   },
 ) => {
   const result = await dataSources.plant.create({
-    ...args.input, //
+    ...args.input,
     createdBy: loggedUser.gardener,
   });
   return {
