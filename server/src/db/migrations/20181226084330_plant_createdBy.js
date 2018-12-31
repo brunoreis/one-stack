@@ -4,7 +4,6 @@ exports.up = async knex => knex.schema.table(
     table
       .integer('createdBy')
       .unsigned()
-      .unique()
       .notNullable();
     table
       .foreign('createdBy')

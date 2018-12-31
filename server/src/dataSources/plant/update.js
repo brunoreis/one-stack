@@ -1,13 +1,11 @@
-import db from '../../db';
-
-export default async ({
+export default ({ db, tableName }) => async ({
   id,
   name,
   scientificName,
   edibleParts,
   tips,
 }) => {
-  const result = await db('plant')
+  const result = await db(tableName)
     .where('id', id)
     .update({
       name,
@@ -21,6 +19,7 @@ export default async ({
       'scientificName',
       'edibleParts',
       'tips',
+      'createdBy',
     ]);
   return result[0];
 };

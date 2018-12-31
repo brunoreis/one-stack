@@ -4,6 +4,6 @@ import plantQueries from './plant';
 
 export default {
   ...gardenerQueries,
-  ...plantQueries,
+  // ...plantQueries,
   ...userQueries,
 };

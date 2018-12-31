@@ -4,7 +4,7 @@ import { compose } from 'react-apollo';
 import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
 
-import PLANT_UPDATE_MUTATION from './PlantUpdateMutation';
+import PLANT_UPDATE_MUTATION from './PLANT_UPDATE_MUTATION';
 import validator from './PlantEditFormValidator';
 
 const PlantEditForm = ({
@@ -14,20 +14,26 @@ const PlantEditForm = ({
 }) => {
   console.log('plant: ', plant);
   const [name, setName] = useState(plant.name);
-  const [scientificName, setScientificName] = useState(plant.scientificName);
+  const [scientificName, setScientificName] = useState(plant.scientificName || '');
   const [edibleParts, setEdibleParts] = useState(plant.edibleParts.join());
-  const [tips, setTips] = useState(plant.tips.join('; '));
+  const [tips, setTips] = useState(
+    plant.tips
+      ? plant.tips.join('; ')
+      : '',
+  );
   const [validation, setValidation] = useState(validator.valid());
 
   const plantEditMutation = useMutation(
     PLANT_UPDATE_MUTATION,
     {
       variables: {
-        id: plantId,
-        name,
-        scientificName,
-        edibleParts: edibleParts.split(',').map(part => part.trim()),
-        tips: tips.split(';').map(tip => tip.trim()),
+        input: {
+          id: plantId,
+          name,
+          scientificName,
+          edibleParts: edibleParts.split(',').map(part => part.trim()),
+          tips: tips.split(';').map(tip => tip.trim()),
+        },
       },
     },
   );

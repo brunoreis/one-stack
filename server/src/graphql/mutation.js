@@ -23,20 +23,6 @@ type Mutation {
     name: String
     description: String
   ): Gardener
-  createPlant(
-    name: String!
-    scientificName: String
-    edibleParts: [String]!
-    tips: [String]
-  ): Plant
-  updatePlant(
-    id: Int!
-    name: String
-    scientificName: String
-    edibleParts: [String]!
-    tips: [String]
-  ): Plant
-  deletePlant(id: Int!): Int
 }
 `;
 

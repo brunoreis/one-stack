@@ -18,12 +18,13 @@ To setup the project on your local machine, we will go through the following ste
 
 ### Environment setup
 
-Before we can run our app, we need to configure the environment variables. Create a new ".env" file in the server root directory (/server) and copy the contents form .env.default. Then, repeat this process in the /client directory. You might need to change some of the variables according to your local setup.
+Before we can run our app, we need to configure the environment variables. Create a new ".env" file in the server root directory (/server) and copy the contents form .env.default. Then, repeat this process in the /client directory. Notice you need to restart the containers manually every time you change environment variables, since changes in .env are not automatically recognized.
 
-Notice you need to restart the containers manually every time you change environment variables, since changes in .env are not automatically recognized.
+This configuration should sufice for a quick start, but to make the app fully functional you will need to manually set some of the variables according to your local setup. Instructions for each are given below.
 
-Setting custom variables:
-* MAIL_API: SendGrid API key. Go to [https://sendgrid.com/] and create an account to receive a key.
+Setting other variables:
+
+* MAIL_API: SendGrid API key. Needed to send email to users. Go to [https://sendgrid.com/] and create an account to receive a key.
 
 ### Quick start
 
