@@ -1,6 +1,21 @@
 require('dotenv').config();
 
 module.exports = {
+  test: {
+    client: 'pg',
+    connection: {
+      host: process.env.DB_HOST,
+      port: process.env.DB_PORT || 5432,
+      user: process.env.POSTGRES_USER,
+      database: 'onestack-test',
+    },
+    migrations: {
+      directory: './src/db/migrations',
+    },
+    seeds: {
+      directory: './src/db/seeds',
+    },
+  },
   development: {
     client: 'pg',
     connection: process.env.DATABASE_URL || {
