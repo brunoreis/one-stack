@@ -9,11 +9,11 @@ import QueryGardenersConnection from './queryGardenersConnection';
 import QueryPlantsConnection from './queryPlantsConnection';
 
 export default [
-  User,
+  // User,
   Result,
-  Gardener,
+  // Gardener,
   Garden,
   Recipe,
-  QueryGardenersConnection,
-  QueryPlantsConnection,
+  // QueryGardenersConnection,
+  // QueryPlantsConnection,
 ];

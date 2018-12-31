@@ -3,7 +3,7 @@ import gardeners from './gardeners';
 import gardenersConnection from './gardenersConnection';
 
 export default {
-  gardener,
+  // gardener,
   gardeners,
   gardenersConnection,
 };

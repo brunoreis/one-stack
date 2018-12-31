@@ -2,6 +2,7 @@ import Query from './query';
 import Mutation from './mutation';
 import Types from './types';
 import plant from './plant/schema';
+import gardener from './gardener/schema';
 
 const Schema = `
 schema {
@@ -16,4 +17,5 @@ export default [
   Mutation,
   ...Types,
   ...plant,
+  ...gardener,
 ];
