@@ -87,14 +87,18 @@ That's it. You should now see the "onestack" database in the left, under Servers
 
 ### Database setup
 
-Now we need to run the migrations to build our tables, and the seeds to add test data to our database. To do this, run: 
+Now we need to initialize our database and run migrations and seeds to add data to it. To do this, run:
 
-`cd dev`
+`docker-compose exec server bash`
 
-`npm run db:setup`
+`npm run db-init`
 
 * if you get a connection error, review the .env section above. 
 * You can check the database using pgAdmin. Check the previous session.
+
+You can also initialize the test environment database by running (from inside the server container)
+
+`npm run db-init-test`
 
 ## Heroku Deploy
 We will deploy our client and server separately, each into its own heroku app, and set environment variables to make them visible to each other.
