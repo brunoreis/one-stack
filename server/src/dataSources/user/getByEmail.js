@@ -1,7 +1,6 @@
 export default ({ db, tableName }) => async ({
-  id,
+  email
 }) => db
   .first()
-  .table(tableName)
-  .where('id', id);
-
+  .table('user')
+  .where('email', email);

@@ -1,7 +1,6 @@
 const Query = `
 type Query {
-    users: [User]
-    gardeners: [Gardener]
+  default: Int
 }
 `;
 

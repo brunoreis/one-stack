@@ -32,7 +32,7 @@ input CreatePlantInput {
 
 input UpdatePlantInput {
   id: Int!
-  name: String
+  name: String!
   scientificName: String
   edibleParts: [String]!
   tips: [String]

@@ -10,10 +10,12 @@ test('create user', async (t) => {
   const result = await mutate({
     mutation: CREATE_USER,
     variables: {
-      password: 'secret',
-      email: 'testUser@mock.com',
-      name: 'Mock Dude',
-      description: 'Used on automated tests',
+      input: {
+        email: 'testUser@mock.com',
+        password: 'password',
+        name: 'Mock Dude',
+        description: 'Used on automated tests',
+      }
     },
   });
 
@@ -22,12 +24,14 @@ test('create user', async (t) => {
     result.data,
     {
       createUser: {
-        id: '1',
-        email: 'testUser@mock.com',
-        gardener: {
+        user: {
           id: '1',
-          name: 'Mock Dude',
-        },
+          email: 'testUser@mock.com',
+          gardener: {
+            id: '1',
+            name: 'Mock Dude',
+          },
+        }
       },
     },
     'should return user and gardener data',

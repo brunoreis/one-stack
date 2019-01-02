@@ -6,8 +6,8 @@ import plant from './plant/resolvers';
 import gardener from './gardener/resolvers';
 
 const resolvers = {
-  Query,
-  Mutation,
+  // Query,
+  // Mutation,
   ...Types,
 };
 

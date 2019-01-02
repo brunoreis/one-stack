@@ -3,7 +3,7 @@ import gardenerQueries from './gardener';
 import plantQueries from './plant';
 
 export default {
-  ...gardenerQueries,
+  // ...gardenerQueries,
   // ...plantQueries,
-  ...userQueries,
+  // ...userQueries,
 };

@@ -6,10 +6,10 @@ import passwordForgot from './passwordForgot';
 import passwordReset from './passwordReset';
 
 export default {
-  createUser,
-  deleteUser,
-  updateUser,
-  updateGardener,
-  passwordForgot,
-  passwordReset,
+  // createUser,
+  // deleteUser,
+  // updateUser,
+  // updateGardener,
+  // passwordForgot,
+  // passwordReset,
 };

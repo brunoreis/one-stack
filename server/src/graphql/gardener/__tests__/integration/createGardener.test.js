@@ -19,6 +19,7 @@ const CREATE_USER_MUTATION = gql`
 `;
 
 test('create gardener', async (t) => {
+  console.log('entrou no teste 1');
   t.plan(2);
   const { mutate } = await createTestClient();
   const variables = {

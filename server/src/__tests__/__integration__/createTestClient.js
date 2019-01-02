@@ -5,19 +5,11 @@ import db from '../../db/db';
 import data from '../../data';
 
 const CREATE_USER = gql`
-  mutation CreateUser(
-    $password: String!
-    $email: String!
-    $name: String!
-    $description: String
-  ) {
-    createUser (
-      password: $password
-      email: $email
-      name: $name
-      description: $description
-    ) {
-      email
+  mutation CreateUser( $input: CreateUserInput! ) {
+    createUser ( input: $input ) {
+      user {
+        email
+      }
     }
   }
 `;
@@ -45,14 +37,16 @@ export default async () => {
     const result = await mutate({
       mutation: CREATE_USER,
       variables: {
-        password: 'secret',
-        email: 'testUser@mock.com',
-        name: 'Mock Dude',
-        description: 'Used on automated tests',
+        input: {
+          email: 'testUser@mock.com',
+          password: 'secret',
+          name: 'Mock Dude',
+          description: 'Used on automated tests',
+        }
       },
     });
 
-    const user = await data.user.getByEmail(result.data.createUser.email);
+    const user = await data.user.getByEmail(result.data.createUser.user.email);
 
     const {
       id,
