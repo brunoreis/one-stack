@@ -5,7 +5,10 @@ export default ({ db, tableName }) => async ({
   email,
   password
 }) => {
-  const user = await getByEmail({db, tableName})({ email });
+  const user = await db
+    .first()
+    .table(tableName)
+    .where('email', email);
   if (user) {
     if (bcrypt.compareSync(password, user.password)) {
       // login successful

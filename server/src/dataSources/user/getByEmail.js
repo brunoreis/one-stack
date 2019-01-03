@@ -1,6 +1,10 @@
 export default ({ db, tableName }) => async ({
   email
-}) => db
-  .first()
-  .table(tableName)
-  .where('email', email);
+}) => {
+  const user = await db
+    .first()
+    .table(tableName)
+    .where('email', email);
+  delete user.password;
+  return user;
+};

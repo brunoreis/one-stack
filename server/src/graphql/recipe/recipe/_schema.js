@@ -1,5 +1,6 @@
 export default `
-type Garden {
+type Recipe {
   id: ID!
   name: String!
-}`;
+}
+`;
