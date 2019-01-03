@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useMutation } from 'react-apollo-hooks';
-import PASS_FORGOT_MUTATION from './PasswordForgotMutation';
+import PASS_FORGOT_MUTATION from './PASSWORD_FORGOT_MUTATION';
 
 const PasswordForgot = () => {
   const [email, setEmail] = useState('');
@@ -9,7 +9,7 @@ const PasswordForgot = () => {
     PASS_FORGOT_MUTATION,
     {
       variables: {
-        email,
+        input: { email },
       },
     },
   );

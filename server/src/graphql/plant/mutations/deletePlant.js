@@ -1,1 +1,12 @@
-export default async (_, args, context) => context.data.plant.del(args.id);
+export default async (
+  _,
+  args,
+  {
+    dataSources,
+  },
+) => {
+  const result = await dataSources.plant.del(args.input);
+  return {
+    count: result
+  };
+};

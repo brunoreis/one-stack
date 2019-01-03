@@ -32,7 +32,6 @@ export default async (
     email: user.email,
     password: bcrypt.hashSync(password, 10),
   });
-  console.log('result pass reset: ', result);
   // send mail 
   const smtpTransport = setupMailTransport();
   const mailOptions = {

@@ -10,17 +10,9 @@ extend type Mutation {
   ): UpdatePlantResult
 
   deletePlant(
-    id: Int!
-  ): Int
+    input: DeletePlantInput!
+  ): DeletePlantResult
 
-}
-
-type CreatePlantResult {
-  plant: Plant
-}
-
-type UpdatePlantResult {
-  plant: Plant
 }
 
 input CreatePlantInput {
@@ -36,5 +28,21 @@ input UpdatePlantInput {
   scientificName: String
   edibleParts: [String]!
   tips: [String]
+}
+
+input DeletePlantInput {
+  id: Int!
+}
+
+type CreatePlantResult {
+  plant: Plant
+}
+
+type UpdatePlantResult {
+  plant: Plant
+}
+
+type DeletePlantResult {
+  count: Int
 }
 `;

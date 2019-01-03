@@ -6,7 +6,9 @@ import getByResetToken from './getByResetToken';
 import create from './create';
 import del from './del';
 import update from './update';
+
 import updatePassword from './updatePassword';
+import verifyPassword from './verifyPassword';
 
 const TABLE_NAME = 'user';
 
@@ -19,5 +21,7 @@ export default ({ db }) => ({
   create: create({ db, tableName: TABLE_NAME }),
   del: del({ db, tableName: TABLE_NAME }),
   update: update({ db, tableName: TABLE_NAME }),
+  
   updatePassword: updatePassword({ db, tableName: TABLE_NAME }),
+  verifyPassword: verifyPassword({ db, tableName: TABLE_NAME }),
 });
