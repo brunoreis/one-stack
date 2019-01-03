@@ -4,7 +4,7 @@ import { compose } from 'react-apollo';
 import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
 
-import GARDENER_CREATE_MUTATION from './GardenerCreateMutation';
+import GARDENER_CREATE_MUTATION from './GARDENER_CREATE_MUTATION';
 import fetchLogin from '../../../../helpers/fetchLogin';
 import validator from './GardenerCreateFormValidator';
 
@@ -19,10 +19,12 @@ const GardenerCreateForm = ({ history }) => {
     GARDENER_CREATE_MUTATION,
     {
       variables: {
-        email,
-        password,
-        name,
-        description,
+        input: {
+          email,
+          password,
+          name,
+          description,
+        },
       },
     },
   );
@@ -36,7 +38,7 @@ const GardenerCreateForm = ({ history }) => {
     });
     if (newValidation.isValid) {
       const res = await gardenerCreateMutation();
-      if (res.data && res.data.createUser) {
+      if (res.data && res.data.createUser.user) {
         await fetchLogin(email, password);
         history.push('gardener-details');
       } else {

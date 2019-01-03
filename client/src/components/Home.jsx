@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Home = ({ setHeader }) => {
   setHeader('HOME');
@@ -30,6 +31,10 @@ const Home = ({ setHeader }) => {
       </div>
     </div>
   );
+};
+
+Home.propTypes = {
+  setHeader: PropTypes.func.isRequired,
 };
 
 export default Home;

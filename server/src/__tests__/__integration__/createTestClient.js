@@ -2,22 +2,16 @@ import gql from 'graphql-tag';
 import { createTestClient } from 'apollo-server-testing';
 import { server, context } from '../../server';
 import db from '../../db/db';
-import data from '../../data';
+import _dataSources from '../../dataSources';
+
+const dataSources = _dataSources({ db })();
 
 const CREATE_USER = gql`
-  mutation CreateUser(
-    $password: String!
-    $email: String!
-    $name: String!
-    $description: String
-  ) {
-    createUser (
-      password: $password
-      email: $email
-      name: $name
-      description: $description
-    ) {
-      email
+  mutation CreateUser( $input: CreateUserInput! ) {
+    createUser ( input: $input ) {
+      user {
+        email
+      }
     }
   }
 `;
@@ -45,14 +39,18 @@ export default async () => {
     const result = await mutate({
       mutation: CREATE_USER,
       variables: {
-        password: 'secret',
-        email: 'testUser@mock.com',
-        name: 'Mock Dude',
-        description: 'Used on automated tests',
+        input: {
+          email: 'testUser@mock.com',
+          password: 'secret',
+          name: 'Mock Dude',
+          description: 'Used on automated tests',
+        }
       },
     });
 
-    const user = await data.user.getByEmail(result.data.createUser.email);
+    const user = await dataSources.user.getByEmail({
+      email: result.data.createUser.user.email,
+    });
 
     const {
       id,

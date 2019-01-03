@@ -1,10 +1,11 @@
-// import passport from 'passport';
-
-import data from '../data';
+import _dataSources from '../dataSources';
+import db from '../db';
 
 const LocalStrategy = require('passport-local').Strategy; // how to use 'import'?
+// import { Strategy as LocalStrategy } from 'passport-local';
+const dataSources = _dataSources({ db })();
 
-function passportSetup(passport) {
+const passportSetup = (passport) => {
   passport.use(
     'local',
     new LocalStrategy(
@@ -12,16 +13,12 @@ function passportSetup(passport) {
         usernameField: 'email',
         passwordField: 'password',
       },
-      (email, password, done) => {
-        data.user.checkPassword(email, password)
-          .then((IS_LOGIN_VALID) => {
-            if (IS_LOGIN_VALID) return data.user.getByEmail(email);
-            throw new Error('Não há usuário com essas credenciais.');
-          })
-          .then(user => done(null, user))
-          .catch((err) => {
-            done(err);
-          });
+      async (email, password, done) => {
+        const IS_LOGIN_VALID = await dataSources.user.verifyPassword({ email, password });
+        if (!IS_LOGIN_VALID)
+          throw new Error('Não há usuário com essas credenciais.');
+        const user = await dataSources.user.getByEmail({ email });
+        done(null, user);
       },
     ),
   );
@@ -29,7 +26,7 @@ function passportSetup(passport) {
   passport.serializeUser((user, done) => done(null, user.id));
 
   passport.deserializeUser(
-    (id, done) => data.user.getById(id)
+    (id, done) => dataSources.user.getById({ id })
       .then((user, err) => done(err, user)),
   );
 }

@@ -7,9 +7,7 @@ import SideMenu from './components/SideMenu';
 
 import Home from './components/Home';
 
-import Users from './components/Users/Users';
 import Login from './components/auth/Login/Login';
-import LoggedUser from './components/LoggedUser/LoggedUser';
 import PasswordForgot from './components/auth/PasswordForgot/PasswordForgot';
 import PasswordReset from './components/auth/passwordReset/PasswordReset';
 
@@ -124,8 +122,6 @@ const App = () => {
 
           <Route exact path="/forgot" component={PasswordForgot} />
           <Route exact path="/reset/:token" component={PasswordReset} />
-          <Route exact path="/users" component={Users} />
-          <Route exact path="/logged-user" component={LoggedUser} />
         </Switch>
       </div>
 

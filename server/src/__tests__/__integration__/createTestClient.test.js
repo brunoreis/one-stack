@@ -8,7 +8,7 @@ test('createTestClient', async (t) => {
   await createTestClient();
   t.deepEqual(
     context.loggedUser,
-    { id: 1, email: 'testUser@mock.com', gardener: { id: 1 } },
+    { id: 1, email: 'testUser@mock.com', gardener: 1 },
     'should inject a mock user with id and email to the context',
   );
 

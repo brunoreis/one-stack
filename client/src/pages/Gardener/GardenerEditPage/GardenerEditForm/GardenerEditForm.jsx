@@ -5,7 +5,7 @@ import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
 
 import validator from './GardenerEditFormValidator';
-import GARDENER_EDIT_MUTATION from './GardenerEditMutation';
+import GARDENER_UPDATE_MUTATION from './GARDENER_UPDATE_MUTATION';
 
 const GardenerEditForm = ({
   history,
@@ -16,11 +16,13 @@ const GardenerEditForm = ({
   const [validation, setValidation] = useState(validator.valid());
 
   const gardenerEditMutation = useMutation(
-    GARDENER_EDIT_MUTATION,
+    GARDENER_UPDATE_MUTATION,
     {
       variables: {
-        name,
-        description,
+        input: {
+          name,
+          description,
+        },
       },
     },
   );
@@ -31,14 +33,9 @@ const GardenerEditForm = ({
       description,
     });
     if (newValidation.isValid) {
-      const res = await gardenerEditMutation({
-        variables: {
-          name,
-          description,
-        },
-      });
-
-      if (res.data && res.data.updateGardener) {
+      const res = await gardenerEditMutation();
+      console.log('res', res);
+      if (res.data && res.data.updateGardener.gardener) {
         history.push('gardener-details');
       } else {
         console.log('erro ao atualizar usuário');

@@ -1,8 +1,6 @@
 import { ApolloServer } from 'apollo-server-express';
 import express from 'express';
 
-import data from './data';
-import mocks from './mocks'; // what is this for?
 import resolvers from './graphql/resolvers';
 // import debugExtensions from './extensions/debugExtensions';
 import schema from './graphql/schema';
@@ -10,10 +8,7 @@ import authSetup from './config/authSetup';
 import db from './db';
 import dataSources from './dataSources';
 
-const context = {
-  mocks,
-  data,
-};
+const context = {};
 
 const app = express();
 authSetup(app, context);

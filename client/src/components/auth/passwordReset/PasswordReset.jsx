@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useMutation } from 'react-apollo-hooks';
 import PropTypes from 'prop-types';
 
-import PASS_RESET_MUTATION from './PasswordResetMutation';
+import PASS_RESET_MUTATION from './PASSWORD_RESET_MUTATION';
 
 const PasswordReset = (props) => {
   const token = props.match.params.token;
@@ -13,8 +13,10 @@ const PasswordReset = (props) => {
     PASS_RESET_MUTATION,
     {
       variables: {
-        token,
-        password: newPassword,
+        input: {
+          token,
+          password: newPassword,
+        },
       },
     },
   );
