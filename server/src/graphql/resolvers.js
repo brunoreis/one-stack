@@ -14,7 +14,6 @@ const resolvers = {
 const mergedResolvers = compose(
   mergeDeepLeft(plant),
   mergeDeepLeft(gardener),
-  // mergeDeepLeft(user), .... add more resolvers like this
 )(resolvers);
 
 export default mergedResolvers;

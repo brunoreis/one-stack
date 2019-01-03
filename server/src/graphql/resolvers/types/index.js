@@ -3,7 +3,7 @@ import Gardener from './gardener';
 import Plant from './plant';
 
 export default {
-  User,
-  Gardener,
-  Plant,
+  // User,
+  // Gardener,
+  // Plant,
 };
