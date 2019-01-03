@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import PropTypes from 'prop-types';
 import { useQuery } from 'react-apollo-hooks';
 
@@ -7,27 +7,26 @@ import EditButton from '../../../components/Buttons/EditButton';
 
 import '../../PageStyles.css';
 
-import LOGGED_USER_QUERY from './LoggedUserQuery';
+import LOGGED_USER_QUERY from './LOGGED_USER_QUERY';
 
 import ErrorHandler from '../../../components/ErrorAndLoading/ErrorHandler';
 
 const GardenerDetailsPage = ({ history, setHeader }) => {
   setHeader('O JARDINEIRO');
 
-  const queryResult = useQuery(
-    LOGGED_USER_QUERY,
-    {
-      suspend: false,
-      fetchPolicy: 'network-only',
-      errorPolicy: 'all',
-    },
-  );
   const {
     loading,
     error,
     errors,
     data,
-  } = queryResult;
+  } = useQuery(
+    LOGGED_USER_QUERY,
+    {
+      // suspend: false,
+      // fetchPolicy: 'network-only',
+      // errorPolicy: 'all',
+    },
+  );
 
   if (loading) return <div>Fetching</div>;
   if (error) return <ErrorHandler error={error} />;
@@ -57,4 +56,12 @@ GardenerDetailsPage.propTypes = {
   setHeader: PropTypes.func.isRequired,
 };
 
-export default GardenerDetailsPage;
+// export default GardenerDetailsPage;
+
+const WithSuspense = ({ history, setHeader }) => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <GardenerDetailsPage history={history} setHeader={setHeader} />
+  </Suspense>
+);
+
+export default WithSuspense;

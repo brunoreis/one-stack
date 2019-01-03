@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { useQuery } from 'react-apollo-hooks';
 
 import ErrorHandler from '../../../../components/ErrorAndLoading/ErrorHandler';
@@ -8,13 +8,19 @@ import GARDENERS_QUERY from './GardenersQuery';
 import getConnectionNodes from '../../../../helpers/getConnectionNodes';
 
 const GardenerList = () => {
-  const { loading, error, data } = useQuery(
+  const {
+    // loading,
+    error,
+    errors,
+    data,
+  } = useQuery(
     GARDENERS_QUERY,
-    { suspend: false },
+    // { suspend: false },
   );
 
-  if (loading) return <div>Fetching</div>;
+  // if (loading) return <div>Fetching</div>;
   if (error) return <ErrorHandler error={error} />;
+  if (errors) return <ErrorHandler error={{ graphQLErrors: errors }} />;
   const gardeners = getConnectionNodes(data.gardenersConnection);
   return (
     <div>
@@ -27,4 +33,10 @@ const GardenerList = () => {
   );
 };
 
-export default GardenerList;
+const WithSuspense = () => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <GardenerList />
+  </Suspense>
+);
+
+export default WithSuspense;

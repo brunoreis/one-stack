@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import PropTypes from 'prop-types';
 import { useQuery } from 'react-apollo-hooks';
 
@@ -6,7 +6,7 @@ import EditButton from '../../../components/Buttons/EditButton';
 import ErrorHandler from '../../../components/ErrorAndLoading/ErrorHandler';
 import PlantDetails from './PlantDetails';
 
-import PLANT_QUERY from './plantQuery';
+import PLANT_QUERY from './PLANT_QUERY';
 
 import '../../PageStyles.css';
 
@@ -21,7 +21,7 @@ const PlantDetailsPage = ({
     PLANT_QUERY,
     {
       variables: { id: parseInt(id, 10) },
-      suspend: false,
+      // suspend: false,
     },
   );
   if (loading) return <div>Fetching</div>;
@@ -46,4 +46,9 @@ PlantDetailsPage.propTypes = {
   match: PropTypes.object.isRequired,
 };
 
-export default PlantDetailsPage;
+// export default PlantDetailsPage;
+export default props => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <PlantDetailsPage {...props} />
+  </Suspense>
+);

@@ -1,8 +1,7 @@
 import _dataSources from '../dataSources';
 import db from '../db';
 
-const LocalStrategy = require('passport-local').Strategy; // how to use 'import'?
-// import { Strategy as LocalStrategy } from 'passport-local';
+import { Strategy as LocalStrategy } from 'passport-local';
 const dataSources = _dataSources({ db })();
 
 const passportSetup = (passport) => {
