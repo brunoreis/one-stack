@@ -4,8 +4,9 @@ import uuid from 'node-uuid';
 import passport from 'passport';
 import cors from 'cors';
 import passportSetup from './passportSetup';
+import { app, context } from '../server';
 
-function authSetup(app, context) {
+function authSetup() {
   passportSetup(passport);
 
   const corsOptions = {
@@ -22,8 +23,6 @@ function authSetup(app, context) {
       saveUninitialized: false, // https://github.com/expressjs/session#options
     }),
   );
-
-  // app.
 
   app.use(passport.initialize());
   app.use(passport.session());

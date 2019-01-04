@@ -11,7 +11,8 @@ import dataSources from './dataSources';
 const context = {};
 
 const app = express();
-authSetup(app, context);
+
+authSetup();
 
 const server = new ApolloServer({ //eslint-disable-line
   typeDefs: schema,
