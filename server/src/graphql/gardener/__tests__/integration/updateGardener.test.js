@@ -1,7 +1,7 @@
 import test from 'tape';
 import gql from 'graphql-tag';
 import createTestClient from '../../../../__tests__/integration/createTestClient';
-import login from '../../../../__tests__/integration/login';
+import createUserAndLogin from '../../../../__tests__/integration/createUserAndLogin';
 
 const UPDATE_GARDENER_MUTATION = gql`
   mutation UpdateGardener( $input: UpdateGardenerInput! ) {
@@ -35,7 +35,7 @@ test('update gardener', async (t) => {
     variables: updateVariables,
   });
 
-  await login();
+  await createUserAndLogin();
 
   const updateResult = await mutate({
     mutation: UPDATE_GARDENER_MUTATION,
