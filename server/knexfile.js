@@ -10,10 +10,10 @@ module.exports = {
       database: 'onestack-test',
     },
     migrations: {
-      directory: './src/db/migrations',
+      directory: './src/dataSources/_migrations',
     },
     seeds: {
-      directory: './src/db/seeds',
+      directory: './src/dataSources/_seeds',
     },
   },
   development: {
@@ -25,20 +25,20 @@ module.exports = {
       database: process.env.POSTGRES_DB,
     },
     migrations: {
-      directory: './src/db/migrations',
+      directory: './src/dataSources/_migrations',
     },
     seeds: {
-      directory: './src/db/seeds',
+      directory: './src/dataSources/_seeds',
     },
   },
   production: {
     client: 'postgresql',
     connection: process.env.DATABASE_URL,
     migrations: {
-      directory: './src/db/migrations',
+      directory: './src/dataSources/_migrations',
     },
     seeds: {
-      directory: './src/db/seeds',
+      directory: './src/dataSources/_seeds',
     },
   },
 };

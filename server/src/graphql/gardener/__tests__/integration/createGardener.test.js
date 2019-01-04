@@ -1,17 +1,16 @@
 import test from 'tape';
 import gql from 'graphql-tag';
 import { omit } from 'ramda';
-import createTestClient from '../../../../__tests__/__integration__/createTestClient';
+import createTestClient from '../../../../__tests__/integration/createTestClient';
 
 const CREATE_USER_MUTATION = gql`
   mutation CreateUser( $input: CreateUserInput! ) {
     createUser ( input: $input ) {
       user {
-        id
         email
         gardener {
-          id
           name
+          description
         }
       }
     }
@@ -19,12 +18,11 @@ const CREATE_USER_MUTATION = gql`
 `;
 
 test('create gardener', async (t) => {
-  console.log('entrou no teste 1');
-  t.plan(2);
   const { mutate } = await createTestClient();
+  const randomEmail = `${Math.random()}@test.com`
   const variables = {
     input: {
-      email: 'test@test.com',
+      email: randomEmail,
       password: 'password',
       name: 'Test User',
       description: 'testing gardener creation',
@@ -39,8 +37,7 @@ test('create gardener', async (t) => {
   t.deepEqual(
     omit(['id'], result.data.createUser.user),
     {
-      email: 'test@test.com',
-      password: 'password',
+      email: randomEmail,
       gardener: {
         name: 'Test User',
         description: 'testing gardener creation',
@@ -48,4 +45,6 @@ test('create gardener', async (t) => {
     },
     'should return the created user',
   );
+  t.end();
+  test.onFinish(() => process.exit(0));
 });

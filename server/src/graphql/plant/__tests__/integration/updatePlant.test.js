@@ -1,6 +1,7 @@
 import test from 'tape';
 import gql from 'graphql-tag';
-import createTestClient from '../../../../__tests__/__integration__/createTestClient';
+import createTestClient from '../../../../__tests__/integration/createTestClient';
+import login from '../../../../__tests__/integration/login';
 
 const CREATE_PLANT_MUTATION = gql`
   mutation createPlant( $input: CreatePlantInput! ) {
@@ -30,8 +31,8 @@ const UPDATE_PLANT_MUTATION = gql`
 `;
 
 test('update plant', async (t) => {
-  t.plan(4);
   const { mutate, clean } = await createTestClient();
+  const loggedUser = await login();
 
   const createVariables = {
     input: {
@@ -78,4 +79,6 @@ test('update plant', async (t) => {
     },
     'should return the updated plant',
   );
+  t.end();
+  test.onFinish(() => process.exit(0));
 });
