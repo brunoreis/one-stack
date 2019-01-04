@@ -46,5 +46,5 @@ test('create gardener', async (t) => {
     'should return the created user',
   );
   t.end();
-  test.onFinish(() => process.exit(0));
+  // test.onFinish(() => process.exit(0));
 });

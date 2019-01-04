@@ -3,7 +3,7 @@ import gql from 'graphql-tag';
 import { omit } from 'ramda';
 
 import createTestClient from '../../../../__tests__/integration/createTestClient';
-import login from '../../../../__tests__/integration/login';
+import createUserAndLogin from '../../../../__tests__/integration/createUserAndLogin';
 
 const CREATE_PLANT_MUTATION = gql`
   mutation CreatePlant( $input: CreatePlantInput! ) {
@@ -23,7 +23,7 @@ const CREATE_PLANT_MUTATION = gql`
 `;
 
 test('create plant', async (t) => {
-  const { mutate } = await createTestClient();
+  const { mutate, clean } = await createTestClient();
   
   const variables = {
     input: {
@@ -33,14 +33,24 @@ test('create plant', async (t) => {
     },
   };
 
-  t.throws(
-    mutate,
-    'should throw error when not logged in'
-  );
-  
-  const loggedUser = await login();
+  let result = null;
 
-  const result = await mutate({
+  result = await mutate({
+    mutation: CREATE_PLANT_MUTATION,
+    variables,
+  });
+
+  t.equals(
+    result.errors[0].extensions.code,
+    'UNAUTHENTICATED',
+    'should receive AuthenticationError when not logged in'
+  );
+
+  clean();
+  
+  const loggedUser = await createUserAndLogin();
+
+  result = await mutate({
     mutation: CREATE_PLANT_MUTATION,
     variables,
   });

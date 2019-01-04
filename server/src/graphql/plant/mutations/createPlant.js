@@ -1,3 +1,5 @@
+import { AuthenticationError } from 'apollo-server';
+
 export default async (
   _,
   args,
@@ -6,6 +8,10 @@ export default async (
     loggedUser,
   },
 ) => {
+  if (!loggedUser) {
+    throw new AuthenticationError('Not logged in');
+  }
+
   const result = await dataSources.plant.create({
     ...args.input,
     createdBy: loggedUser.gardener,

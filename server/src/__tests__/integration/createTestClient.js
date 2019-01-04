@@ -1,20 +1,6 @@
-import gql from 'graphql-tag';
 import { createTestClient } from 'apollo-server-testing';
 import { server, context } from '../../server';
-import db from '../../db';
 import _dataSources from '../../dataSources';
-
-const dataSources = _dataSources({ db })();
-
-const CREATE_USER = gql`
-  mutation CreateUser( $input: CreateUserInput! ) {
-    createUser ( input: $input ) {
-      user {
-        email
-      }
-    }
-  }
-`;
 
 let memoizedTestClient = null;
 const clean = () => delete context.dataSources;
@@ -32,41 +18,7 @@ export default async () => {
   // await db.raw('ALTER SEQUENCE gardener_id_seq RESTART WITH 1');
   try {
     const testClient = createTestClient(server);
-    const { mutate } = testClient;
-
-    // this might need to be optimized later to avoid calling a big mutation everytime
-
-    // const result = await mutate({
-    //   mutation: CREATE_USER,
-    //   variables: {
-    //     input: {
-    //       email: 'testUser@mock.com',
-    //       password: 'secret',
-    //       name: 'Mock Dude',
-    //       description: 'Used on automated tests',
-    //     }
-    //   },
-    // });
-
-    // const user = await dataSources.user.getByEmail({
-    //   email: result.data.createUser.user.email,
-    // });
-
-    // const {
-    //   id,
-    //   email,
-    //   gardener,
-    // } = user;
-
-    // context.loggedUser = {
-    //   id,
-    //   email,
-    //   gardener,
-    // };
-
-    clean();
-    delete context.dataSources;
-    memoizedTestClient = {
+     memoizedTestClient = {
       ...testClient,
       clean,
     };
