@@ -2,8 +2,8 @@ exports.up = async knex => knex.schema.createTable(
   'plant',
   (table) => {
     table.increments('id').primary();
-    table.string('name').notNullable();
-    table.string('scientificName');
+    table.string('name').notNullable().unique();
+    table.string('scientificName').unique();
     table.timestamps(false, true);
   },
 );
