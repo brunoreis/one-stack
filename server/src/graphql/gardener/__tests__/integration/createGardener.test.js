@@ -18,7 +18,7 @@ const CREATE_USER_MUTATION = gql`
 `;
 
 test('create gardener', async (t) => {
-  const { mutate } = await createTestClient();
+  const { mutate, clean } = await createTestClient();
   const randomEmail = `${Math.random()}@test.com`
   const variables = {
     input: {
@@ -29,10 +29,12 @@ test('create gardener', async (t) => {
     },
   };
 
-  const result = await mutate({
+  let result = await mutate({
     mutation: CREATE_USER_MUTATION,
     variables,
   });
+  clean();
+
   t.equal(result.errors, undefined, 'should not throw an error');
   t.deepEqual(
     omit(['id'], result.data.createUser.user),
@@ -45,6 +47,18 @@ test('create gardener', async (t) => {
     },
     'should return the created user',
   );
+
+  result = await mutate({
+    mutation: CREATE_USER_MUTATION,
+    variables,
+  });
+  clean();
+
+  t.ok(
+    result.errors,
+    'should receive an error if user already exists',
+  );
+
   t.end();
   test.onFinish(() => process.exit(0));
 });
