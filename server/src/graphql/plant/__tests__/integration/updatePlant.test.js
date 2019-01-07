@@ -57,7 +57,7 @@ test('update plant', async (t) => {
 
   let updateVariables = {
     input: {
-      id: parseInt(insertedId, 10),
+      id: insertedId,
       name,
       scientificName,
       edibleParts: ['fruto', 'mangará', 'casca'],

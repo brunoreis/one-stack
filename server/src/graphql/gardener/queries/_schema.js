@@ -1,14 +1,14 @@
 export default `
 extend type Query {
-  gardener(id: Int!): Gardener
+  gardener(id: ID!): Gardener
   gardenersConnection: QueryGardenersConnection
-  user(id: Int!): User
+  user(id: ID!): User
   loggedUser: User
 }
 
 type QueryGardenersConnection {
   edges: [QueryGardenersEdge]
-  totalCount: Int!
+  totalCount: ID!
 }
 
 type QueryGardenersEdge {

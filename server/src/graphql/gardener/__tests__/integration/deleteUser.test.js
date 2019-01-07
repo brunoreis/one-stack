@@ -39,7 +39,7 @@ test('delete user', async (t) => {
     mutation: DELETE_USER_MUTATION,
     variables: {
       input: {
-        id: parseInt(createResult.data.createUser.user.id, 10)
+        id: createResult.data.createUser.user.id
       }
     },
   });
@@ -48,5 +48,5 @@ test('delete user', async (t) => {
   t.equal(deleteResult.data.deleteUser.count, 1, 'should return 1');
   
   t.end();
-  // test.onFinish(() => process.exit(0));
+  test.onFinish(() => process.exit(0));
 });

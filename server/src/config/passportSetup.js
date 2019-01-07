@@ -12,12 +12,16 @@ const passportSetup = (passport) => {
         usernameField: 'email',
         passwordField: 'password',
       },
-      async (email, password, done) => {
-        const IS_LOGIN_VALID = await dataSources.user.verifyPassword({ email, password });
-        if (!IS_LOGIN_VALID)
-          throw new Error('Não há usuário com essas credenciais.');
-        const user = await dataSources.user.getByEmail({ email });
-        done(null, user);
+      (email, password, done) => {
+        dataSources.user.verifyPassword({ email, password })
+          .then((IS_LOGIN_VALID) => {
+            if (IS_LOGIN_VALID) return dataSources.user.getByEmail({ email });
+            throw new Error('Não há usuário com essas credenciais.');
+          })
+          .then(user => done(null, user))
+          .catch((err) => {
+            done(err);
+          });
       },
     ),
   );
