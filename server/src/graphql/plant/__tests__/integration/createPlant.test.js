@@ -5,8 +5,6 @@ import { omit } from 'ramda';
 import createTestClient from '../../../../__tests__/integration/createTestClient';
 import createUserAndLogin from '../../../../__tests__/integration/createUserAndLogin';
 
-import db from '../../../../db';
-
 const CREATE_PLANT_MUTATION = gql`
   mutation CreatePlant( $input: CreatePlantInput! ) {
     createPlant ( input: $input ) {
@@ -25,14 +23,15 @@ const CREATE_PLANT_MUTATION = gql`
 `;
 
 test('create plant', async (t) => {
-  await db('plant').del();
+  const name = `test name ${Math.random()}`;
+  const scientificName = name;
   
   const { mutate, clean } = await createTestClient();
   
   let variables = {
     input: {
-      name: 'banana',
-      scientificName: 'musa paradisiaca',
+      name,
+      scientificName,
       edibleParts: ['fruto', 'mangará'],
     },
   };
@@ -64,8 +63,8 @@ test('create plant', async (t) => {
   t.deepEqual(
     omit(['id'], result.data.createPlant.plant),
     {
-      name: 'banana',
-      scientificName: 'musa paradisiaca',
+      name,
+      scientificName,
       edibleParts: ['fruto', 'mangará'],
       tips: null,
       createdBy: {

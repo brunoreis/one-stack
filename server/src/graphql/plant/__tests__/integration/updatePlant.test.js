@@ -3,8 +3,6 @@ import gql from 'graphql-tag';
 import createTestClient from '../../../../__tests__/integration/createTestClient';
 import createUserAndLogin from '../../../../__tests__/integration/createUserAndLogin';
 
-import db from '../../../../db';
-
 const CREATE_PLANT_MUTATION = gql`
   mutation createPlant( $input: CreatePlantInput! ) {
     createPlant ( input: $input ) {
@@ -33,15 +31,16 @@ const UPDATE_PLANT_MUTATION = gql`
 `;
 
 test('update plant', async (t) => {
-  await db('plant').del();
-
   const { mutate, clean } = await createTestClient();
-  const loggedUser = await createUserAndLogin();
+  await createUserAndLogin();
+
+  const name = `test name ${Math.random()}`;
+  const scientificName = name;
 
   const createVariables = {
     input: {
-      name: 'banana',
-      scientificName: 'musa paradisiaca',
+      name,
+      scientificName,
       edibleParts: ['fruto', 'mangará'],
     },
   };
@@ -59,8 +58,8 @@ test('update plant', async (t) => {
   let updateVariables = {
     input: {
       id: parseInt(insertedId, 10),
-      name: 'Banana',
-      scientificName: 'Musa Paradisiaca',
+      name,
+      scientificName,
       edibleParts: ['fruto', 'mangará', 'casca'],
     },
   };
@@ -77,8 +76,8 @@ test('update plant', async (t) => {
     updateResult.data.updatePlant.plant,
     {
       id: insertedId,
-      name: 'Banana',
-      scientificName: 'Musa Paradisiaca',
+      name,
+      scientificName,
       edibleParts: ['fruto', 'mangará', 'casca'],
       tips: null,
       createdBy: {
