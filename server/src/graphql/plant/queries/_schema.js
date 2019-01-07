@@ -1,13 +1,13 @@
 export default `
 extend type Query {
-  plant(id: Int!): Plant
+  plant(id: ID!): Plant
   plants: [Plant]
   plantsConnection: QueryPlantsConnection
 }
 
 type QueryPlantsConnection {
   edges: [QueryPlantsEdge]
-  totalCount: Int!
+  totalCount: ID!
 }
 
 type QueryPlantsEdge {

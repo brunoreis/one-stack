@@ -23,7 +23,7 @@ input CreatePlantInput {
 }
 
 input UpdatePlantInput {
-  id: Int!
+  id: ID!
   name: String!
   scientificName: String
   edibleParts: [String]!
@@ -31,7 +31,7 @@ input UpdatePlantInput {
 }
 
 input DeletePlantInput {
-  id: Int!
+  id: ID!
 }
 
 type CreatePlantResult {

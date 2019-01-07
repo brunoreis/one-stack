@@ -48,7 +48,7 @@ input UpdateGardenerInput {
 }
 
 input DeleteUserInput {
-  id: Int!
+  id: ID!
 }
 
 input PasswordForgotInput {
