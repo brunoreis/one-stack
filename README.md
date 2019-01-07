@@ -28,13 +28,13 @@ Setting other variables:
 
 ### Quick start
 
-If you want a quick setup, run the following commands from the root directory. If you come across any issues you can check the detailed instructions below.
+If you want a quick setup, after setting up the environment variables run the following commands from the root directory. If you come across any issues you can check the detailed instructions below.
 
 ```
 cd dev
 npm run install-all
 docker-compose up -d
-npm run db:setup
+docker-compose exec server npm run db-init
 ```
 
 ### Installing Dependencies
