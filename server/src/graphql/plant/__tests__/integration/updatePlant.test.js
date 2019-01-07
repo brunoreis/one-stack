@@ -32,12 +32,15 @@ const UPDATE_PLANT_MUTATION = gql`
 
 test('update plant', async (t) => {
   const { mutate, clean } = await createTestClient();
-  const loggedUser = await createUserAndLogin();
+  await createUserAndLogin();
+
+  const name = `test name ${Math.random()}`;
+  const scientificName = name;
 
   const createVariables = {
     input: {
-      name: 'banana',
-      scientificName: 'musa paradisiaca',
+      name,
+      scientificName,
       edibleParts: ['fruto', 'mangará'],
     },
   };
@@ -45,32 +48,36 @@ test('update plant', async (t) => {
     mutation: CREATE_PLANT_MUTATION,
     variables: createVariables,
   });
+  clean();
+
   t.equal(createResult.errors, undefined, 'should not throw an error on create');
   t.true(!!createResult.data.createPlant.plant.id, 'should have an id assigned');
+
   const insertedId = createResult.data.createPlant.plant.id;
 
-  clean();
-  const updateVariables = {
+  let updateVariables = {
     input: {
       id: parseInt(insertedId, 10),
-      name: 'Banana',
-      scientificName: 'Musa Paradisiaca',
+      name,
+      scientificName,
       edibleParts: ['fruto', 'mangará', 'casca'],
     },
   };
 
-  const updateResult = await mutate({
+  let updateResult = await mutate({
     mutation: UPDATE_PLANT_MUTATION,
     variables: updateVariables,
   });
+  clean();
 
   t.equal(updateResult.errors, undefined, 'should not throw an error on update');
+
   t.deepEqual(
     updateResult.data.updatePlant.plant,
     {
       id: insertedId,
-      name: 'Banana',
-      scientificName: 'Musa Paradisiaca',
+      name,
+      scientificName,
       edibleParts: ['fruto', 'mangará', 'casca'],
       tips: null,
       createdBy: {
@@ -79,6 +86,20 @@ test('update plant', async (t) => {
     },
     'should return the updated plant',
   );
+
+  updateVariables.input.name = null;
+  
+  updateResult = await mutate({
+    mutation: UPDATE_PLANT_MUTATION,
+    variables: updateVariables,
+  });
+  clean();
+
+  t.ok(
+    updateResult.errors,
+    'should receive an error when passing invalid fields',
+  );
+
   t.end();
-  // test.onFinish(() => process.exit(0));
+  test.onFinish(() => process.exit(0));
 });

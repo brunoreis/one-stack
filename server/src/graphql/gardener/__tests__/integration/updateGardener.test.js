@@ -24,20 +24,21 @@ test('update gardener', async (t) => {
     },
   };
 
-  t.throws(
-    mutate,
-    'should throw error when not logged in',
-  );
-
   
-  await mutate({
+  let updateResult = await mutate({
     mutation: UPDATE_GARDENER_MUTATION,
     variables: updateVariables,
   });
+  
+  t.equals(
+    updateResult.errors[0].extensions.code,
+    'UNAUTHENTICATED',
+    'should receive AuthenticationError when not logged in'
+  );
 
   await createUserAndLogin();
 
-  const updateResult = await mutate({
+  updateResult = await mutate({
     mutation: UPDATE_GARDENER_MUTATION,
     variables: updateVariables,
   });
@@ -56,7 +57,7 @@ test('update gardener', async (t) => {
     },
     'should return the updated gardener',
   );
-    
+
   t.end();
-  // test.onFinish(() => process.exit(0));
+  test.onFinish(() => process.exit(0));
 });
