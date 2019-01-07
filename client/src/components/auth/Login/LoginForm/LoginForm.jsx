@@ -24,7 +24,10 @@ const LoginForm = (props) => {
       const { success, message } = await fetchLogin(email, password);
       if (success) {
         history.push('/gardener-details');
-      } else setErrorMessage(message);
+      } else {
+        setErrorMessage(message);
+        setValidation(newValidation);
+      }
     } else setValidation(newValidation);
   };
 

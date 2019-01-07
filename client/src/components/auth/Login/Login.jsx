@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import LoginForm from './LoginForm/LoginForm';
@@ -13,6 +14,10 @@ const Login = ({ setHeader }) => {
       </Link>
     </div>
   );
+};
+
+Login.propTypes = {
+  setHeader: PropTypes.func.isRequired,
 };
 
 export default Login;
