@@ -44,7 +44,6 @@
     "node-uuid": "^1.4.8",
     "nodemailer": "^4.7.0",
     "nodemailer-sendgrid-transport": "^0.2.0",
-    "nodemon": "^1.18.9",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "password-reset": "^0.1.4",
@@ -61,6 +60,7 @@
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
     "graphql-tag": "^2.10.0",
+    "nodemon": "^1.18.9",
     "tap-spec": "^5.0.0",
     "tape": "^4.9.1",
     "tape-async": "^2.3.0"
