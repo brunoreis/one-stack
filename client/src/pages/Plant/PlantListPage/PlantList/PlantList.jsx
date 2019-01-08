@@ -10,6 +10,7 @@ import PLANTS_QUERY from './PLANTS_QUERY';
 import getConnectionNodes from '../../../../helpers/getConnectionNodes';
 
 const PlantList = ({ history }) => {
+  // const queryResult = useQuery(
   const { loading, error, data } = useQuery(
     PLANTS_QUERY,
     {
@@ -18,7 +19,9 @@ const PlantList = ({ history }) => {
       // errorPolicy: 'all',
     },
   );
-  if (loading) return <div>Fetching</div>;
+  // console.log(queryResult);
+  // const { loading, error, data } = queryResult;
+  if (loading) return <div>Loading...</div>;
   if (error) return <ErrorHandler error={error} />;
   const plants = getConnectionNodes(data.plantsConnection);
   return (
