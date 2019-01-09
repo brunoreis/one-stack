@@ -136,6 +136,13 @@ We can access our heroku app by running `heroku open`, and open bash with `herok
 
 To push local changes to heroku, simply go to /dev and run `npm run heroku:push-server` or `npm run heroku:push-server`. OBS: notice that this command will push changes in the current working branch, not necessarily in the master branch.
 
+### Set remotes
+In case you need to set the remote to an existing heroku app, you can do that by running:
+`heroku git:remote -r heroku-server -a 'server-app-name'`
+
+or
+
+`heroku git:remote -r heroku-client -a 'client-app-name'`
 
 ### Enabling Graphql Playground in production
 Since the playground is not enabled by defalut in production environments, we can explicitly ask for it by setting a couple of fields in our ApolloServer declaration:
