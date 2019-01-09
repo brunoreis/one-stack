@@ -9,10 +9,10 @@ test('create plant', async (t) => {
   const name = `test name ${Math.random()}`;
   const scientificName = name;
   const { mutate } = await createTestClient();
-  
+
   const loggedUser = await createUserAndLogin();
 
-  let variables = {
+  const variables = {
     input: {
       name,
       scientificName,
@@ -40,7 +40,7 @@ test('create plant', async (t) => {
   t.equal(
     result.data.createPlant.plant.createdBy.id,
     loggedUser.id.toString(),
-    'should relate plant to logged user'
+    'should relate plant to logged user',
   );
 
   t.end();

@@ -28,7 +28,7 @@ test('update plant', async (t) => {
 
   const insertedId = createResult.data.createPlant.plant.id;
 
-  let updateVariables = {
+  const updateVariables = {
     input: {
       id: insertedId,
       name,
@@ -38,7 +38,7 @@ test('update plant', async (t) => {
   };
 
   updateVariables.input.name = null;
-  
+
   const updateResult = await mutate({
     mutation: UPDATE_PLANT_MUTATION,
     variables: updateVariables,

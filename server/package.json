@@ -59,6 +59,7 @@
     "eslint": "^5.11.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-tape": "^1.1.0",
     "graphql-tag": "^2.10.0",
     "nodemon": "^1.18.9",
     "tap-spec": "^5.0.0",

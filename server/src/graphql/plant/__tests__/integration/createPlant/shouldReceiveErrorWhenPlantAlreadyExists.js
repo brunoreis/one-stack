@@ -7,8 +7,8 @@ test('create plant', async (t) => {
   const name = `test name ${Math.random()}`;
   const scientificName = name;
   const { mutate, clean } = await createTestClient();
-  
-  let variables = {
+
+  const variables = {
     input: {
       name,
       scientificName,

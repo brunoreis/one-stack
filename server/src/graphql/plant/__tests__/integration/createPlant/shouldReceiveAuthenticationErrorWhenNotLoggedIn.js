@@ -7,8 +7,8 @@ test('create plant', async (t) => {
   const name = `test name ${Math.random()}`;
   const scientificName = name;
   const { mutate } = await createTestClient();
-  
-  let variables = {
+
+  const variables = {
     input: {
       name,
       scientificName,
@@ -24,10 +24,10 @@ test('create plant', async (t) => {
   t.equals(
     result.errors[0].extensions.code,
     'UNAUTHENTICATED',
-    'should receive AuthenticationError when not logged in'
+    'should receive AuthenticationError when not logged in',
   );
 
   t.end();
-  
+
   test.onFinish(() => process.exit(0));
 });
