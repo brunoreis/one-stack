@@ -1,9 +1,10 @@
 import gql from 'graphql-tag';
 
 export default gql`
-  query Plant($id: Int!) {
+  query Plant($id: ID!) {
     plant(id: $id) {
       id
+      bla
       name
       scientificName
       edibleParts

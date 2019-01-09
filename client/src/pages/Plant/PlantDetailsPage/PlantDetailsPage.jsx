@@ -16,14 +16,14 @@ const PlantDetailsPage = ({
   match: { params: { id } },
 }) => {
   setHeader('A PLANTA');
-
   const { loading, error, data: { plant } } = useQuery(
     PLANT_QUERY,
     {
-      variables: { id: parseInt(id, 10) },
+      variables: { id },
       // suspend: false,
     },
   );
+
   if (loading) return <div>Fetching</div>;
   if (error) return <ErrorHandler error={error} />;
   return (

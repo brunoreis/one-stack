@@ -17,7 +17,6 @@ const GardenerDetailsPage = ({ history, setHeader }) => {
   const {
     loading,
     error,
-    errors,
     data,
   } = useQuery(
     LOGGED_USER_QUERY,
@@ -27,10 +26,8 @@ const GardenerDetailsPage = ({ history, setHeader }) => {
       // errorPolicy: 'all',
     },
   );
-
   if (loading) return <div>Fetching</div>;
   if (error) return <ErrorHandler error={error} />;
-  if (errors) return <ErrorHandler error={{ graphQLErrors: errors }} />;
 
   const gardener = data.loggedUser.gardener;
 
@@ -58,10 +55,8 @@ GardenerDetailsPage.propTypes = {
 
 // export default GardenerDetailsPage;
 
-const WithSuspense = ({ history, setHeader }) => (
+export default props => (
   <Suspense fallback={<div>Loading...</div>}>
-    <GardenerDetailsPage history={history} setHeader={setHeader} />
+    <GardenerDetailsPage {...props} />
   </Suspense>
 );
-
-export default WithSuspense;
