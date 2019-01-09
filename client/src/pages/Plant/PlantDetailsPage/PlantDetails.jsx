@@ -67,6 +67,7 @@ const PlantDetails = ({
         Receitas:
       </div>
 
+      <div style={{ height: '50px' }} />
 
     </div>
   </div>

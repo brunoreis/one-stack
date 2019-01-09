@@ -48,6 +48,8 @@ const GardenerDetails = ({
     <div>Receita2</div>
     <div>Receita3</div>
 
+    <div style={{ height: '50px' }} />
+
   </div>
 );
 
