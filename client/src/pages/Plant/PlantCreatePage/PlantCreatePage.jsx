@@ -43,10 +43,8 @@ PlantCreatePage.propTypes = {
 
 // export default PlantCreatePage;
 
-const WithSuspense = ({ setHeader }) => (
+export default props => (
   <Suspense fallback={<div>Loading...</div>}>
-    <PlantCreatePage setHeader={setHeader} />
+    <PlantCreatePage {...props} />
   </Suspense>
 );
-
-export default WithSuspense;
