@@ -15,6 +15,7 @@ const PlantDetailsPage = ({
   setHeader,
   match: { params: { id } },
 }) => {
+  console.log('entrei. id: ', id);
   setHeader('A PLANTA');
   const queryResult = useQuery(
   // const { loading, error, data: { plant } } = useQuery(
