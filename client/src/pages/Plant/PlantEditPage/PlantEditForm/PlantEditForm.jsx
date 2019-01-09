@@ -12,7 +12,6 @@ const PlantEditForm = ({
   history,
   plant,
 }) => {
-  console.log('plant: ', plant);
   const [name, setName] = useState(plant.name);
   const [scientificName, setScientificName] = useState(plant.scientificName || '');
   const [edibleParts, setEdibleParts] = useState(plant.edibleParts.join());
@@ -130,7 +129,7 @@ const PlantEditForm = ({
 };
 
 PlantEditForm.propTypes = {
-  plantId: PropTypes.number.isRequired,
+  plantId: PropTypes.string.isRequired,
   history: PropTypes.object.isRequired,
   plant: PropTypes.object.isRequired,
 };

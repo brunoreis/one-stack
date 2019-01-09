@@ -10,7 +10,7 @@ const PlantEditPage = ({
 }) => {
   setHeader('EDITAR A PLANTA');
   return (
-    <PlantEditForm plantId={parseInt(id, 10)} plant={plant} />
+    <PlantEditForm plantId={id} plant={plant} />
   );
 };
 

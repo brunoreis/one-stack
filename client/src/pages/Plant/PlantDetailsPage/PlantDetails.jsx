@@ -4,9 +4,7 @@ import plantDefaultIcon from '../../../images/plant-default.png';
 
 const PlantDetails = ({
   plant: {
-    id,
     name,
-    scientificName,
     edibleParts,
     tips,
     picture,
