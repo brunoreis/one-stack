@@ -8,6 +8,7 @@ const clean = () => delete context.dataSources;
 export default async () => {
   if (memoizedTestClient) {
     clean();
+    context.loggedUser = null;
     return memoizedTestClient;
   }
   // this might need to be optimized later to avoid doing this heavy operation everytime

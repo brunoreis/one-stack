@@ -1,34 +1,10 @@
 import test from 'tape';
-import gql from 'graphql-tag';
-import createTestClient from '../../../../__tests__/integration/createTestClient';
-import createUserAndLogin from '../../../../__tests__/integration/createUserAndLogin';
 
-const CREATE_PLANT_MUTATION = gql`
-  mutation createPlant( $input: CreatePlantInput! ) {
-    createPlant ( input: $input ) {
-      plant {
-        id
-      }
-    }
-  }
-`;
+import createTestClient from '../../../../../__tests__/integration/createTestClient';
+import createUserAndLogin from '../../../../../__tests__/integration/createUserAndLogin';
 
-const UPDATE_PLANT_MUTATION = gql`
-  mutation updatePlant( $input: UpdatePlantInput! ) {
-    updatePlant ( input: $input ) {
-      plant {
-        id
-        name
-        scientificName
-        edibleParts
-        tips
-        createdBy {
-          name
-        }
-      }
-    }
-  }
-`;
+import CREATE_PLANT_MUTATION from './CREATE_PLANT_MUTATION';
+import UPDATE_PLANT_MUTATION from './UPDATE_PLANT_MUTATION';
 
 test('update plant', async (t) => {
   const { mutate, clean } = await createTestClient();
@@ -87,19 +63,6 @@ test('update plant', async (t) => {
     'should return the updated plant',
   );
 
-  updateVariables.input.name = null;
-  
-  updateResult = await mutate({
-    mutation: UPDATE_PLANT_MUTATION,
-    variables: updateVariables,
-  });
-  clean();
-
-  t.ok(
-    updateResult.errors,
-    'should receive an error when passing invalid fields',
-  );
-
   t.end();
-  test.onFinish(() => process.exit(0));
+  test.onFinish(() => process.exit());
 });

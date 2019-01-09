@@ -2,7 +2,7 @@ import React from 'react';
 import { useQuery } from 'react-apollo-hooks';
 
 import ErrorHandler from '../ErrorAndLoading/ErrorHandler';
-import LOGGED_USER_QUERY from './LoggedUserQuery';
+import LOGGED_USER_QUERY from './LOGGED_USER_QUERY';
 
 const LoggedUser = () => {
   const {
