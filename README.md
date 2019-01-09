@@ -16,6 +16,11 @@ To setup the project on your local machine, we will go through the following ste
 1. Setup pgAdmin
 1. Initialize database
 
+After the setup, the app will be accessible through the following ports:
+* app: localhost:3000
+* graphql playground: localhost:4000/graphql
+* pgAdmin: localhost:5050
+
 ### Environment setup
 
 Before we can run our app, we need to configure the environment variables. Create a new ".env" file in the server root directory (/server) and copy the contents form .env.default. Then, repeat this process in the /client directory. Notice you need to restart the containers manually every time you change environment variables, since changes in .env are not automatically recognized.
@@ -36,6 +41,8 @@ npm run install-all
 docker-compose up -d
 docker-compose exec server npm run db-init
 ```
+
+You should now see the client running running in localhost:3000
 
 ### Installing Dependencies
 
@@ -76,14 +83,14 @@ You can skip this session if you don't need to use pgAdmin.
 * Login with the following credentials:
     user: pgadmin4@pgadmin.org
     passord: admin
-* Go to Object > Create > Server
-* Name your server whatever you like
+* Click the 'Add New Server' button
+* Name your server 'onestack' (or whatever you like)
 * In the 'Connection' tab, set the following fields:
   * Host name/address: db
   * Username: postgres
 * Click save
 
-That's it. You should now see the "onestack" database in the left, under Servers/yourServer/Databases. If you don't see it, you can create it manually.
+That's it. You should now see the 'onestack' database in the left, under Servers/yourServer/Databases. If you don't see it, you can create it manually.
 
 ### Database setup
 
@@ -99,6 +106,8 @@ Now we need to initialize our database and run migrations and seeds to add data 
 You can also initialize the test environment database by running (from inside the server container)
 
 `npm run db-init-test`
+
+Now you can access the app in localhost:3000.
 
 ## Heroku Deploy
 We will deploy our client and server separately, each into its own heroku app, and set environment variables to make them visible to each other.
