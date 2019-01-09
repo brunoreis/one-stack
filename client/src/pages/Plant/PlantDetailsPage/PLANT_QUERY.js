@@ -3,6 +3,7 @@ import gql from 'graphql-tag';
 export default gql`
   query Plant($id: ID!) {
     plant(id: $id) {
+      bla
       id
       name
       scientificName

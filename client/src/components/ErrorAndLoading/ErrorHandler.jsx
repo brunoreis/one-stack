@@ -6,7 +6,8 @@ const ErrorHandler = (props) => {
 
   if (!error) return null;
 
-  console.log(error);
+  console.log('network: ', error.networkError.result.errors);
+  console.log('gql: ', error.graphQLErrors);
 
   if (error.networkError) return <div>Network Error</div>;
 
