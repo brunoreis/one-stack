@@ -4,7 +4,6 @@ export default gql`
   query Plant($id: ID!) {
     plant(id: $id) {
       id
-      bla
       name
       scientificName
       edibleParts
