@@ -7,6 +7,17 @@ import PropTypes from 'prop-types';
 import validator from './GardenerEditFormValidator';
 import GARDENER_UPDATE_MUTATION from './GARDENER_UPDATE_MUTATION';
 
+const uploadWidget = () => window.cloudinary.openUploadWidget(
+  {
+    cloudName: 'guidodutra',
+    uploadPreset: 'onestack-unsigned',
+  },
+  (error, result) => {
+    console.log('​error', error);
+    console.log('​result', result);
+  },
+);
+
 const GardenerEditForm = ({
   history,
   location: { state: { gardener } },
@@ -45,6 +56,16 @@ const GardenerEditForm = ({
 
   return (
     <form className="container">
+
+      <div className="row">
+        <button
+          className="btn btn-primary btn-lg mx-auto my-4"
+          type="button"
+          onClick={uploadWidget}
+        >
+          Adicione uma foto
+        </button>
+      </div>
 
       <div className="form-group">
         <label htmlFor="name">Nome Completo*</label>
