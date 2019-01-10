@@ -1,5 +1,4 @@
 import test from 'tape';
-import { omit } from 'ramda';
 
 import createTestClient from '../../../../../__tests__/integration/createTestClient';
 import CREATE_PLANT_MUTATION from './CREATE_PLANT_MUTATION';
@@ -10,7 +9,7 @@ test('create plant', async (t) => {
   const scientificName = name;
   const { mutate } = await createTestClient();
 
-  await createUserAndLogin();
+  const loggedUser = await createUserAndLogin();
 
   const variables = {
     input: {
@@ -26,15 +25,10 @@ test('create plant', async (t) => {
     variables,
   });
 
-  t.deepEqual(
-    omit(['id', 'createdBy'], result.data.createPlant.plant),
-    {
-      name,
-      scientificName,
-      edibleParts: ['fruto', 'mangará'],
-      tips: null,
-    },
-    'should return the created plant',
+  t.equal(
+    result.data.createPlant.plant.createdBy.id,
+    loggedUser.id.toString(),
+    'should relate plant to logged user',
   );
 
   t.end();

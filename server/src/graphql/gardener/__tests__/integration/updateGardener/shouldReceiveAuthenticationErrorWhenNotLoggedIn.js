@@ -9,10 +9,9 @@ test('update gardener', async (t) => {
   const updateVariables = {
     input: {
       name: 'Updated',
-      description: 'has been updated'
+      description: 'has been updated',
     },
   };
-
 
   const updateResult = await mutate({
     mutation: UPDATE_GARDENER_MUTATION,
