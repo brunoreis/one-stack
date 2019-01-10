@@ -20,7 +20,7 @@ const GardenerDetails = ({
     /> */}
     <Image
       cloudName="guidodutra"
-      publicId="onestack/bpryc1e91gcgljg9g1v3"
+      publicId={picture || 'onestack/bpryc1e91gcgljg9g1v3'}
     />
 
     <div className="px-3">

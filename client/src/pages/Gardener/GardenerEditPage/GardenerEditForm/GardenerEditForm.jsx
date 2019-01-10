@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import validator from './GardenerEditFormValidator';
 import GARDENER_UPDATE_MUTATION from './GARDENER_UPDATE_MUTATION';
 
-const uploadWidget = () => window.cloudinary.openUploadWidget(
+const uploadWidget = setPicture => window.cloudinary.openUploadWidget(
   {
     cloudName: 'guidodutra',
     uploadPreset: 'onestack-unsigned',
@@ -15,6 +15,12 @@ const uploadWidget = () => window.cloudinary.openUploadWidget(
   (error, result) => {
     console.log('​error', error);
     console.log('​result', result);
+    if (result.event === 'success') {
+      console.log('success');
+      const imageId = result.info.public_id;
+      console.log(imageId);
+      setPicture(imageId);
+    }
   },
 );
 
@@ -24,7 +30,10 @@ const GardenerEditForm = ({
 }) => {
   const [name, setName] = useState(gardener.name);
   const [description, setDescription] = useState(gardener.description);
+  const [picture, setPicture] = useState(gardener.picture);
   const [validation, setValidation] = useState(validator.valid());
+
+  console.log(picture);
 
   const gardenerEditMutation = useMutation(
     GARDENER_UPDATE_MUTATION,
@@ -33,6 +42,7 @@ const GardenerEditForm = ({
         input: {
           name,
           description,
+          picture,
         },
       },
     },
@@ -42,6 +52,7 @@ const GardenerEditForm = ({
     const newValidation = validator.validate({
       name,
       description,
+      picture,
     });
     if (newValidation.isValid) {
       const res = await gardenerEditMutation();
@@ -61,7 +72,7 @@ const GardenerEditForm = ({
         <button
           className="btn btn-primary btn-lg mx-auto my-4"
           type="button"
-          onClick={uploadWidget}
+          onClick={() => uploadWidget(setPicture)}
         >
           Adicione uma foto
         </button>
