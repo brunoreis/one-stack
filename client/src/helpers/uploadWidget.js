@@ -1,10 +1,11 @@
 const configure = (id, type) => {
   const config = {
-    cloudName: 'guidodutra',
-    uploadPreset: 'onestack-unsigned',
+    cloudName: process.env.REACT_APP_CLOUDINARY_NAME,
+    uploadPreset: process.env.REACT_APP_CLOUDINARY_PRESET || 'onestack-unsigned',
   };
   if (type === 'gardener') {
-    config.folder = `onestack/gardener/${id || 'others'}`;
+    config.folder = `${process.env.REACT_APP_CLOUDINARY_FOLDER
+      || 'onestack-dev'}/gardener/${id || 'others'}`;
     config.tags = ['gardener'];
   }
   return config;

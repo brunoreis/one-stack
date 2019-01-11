@@ -10,7 +10,7 @@ const GardenerDetails = ({
 }) => (
   <div>
     <Image
-      cloudName="guidodutra"
+      cloudName={process.env.REACT_APP_CLOUDINARY_NAME}
       publicId={picture || 'onestack/gardener/default'}
     />
 
