@@ -13,7 +13,6 @@ const GardenerEditForm = ({
   history,
   location: { state: { gardener } },
 }) => {
-  console.log(gardener);
   const [name, setName] = useState(gardener.name);
   const [description, setDescription] = useState(gardener.description);
   const [picture, setPicture] = useState(gardener.picture);

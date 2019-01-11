@@ -22,12 +22,8 @@ export default (
   return window.cloudinary.openUploadWidget(
     config,
     (error, result) => {
-      console.log('​error', error);
-      console.log('​result', result);
       if (result.event === 'success') {
-        console.log('success');
         const imageId = result.info.public_id;
-        console.log(imageId);
         callback(imageId);
       }
     },
