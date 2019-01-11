@@ -29,7 +29,13 @@ This configuration should sufice for a quick start, but to make the app fully fu
 
 Setting other variables:
 
+server:
 * MAIL_API: SendGrid API key. Needed to send email to users. Go to [https://sendgrid.com/] and create an account to receive a key.
+
+client:
+* REACT_APP_CLOUDINARY_NAME: Cloudinary account name. Needed to upload, format and read images such as user profile picture. For more information see [https://cloudinary.com/]. 
+* REACT_APP_CLOUDINARY_PRESET: Cloudinary upload preset. Needed to upload images to cloudinary. Defaults to 'onestack-dev'. Note that if you use the default you still need to create the equivalent upload preset in cloudinary.
+* REACT_APP_CLOUDINARY_FOLDER: Folder where to save images. No need to change this unless you want to.
 
 ### Quick start
 
