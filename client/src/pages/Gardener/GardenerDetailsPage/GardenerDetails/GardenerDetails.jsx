@@ -11,7 +11,7 @@ const GardenerDetails = ({
   <div>
     <Image
       cloudName={process.env.REACT_APP_CLOUDINARY_NAME}
-      publicId={picture || 'onestack/gardener/default'}
+      publicId={picture || `${process.env.REACT_APP_CLOUDINARY_FOLDER}/gardener/default`}
     />
 
     <div className="px-3">
