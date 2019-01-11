@@ -8,6 +8,7 @@ export default gql`
         email
         gardener {
           name
+          picture
         }
       }
     }

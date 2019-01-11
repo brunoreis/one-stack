@@ -10,6 +10,7 @@ export default gql`
           id
           name
           edibleParts
+          picture
         }
       }
     }

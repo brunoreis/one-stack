@@ -4,6 +4,7 @@ exports.up = async knex => knex.schema.createTable(
     table.increments('id').primary();
     table.string('name').notNullable().unique();
     table.string('scientificName').unique();
+    table.string('picture');
     table.timestamps(false, true);
   },
 );

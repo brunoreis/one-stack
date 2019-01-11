@@ -1,23 +1,36 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Image, Transformation } from 'cloudinary-react';
 
 import RecipesIcon from '../../../../../components/Icons/RecipesIcon';
-import noUserIcon from '../../../../../images/no-user-icon.png';
 
 const Gardener = ({ gardener }) => (
   <div className="p-2 border">
 
     <div className="media">
 
-      <img
+      {/* <img
         style={{
           height: '40px',
           margin: '5px',
         }}
         src={gardener.picture || noUserIcon}
         alt="gardener profile"
-      />
+      /> */}
 
+      <div className="m-2">
+        <Image
+          cloudName={process.env.REACT_APP_CLOUDINARY_NAME}
+          publicId={gardener.picture || `${process.env.REACT_APP_CLOUDINARY_FOLDER}/gardener/default`}
+        >
+          <Transformation
+            crop="fill"
+            height="55"
+            width="55"
+          />
+          <Transformation radius="15" />
+        </Image>
+      </div>
       <div className="media-body text-truncate">
         <div>
           <h6><strong>{gardener.name}</strong></h6>

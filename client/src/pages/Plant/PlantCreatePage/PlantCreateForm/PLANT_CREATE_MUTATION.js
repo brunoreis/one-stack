@@ -9,6 +9,7 @@ export default gql`
         scientificName
         edibleParts
         tips
+        picture
       }
     }
   }

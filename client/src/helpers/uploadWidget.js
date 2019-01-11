@@ -6,6 +6,9 @@ const configure = (id, type) => {
   if (type === 'gardener') {
     config.folder = `${process.env.REACT_APP_CLOUDINARY_FOLDER}/gardener/${id || 'others'}`;
     config.tags = ['gardener'];
+  } else if (type === 'plant') {
+    config.folder = `${process.env.REACT_APP_CLOUDINARY_FOLDER}/plant/${id || 'others'}`;
+    config.tags = ['plant'];
   }
   return config;
 };

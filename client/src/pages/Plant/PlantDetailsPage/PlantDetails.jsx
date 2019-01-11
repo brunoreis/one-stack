@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import plantDefaultIcon from '../../../images/plant-default.png';
+
+import { Image } from 'cloudinary-react';
 
 const PlantDetails = ({
   plant: {
@@ -13,14 +14,10 @@ const PlantDetails = ({
   },
 }) => (
   <div>
-    <img
-      style={{
-        height: '180px',
-        display: 'block',
-        margin: 'auto',
-      }}
-      src={picture || plantDefaultIcon}
-      alt="user profile"
+
+    <Image
+      cloudName={process.env.REACT_APP_CLOUDINARY_NAME}
+      publicId={picture || `${process.env.REACT_APP_CLOUDINARY_FOLDER}/plant/default`}
     />
 
     <div className="p-4">

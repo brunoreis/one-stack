@@ -6,12 +6,14 @@ import PropTypes from 'prop-types';
 
 import PLANT_CREATE_MUTATION from './PLANT_CREATE_MUTATION';
 import validator from './PlantCreateFormValidator';
+import uploadWidget from '../../../../helpers/uploadWidget';
 
 const PlantCreateForm = ({ history }) => {
   const [name, setName] = useState('');
   const [scientificName, setScientificName] = useState('');
   const [edibleParts, setEdibleParts] = useState('');
   const [tips, setTips] = useState('');
+  const [picture, setPicture] = useState('');
   const [validation, setValidation] = useState(validator.valid());
 
   const plantCreateMutation = useMutation(
@@ -23,6 +25,7 @@ const PlantCreateForm = ({ history }) => {
           scientificName,
           edibleParts: edibleParts.split(',').map(part => part.trim()),
           tips: tips.split(';').map(tip => tip.trim()),
+          picture,
         },
       },
     },
@@ -34,6 +37,7 @@ const PlantCreateForm = ({ history }) => {
       scientificName,
       edibleParts,
       tips,
+      picture,
     });
     if (newValidation.isValid) {
       const res = await plantCreateMutation();
@@ -47,6 +51,20 @@ const PlantCreateForm = ({ history }) => {
 
   return (
     <form className="container">
+
+      <div className="row">
+        <button
+          className="btn btn-primary btn-lg mx-auto my-4"
+          type="button"
+          onClick={() => uploadWidget(
+            null,
+            'plant',
+            setPicture,
+          )}
+        >
+          Adicione uma foto
+        </button>
+      </div>
 
       <div className="form-group">
         <label htmlFor="name">Nome da planta*</label>

@@ -20,6 +20,7 @@ input CreatePlantInput {
   scientificName: String
   edibleParts: [String]!
   tips: [String]
+  picture: String
 }
 
 input UpdatePlantInput {
@@ -28,6 +29,7 @@ input UpdatePlantInput {
   scientificName: String
   edibleParts: [String]!
   tips: [String]
+  picture: String
 }
 
 input DeletePlantInput {

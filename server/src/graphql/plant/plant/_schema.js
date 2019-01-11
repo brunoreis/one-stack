@@ -5,7 +5,8 @@ type Plant {
   scientificName: String
   edibleParts: [String]!
   tips: [String]
+  picture: String
   createdAt: String!
   createdBy: Gardener!
 }
-`
+`;

@@ -7,12 +7,16 @@ export default ({ db, tableName }) => async ({
   name,
   scientificName,
   edibleParts,
+  tips,
+  picture,
   createdBy,
 }) => {
   const result = await db(tableName).insert({
     name,
     scientificName,
     edibleParts,
+    tips,
+    picture,
     createdBy,
   }).returning(
     [
@@ -22,6 +26,8 @@ export default ({ db, tableName }) => async ({
       'created_at',
       'scientificName',
       'edibleParts',
+      'tips',
+      'picture',
     ],
   );
   return result[0];

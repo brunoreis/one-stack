@@ -7,12 +7,14 @@ import PropTypes from 'prop-types';
 import GARDENER_CREATE_MUTATION from './GARDENER_CREATE_MUTATION';
 import fetchLogin from '../../../../helpers/fetchLogin';
 import validator from './GardenerCreateFormValidator';
+import uploadWidget from '../../../../helpers/uploadWidget';
 
 const GardenerCreateForm = ({ history }) => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [picture, setPicture] = useState('');
   const [validation, setValidation] = useState(validator.valid());
 
   const gardenerCreateMutation = useMutation(
@@ -24,6 +26,7 @@ const GardenerCreateForm = ({ history }) => {
           password,
           name,
           description,
+          picture,
         },
       },
     },
@@ -35,6 +38,7 @@ const GardenerCreateForm = ({ history }) => {
       password,
       name,
       description,
+      picture,
     });
     if (newValidation.isValid) {
       const res = await gardenerCreateMutation();
@@ -49,6 +53,20 @@ const GardenerCreateForm = ({ history }) => {
 
   return (
     <form className="container">
+
+      <div className="row">
+        <button
+          className="btn btn-primary btn-lg mx-auto my-4"
+          type="button"
+          onClick={() => uploadWidget(
+            null,
+            'gardener',
+            setPicture,
+          )}
+        >
+          Adicione uma foto
+        </button>
+      </div>
 
       <div className="form-group">
         <label htmlFor="name">Nome Completo*</label>

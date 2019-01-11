@@ -10,6 +10,7 @@ export default gql`
           id
           name
           description
+          picture
           gardensConnection {
             edges {
               node {

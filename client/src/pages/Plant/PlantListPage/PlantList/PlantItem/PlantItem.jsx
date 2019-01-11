@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import plantDefaultIcon from '../../../../../images/plant-default.png';
+import { Image, Transformation } from 'cloudinary-react';
+
 import RecipesIcon from '../../../../../components/Icons/RecipesIcon';
 import GardensIcon from '../../../../../components/Icons/GardensIcon';
 
@@ -9,14 +10,19 @@ const PlantItem = ({ plant }) => (
 
     <div className="media">
 
-      <img
-        className="rounded m-1"
-        style={{
-          height: '55px',
-        }}
-        src={plant.picture || plantDefaultIcon}
-        alt="plant profile"
-      />
+      <div className="m-2">
+        <Image
+          cloudName={process.env.REACT_APP_CLOUDINARY_NAME}
+          publicId={plant.picture || `${process.env.REACT_APP_CLOUDINARY_FOLDER}/plant/default`}
+        >
+          <Transformation
+            crop="fill"
+            height="55"
+            width="55"
+          />
+          <Transformation radius="15" />
+        </Image>
+      </div>
 
       <div className="media-body text-truncate">
 

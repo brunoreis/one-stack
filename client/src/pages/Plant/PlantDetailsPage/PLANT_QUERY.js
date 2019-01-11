@@ -8,6 +8,7 @@ export default gql`
       scientificName
       edibleParts
       tips
+      picture
       createdAt
       createdBy {
         name

@@ -4,7 +4,7 @@ import { useQuery } from 'react-apollo-hooks';
 import ErrorHandler from '../../../../components/ErrorAndLoading/ErrorHandler';
 
 import Gardener from './Gardener/Gardener';
-import GARDENERS_QUERY from './GardenersQuery';
+import GARDENERS_QUERY from './GARDENERS_QUERY';
 import getConnectionNodes from '../../../../helpers/getConnectionNodes';
 
 const GardenerList = () => {

@@ -4,6 +4,7 @@ export default ({ db, tableName }) => async ({
   scientificName,
   edibleParts,
   tips,
+  picture,
 }) => {
   const result = await db(tableName)
     .where('id', id)
@@ -12,12 +13,14 @@ export default ({ db, tableName }) => async ({
       scientificName,
       edibleParts,
       tips,
+      picture,
     })
     .returning([
       'id',
       'name',
       'scientificName',
       'edibleParts',
+      'picture',
       'tips',
       'createdBy',
     ]);
