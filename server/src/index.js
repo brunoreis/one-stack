@@ -1,4 +1,3 @@
-
 import { app, server } from './server';
 
 app.listen({ port: process.env.PORT || 4000 },

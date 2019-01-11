@@ -9,7 +9,6 @@ import GARDENER_UPDATE_MUTATION from './GARDENER_UPDATE_MUTATION';
 import validator from './GardenerEditFormValidator';
 import uploadWidget from '../../../../helpers/uploadWidget';
 
-
 const GardenerEditForm = ({
   history,
   location: { state: { gardener } },
