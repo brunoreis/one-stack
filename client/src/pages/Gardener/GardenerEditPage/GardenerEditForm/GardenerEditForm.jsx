@@ -4,36 +4,20 @@ import { compose } from 'react-apollo';
 import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
 
-import validator from './GardenerEditFormValidator';
 import GARDENER_UPDATE_MUTATION from './GARDENER_UPDATE_MUTATION';
 
-const uploadWidget = setPicture => window.cloudinary.openUploadWidget(
-  {
-    cloudName: 'guidodutra',
-    uploadPreset: 'onestack-unsigned',
-  },
-  (error, result) => {
-    console.log('​error', error);
-    console.log('​result', result);
-    if (result.event === 'success') {
-      console.log('success');
-      const imageId = result.info.public_id;
-      console.log(imageId);
-      setPicture(imageId);
-    }
-  },
-);
+import validator from './GardenerEditFormValidator';
+import uploadWidget from '../../../../helpers/uploadWidget';
 
 const GardenerEditForm = ({
   history,
   location: { state: { gardener } },
 }) => {
+  console.log(gardener);
   const [name, setName] = useState(gardener.name);
   const [description, setDescription] = useState(gardener.description);
   const [picture, setPicture] = useState(gardener.picture);
   const [validation, setValidation] = useState(validator.valid());
-
-  console.log(picture);
 
   const gardenerEditMutation = useMutation(
     GARDENER_UPDATE_MUTATION,
@@ -56,7 +40,6 @@ const GardenerEditForm = ({
     });
     if (newValidation.isValid) {
       const res = await gardenerEditMutation();
-      console.log('res', res);
       if (res.data && res.data.updateGardener.gardener) {
         history.push('gardener-details');
       } else {
@@ -72,7 +55,11 @@ const GardenerEditForm = ({
         <button
           className="btn btn-primary btn-lg mx-auto my-4"
           type="button"
-          onClick={() => uploadWidget(setPicture)}
+          onClick={() => uploadWidget(
+            gardener.id || null,
+            'gardener',
+            setPicture,
+          )}
         >
           Adicione uma foto
         </button>

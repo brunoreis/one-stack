@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { CloudinaryContext, Transformation, Image } from 'cloudinary-react';
-
-import noUserIcon from '../../../../images/no-user-icon.png';
+import { Image } from 'cloudinary-react';
 
 const GardenerDetails = ({
   name,
@@ -11,16 +9,9 @@ const GardenerDetails = ({
   description,
 }) => (
   <div>
-    {/* <img
-      style={{
-        height: '180px',
-      }}
-      src={picture || noUserIcon}
-      alt="user profile"
-    /> */}
     <Image
       cloudName="guidodutra"
-      publicId={picture || 'onestack/bpryc1e91gcgljg9g1v3'}
+      publicId={picture || 'onestack/gardener/default'}
     />
 
     <div className="px-3">
