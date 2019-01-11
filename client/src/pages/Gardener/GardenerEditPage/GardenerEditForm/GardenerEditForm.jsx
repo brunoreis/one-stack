@@ -4,15 +4,19 @@ import { compose } from 'react-apollo';
 import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
 
-import validator from './GardenerEditFormValidator';
 import GARDENER_UPDATE_MUTATION from './GARDENER_UPDATE_MUTATION';
+
+import validator from './GardenerEditFormValidator';
+import uploadWidget from '../../../../helpers/uploadWidget';
 
 const GardenerEditForm = ({
   history,
   location: { state: { gardener } },
 }) => {
+  console.log(gardener);
   const [name, setName] = useState(gardener.name);
   const [description, setDescription] = useState(gardener.description);
+  const [picture, setPicture] = useState(gardener.picture);
   const [validation, setValidation] = useState(validator.valid());
 
   const gardenerEditMutation = useMutation(
@@ -22,6 +26,7 @@ const GardenerEditForm = ({
         input: {
           name,
           description,
+          picture,
         },
       },
     },
@@ -31,10 +36,10 @@ const GardenerEditForm = ({
     const newValidation = validator.validate({
       name,
       description,
+      picture,
     });
     if (newValidation.isValid) {
       const res = await gardenerEditMutation();
-      console.log('res', res);
       if (res.data && res.data.updateGardener.gardener) {
         history.push('gardener-details');
       } else {
@@ -45,6 +50,20 @@ const GardenerEditForm = ({
 
   return (
     <form className="container">
+
+      <div className="row">
+        <button
+          className="btn btn-primary btn-lg mx-auto my-4"
+          type="button"
+          onClick={() => uploadWidget(
+            gardener.id || null,
+            'gardener',
+            setPicture,
+          )}
+        >
+          Adicione uma foto
+        </button>
+      </div>
 
       <div className="form-group">
         <label htmlFor="name">Nome Completo*</label>

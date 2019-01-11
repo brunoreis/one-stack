@@ -6,6 +6,7 @@ export default gql`
       id
       email
       gardener {
+        id
         name
         description
         picture

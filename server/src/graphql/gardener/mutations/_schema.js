@@ -45,6 +45,7 @@ input UpdateUserInput {
 input UpdateGardenerInput {
   name: String!
   description: String
+  picture: String
 }
 
 input DeleteUserInput {
