@@ -4,7 +4,6 @@ module.exports = {
       "prefer-destructuring": "off",
   },
   "env": {
-    "jest": true,
   },
   "plugins": [
     "tape",

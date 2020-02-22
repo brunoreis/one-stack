@@ -1,5 +1,5 @@
 import nodemailer from 'nodemailer';
-import sgTransport from 'nodemailer-sendgrid-transport';
+import sgTransport from 'nodemailer-sendgrid';
 import bcrypt from 'bcryptjs';
 
 function setupMailTransport() {

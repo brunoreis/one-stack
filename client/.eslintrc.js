@@ -20,7 +20,6 @@ module.exports = {
   ],
   "env": {
     "browser": true,
-    "jest": true,
     "cypress/globals": true
   },
 };

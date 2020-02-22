@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useMutation } from 'react-apollo-hooks';
+import { useMutation } from '@apollo/react-hooks';
 import PropTypes from 'prop-types';
 
 import PASS_RESET_MUTATION from './PASSWORD_RESET_MUTATION';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useQuery } from 'react-apollo-hooks';
+import { useQuery } from '@apollo/react-hooks';
 
 import ErrorHandler from '../ErrorAndLoading/ErrorHandler';
 import LOGGED_USER_QUERY from './LOGGED_USER_QUERY';

@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react';
 import PropTypes from 'prop-types';
-import { useQuery } from 'react-apollo-hooks';
+// import { useQuery } from '@apollo/react-hooks';
+import { useQuery } from '@apollo/react-hooks';
 import { withRouter } from 'react-router';
 
 import ErrorHandler from '../../../../components/ErrorAndLoading/ErrorHandler';

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useMutation } from 'react-apollo-hooks';
-import { compose } from 'react-apollo';
+import { useMutation } from '@apollo/react-hooks';
+import { flowRight as compose } from 'lodash';
 import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
 

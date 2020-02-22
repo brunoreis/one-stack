@@ -1,6 +1,6 @@
 import crypto from 'crypto';
 import nodemailer from 'nodemailer';
-import sgTransport from 'nodemailer-sendgrid-transport';
+import sgTransport from 'nodemailer-sendgrid';
 
 function setupMailTransport() {
   return nodemailer.createTransport(
