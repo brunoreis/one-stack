@@ -36,8 +36,8 @@ services:
       - db
     image: dpage/pgadmin4
     environment:
-      PGADMIN_DEFAULT_EMAIL: "guidodutra@gmail.com"
-      PGADMIN_DEFAULT_PASSWORD: "onestack"
+      PGADMIN_DEFAULT_EMAIL: "webapp:${PGADMIN_DEFAULT_EMAIL}"
+      PGADMIN_DEFAULT_PASSWORD: "webapp:${PGADMIN_DEFAULT_PASSWORD}"
     ports:
       - "16543:80"
     depends_on: 
