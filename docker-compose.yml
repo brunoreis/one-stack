@@ -27,18 +27,21 @@ services:
   db:
     image: postgres
     ports:
-      - "5433:5432"
+      - "5434:5432"
     networks:
       - pgnetwork
 
   pgadmin:
     links:
       - db
-    image: fenglc/pgadmin4
-    volumes:
-      - /data/pgadmin:/root/.pgadmin
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "webapp:${PGADMIN_DEFAULT_EMAIL}"
+      PGADMIN_DEFAULT_PASSWORD: "webapp:${PGADMIN_DEFAULT_PASSWORD}"
     ports:
-      - "5050:5050"
+      - "16543:80"
+    depends_on: 
+      - db
     networks:
       - pgnetwork
     restart: unless-stopped

@@ -2,3 +2,4 @@
 notas.md
 *.code-workspace
 todo
+.env
