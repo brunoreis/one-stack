@@ -1,4 +1,5 @@
 import entityType from './entityType/schema';
+import contactType from './contactType/schema';
 
 const Schema = `
 schema {
@@ -16,4 +17,5 @@ type Mutation {
 export default [
   Schema,
   ...entityType,
+  ...contactType,
 ];

@@ -1,3 +1,10 @@
-import entityType from './entityType/resolvers';
+import { mergeDeepLeft, compose } from 'ramda';
 
-export default entityType;
+import entityType from './entityType/resolvers';
+import contactType from './contactType/resolvers';
+
+const mergedResolvers = compose(
+  mergeDeepLeft(contactType),
+)(entityType);
+
+export default mergedResolvers;
