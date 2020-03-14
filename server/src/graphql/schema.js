@@ -1,7 +1,4 @@
-import plant from './plant/schema';
-import gardener from './gardener/schema';
-import garden from './garden/schema';
-import recipe from './recipe/schema';
+import entityType from './entityType/schema';
 
 const Schema = `
 schema {
@@ -18,8 +15,5 @@ type Mutation {
 
 export default [
   Schema,
-  ...plant,
-  ...gardener,
-  ...garden,
-  ...recipe,
+  ...entityType,
 ];
