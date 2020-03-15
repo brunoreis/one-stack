@@ -3,6 +3,7 @@ import contactType from './contactType/schema';
 import linkType from './linkType/schema';
 import memberType from './memberType/schema';
 import country from './country/schema';
+import entity from './entity/schema';
 
 const Schema = `
 schema {
@@ -24,4 +25,5 @@ export default [
   ...linkType,
   ...memberType,
   ...country,
+  ...entity,
 ];

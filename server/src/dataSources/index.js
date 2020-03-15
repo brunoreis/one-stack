@@ -3,6 +3,7 @@ import contactType from './contactType/_index';
 import linkType from './linkType/_index';
 import memberType from './memberType/_index';
 import country from './country/_index';
+import entity from './entity/_index';
 
 export default ({ db }) => () => ({
   entityType: entityType({ db }),
@@ -10,4 +11,5 @@ export default ({ db }) => () => ({
   linkType: linkType({ db }),
   memberType: memberType({ db }),
   country: country({ db }),
+  entity: entity({ db }),
 });
