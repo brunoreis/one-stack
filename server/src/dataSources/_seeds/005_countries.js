@@ -3,11 +3,11 @@ exports.seed = async (knex) => {
   return knex('countries').insert([
     {
       code: 'BR',
-      name: 'Brasil',
+      name: 'Brazil',
     },
     {
       code: 'AZ',
-      name: 'Azerbaijão',
+      name: 'Azerbaijan',
     },
   ]);
 };

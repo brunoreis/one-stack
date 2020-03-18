@@ -6,10 +6,10 @@ exports.seed = async (knex) => {
       name: 'Email',
     },
     {
-      name: 'Telefone',
+      name: 'Telephone',
     },
     {
-      name: 'Celular',
+      name: 'Mobile',
     },
   ]);
 };

@@ -4,9 +4,9 @@ exports.seed = async (knex) => {
   return knex('entities').insert([
     {
       name: 'Madruga',
-      description: 'Agricultor',
+      description: 'Farmer',
       entity_type_id: 1,
-      address: 'Vila do Chaves, 72',
+      address: 'Chaves village, 72',
       address_complement: '',
       city: 'Tangamandápio',
       region: 'Central',
@@ -17,7 +17,7 @@ exports.seed = async (knex) => {
     },
     {
       name: 'Florestinha',
-      description: 'Agricultor',
+      description: 'farmer',
       entity_type_id: 2,
       address: 'Vale Verde',
       address_complement: '',

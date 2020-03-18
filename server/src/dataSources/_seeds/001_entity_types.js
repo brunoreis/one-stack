@@ -3,16 +3,16 @@ exports.seed = async (knex) => {
   await knex.raw('ALTER SEQUENCE entity_types_id_seq RESTART WITH 1');
   return knex('entity_types').insert([
     {
-      name: 'Produtor',
+      name: 'Farmer',
     },
     {
-      name: 'Loja',
+      name: 'Shop',
     },
     {
-      name: 'Cooperativa',
+      name: 'Coop',
     },
     {
-      name: 'Pessoa',
+      name: 'Person',
     },
   ]);
 };
