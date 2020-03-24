@@ -17,7 +17,7 @@ exports.seed = async (knex) => {
     },
     {
       name: 'Florestinha',
-      description: 'farmer',
+      description: 'Farmer',
       entity_type_id: 2,
       address: 'Vale Verde',
       address_complement: '',
