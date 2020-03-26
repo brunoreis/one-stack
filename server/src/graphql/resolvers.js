@@ -6,6 +6,8 @@ import linkType from './linkType/resolvers';
 import memberType from './memberType/resolvers';
 import country from './country/resolvers';
 import entity from './entity/resolvers';
+import contact from './contact/resolvers';
+import contactItem from './contactItem/resolvers';
 
 const mergedResolvers = compose(
   mergeDeepLeft(contactType),
@@ -13,6 +15,8 @@ const mergedResolvers = compose(
   mergeDeepLeft(memberType),
   mergeDeepLeft(country),
   mergeDeepLeft(entity),
+  mergeDeepLeft(contact),
+  mergeDeepLeft(contactItem),
 )(entityType);
 
 export default mergedResolvers;
