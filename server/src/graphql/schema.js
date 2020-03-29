@@ -6,6 +6,8 @@ import country from './country/schema';
 import entity from './entity/schema';
 import contact from './contact/schema';
 import contactItem from './contactItem/schema';
+import link from './link/schema';
+import entityMember from './entityMember/schema';
 
 const Schema = `
 schema {
@@ -30,4 +32,6 @@ export default [
   ...entity,
   ...contact,
   ...contactItem,
+  ...link,
+  ...entityMember,
 ];
