@@ -3,7 +3,6 @@ exports.up = async knex => knex.schema.table(
   (table) => {
     table
       .integer('entity_type_id')
-      .notNullable();
     table
       .foreign('entity_type_id')
       .references('id')

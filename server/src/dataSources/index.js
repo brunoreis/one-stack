@@ -8,6 +8,7 @@ import contact from './contact/_index';
 import contactItem from './contactItem/_index';
 import link from './link/_index';
 import entityMember from './entityMember/_index';
+import user from './user/_index';
 
 export default ({ db }) => () => ({
   entityType: entityType({ db }),
@@ -20,4 +21,5 @@ export default ({ db }) => () => ({
   contactItem: contactItem({ db }),
   link: link({ db }),
   entityMember: entityMember({ db }),
+  user: user({ db }),
 });

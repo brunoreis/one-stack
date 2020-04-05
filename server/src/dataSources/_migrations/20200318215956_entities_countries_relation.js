@@ -3,7 +3,6 @@ exports.up = async knex => knex.schema.table(
   (table) => {
     table
       .string('country_code')
-      .notNullable();
     table
       .foreign('country_code')
       .references('code')

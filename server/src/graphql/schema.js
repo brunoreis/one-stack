@@ -8,6 +8,7 @@ import contact from './contact/schema';
 import contactItem from './contactItem/schema';
 import link from './link/schema';
 import entityMember from './entityMember/schema';
+import user from './user/schema';
 
 const Schema = `
 schema {
@@ -34,4 +35,5 @@ export default [
   ...contactItem,
   ...link,
   ...entityMember,
+  ...user,
 ];
