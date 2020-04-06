@@ -8,14 +8,15 @@ export default ({ db, tableName }) => async ({
     .where('id', id)
     .update({
       email,
-      resetPasswordToken,
-      resetPasswordExpires,
+      reset_password_token: resetPasswordToken,
+      reset_password_expires: resetPasswordExpires,
     })
     .returning([
       'id',
       'email',
-      'resetPasswordToken',
-      'resetPasswordExpires'
+      'entity_id AS entityId',
+      'reset_password_token AS resetPasswordToken',
+      'reset_password_expires AS resetPasswordExpires',
     ]);
   return result[0];
 };

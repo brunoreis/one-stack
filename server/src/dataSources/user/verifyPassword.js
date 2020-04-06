@@ -1,9 +1,8 @@
 import bcrypt from 'bcryptjs';
-import getByEmail from './getByEmail';
 
 export default ({ db, tableName }) => async ({
   email,
-  password
+  password,
 }) => {
   const user = await db
     .first()

@@ -4,27 +4,23 @@ export default ({ db, tableName }) => async ({
   password,
   email,
   name,
-  description,
-  picture,
 }) => {
-  const gardener = {
+  const entity = {
     name,
-    description,
-    picture,
   };
 
-  const [gardenerId] = await db('gardener').insert(gardener, 'id');
+  const [newEntityId] = await db('entities').insert(entity, 'id');
 
   const user = {
     email,
     password: bcrypt.hashSync(password, 10),
-    gardener: gardenerId,
+    entity_id: newEntityId,
   };
 
   const result = await db(tableName).insert(user).returning([
     'id',
     'email',
-    'gardener',
+    'entity_id AS entityId',
   ]);
 
   return result[0];

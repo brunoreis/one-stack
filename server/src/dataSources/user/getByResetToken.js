@@ -3,5 +3,5 @@ export default ({ db, tableName }) => async ({
 }) => db
   .first()
   .table(tableName)
-  .where('resetPasswordToken', token)
-  .andWhere('resetPasswordExpires', '>', new Date());
+  .where('reset_password_token', token)
+  .andWhere('reset_password_expires', '>', new Date());

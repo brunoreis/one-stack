@@ -6,8 +6,8 @@ export default ({ db, tableName }) => async ({
     .where('email', email)
     .update({
       password,
-      resetPasswordToken: null,
-      resetPasswordExpires: null,
+      reset_password_token: null,
+      reset_password_expires: null,
     })
     .returning(['id', 'email']);
   return result[0];

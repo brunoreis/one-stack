@@ -1,10 +1,28 @@
 import { mergeDeepLeft, compose } from 'ramda';
 
-import plant from './plant/resolvers';
-import gardener from './gardener/resolvers';
+import entityType from './entityType/resolvers';
+import contactType from './contactType/resolvers';
+import linkType from './linkType/resolvers';
+import memberType from './memberType/resolvers';
+import country from './country/resolvers';
+import entity from './entity/resolvers';
+import contact from './contact/resolvers';
+import contactItem from './contactItem/resolvers';
+import link from './link/resolvers';
+import entityMember from './entityMember/resolvers';
+import user from './user/resolvers';
 
 const mergedResolvers = compose(
-  mergeDeepLeft(plant),
-)(gardener);
+  mergeDeepLeft(contactType),
+  mergeDeepLeft(linkType),
+  mergeDeepLeft(memberType),
+  mergeDeepLeft(country),
+  mergeDeepLeft(entity),
+  mergeDeepLeft(contact),
+  mergeDeepLeft(contactItem),
+  mergeDeepLeft(link),
+  mergeDeepLeft(entityMember),
+  mergeDeepLeft(user),
+)(entityType);
 
 export default mergedResolvers;
