@@ -3,7 +3,7 @@ import updateContactItem from './mutations/updateContactItem';
 import deleteContactItem from './mutations/deleteContactItem';
 
 import contactItem from './queries/contactItem';
-import contactItens from './queries/contactItens';
+import contactItems from './queries/contactItems';
 
 export default {
   Mutation: {
@@ -13,6 +13,6 @@ export default {
   },
   Query: {
     contactItem,
-    contactItens,
+    contactItems,
   },
 };

@@ -1,19 +1,19 @@
 exports.up = async knex => knex.schema.table(
-  'contact_itens',
+  'contact_items',
   (table) => {
     table
-      .integer('contact_type_id')
+      .integer('contact_id')
       .notNullable();
     table
-      .foreign('contact_type_id')
+      .foreign('contact_id')
       .references('id')
-      .inTable('contact_types');
+      .inTable('contacts');
   },
 );
 
 exports.down = async knex => knex.schema.table(
-  'contact_itens',
+  'contact_items',
   (table) => {
-    table.dropColumn('contact_type_id');
+    table.dropColumn('contact_id');
   },
 );
