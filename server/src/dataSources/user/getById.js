@@ -5,7 +5,7 @@ export default ({ db, tableName }) => async ({
     .first(
       'id',
       'email',
-      'entity_id AS entityId',
+      'entityId',
     )
     .table(tableName)
     .where('id', id);

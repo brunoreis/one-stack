@@ -10,9 +10,9 @@ export default ({ db, tableName }) => async ({
   }).returning(
     [
       'id',
-      'entity_id AS entityId',
-      'entity_id_member AS entityIdMember',
-      'member_type_id AS memberTypeId',
+      'entityId',
+      'entityIdMember',
+      'memberTypeId',
     ],
   );
   return result[0];

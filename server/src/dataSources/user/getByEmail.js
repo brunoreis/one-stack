@@ -1,11 +1,11 @@
 export default ({ db, tableName }) => async ({
-  email
+  email,
 }) => {
   const user = await db
     .first(
       'id',
       'email',
-      'entity_id AS entiyId',
+      'entiyId',
     )
     .table(tableName)
     .where('email', email);

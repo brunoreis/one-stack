@@ -12,7 +12,7 @@ export default ({ db, tableName }) => async ({
       'id',
       'name',
       'main',
-      'entity_id AS entityId',
+      'entityId',
     ],
   );
   return result[0];

@@ -14,8 +14,8 @@ export default ({ db, tableName }) => async ({
     .returning([
       'id',
       'contact',
-      'contact_type_id AS contactTypeId',
-      'contact_id AS contactId',
+      'contactTypeId',
+      'contactId',
     ]);
   return result[0];
 };

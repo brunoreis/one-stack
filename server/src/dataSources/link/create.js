@@ -14,8 +14,8 @@ export default ({ db, tableName }) => async ({
       'id',
       'link',
       'main',
-      'entity_id AS entityId',
-      'link_type_id AS linkTypeId',
+      'entityId',
+      'linkTypeId',
     ],
   );
   return result[0];
