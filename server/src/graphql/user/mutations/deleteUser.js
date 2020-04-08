@@ -7,6 +7,6 @@ export default async (
 ) => {
   const result = await dataSources.user.del(args.input);
   return {
-    count: result
+    count: result,
   };
 };

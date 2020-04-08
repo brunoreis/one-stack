@@ -1,7 +1,8 @@
+import { Strategy as LocalStrategy } from 'passport-local';
+
 import _dataSources from '../dataSources';
 import db from '../db';
 
-import { Strategy as LocalStrategy } from 'passport-local';
 const dataSources = _dataSources({ db })();
 
 const passportSetup = (passport) => {
@@ -32,6 +33,6 @@ const passportSetup = (passport) => {
     (id, done) => dataSources.user.getById({ id })
       .then((user, err) => done(err, user)),
   );
-}
+};
 
 export default passportSetup;
