@@ -23,6 +23,8 @@ services:
       - db
     networks:
       - pgnetwork
+    environment:
+      - POSTGRES_PASSWORD
   
   db:
     image: postgres
@@ -30,14 +32,16 @@ services:
       - "5434:5432"
     networks:
       - pgnetwork
+    environment:
+      - POSTGRES_PASSWORD
 
   pgadmin:
     links:
       - db
     image: dpage/pgadmin4
     environment:
-      PGADMIN_DEFAULT_EMAIL: "webapp:${PGADMIN_DEFAULT_EMAIL}"
-      PGADMIN_DEFAULT_PASSWORD: "webapp:${PGADMIN_DEFAULT_PASSWORD}"
+      - PGADMIN_DEFAULT_EMAIL
+      - PGADMIN_DEFAULT_PASSWORD
     ports:
       - "16543:80"
     depends_on: 

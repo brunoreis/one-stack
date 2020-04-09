@@ -14,9 +14,9 @@ export default ({ db, tableName }) => async ({
     .returning([
       'id',
       'email',
-      'entity_id AS entityId',
-      'reset_password_token AS resetPasswordToken',
-      'reset_password_expires AS resetPasswordExpires',
+      'entityId',
+      'resetPasswordToken',
+      'resetPasswordExpires',
     ]);
   return result[0];
 };

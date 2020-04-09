@@ -1,10 +1,10 @@
 export default ({ db, tableName }) => async () => db
-   .select(
+  .select(
     'id',
     'link',
-    'entity_id AS entityId',
+    'entityId',
     'main',
-    'link_type_id AS linkTypeId',
+    'linkTypeId',
   )
   .select()
   .table(tableName);

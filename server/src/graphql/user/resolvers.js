@@ -6,6 +6,7 @@ import passwordReset from './mutations/passwordReset';
 
 import user from './queries/user';
 import users from './queries/users';
+import loggedUser from './queries/loggedUser';
 
 export default {
   Mutation: {
@@ -18,5 +19,6 @@ export default {
   Query: {
     user,
     users,
+    loggedUser,
   },
 };

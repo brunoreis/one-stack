@@ -14,7 +14,7 @@ export default ({ db, tableName }) => async ({
     .returning([
       'id',
       'name',
-      'entity_id AS entityId',
+      'entityId',
       'main',
     ]);
   return result[0];

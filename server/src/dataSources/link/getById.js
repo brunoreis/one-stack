@@ -5,8 +5,8 @@ export default ({ db, tableName }) => async ({
     .first(
       'id',
       'link',
-      'entity_id AS entityId',
-      'link_type_id AS linkTypeId',
+      'entityId',
+      'linkTypeId',
       'main',
     )
     .table(tableName)

@@ -20,7 +20,7 @@ export default ({ db, tableName }) => async ({
   const result = await db(tableName).insert(user).returning([
     'id',
     'email',
-    'entity_id AS entityId',
+    'entityId',
   ]);
 
   return result[0];

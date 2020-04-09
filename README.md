@@ -23,11 +23,14 @@ After the setup, the app will be accessible through the following ports:
 
 ### Environment setup
 
-Before we can run our app, we need to configure the environment variables. Create a new ".env" file in the server root directory (/server) and copy the contents form .env.default. Then, repeat this process in the /client directory. Notice you need to restart the containers manually every time you change environment variables, since changes in .env are not automatically recognized.
+Before we can run our app, we need to configure the environment variables. Create a new ".env" file in the root directory and copy the contents form .env.default, making any changes necessary. Then, repeat this process in the /client and /server directories. Notice you need to restart the containers manually every time you change environment variables, since changes in .env are not automatically recognized.
 
-This configuration should sufice for a quick start, but to make the app fully functional you will need to manually set some of the variables according to your local setup. Instructions for each are given below.
+To make the app fully functional you will need to manually set some of the variables according to your local setup. Instructions for each are given below.
 
 Setting other variables:
+
+root:
+* PGADMIN_DEFAULT_EMAIL: email used for pgAdmin credentials. You can use any email of your preference
 
 server:
 * MAIL_API: SendGrid API key. Needed to send email to users. Go to [https://sendgrid.com/] and create an account to receive a key.
@@ -37,9 +40,11 @@ client:
 * REACT_APP_CLOUDINARY_PRESET: Cloudinary upload preset. Needed to upload images to cloudinary. Defaults to 'onestack-dev'. Note that if you use the default you still need to create the equivalent upload preset in cloudinary.
 * REACT_APP_CLOUDINARY_FOLDER: Folder where to save images. No need to change this unless you want to.
 
+Obs: please note that the POSTGRES_PASSWORD in /server must match the one in the root directory.
+
 ### Quick start
 
-If you want a quick setup, after setting up the environment variables run the following commands from the root directory. If you come across any issues you can check the detailed instructions below.
+If you want a quick setup, after setting up the environment variables run the following commands from the root directory:
 
 ```
 cd dev
@@ -48,7 +53,9 @@ docker-compose up -d
 docker-compose exec server npm run db-init
 ```
 
-You should now see the client running running in localhost:3000
+You should now see the client running running in localhost:3000.
+
+For detailed instructions read the following sessions.
 
 ### Installing Dependencies
 
@@ -85,15 +92,14 @@ As you can see, you can acess the client on port 3000 and the server on port 400
 
 You can skip this session if you don't need to use pgAdmin.
 
-* Go to localhost:5050 on a web browser
-* Login with the following credentials:
-    user: pgadmin4@pgadmin.org
-    passord: admin
+* Go to localhost:16543 on a web browser
+* Login with the credentials in the root .env file
 * Click the 'Add New Server' button
 * Name your server 'onestack' (or whatever you like)
 * In the 'Connection' tab, set the following fields:
   * Host name/address: db
-  * Username: postgres
+  * Username: POSTGRES_USER environment variable
+  * Password: POSTGRES_PASSWORD environment variable
 * Click save
 
 That's it. You should now see the 'onestack' database in the left, under Servers/yourServer/Databases. If you don't see it, you can create it manually.
@@ -107,7 +113,8 @@ Now we need to initialize our database and run migrations and seeds to add data 
 `npm run db-init`
 
 * if you get a connection error, review the .env section above. 
-* You can check the database using pgAdmin. Check the previous session.
+* you can check the database using pgAdmin. Check the previous session.
+* you can also manually use the knex cli (`knex migrate: latest`, `knex seed:run`)
 
 You can also initialize the test environment database by running (from inside the server container)
 

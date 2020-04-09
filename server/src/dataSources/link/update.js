@@ -16,8 +16,8 @@ export default ({ db, tableName }) => async ({
     .returning([
       'id',
       'link',
-      'entity_id AS entityId',
-      'link_type_id AS linkTypeId',
+      'entityId',
+      'linkTypeId',
       'main',
     ]);
   return result[0];

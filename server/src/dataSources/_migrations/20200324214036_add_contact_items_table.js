@@ -1,5 +1,5 @@
 exports.up = async knex => knex.schema.createTable(
-  'contact_itens',
+  'contact_items',
   (table) => {
     table.increments('id').primary();
     table.string('contact').notNullable();
@@ -7,4 +7,4 @@ exports.up = async knex => knex.schema.createTable(
   },
 );
 
-exports.down = async knex => knex.schema.dropTable('contact_itens');
+exports.down = async knex => knex.schema.dropTable('contact_items');

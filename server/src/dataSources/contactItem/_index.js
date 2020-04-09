@@ -4,7 +4,7 @@ import update from './update';
 import create from './create';
 import del from './del';
 
-const TABLE_NAME = 'contact_itens';
+const TABLE_NAME = 'contact_items';
 
 export default ({ db }) => ({
   getById: getById({ db, tableName: TABLE_NAME }),

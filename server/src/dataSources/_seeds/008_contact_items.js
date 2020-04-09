@@ -1,7 +1,7 @@
 exports.seed = async (knex) => {
-  await knex('contact_itens').del();
-  await knex.raw('ALTER SEQUENCE contact_itens_id_seq RESTART WITH 1');
-  return knex('contact_itens').insert([
+  await knex('contact_items').del();
+  await knex.raw('ALTER SEQUENCE contact_items_id_seq RESTART WITH 1');
+  return knex('contact_items').insert([
     {
       contact: 'vendas@susan.org',
       contact_type_id: 1,
