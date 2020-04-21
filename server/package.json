@@ -12,8 +12,9 @@
     "build": "npm run clean && npm run build-babel",
     "start": "npm run build && node ./build/index.js",
     "start-dev": "nodemon --exec babel-node ./src/index.js",
-    "db-init": "export NODE_ENV=development && createdbjs -h db --password=$POSTGRES_PASSWORD onestack && knex migrate:latest && knex seed:run",
-    "db-init-test": "export NODE_ENV=test && createdbjs -h db onestack-test && knex migrate:latest && knex seed:run"
+    "db-init": "export NODE_ENV=development && createdbjs -h db --password=$POSTGRES_PASSWORD $POSTGRES_DB && knex migrate:latest && knex seed:run",
+    "db-init-test": "export NODE_ENV=test && createdbjs -h db ${POSTGRES_DB}-test && knex migrate:latest && knex seed:run",
+    "db-drop": "dropdbjs -h db --password=$POSTGRES_PASSWORD $POSTGRES_DB"
   },
   "repository": {
     "type": "git",

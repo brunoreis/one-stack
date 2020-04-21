@@ -25,6 +25,7 @@ services:
       - pgnetwork
     environment:
       - POSTGRES_PASSWORD
+      - POSTGRES_DB
   
   db:
     image: postgres
