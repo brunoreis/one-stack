@@ -32,20 +32,11 @@ const App = () => {
     <div>
 
       <div
-        className="fixed-top mx-auto"
-        style={{
-          maxWidth: '720px',
-        }}
-      >
+        className="fixed-top mx-auto">
         <Header text={header} />
       </div>
 
-      <div
-        className="mx-auto fixed-bottom"
-        style={{
-          maxWidth: '720px',
-        }}
-      >
+      <div className="mx-auto fixed-bottom">
         <Footer />
       </div>
 
@@ -62,7 +53,6 @@ const App = () => {
       <div
         className="container mx-auto bg-white"
         style={{
-          maxWidth: '720px',
           padding: '75px 0px',
           minHeight: '100vh',
         }}
