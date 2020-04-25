@@ -38,6 +38,7 @@ const LoginForm = (props) => {
           <label htmlFor="email">Email</label>
           <input
             type="email"
+            name="email"
             className="form-control"
             id="email"
             placeholder="Seu email"
@@ -57,6 +58,7 @@ const LoginForm = (props) => {
             type="text"
             className="form-control"
             id="password"
+            name="password"
             placeholder="Sua senha"
             value={password}
             onChange={e => setPassword(e.target.value)}

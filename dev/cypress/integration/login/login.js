@@ -7,7 +7,7 @@ describe('The Login Page', () => {
   
   beforeEach(() => {
     // resets and seeds db
-    cy.exec('npm run db:reset && npm run db:seed');
+    cy.exec('npm run db:reset');
   });
 
   it('should display error for non existing user', () => {

@@ -1,13 +1,13 @@
 describe ('The logout page', () => {
 
   const user = {
-    email: 'guido@email',
+    email: 'guidodutra@gmail.com',
     password: 'senha',
   };
 
   beforeEach(() => {
     // resets and seeds db
-    cy.exec('npm run db:reset && npm run db:seed');
+    cy.exec('npm run db:reset');
     // logs in with valid user
     cy.request('POST', `${Cypress.env('appUrl')}/login`, user);
   });
