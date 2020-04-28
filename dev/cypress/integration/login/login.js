@@ -44,7 +44,8 @@ describe('The Login Page', () => {
     cy.get('input[name=email]').type(user.email);
     cy.get('input[name=password]').type(user.password);
     cy.get('button[name=login-button').click();
-    cy.url().should('equal', `${Cypress.config().baseUrl}/`);
+    cy.url().should('equal', `${Cypress.config().baseUrl}/profile`);
     cy.getCookie('connect.sid').should('exist');
+    cy.contains(user.email);
   });
 });

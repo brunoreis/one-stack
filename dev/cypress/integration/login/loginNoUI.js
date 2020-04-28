@@ -22,6 +22,6 @@ describe('The loggedUser Page', () => {
 
     // now that we're logged in, we can visit
     // any kind of restricted route!
-    cy.visit('/loggedUser');
+    cy.visit('/profile');
   });
 });
