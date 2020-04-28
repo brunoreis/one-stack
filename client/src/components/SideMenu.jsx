@@ -1,5 +1,4 @@
 import React from 'react';
-import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -45,4 +44,4 @@ SideMenu.propTypes = {
   history: PropTypes.object.isRequired,
 };
 
-export default withRouter(SideMenu);
+export default SideMenu;
