@@ -1,6 +1,4 @@
 import React from 'react';
-
-import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
 
 import RecipesButton from './Buttons/RecipesButton';
@@ -41,4 +39,4 @@ Footer.propTypes = {
   history: PropTypes.object.isRequired,
 };
 
-export default withRouter(Footer);
+export default Footer;

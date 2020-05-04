@@ -1,15 +1,11 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { flowRight as compose } from 'lodash';
-import { withRouter } from 'react-router';
+import { useHistory } from 'react-router-dom';
 
 import fetchLogin from '../../../../helpers/fetchLogin';
 import validator from './LoginFormValidator';
 
-const LoginForm = (props) => {
-  const {
-    history,
-  } = props;
+const LoginForm = () => {
+  const history = useHistory();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
@@ -23,7 +19,7 @@ const LoginForm = (props) => {
     if (newValidation.isValid) {
       const { success, message } = await fetchLogin(email, password);
       if (success) {
-        history.push('/');
+        history.push('/profile');
       } else {
         setErrorMessage(message);
         setValidation(newValidation);
@@ -86,12 +82,4 @@ const LoginForm = (props) => {
   );
 };
 
-LoginForm.propTypes = {
-  history: PropTypes.object.isRequired,
-};
-
-const LoginFormWithRouter = compose(
-  withRouter,
-)(LoginForm);
-
-export default LoginFormWithRouter;
+export default LoginForm;

@@ -25,6 +25,8 @@ import {
   PlantDetailsPage,
 } from './pages/Plant';
 
+import { LoggedUserProfilePage } from './pages/User';
+
 const App = () => {
   const [header, setHeader] = useState('HOME');
   const setNewHeader = newHeader => (newHeader !== header) && setHeader(newHeader);
@@ -62,6 +64,11 @@ const App = () => {
             exact
             path="/"
             render={props => <Home {...props} setHeader={setNewHeader} />}
+          />
+          <Route
+            exact
+            path="/profile"
+            render={props => <LoggedUserProfilePage {...props} setHeader={setNewHeader} />}
           />
           <Route
             exact

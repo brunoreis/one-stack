@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/react-hooks';
-import { flowRight as compose } from 'lodash';
-import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
 
 import GARDENER_CREATE_MUTATION from './GARDENER_CREATE_MUTATION';
@@ -151,6 +149,4 @@ GardenerCreateForm.propTypes = {
   history: PropTypes.object.isRequired,
 };
 
-export default compose(
-  withRouter,
-)(GardenerCreateForm);
+export default GardenerCreateForm;
