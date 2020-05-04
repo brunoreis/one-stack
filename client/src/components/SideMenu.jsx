@@ -8,6 +8,7 @@ import LogoutButton from './auth/Logout/LogoutButton';
 const SideMenu = ({ history }) => (
   <nav className="navbar navbar-light">
     <button
+      name="navigation-toggle-button"
       className="navbar-toggler bg-light"
       type="button"
       data-toggle="collapse"

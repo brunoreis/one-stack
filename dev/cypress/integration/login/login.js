@@ -1,60 +1,50 @@
 describe('The Login Page', () => {
   
   const user = {
-    email: 'guido@email',
+    email: 'guidodutra@gmail.com',
     password: 'senha',
   };
   
   beforeEach(() => {
     // resets and seeds db
-    cy.exec('npm run db:reset && npm run db:seed');
+    // cy.exec('npm run db:reset');
   });
 
   it('should display error for non existing user', () => {
     // logging in with unexisting user
     cy.visit('/login');
-    cy.get('input[name=email]').type('unknown');
-    cy.get('input[name=password]').type('any{enter}');
+    cy.get('input[name=email]').type('invalid');
+    cy.get('input[name=password]').type('invalid');
+    cy.get('button[name=login-button').click();
 
     // should be on the same page
     cy.url().should('include', '/login');
 
     // should see error message
-    cy.contains('invalid email or password');
+    cy.contains('Email inválido');
   });
 
   it('should display error for wrong password', () => {
     // logging in with unexisting user
     cy.visit('/login');
     cy.get('input[name=email]').type(user.email);
-    cy.get('input[name=password]').type('wrong{enter}');
+    cy.get('input[name=password]').type('invalid');
+    cy.get('button[name=login-button]').click();
 
     // should be on the same page
     cy.url().should('include', '/login');
 
     // should see error message
-    cy.contains('invalid email or password');
+    cy.contains('Não há usuário com essas credenciais.');
   });
 
   it('should set cookie and redirect on success', () => {
     cy.visit('/login');
 
     cy.get('input[name=email]').type(user.email);
-    cy.get('input[name=password]').type(`${user.password}{enter}`);
-
-    cy.url().should('include', '/loggedUser');
+    cy.get('input[name=password]').type(user.password);
+    cy.get('button[name=login-button').click();
+    cy.url().should('equal', `${Cypress.config().baseUrl}/`);
     cy.getCookie('connect.sid').should('exist');
-  });
-
-  it('should display logged user only when logged in', () => {
-    // see no logged user
-    cy.visit('/loggedUser');
-    cy.getCookie('connect.sid').should('not.exist');
-    cy.contains('Not logged in');
-
-    cy.visit('/login');
-    cy.get('input[name=email]').type(user.email);
-    cy.get('input[name=password]').type(`${user.password}{enter}`);
-    cy.contains('1 guido');
   });
 });

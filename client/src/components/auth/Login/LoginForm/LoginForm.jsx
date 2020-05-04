@@ -23,7 +23,7 @@ const LoginForm = (props) => {
     if (newValidation.isValid) {
       const { success, message } = await fetchLogin(email, password);
       if (success) {
-        history.push('/gardener-details');
+        history.push('/');
       } else {
         setErrorMessage(message);
         setValidation(newValidation);
@@ -38,6 +38,7 @@ const LoginForm = (props) => {
           <label htmlFor="email">Email</label>
           <input
             type="email"
+            name="email"
             className="form-control"
             id="email"
             placeholder="Seu email"
@@ -57,6 +58,7 @@ const LoginForm = (props) => {
             type="text"
             className="form-control"
             id="password"
+            name="password"
             placeholder="Sua senha"
             value={password}
             onChange={e => setPassword(e.target.value)}
@@ -72,6 +74,7 @@ const LoginForm = (props) => {
       <button
         className="btn btn-primary"
         type="button"
+        name="login-button"
         onClick={validateAndLogin}
       >
         Submit

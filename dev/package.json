@@ -7,9 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "cypress:open": "cypress open",
     "install-all": "npm i && cd ../client && npm i && cd ../server && npm i && cd ../dev",
-    "db:setup": "npm run db:migrate && npm run db:seed",
-    "db:migrate": "docker-compose exec server bash -c 'npx knex-migrate down --to 0 && npx knex-migrate up'",
-    "db:seed": "docker-compose exec server npx knex seed:run",
+    "db:init": "docker-compose exec server npm run db:init",
+    "db:reset": "docker-compose exec server npm run db:reset",
     "heroku:bash-server": "heroku run bash --remote heroku-server",
     "heroku:bash-client": "heroku run bash --remote heroku-client",
     "heroku:push-server": "git -C ../ subtree push --prefix server heroku-server master",
@@ -20,9 +19,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cypress": "^3.8.3",
+    "cypress": "^4.4.1",
     "heroku": "^7.38.2",
-    "knex": "^0.15.2",
+    "knex": "^0.21.0",
     "knex-migrate": "^1.7.4",
     "pg": "^7.18.2"
   }
