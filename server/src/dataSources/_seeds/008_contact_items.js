@@ -3,19 +3,44 @@ exports.seed = async (knex) => {
   await knex.raw('ALTER SEQUENCE contact_items_id_seq RESTART WITH 1');
   return knex('contact_items').insert([
     {
-      contact: 'vendas@susan.org',
+      contact: 'daxfdr@gmail.com',
       contact_type_id: 1,
       contact_id: 1,
     },
     {
-      contact: '+55 19 3333-2222',
-      contact_type_id: 2,
+      contact: '+55 62 99303-8176',
+      contact_type_id: 3,
       contact_id: 1,
     },
     {
-      contact: '+55 19 99999-1234',
+      contact: 'daxfdr@gmail.com',
+      contact_type_id: 1,
+      contact_id: 2,
+    },
+    {
+      contact: 'contato@terrabooma.org',
+      contact_type_id: 1,
+      contact_id: 3,
+    },
+    {
+      contact: '+55 62 99850-7991',
       contact_type_id: 3,
-      contact_id: 1,
+      contact_id: 3,
+    },
+    {
+      contact: '+55 62 99850-7991',
+      contact_type_id: 4,
+      contact_id: 3,
+    },
+    {
+      contact: '+55 62 9614-0215',
+      contact_type_id: 3,
+      contact_id: 4,
+    },
+    {
+      contact: 'contato@cepeas.org',
+      contact_type_id: 1,
+      contact_id: 4,
     },
   ]);
 };

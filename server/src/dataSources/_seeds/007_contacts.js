@@ -3,19 +3,24 @@ exports.seed = async (knex) => {
   await knex.raw('ALTER SEQUENCE contacts_id_seq RESTART WITH 1');
   return knex('contacts').insert([
     {
-      name: 'Shop',
+      name: 'Sítio',
       entity_id: 1,
       main: true,
     },
     {
-      name: 'Sales',
-      entity_id: 2,
+      name: 'Dax',
+      entity_id: 1,
       main: false,
     },
     {
-      name: 'Office',
+      name: 'Sítio',
       entity_id: 2,
-      main: false,
+      main: true,
+    },
+    {
+      name: 'Centro',
+      entity_id: 3,
+      main: true,
     },
   ]);
 };
