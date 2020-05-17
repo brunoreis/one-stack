@@ -52,6 +52,7 @@ const FarmersMap = ({
       >
         {farmers.map(farmer => (
           <Marker
+            // eslint-disable-next-line no-shadow
             onClick={({ farmer }, marker) => onMarkerClick(farmer, marker)}
             key={farmer.name}
             farmer={farmer}

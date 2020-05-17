@@ -18,7 +18,6 @@ const HomePage = ({ setHeader }) => {
       style={{
         display: 'flex',
         justifyContent: 'center',
-        // alignItems: 'center',
       }}
     >
       <FarmersMap
