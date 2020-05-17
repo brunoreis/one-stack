@@ -8,11 +8,11 @@ module.exports = {
     "react/destructuring-assignment": "off",
     "jsx-a11y/click-events-have-key-events": "off",
     "jsx-a11y/no-static-element-interactions": "off",
-    "import/no-extraneous-dependencies": "[error, { devDependencies: true }]",
+    "import/no-extraneous-dependencies": "warn",
     "react-hooks/rules-of-hooks": "error",
     "prefer-destructuring": "off",
     "jsx-a11y/label-has-associated-control": "off",
-    "jsx-a11y/label-has-for": "off,"
+    "jsx-a11y/label-has-for": "off",
   },
   "plugins": [
     "cypress",
@@ -21,5 +21,5 @@ module.exports = {
   "env": {
     "browser": true,
     "cypress/globals": true
-  },
-};
+  }
+}

@@ -12,8 +12,8 @@ exports.seed = async (knex) => {
       region: 'Goiás',
       country_code: 'BR',
       post_code: '73770-000',
-      longitude: '-14.197362',
-      latitude: '-47.590000',
+      latitude: '-14.197362',
+      longitude: '-47.590000',
     },
     {
       name: 'Terra Booma',
@@ -25,8 +25,8 @@ exports.seed = async (knex) => {
       region: 'Goiás',
       country_code: 'BR',
       post_code: '73770-000',
-      longitude: '-14.079782',
-      latitude: '-47.481171',
+      latitude: '-14.079782',
+      longitude: '-47.481171',
     },
     {
       name: 'CEPEAS',
@@ -38,8 +38,8 @@ exports.seed = async (knex) => {
       region: 'Goiás',
       country_code: 'BR',
       post_code: '73770-000',
-      longitude: '-14.151594',
-      latitude: '-47.570748',
+      latitude: '-14.151594',
+      longitude: '-47.570748',
     },
     {
       name: 'Feira Do Produtor Rural',
@@ -51,8 +51,8 @@ exports.seed = async (knex) => {
       region: 'Goiás',
       country_code: 'BR',
       post_code: '73770-000',
-      longitude: '-14.136004',
-      latitude: '-47.514361',
+      latitude: '-14.136004',
+      longitude: '-47.514361',
     },
     {
       name: 'Feira Do CAT',
@@ -64,8 +64,8 @@ exports.seed = async (knex) => {
       region: 'Goiás',
       country_code: 'BR',
       post_code: '73770-000',
-      longitude: '-14.133450',
-      latitude: '-47.518572',
+      latitude: '-14.133450',
+      longitude: '-47.518572',
     },
     {
       name: 'Dax',
@@ -77,8 +77,8 @@ exports.seed = async (knex) => {
       region: 'Goiás',
       country_code: 'BR',
       post_code: '73770-000',
-      longitude: null,
-      latitude: null,
+      latitude: '-14.137483',
+      longitude: '-47.5255588',
     },
   ]);
 };

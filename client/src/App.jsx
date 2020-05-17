@@ -5,7 +5,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import SideMenu from './components/SideMenu';
 
-import Home from './components/Home';
+import Home from './pages/Home/HomePage';
 
 import Login from './components/auth/Login/Login';
 import PasswordForgot from './components/auth/PasswordForgot/PasswordForgot';
@@ -33,8 +33,7 @@ const App = () => {
   return (
     <div>
 
-      <div
-        className="fixed-top mx-auto">
+      <div className="fixed-top mx-auto">
         <Header text={header} />
       </div>
 
