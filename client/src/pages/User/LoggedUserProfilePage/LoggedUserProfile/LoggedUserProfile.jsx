@@ -3,9 +3,10 @@ import { useQuery } from '@apollo/react-hooks';
 
 import LOGGED_USER_QUERY from './LOGGED_USER_QUERY';
 import ErrorHandler from '../../../../components/ErrorAndLoading/ErrorHandler';
+import config from '../../../../config';
 
 const LoggedUserProfile = () => {
-  console.log("eae");
+  console.log('url: ', config.getApiUrl());
   const query = useQuery(LOGGED_USER_QUERY);
   console.log(query);
   if (query.loading) return <div>Fetching...</div>;
