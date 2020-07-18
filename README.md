@@ -134,18 +134,19 @@ OBS: notice that since we will have two heroku apps associated with our project,
 1. create the heroku app with `heroku create 'server-app-name'`
 1. add heroku-postgres add-on with `heroku addons:create heroku-postgresql:hobby-dev`. OBS:  you can run a [psql](https://www.postgresql.org/docs/current/static/app-psql.html) session with your heroku database with `heroku pg:psql`
 1. add the node environment with `heroku config:set NODE_ENV=production`
-1. rename the git remote so it doesn't conflict with our client deploy: `git remote rename heroku heroku-server`
+1. if you haven't yet, add the heroku git remote with `heroku git:remote -a 'app-name' -r 'heroku-server'`
+1. or, if you already have the default 'heroku' remote, rename it so it doesn't conflict with our client deploy: `git remote rename heroku heroku-server`
 1. push the server directory to the new heroku remote (from /dev) with `npm run heroku:push-server`
 1. run seed and migrations by opening a bash in heroku: `heroku run bash` then running `knex migrate:latest && knex seed:run`. Exit bash with `exit`.
 
-We can access our heroku app by running `heroku open`, and open bash with `heroku run bash`.
+We can access our heroku app by running `heroku open`. There go to `/graphql` to access the graphql playground.
 
 ### Deploy client
-1. If you haven't, make sure to rename the git remote pointing to the server
+1. if you haven't, make sure to rename the git remote pointing to the server
 1. create the heroku app with `heroku create 'client-app-name'`
-1. rename the remote with `git remote rename heroku heroku-client`
+1. add the heroku client remote to git with `heroku git:remote -a 'app-name' -r 'heroku-client'`
 1. push the client directory (from /dev) with `npm run heroku:push-client`
-1. set environment variables: `heroku config:set REACT_APP_API_URL=https://'server-app-name'.herokuapp.com --app 'app-name'`
+1. set environment variables: `heroku config:set REACT_APP_API_URL=https://'server-app-name'.herokuapp.com -a 'app-name'`
 
 To push local changes to heroku, simply go to /dev and run `npm run heroku:push-server` or `npm run heroku:push-server`. OBS: notice that this command will push changes in the current working branch, not necessarily in the master branch.
 
