@@ -7,8 +7,7 @@ import '../PageStyles.css';
 import FARMERS_QUERY from './FARMERS_QUERY';
 import ErrorHandler from '../../components/ErrorAndLoading/ErrorHandler';
 
-const HomePage = ({ setHeader }) => {
-  setHeader('HOME');
+const HomePage = () => {
   const queryResult = useQuery(FARMERS_QUERY);
   if (queryResult.loading) return <div>Loading...</div>;
   if (queryResult.error) return <ErrorHandler error={queryResult.error} />;
@@ -16,10 +15,13 @@ const HomePage = ({ setHeader }) => {
   return (
     <div
       style={{
-        display: 'flex',
+        display: "flex",
         justifyContent: 'center',
       }}
     >
+      <button type='button'>
+        Criar nova entidade
+      </button>
       <FarmersMap
         style={{
           width: '500px',
@@ -31,8 +33,6 @@ const HomePage = ({ setHeader }) => {
   );
 };
 
-HomePage.propTypes = {
-  setHeader: PropTypes.func.isRequired,
-};
+HomePage.propTypes = {};
 
 export default HomePage;
