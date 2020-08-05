@@ -1,6 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useQuery } from '@apollo/react-hooks';
+import { useHistory } from 'react-router-dom';
+
 import FarmersMap from '../../components/FarmersMap/FarmersMap';
 
 import '../PageStyles.css';
@@ -8,18 +9,28 @@ import FARMERS_QUERY from './FARMERS_QUERY';
 import ErrorHandler from '../../components/ErrorAndLoading/ErrorHandler';
 
 const HomePage = () => {
+  const history = useHistory();
+
   const queryResult = useQuery(FARMERS_QUERY);
+
   if (queryResult.loading) return <div>Loading...</div>;
   if (queryResult.error) return <ErrorHandler error={queryResult.error} />;
   const { entities } = queryResult.data;
+
   return (
     <div
       style={{
-        display: "flex",
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
         justifyContent: 'center',
       }}
     >
-      <button type='button'>
+      <button
+        type='button'
+        style={{ margin: '30px' }}
+        onClick={() => history.push('entity-create')}
+      >
         Criar nova entidade
       </button>
       <FarmersMap
@@ -32,6 +43,7 @@ const HomePage = () => {
     </div>
   );
 };
+
 
 HomePage.propTypes = {};
 
