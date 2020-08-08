@@ -16,6 +16,7 @@ module.exports = {
     'quotes': [1, 'single'],
     'jsx-quotes': [1, 'prefer-single'],
     'object-curly-newline': 'off',
+    'max-len': ['warn', { 'code': 120 }],
   },
   'plugins': [
     'cypress',
