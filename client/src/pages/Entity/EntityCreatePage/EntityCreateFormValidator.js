@@ -7,4 +7,16 @@ export default new FormValidator([
     validWhen: false,
     message: 'Digite um nome.',
   },
+  {
+    field: 'latitude',
+    method: 'isEmpty',
+    validWhen: false,
+    message: 'Clique no mapa para selecionar as coordenadas',
+  },
+  {
+    field: 'longitude',
+    method: 'isEmpty',
+    validWhen: false,
+    message: 'Clique no mapa para selecionar as coordenadas',
+  },
 ]);

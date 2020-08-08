@@ -6,6 +6,7 @@ import {
   Marker,
   InfoWindow,
 } from 'google-maps-react';
+import { defaultCoordinates, googleApiKey } from '../../config';
 
 const FarmersMap = ({
   google,
@@ -39,18 +40,15 @@ const FarmersMap = ({
       <Map
         onClick={onMapClicked}
         google={google}
-        zoom={10}
-        initialCenter={{
-          lat: -14.137483,
-          lng: -47.5255588,
-        }}
+        zoom={11}
+        initialCenter={defaultCoordinates}
         containerStyle={{
           position: 'relative',
           minWidth: '300px',
           minHeight: '300px',
         }}
       >
-        {farmers.map(farmer => (
+        {farmers.map(farmer => farmer.latitude && (
           <Marker
             // eslint-disable-next-line no-shadow
             onClick={({ farmer }, marker) => onMarkerClick(farmer, marker)}
@@ -84,5 +82,5 @@ FarmersMap.propTypes = {
 };
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyBHDSpEIO3EszEdsYtWLpQQQvycXJ17Ufs',
+  apiKey: googleApiKey,
 })(FarmersMap);
