@@ -24,7 +24,7 @@ const EntityCreateForm = ({
 }) => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
-  const [coordinates, setCoordinates] = useState();
+  const [coordinates, setCoordinates] = useState({});
   const [address, setAddress] = useState();
   const [validation, setValidation] = useState(validator.valid());
 
@@ -44,7 +44,7 @@ const EntityCreateForm = ({
       }
       if (coordinates) { getAddress(); }
     },
-    [coordinates?.lat, coordinates?.lng],
+    [coordinates, coordinates?.lat, coordinates?.lng],
   );
 
   const history = useHistory();
@@ -87,7 +87,6 @@ const EntityCreateForm = ({
   };
 
   const getCoordinates = async (_, __, event) => {
-    console.log('getCoordinates ', event);
     setCoordinates({
       lat: event.latLng.lat(),
       lng: event.latLng.lng(),

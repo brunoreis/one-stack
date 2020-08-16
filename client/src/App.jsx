@@ -5,6 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import Home from './pages/Home/HomePage';
 import EntityCreatePage from './pages/Entity/EntityCreatePage/EntityCreatePage';
+import EntityDetailsPage from './pages/Entity/EntityDetailsPage/EntityDetailsPage';
 
 const App = () => {
   return (
@@ -21,6 +22,9 @@ const App = () => {
         </Route>
         <Route exact path='/entity-create'>
           <EntityCreatePage />
+        </Route>
+        <Route exact path='/entity/:entityId'>
+          <EntityDetailsPage />
         </Route>
         {/* <Route
           exact

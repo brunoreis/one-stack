@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import {
   GoogleApiWrapper,
@@ -7,15 +7,22 @@ import {
   InfoWindow,
 } from 'google-maps-react';
 import { defaultCoordinates, googleApiKey } from '../../config';
+import styles from './FarmersMap.module.css';
 
 const FarmersMap = ({
   google,
   style,
   farmers,
+  onFarmerSelected,
 }) => {
   const [isInfoWindowOpen, setIsInfoWindowOpen] = useState(false);
   const [activeMarker, setActiveMarker] = useState({});
   const [selectedPlace, setSelectedPlace] = useState({});
+
+  useEffect(
+    () => onFarmerSelected(selectedPlace),
+    [selectedPlace],
+  );
 
   const onMarkerClick = (farmer, marker) => {
     setSelectedPlace(farmer);
@@ -65,7 +72,7 @@ const FarmersMap = ({
           marker={activeMarker}
           visible={isInfoWindowOpen}
         >
-          <div>
+          <div className={styles.infowindow} >
             <h4>{selectedPlace?.name}</h4>
             {selectedPlace?.description}
           </div>
@@ -79,6 +86,7 @@ FarmersMap.propTypes = {
   google: PropTypes.object.isRequired,
   style: PropTypes.object.isRequired,
   farmers: PropTypes.array.isRequired,
+  onFarmerSelected: PropTypes.func.isRequired,
 };
 
 export default GoogleApiWrapper({
