@@ -1,0 +1,14 @@
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mapTitle {
+  font-size: 20px;
+}
+
+.mapAndInfo {
+  display: flex;
+  flex-direction: row;
+}

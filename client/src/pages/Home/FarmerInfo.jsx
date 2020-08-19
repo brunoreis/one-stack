@@ -5,15 +5,17 @@ import { useHistory } from 'react-router-dom';
 const FarmerInfo = ({ farmer }) => {
   const history = useHistory();
   return (
-    <div>
-      {farmer && (
+    farmer ? (
+      <div>
         <div
           onClick={() => history.push(`entity/${farmer.id}`)}
         >
           {farmer.name}
         </div>
-      )}
-    </div>
+      </div>
+    ) : (
+      <div>Selecione um produtor</div>
+    )
   );
 };
 

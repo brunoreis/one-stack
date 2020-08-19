@@ -17,7 +17,7 @@ const FarmersMap = ({
 }) => {
   const [isInfoWindowOpen, setIsInfoWindowOpen] = useState(false);
   const [activeMarker, setActiveMarker] = useState({});
-  const [selectedPlace, setSelectedPlace] = useState({});
+  const [selectedPlace, setSelectedPlace] = useState();
 
   useEffect(
     () => onFarmerSelected(selectedPlace),
@@ -72,7 +72,7 @@ const FarmersMap = ({
           marker={activeMarker}
           visible={isInfoWindowOpen}
         >
-          <div className={styles.infowindow} >
+          <div className={styles.infoWindow}>
             <h4>{selectedPlace?.name}</h4>
             {selectedPlace?.description}
           </div>

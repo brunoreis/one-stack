@@ -8,6 +8,8 @@ import '../PageStyles.css';
 import FARMERS_QUERY from './FARMERS_QUERY';
 import ErrorHandler from '../../components/ErrorAndLoading/ErrorHandler';
 import FarmerInfo from './FarmerInfo';
+import styles from './HomePage.module.css';
+import FarmersList from './FarmersList';
 
 const HomePage = () => {
   const [selectedFarmer, setSelectedFarmer] = useState();
@@ -21,14 +23,22 @@ const HomePage = () => {
   const { entities } = queryResult.data;
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-    >
+    <div className={styles.homeContainer}>
+      <div className={styles.mapTitle}>
+        Mapa de Produtores Agroecológicos
+      </div>
+      <div className={styles.mapAndInfo}>
+        <FarmersList farmers={entities} />
+        <FarmersMap
+          style={{
+            width: '500px',
+            height: '500px',
+          }}
+          farmers={entities}
+          onFarmerSelected={setSelectedFarmer}
+        />
+        <FarmerInfo farmer={selectedFarmer} />
+      </div>
       <button
         type='button'
         style={{ margin: '30px' }}
@@ -36,15 +46,6 @@ const HomePage = () => {
       >
         Criar nova entidade
       </button>
-      <FarmersMap
-        style={{
-          width: '500px',
-          height: '500px',
-        }}
-        farmers={entities}
-        onFarmerSelected={setSelectedFarmer}
-      />
-      <FarmerInfo farmer={selectedFarmer} />
     </div>
   );
 };
