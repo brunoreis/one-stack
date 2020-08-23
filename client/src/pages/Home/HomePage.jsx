@@ -28,7 +28,11 @@ const HomePage = () => {
         Mapa de Produtores Agroecológicos
       </div>
       <div className={styles.mapAndInfo}>
-        <FarmersList farmers={entities} />
+        <FarmersList
+          farmers={entities}
+          selectedFarmer={selectedFarmer}
+          selectFarmerCallback={setSelectedFarmer}
+        />
         <FarmersMap
           style={{
             width: '500px',

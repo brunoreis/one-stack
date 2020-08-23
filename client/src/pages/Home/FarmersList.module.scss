@@ -1,0 +1,26 @@
+@import '../../sass/variables';
+
+.container {
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-radius: 0.5rem;
+  margin-right: 1rem;
+  overflow: hidden;
+  background-color: $light;
+}
+
+.listRow {
+  cursor: default;
+  padding: 0.5rem 1rem;
+  &:hover:not(.selectedRow) {
+    background-color: lightgray;
+    cursor: pointer;
+  }
+}
+
+.selectedRow {
+  color: white;
+  background-color: grey;
+}
