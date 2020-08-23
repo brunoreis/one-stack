@@ -1,11 +1,12 @@
 import React from 'react';
-import 'react-bulma-components/dist/react-bulma-components.min.css';
 
 import { Switch, Route } from 'react-router-dom';
 
 import Home from './pages/Home/HomePage';
 import EntityCreatePage from './pages/Entity/EntityCreatePage/EntityCreatePage';
 import EntityDetailsPage from './pages/Entity/EntityDetailsPage/EntityDetailsPage';
+
+import './sass/App.scss';
 
 const App = () => {
   return (
